@@ -19,7 +19,7 @@ const year = new Date().getFullYear()
 
     <template #right>
       <UButton
-        :to="site.github"
+        :to="site.house"
         target="_blank"
         icon="i-simple-icons-github"
         color="neutral"

@@ -5,8 +5,10 @@ export const site = {
   name: 'RigOne',
   url: 'https://monoone.dev',
   github: 'https://github.com/monoone-dev/rig-one',
-  download: 'https://github.com/monoone-dev/rig-one/releases/latest',
-  issues: 'https://github.com/monoone-dev/rig-one/issues',
+  // The application repository is private, so the build people download lives on the release
+  // page of THIS repository — the same arrangement IndexOne uses.
+  download: 'https://github.com/monoone-dev/rig-one-landing-page/releases/latest',
+  issues: 'https://github.com/monoone-dev/rig-one-landing-page/issues',
   house: 'https://github.com/monoone-dev'
 }
 

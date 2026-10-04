@@ -17,7 +17,7 @@ const links = computed<NavigationMenuItem[]>(() =>
 const github = computed<DropdownMenuItem>(() => ({
   label: 'GitHub',
   icon: 'i-simple-icons-github',
-  to: site.github,
+  to: site.house,
   target: '_blank'
 }))
 
@@ -56,7 +56,7 @@ const mobileMenu = computed<DropdownMenuItem[][]>(() => [
         <LanguageSwitcher />
         <ThemeMenu />
         <UButton
-          :to="site.github"
+          :to="site.house"
           target="_blank"
           icon="i-simple-icons-github"
           color="neutral"

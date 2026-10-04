@@ -59,7 +59,7 @@ const { t } = useI18n()
             />
             <UButton
               label="GitHub"
-              :to="site.github"
+              :to="site.house"
               target="_blank"
               icon="i-simple-icons-github"
               size="xl"
@@ -156,7 +156,7 @@ const { t } = useI18n()
           variant="subtle"
           :links="[
             { label: t('cta.download'), to: site.download, target: '_blank', icon: 'i-lucide-download' },
-            { label: t('cta.source'), to: site.github, target: '_blank', icon: 'i-simple-icons-github', color: 'neutral', variant: 'outline' }
+            { label: t('cta.source'), to: site.house, target: '_blank', icon: 'i-simple-icons-github', color: 'neutral', variant: 'outline' }
           ]"
         />
       </Reveal>

@@ -1,0 +1,36 @@
+{
+  "meta": { "title": "一张图掌管全部工作", "description": "面向编程智能体的原生 macOS 控制室。在画布上搭好工作流，对着项目运行，看 Claude Code 与 Codex 并行工作。" },
+  "nav": { "features": "功能", "how": "工作方式", "honest": "坦白", "language": "语言", "github": "GitHub 上的 RigOne", "menu": "菜单" },
+  "theme": { "label": "主题", "light": "浅色", "dark": "深色", "system": "跟随系统" },
+  "hero": { "badge": "编程智能体 · macOS", "title1": "一张图", "title2": "掌管全部工作。", "description": "RigOne 是面向编程智能体的原生控制室。智能体只需定义一次，放到画布上，连好步骤，再对着你 Mac 上的项目运行这张图。", "cta": "下载 macOS 版", "note": "Apple Silicon · macOS 13+ · 已签名并公证 · AGPL-3.0" },
+  "features": {
+    "title": "它能做什么", "description": "Claude Code 与 Codex 平起平坐，同在一张画布上。",
+    "items": {
+      "canvas": { "title": "看得见的工作流", "description": "智能体步骤、本地命令、检查、检查点、循环、条件分支与重试，全都存成一张可以反复运行的图。" },
+      "parallel": { "title": "真正的并行", "description": "互不依赖的分支在时间上重叠，而不是排队等同一个执行者。顺序来自图，永远不来自引擎。" },
+      "watch": { "title": "读得懂的运行界面", "description": "左边是计划，右边是每个智能体说的话，让运行停下来的那个问题就钉在你要回答它的位置。" },
+      "agents": { "title": "可复用的智能体", "description": "供应商、模型、思考深度、超时、文件权限、工具、连接与技能：按角色选一次，到处复用。" },
+      "context": { "title": "属于项目的知识", "description": "把说明和笔记放在磁盘上，然后看清一次运行真正用到了哪些上下文。" },
+      "evidence": { "title": "比终端活得更久的证据", "description": "运行回执、附件、交接、进程终止证明和一份诊断包，在输出早已消失之后依然还在。" }
+    }
+  },
+  "how": {
+    "title": "工作方式", "description": "三步，只有第三步才花钱。",
+    "steps": {
+      "write": { "title": "写一个智能体", "description": "一件事，一条指令。选好供应商、模型，以及它能碰什么。" },
+      "arrange": { "title": "把智能体排成一行", "description": "这一行就是工作流。彼此不依赖的分支会同时开始。" },
+      "run": { "title": "运行并观看", "description": "把图指向这台 Mac 上的一个文件夹。智能体提问时你来回答，其余照常推进。" }
+    }
+  },
+  "honest": {
+    "title": "为诚实地失败而造", "description": "RigOne 把编排故障当成产品故障，而不是终端里的噪音。",
+    "items": {
+      "scopes": { "title": "互相重叠的写入范围", "description": "在第一个进程启动之前就会被拒绝。" },
+      "cancel": { "title": "取消", "description": "会终止整个进程组，然后拿出它确实已死的证明。" },
+      "secrets": { "title": "提示词与密钥", "description": "走 stdin，绝不走命令行参数；子进程的环境按一份明确的白名单重建。" },
+      "green": { "title": "绿色的退出码", "description": "若拿不出测试确实跑过的证据，就不算一次通过的检查。" }
+    }
+  },
+  "cta": { "title": "把你的智能体放到同一张画布上", "description": "自由且开源。安装包使用 Apple Developer ID 签名，已公证并装订凭证。", "download": "下载 macOS 版", "source": "阅读源码" },
+  "footer": { "tagline": "macOS 优先 · 本地优先 · 你自己的代码" }
+}

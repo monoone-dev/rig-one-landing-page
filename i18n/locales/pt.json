@@ -1,0 +1,36 @@
+{
+  "meta": { "title": "Um grafo manda no trabalho", "description": "Uma sala de controle nativa do macOS para agentes de código. Monte um fluxo na tela, rode-o sobre um projeto e veja Claude Code e Codex trabalhando em paralelo." },
+  "nav": { "features": "Recursos", "how": "Como funciona", "honest": "Honestidade", "language": "Idioma", "github": "RigOne no GitHub", "menu": "Menu" },
+  "theme": { "label": "Tema", "light": "Claro", "dark": "Escuro", "system": "Sistema" },
+  "hero": { "badge": "Agentes de código · macOS", "title1": "Um grafo", "title2": "manda no trabalho.", "description": "O RigOne é uma sala de controle nativa para agentes de código. Defina um agente uma vez, coloque-o na tela, ligue os passos e rode o grafo sobre um projeto no seu Mac.", "cta": "Baixar para macOS", "note": "Apple Silicon · macOS 13+ · assinado e notarizado · AGPL-3.0" },
+  "features": {
+    "title": "O que ele faz", "description": "Claude Code e Codex em pé de igualdade, na mesma tela.",
+    "items": {
+      "canvas": { "title": "Fluxos que se enxergam", "description": "Passos de agente, comandos locais, verificações, checkpoints, laços, caminhos condicionais e novas tentativas — salvos como um grafo que você roda de novo." },
+      "parallel": { "title": "Paralelismo de verdade", "description": "Ramos independentes se sobrepõem no tempo em vez de esperar atrás de um único executor. A ordem vem do grafo, nunca do motor." },
+      "watch": { "title": "Uma tela de execução legível", "description": "O plano à esquerda, o que cada agente disse à direita e a pergunta que parou a execução fixada onde você vai respondê-la." },
+      "agents": { "title": "Agentes reutilizáveis", "description": "Fornecedor, modelo, profundidade de raciocínio, tempo limite, acesso a arquivos, ferramentas, conexões e habilidades: escolhidos uma vez por papel e reusados em todo lugar." },
+      "context": { "title": "Conhecimento preso ao projeto", "description": "Mantenha instruções e notas em disco e depois veja qual contexto uma execução realmente usou." },
+      "evidence": { "title": "Provas que sobrevivem ao terminal", "description": "Recibos de execução, anexos, repasses, provas de término de processos e um pacote de diagnóstico continuam ali quando a saída já se foi." }
+    }
+  },
+  "how": {
+    "title": "Como funciona", "description": "Três passos, e só o terceiro gasta dinheiro.",
+    "steps": {
+      "write": { "title": "Escreva um agente", "description": "Um trabalho, uma instrução. Escolha o fornecedor, o modelo e o que ele pode tocar." },
+      "arrange": { "title": "Ponha os agentes em fila", "description": "Essa fila é um fluxo. Ramos que não dependem um do outro começam juntos." },
+      "run": { "title": "Rode e acompanhe", "description": "Aponte o grafo para uma pasta deste Mac. Responda quando um agente perguntar; o resto segue." }
+    }
+  },
+  "honest": {
+    "title": "Feito para falhar com honestidade", "description": "O RigOne trata falhas de orquestração como falhas de produto, não como ruído de terminal.",
+    "items": {
+      "scopes": { "title": "Escopos de escrita sobrepostos", "description": "são recusados antes de o primeiro processo começar." },
+      "cancel": { "title": "O cancelamento", "description": "encerra o grupo de processos inteiro e depois prova que ele morreu." },
+      "secrets": { "title": "Prompts e segredos", "description": "vão pelo stdin, nunca por argumentos de linha de comando, e o ambiente dos processos filhos é remontado a partir de uma lista explícita." },
+      "green": { "title": "Um código de saída verde", "description": "sem prova de que os testes rodaram não é aceito como verificação verde." }
+    }
+  },
+  "cta": { "title": "Ponha seus agentes em uma só tela", "description": "Livre e de código aberto. O pacote é assinado com Apple Developer ID, notarizado e selado.", "download": "Baixar para macOS", "source": "Ver o código" },
+  "footer": { "tagline": "macOS primeiro · local primeiro · o seu código" }
+}

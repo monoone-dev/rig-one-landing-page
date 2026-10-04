@@ -1,0 +1,36 @@
+{
+  "meta": { "title": "Un grafo manda sobre el trabajo", "description": "Una sala de control nativa de macOS para agentes de código. Monta un flujo en el lienzo, ejecútalo sobre un proyecto y mira a Claude Code y Codex trabajar en paralelo." },
+  "nav": { "features": "Funciones", "how": "Cómo funciona", "honest": "Honestidad", "language": "Idioma", "github": "RigOne en GitHub", "menu": "Menú" },
+  "theme": { "label": "Tema", "light": "Claro", "dark": "Oscuro", "system": "Sistema" },
+  "hero": { "badge": "Agentes de código · macOS", "title1": "Un grafo", "title2": "manda sobre el trabajo.", "description": "RigOne es una sala de control nativa para agentes de código. Define un agente una vez, colócalo en el lienzo, conecta los pasos y ejecuta el grafo sobre un proyecto en tu Mac.", "cta": "Descargar para macOS", "note": "Apple Silicon · macOS 13+ · firmado y notarizado · AGPL-3.0" },
+  "features": {
+    "title": "Qué hace", "description": "Claude Code y Codex como iguales, en un mismo lienzo.",
+    "items": {
+      "canvas": { "title": "Flujos que se ven", "description": "Pasos de agente, comandos locales, comprobaciones, puntos de control, bucles, caminos condicionales y reintentos: todo guardado como un grafo que vuelves a ejecutar." },
+      "parallel": { "title": "Paralelismo de verdad", "description": "Las ramas independientes se solapan en el tiempo en vez de turnarse detrás de un único trabajador. El orden sale del grafo, nunca del motor." },
+      "watch": { "title": "Una pantalla de ejecución legible", "description": "El plan a la izquierda, lo que dijo cada agente a la derecha y la pregunta que detuvo la ejecución fijada donde vas a responderla." },
+      "agents": { "title": "Agentes reutilizables", "description": "Proveedor, modelo, profundidad de razonamiento, tiempo límite, acceso a archivos, herramientas, conexiones y habilidades: se eligen una vez por rol y se reutilizan." },
+      "context": { "title": "Conocimiento por proyecto", "description": "Guarda instrucciones y notas en disco y después mira qué contexto usó realmente una ejecución." },
+      "evidence": { "title": "Pruebas que sobreviven al terminal", "description": "Recibos de ejecución, adjuntos, traspasos, pruebas de muerte de procesos y un paquete de diagnóstico siguen ahí cuando la salida ya no está." }
+    }
+  },
+  "how": {
+    "title": "Cómo funciona", "description": "Tres pasos, y solo el tercero gasta dinero.",
+    "steps": {
+      "write": { "title": "Escribe un agente", "description": "Un trabajo, una instrucción. Elige el proveedor, el modelo y lo que puede tocar." },
+      "arrange": { "title": "Pon los agentes en fila", "description": "Esa fila es un flujo. Las ramas que no dependen entre sí corren a la vez." },
+      "run": { "title": "Ejecuta y observa", "description": "Apunta el grafo a una carpeta de este Mac. Responde cuando un agente pregunte; lo demás sigue." }
+    }
+  },
+  "honest": {
+    "title": "Hecho para fallar con honestidad", "description": "RigOne trata los fallos de orquestación como fallos de producto, no como ruido del terminal.",
+    "items": {
+      "scopes": { "title": "Los ámbitos de escritura solapados", "description": "se rechazan antes de arrancar el primer proceso." },
+      "cancel": { "title": "La cancelación", "description": "termina el grupo de procesos entero y después demuestra que está muerto." },
+      "secrets": { "title": "Prompts y secretos", "description": "van por stdin, nunca por argumentos de línea de comandos, y el entorno de los procesos hijos se reconstruye desde una lista explícita." },
+      "green": { "title": "Un código de salida verde", "description": "sin prueba de que las pruebas se ejecutaron no se acepta como comprobación verde." }
+    }
+  },
+  "cta": { "title": "Pon tus agentes en un mismo lienzo", "description": "Libre y de código abierto. El paquete está firmado con Apple Developer ID, notarizado y sellado.", "download": "Descargar para macOS", "source": "Ver el código" },
+  "footer": { "tagline": "macOS primero · local primero · tu propio código" }
+}

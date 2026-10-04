@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RigOne — one graph owns the work</title>
+    <meta
+      name="description"
+      content="A native macOS control room for coding agents. Build a workflow on a canvas, run it against a project, and watch Claude Code and Codex work in parallel."
+    />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <meta property="og:title" content="RigOne — one graph owns the work" />
+    <meta
+      property="og:description"
+      content="A native macOS control room for coding agents. Real parallel execution, a live run screen, and evidence that outlives the terminal."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ground: #0e0e11;
+        --panel: #16161a;
+        --line: rgba(255, 255, 255, 0.09);
+        --ink: #f6f7fa;
+        --body: #c7c9d4;
+        --muted: #8a8a9c;
+        --accent: #6e76ff;
+        --radius-md: 14px;
+        --radius-lg: 22px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--ground);
+        color: var(--body);
+        font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .wrap {
+        width: min(100% - 32px, 980px);
+        margin-inline: auto;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 26px 0;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ink);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        font-size: 19px;
+      }
+      .brand img {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+      }
+      nav {
+        display: flex;
+        gap: 22px;
+        font-size: 15px;
+        color: var(--muted);
+      }
+      nav a {
+        color: var(--muted);
+      }
+      .hero {
+        padding: 72px 0 64px;
+        text-align: center;
+      }
+      .hero img {
+        width: 132px;
+        height: 132px;
+        border-radius: 30px;
+      }
+      h1 {
+        margin: 30px 0 14px;
+        font-size: clamp(38px, 7vw, 62px);
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        color: var(--ink);
+        font-weight: 700;
+      }
+      .lede {
+        margin: 0 auto;
+        max-width: 640px;
+        font-size: clamp(17px, 2.4vw, 21px);
+        color: var(--body);
+      }
+      .cta {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+      .button {
+        display: inline-block;
+        padding: 13px 24px;
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .button.primary {
+        background: var(--ink);
+        color: #16161a;
+      }
+      .button.primary:hover {
+        text-decoration: none;
+        background: #ffffff;
+      }
+      .button.ghost {
+        border: 1px solid var(--line);
+        color: var(--ink);
+      }
+      .button.ghost:hover {
+        text-decoration: none;
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+      .note {
+        margin-top: 16px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      section {
+        padding: 56px 0;
+        border-top: 1px solid var(--line);
+      }
+      h2 {
+        margin: 0 0 10px;
+        font-size: 15px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        margin-top: 28px;
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 22px;
+      }
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        color: var(--ink);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .card p {
+        margin: 0;
+        font-size: 15.5px;
+      }
+      ul.plain {
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      ul.plain li {
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 16px;
+      }
+      ul.plain li:last-child {
+        border-bottom: 0;
+      }
+      ul.plain b {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      footer {
+        padding: 40px 0 64px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        font-size: 14.5px;
+        color: var(--muted);
+      }
+      @media (max-width: 620px) {
+        nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <span class="brand"><img src="icon.svg" alt="" /> RigOne</span>
+        <nav>
+          <a href="#what">What it does</a>
+          <a href="#honest">How it fails</a>
+          <a href="https://github.com/monoone-dev/rig-one">Source</a>
+        </nav>
+      </header>
+
+      <div class="hero">
+        <img src="icon.svg" alt="The RigOne icon: a silver ribbon folded twice on a dark tile" />
+        <h1>One graph owns the work</h1>
+        <p class="lede">
+          RigOne is a native macOS control room for coding agents. Define an agent once, place it
+          on a canvas, connect the steps, and run the graph against a project. Claude Code and
+          Codex are first-class peers.
+        </p>
+        <div class="cta">
+          <a class="button primary" href="https://github.com/monoone-dev/rig-one/releases/latest"
+            >Download for macOS</a
+          >
+          <a class="button ghost" href="https://github.com/monoone-dev/rig-one">Read the source</a>
+        </div>
+        <p class="note">
+          Apple Silicon · macOS 13+ · signed, notarized and stapled · AGPL-3.0
+        </p>
+      </div>
+
+      <section id="what">
+        <h2>What it does</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Visual workflows</h3>
+            <p>
+              Agent steps, local commands, checks, checkpoints, loops, conditional paths and
+              retries — saved as a graph you can run again.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Real parallel execution</h3>
+            <p>
+              Independent branches overlap in time instead of taking turns behind a single
+              worker. Order comes from the graph, never from the engine.
+            </p>
+          </div>
+          <div class="card">
+            <h3>A run screen you can read</h3>
+            <p>
+              The plan on the left, what every agent said on the right, and the question that
+              stopped the run pinned where you will answer it.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Reusable agents</h3>
+            <p>
+              Vendor, model, reasoning depth, timeout, file access, tools, connections and skills
+              — chosen once per role and reused everywhere.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Project-scoped knowledge</h3>
+            <p>
+              Curate instructions and notes on disk, then see which context a run actually used.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Evidence that outlives the terminal</h3>
+            <p>
+              Run receipts, attachments, handoffs, death proofs and a diagnostic bundle stay
+              available after the output is gone.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="honest">
+        <h2>Built to fail honestly</h2>
+        <p class="lede" style="margin-inline: 0">
+          RigOne treats orchestration failures as product failures, not terminal noise.
+        </p>
+        <ul class="plain">
+          <li><b>Overlapping write scopes</b> are refused before the first process starts.</li>
+          <li>
+            <b>Cancellation</b> terminates the whole process group and then proves it is dead.
+          </li>
+          <li><b>Timeouts</b> travel through that same supervised shutdown path.</li>
+          <li><b>Prompts and secrets</b> go through stdin, never command-line arguments.</li>
+          <li><b>Child environments</b> are rebuilt from an explicit allowlist.</li>
+          <li>
+            <b>Unknown vendor events</b> are recorded and ignored instead of crashing the run.
+          </li>
+          <li>
+            <b>A green exit code</b> without proof that tests ran is not accepted as a green
+            check.
+          </li>
+          <li><b>Files are the truth</b>; the database stays a rebuildable index.</li>
+        </ul>
+      </section>
+
+      <footer>
+        <span>RigOne — part of <a href="https://github.com/monoone-dev">MonoOne</a></span>
+        <span>
+          <a href="https://github.com/monoone-dev/rig-one">Source</a> ·
+          <a href="https://github.com/monoone-dev/rig-one/releases">Releases</a> ·
+          <a href="https://github.com/monoone-dev/index-one">IndexOne</a>
+        </span>
+      </footer>
+    </div>
+  </body>
+</html>

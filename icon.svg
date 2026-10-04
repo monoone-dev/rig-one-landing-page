@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- RYSUNEK PELNY: 1024, 512, 256 i 128 px.
+
+       PRZERYSOWANY 2026-10-04 (D8). Wlasciciel podal nowy znak obrazem i nowa marke: RigOne
+       wchodzi do domu monoone, obok Index One. Poprzedni rysunek — cztery wezly i cztery
+       krawedzie na fioletowym kaflu, "najmniejszy prawdziwy graf" z D1 — opisywal produkt,
+       ktory nazywal sie inaczej i stal sam.
+
+       KONSTRUKCJA JEST TA SAMA CO W INDEX ONE, i to jest cala jej tresc: ciemny zaokraglony
+       kafel i TRZY ZLOZONE PLASZCZYZNY. Tamten ma trzy niebieskie, ten ma trzy srebrne.
+       Dwie aplikacje tego domu maja w Docku wygladac na rodzenstwo (D1, zdanie o rodzenstwie
+       zostaje w mocy; zmienia sie temat i grunt, nie zasada).
+
+       DLACZEGO PLASZCZYZNY, A NIE GRAF. Graf byl rysunkiem tego, CO aplikacja uruchamia.
+       Zlozone plaszczyzny sa rysunkiem tego, CZYM ona jest dla domu: jedna wstega zalamana
+       dwa razy, trzy plany jednej rzeczy. Znak domu nie opisuje funkcji.
+
+       TRZY PLASZCZYZNY, DWA ZALAMANIA. Plan lewy i gorny stykaja sie w punkcie (291, 302).
+       Plan gorny i dolny stykaja sie w punkcie (607, 498). Styk jest PUNKTEM, nie krawedzia —
+       dlatego wstega czyta sie jako zlozona, a nie jako trzy figury obok siebie.
+
+       DLACZEGO KAZDY PLAN MA GRADIENT. Plaski plan nie jest zlozony, tylko wyciety. Swiatlo
+       pada z gory z lewej, wiec plan gorny jest najjasniejszy, lewy odwraca sie od swiatla
+       i schodzi do grafitu, dolny stoi posrodku. Ta roznica JEST zalamaniem; bez niej zostaje
+       biala plama. Kryterium `subject-is-folded-not-flat.test.ts` mierzy dokladnie to.
+
+       DLACZEGO TEMAT WOLNO TERAZ MIEC PRAWIE-BIEL. Sufit `#dfd8ff` z AC-1 (T-51) byl
+       zmierzony NA FIOLETOWYM KAFLU: jasne kropki na nasyconym tle czytaly sie jako okruchy
+       swiatla i wlasciciel zglosil to dwa razy. Grunt jest dzis prawie czarny, a temat jest
+       jedna ciagla wstega, nie kropkami — ten sam sufit zabilby tu wlasnie to, co ma dzialac.
+       Zostaje twardsza polowa tamtej reguly: CZYSTEJ bieli na temacie nie ma, bo przy
+       krawedzi wewnetrznej (biel przy 10%) czysta biel na temacie zrownuje sie z obrysem
+       i kafel traci kontur.
+
+       ZAOKRAGLENIE PLANOW jest obrysem o tej samej farbie co wypelnienie (`stroke-linejoin`
+       = `round`, szerokosc 56), nie recznie liczonymi lukami: jeden ciag `d` opisuje wtedy
+       ksztalt, a nie dwanascie segmentow Beziera, ktorych nikt pozniej nie poprawi. -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="24%" r="86%">
+      <stop offset="0%" stop-color="#34343a"/>
+      <stop offset="52%" stop-color="#232328"/>
+      <stop offset="100%" stop-color="#131317"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0b0b0e" stop-opacity="0.30"/>
+      <stop offset="44%" stop-color="#0b0b0e" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="34%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="planeLeft" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#d3d8e2"/>
+      <stop offset="46%" stop-color="#9aa2b0"/>
+      <stop offset="100%" stop-color="#434b57"/>
+    </linearGradient>
+    <linearGradient id="planeTop" x1="0.05" y1="0" x2="0.95" y2="1">
+      <stop offset="0%" stop-color="#f6f7fa"/>
+      <stop offset="60%" stop-color="#dfe3ea"/>
+      <stop offset="100%" stop-color="#c4cad5"/>
+    </linearGradient>
+    <linearGradient id="planeFoot" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#cfd4dd"/>
+      <stop offset="55%" stop-color="#a8aeba"/>
+      <stop offset="100%" stop-color="#7f8694"/>
+    </linearGradient>
+    <clipPath id="sq"><rect x="0" y="0" width="1024" height="1024" rx="232" ry="232"/></clipPath>
+  </defs>
+  <g clip-path="url(#sq)">
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+    <rect width="1024" height="1024" fill="url(#floor)"/>
+    <rect width="1024" height="1024" fill="url(#sheen)"/>
+    <!-- Plan lewy: odwraca sie od swiatla, schodzi do grafitu. -->
+    <path d="M209 370 L291 302 L439 688 L221 793 Z"
+          fill="url(#planeLeft)" stroke="url(#planeLeft)" stroke-width="56" stroke-linejoin="round"/>
+    <!-- Plan gorny: najjasniejszy, niesie zalamanie w (607, 498). -->
+    <path d="M291 302 L585 177 L795 349 L607 498 Z"
+          fill="url(#planeTop)" stroke="url(#planeTop)" stroke-width="56" stroke-linejoin="round"/>
+    <!-- Plan dolny: posrodku pasma, zaczyna sie w tym samym punkcie zalamania. -->
+    <path d="M607 498 L801 649 L750 851 L554 736 Z"
+          fill="url(#planeFoot)" stroke="url(#planeFoot)" stroke-width="56" stroke-linejoin="round"/>
+  </g>
+  <rect x="1.5" y="1.5" width="1021" height="1021" rx="231" ry="231" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="3"/>
+</svg>

@@ -39,7 +39,8 @@ push. If it is already pushed with an open PR, rename it on GitHub
 
 ## PR title
 
-The same shape as a commit header (it becomes the squash commit): `<type>(<scope>): <subject>`, ≤ 100 chars.
+The same shape as a commit header: `<type>(<scope>): <subject>`, ≤ 100 chars. PRs merge with a merge
+commit, so the title is what `main`'s "Merge pull request #N" points to.
 
 ## PR body — `.github/pull_request_template.md`, nothing else
 

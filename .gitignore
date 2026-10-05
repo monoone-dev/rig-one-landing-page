@@ -27,3 +27,4 @@ logs
 .claude/settings.local.json
 .claude/launch.json
 /.rig-one/
+/.claude/worktrees/

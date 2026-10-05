@@ -26,3 +26,4 @@ logs
 # Per-machine agent settings
 .claude/settings.local.json
 .claude/launch.json
+/.rig-one/

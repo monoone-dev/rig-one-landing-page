@@ -1,6 +1,6 @@
 ---
 name: site-content
-description: Change what the RigOne website says or shows — edit the hero, features, steps, the "honest" list or the download section, swap the mark, or adjust the Mono theme — following the content rules (no personal names, honest claims, nothing private). Use whenever the user asks to change text on the site, add a feature or a language, replace the mark or tweak colors.
+description: Change what the RigOne website says or shows — page copy in any of the nine languages, features, the "honest" list, the competitor comparison, the FAQ, the documentation, release notes, the mark, or the theme — following the content rules (no personal names, honest claims, nothing private, no third-party requests). Use whenever the user asks to change text on the site, add a feature or a language, replace the mark or tweak colors.
 ---
 
 # /site-content — editing the site
@@ -9,70 +9,65 @@ description: Change what the RigOne website says or shows — edit the hero, fea
 
 | What | Where |
 | --- | --- |
-| All visible text, per language | `i18n/locales/{en,pl,es,it,fr,pt,de,zh,ja}.json` |
-| Links (download, issues, organization) and the lists of feature, step and "honest" keys | `app/data/site.ts` |
-| Page layout (hero, features, how, honest, download) | `app/pages/index.vue` |
+| All visible text, per language | `i18n/content/{en,pl,es,it,fr,pt,de,zh,ja}.ts` (typed by `types.ts`) |
+| What is not translated: links, versions, icons, comparison values | `app/data/site.ts`, `app/data/shared.ts` |
+| Pages | `app/pages/{index,features,docs,compare,changelog}.vue`; one component per section in `app/components/` |
+| Documentation (English only) | `docs/user-guide.md`, rendered into `/docs/` by `modules/markdown.ts`; `##` headings become the table of contents |
+| Changelog entries (English only) | `release-notes/vX.Y.Z.md`: `# Title`, then `*Released on YYYY-MM-DD.*`, then the notes. The newest one also drives the hero badge and the structured data |
 | Header: desktop bar, tablet and phone menus | `app/components/AppHeader.vue` |
-| Language and theme menus (shared by the bar and the phone menu) | `app/composables/useLanguageMenu.ts`, `app/composables/useThemeMenu.ts`; buttons in `LanguageSwitcher.vue`, `ThemeMenu.vue`; flags in `app/data/site.ts` |
-| Languages, default, browser detection, prerendered routes | `i18n` and `nitro.prerender` blocks in `nuxt.config.ts` |
-| Page title, description, Open Graph image, favicon | `app/app.vue` (`meta.*` keys), `public/og-image.png`, `public/favicon.svg` |
-| RigOne mark (theme-aware SVG) and wordmark | `app/components/RigMark.vue`, `app/components/AppLogo.vue`; colors in `--mark-*` in `app/assets/scss/main.scss` |
-| Mono theme (grayscale, black/white primary) | `app/assets/css/main.css`, `app/app.config.ts` |
-| Animations | `app/assets/scss/main.scss` (`.enter`, `.reveal`, hover rules) and `app/components/Reveal.vue` |
-
-`app/data/site.ts` holds structure only; visible text never goes there.
+| Language and theme menus | `app/composables/useLanguageMenu.ts`, `useThemeMenu.ts`; buttons in `LanguageSelect.vue`, `ThemeMenu.vue`; flags in `app/data/site.ts` |
+| Languages, default, browser detection, prerendered routes | `i18n` and `nitro.prerender` in `nuxt.config.ts` |
+| SEO: title, description, Open Graph, JSON-LD | `app/composables/usePageSeo.ts` (+ `meta.*` in the content files); `hreflang` and canonical come from `@nuxtjs/i18n` in `app/app.vue` |
+| Absolute URLs under the GitHub Pages sub-path | `app/composables/useSiteUrl.ts`, `server/utils/site.ts` |
+| Sitemap and robots | `server/routes/sitemap.xml.ts`, `server/routes/robots.txt.ts`; page list in `server/utils/site.ts` |
+| The RigOne mark | `app/components/RigMark.vue` (inline SVG); source file `app/assets/brand/rig-one-icon.svg`; favicons, app icons and `og-image.png` in `public/` |
+| Colours (light and dark), fonts, base and Markdown styles | `app/assets/scss/_tokens.scss`, `_fonts.scss`, `_base.scss`, `_markdown.scss`; Nuxt UI colours in `app/app.config.ts` |
+| Hero drawing of the Run screen | `app/components/RunIllustration.vue` (English, like the app) |
 
 ## Content rules
 
-- **No personal names.** No people, authors, founders or team members — on the page, in alt text or in metadata.
-- **Nothing private.** The app's source repository is private: never link it. Downloads and issues
-  point at this repository's releases and issues; the organization link goes to the public
-  `github.com/monoone-dev` page. No internal paths and no private repository names.
-- **Claims must be true.** Describe what the released app does today. The "honest" section lists
-  what the app refuses to do quietly; keep every item verifiable in the shipped build.
-- Short sentences, no marketing superlatives. Product names (RigOne, IndexOne, MonoOne, Claude,
-  Codex, macOS) are never split or translated.
+- **Brand names.** `RigOne`, `IndexOne` and `MonoOne` — one word, never translated, never split.
+  Loadout is RigOne's earlier name; mention it only where people need it (updating, the FAQ).
+- **No personal names.** No people, authors, founders or team members — on the page, in alt text or
+  in metadata. Authorship is MonoOne.
+- **Nothing private.** The app's source repository is private: never link it. Downloads, release
+  notes and issues point at this repository. No internal paths, no private repository names, no
+  screenshots or examples taken from someone's machine.
+- **Claims must be true of the shipped app.** Describe what the released build does today. Every item
+  of the "honest" list must be verifiable in the shipped build.
+- **Competitor facts** come from public documentation, with the month they were checked
+  (`comparisonCheckedOn` in `app/data/shared.ts` and the footnote). Compare kinds of tool, name
+  examples, and mark what cannot be verified as "Not stated" instead of guessing.
+- Short sentences, no marketing superlatives. In-app labels (Run, Look only, `/run`) stay in English.
+- **No third-party requests.** No analytics, no CDN fonts or scripts, no runtime `fetch`.
 
 ## Translations
 
-- English (`en.json`) is the source, the default and the fallback. A missing key silently falls
-  back to English, so add new text to all nine files in the same change.
-- `pl` is nearly complete; `de`, `es`, `fr`, `it`, `ja`, `pt` and `zh` still miss whole sections
-  and show them in English. Filling a gap is welcome; never widen it.
-- If copy ever needs plurals, use vue-i18n choices: `zero | one | other`; Polish has four
-  (`zero | one | few | many`); Chinese and Japanese take one message.
-- Chinese is Simplified (`zh` → `zh-CN`); Traditional-Chinese browsers also land on it.
-- Use gender-neutral phrasing (Polish: avoid `-łeś/-łaś` forms).
-- Escape vue-i18n special characters (`@ { } | $`) as `{'@'}` if they ever appear in copy.
-- Adding a language: a JSON file, an entry in `i18n.locales` and in `nitro.prerender.routes` in
-  `nuxt.config.ts`, a flag in `flags` in `app/data/site.ts` (`i-circle-flags-<country>`), and check
-  that `@nuxt/ui/locale` has it (Nuxt UI's own labels; see `uiLocale` in `app/app.vue`).
+- English (`en.ts`) is the source and the fallback; `types.ts` makes every other language fail the
+  typecheck until it has every key. Change all nine files in the same change.
+- Do not use `|`, `@`, `{` or `}` in copy except the existing placeholders (`{version}`, `{issues}`,
+  `{docs}`, `{year}`, `{org}`, `{license}`).
+- Chinese is Simplified (`zh` → `zh-CN`). Use gender-neutral phrasing (Polish: avoid `-łeś/-łaś`).
+- The documentation and the release notes are English only; other languages show a one-line note.
+- Adding a language: a content file, an entry in `locales` in `nuxt.config.ts` and in
+  `sitemapLocales` in `server/utils/site.ts`, a flag in `flags` (`i-circle-flags-<country>`), and
+  check that `@nuxt/ui/locale` has it (see `uiLocale` in `app/app.vue`).
 
-## Add a feature, step or "honest" item
+## Add a feature, a reason or an "honest" item
 
-1. Append its key to `features` (with a `i-lucide-*` icon), `steps` or `honest` in `app/data/site.ts`.
-2. Add the matching `title` / `description` under `features.items`, `how.steps` or `honest.items`
-   in every locale file.
-3. Check the grid at phone, tablet and desktop width: the sections are laid out for the current counts.
-
-## Header
-
-Three layouts, same pattern as the other MonoOne sites:
-
-- **Desktop (≥ 1024px)** — links in the bar, then flag, theme and GitHub buttons.
-- **Tablet (640–1023px)** — links move into a menu button; flag, theme and GitHub stay in the bar.
-- **Phone (< 640px)** — only the logo and one menu: links, then Language and Theme submenus, then GitHub.
-
-A new header control goes into the bar *and* into the phone menu (build its items in a composable so
-both share them). Theme offers Light, Dark and System; System (the default) follows the OS.
+1. Add its id to the union in `i18n/content/types.ts` and to `features`, `differentiators` or
+   `honest` in `app/data/shared.ts` (with an `i-lucide-*` icon where there is one).
+2. Add the copy to all nine content files — the typecheck lists the ones you missed.
+3. Check the grids at phone, tablet and desktop width.
 
 ## The mark
 
-`RigMark.vue` is the app icon's drawing scaled onto a 24 grid. Copy the geometry from the app's
-icon when it changes; do not redraw it by eye. Keep the theme behavior: the mark's colors come
-from `--mark-*`, and every gradient id is prefixed with `useId()` so two copies on a page do not collide.
+`RigMark.vue` is the same drawing as `RigOneMark.vue` in `monoone-landing-page`, built from
+`app/assets/brand/rig-one-icon.svg`. When the mark changes, copy it from there — do not redraw it by
+eye — and regenerate `public/favicon.svg`, the PNG icons and `og-image.png` from the same file.
+Keep every gradient id prefixed with `useId()` so two copies on a page do not collide.
 
 ## Verify
 
-`pnpm typecheck && pnpm build`, then check the page in light and dark mode at 375px and desktop
+`pnpm typecheck && pnpm build`, then check the pages in light and dark mode at 375px and desktop
 width, with no horizontal scroll — in every language (German and Polish words are the longest).

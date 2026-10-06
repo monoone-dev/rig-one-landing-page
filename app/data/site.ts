@@ -1,16 +1,27 @@
-// Structure of the page: links, icons and which translation keys to use.
-// All visible text lives in i18n/locales/<code>.json.
+// Structure of the site: names, links and versions. Visible text lives in i18n/content/<code>.ts.
+
+// The application's source repository is private, so the build people download, its release
+// notes and the issue tracker all live in THIS repository — the arrangement IndexOne uses.
+const repo = 'https://github.com/monoone-dev/rig-one-landing-page'
 
 export const site = {
   name: 'RigOne',
-  url: 'https://monoone.dev',
-  github: 'https://github.com/monoone-dev/rig-one',
-  // The application repository is private, so the build people download lives on the release
-  // page of THIS repository — the same arrangement IndexOne uses.
-  download: 'https://github.com/monoone-dev/rig-one-landing-page/releases/latest',
-  issues: 'https://github.com/monoone-dev/rig-one-landing-page/issues',
-  house: 'https://github.com/monoone-dev'
-}
+  organization: 'MonoOne',
+  organizationUrl: 'https://monoone.dev',
+  organizationGithub: 'https://github.com/monoone-dev',
+  description: 'A native macOS control room for coding agents: build a workflow for Claude Code and Codex on one canvas and run it against a project on your Mac.',
+  ogImage: 'og-image.png',
+  themeColor: '#6d28d9',
+  minMacOS: '13',
+  links: {
+    repo,
+    download: `${repo}/releases/latest`,
+    releases: `${repo}/releases`,
+    issues: `${repo}/issues`,
+    newIssue: `${repo}/issues/new`,
+    license: `${repo}/blob/main/LICENSE`,
+  },
+} as const
 
 // Flag shown in the language picker (circle-flags icons: SVG, so they look the same on every OS)
 export const flags: Record<string, string> = {
@@ -22,21 +33,5 @@ export const flags: Record<string, string> = {
   pt: 'i-circle-flags-br',
   de: 'i-circle-flags-de',
   zh: 'i-circle-flags-cn',
-  ja: 'i-circle-flags-jp'
+  ja: 'i-circle-flags-jp',
 }
-
-/** What the app does. One icon, one sentence — same shape as the house. */
-export const features = [
-  { key: 'canvas', icon: 'i-lucide-workflow' },
-  { key: 'parallel', icon: 'i-lucide-split' },
-  { key: 'watch', icon: 'i-lucide-radio' },
-  { key: 'agents', icon: 'i-lucide-users' },
-  { key: 'context', icon: 'i-lucide-book-open' },
-  { key: 'evidence', icon: 'i-lucide-receipt' }
-]
-
-/** How a run happens, in three steps. */
-export const steps = ['write', 'arrange', 'run']
-
-/** What the app refuses to do quietly. The honest half of the pitch. */
-export const honest = ['scopes', 'cancel', 'secrets', 'green']

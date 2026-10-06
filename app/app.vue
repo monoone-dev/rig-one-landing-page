@@ -2,37 +2,29 @@
 import * as uiLocales from '@nuxt/ui/locale'
 import { site } from '~/data/site'
 
-const { t, locale } = useI18n()
-const { app, public: { i18n } } = useRuntimeConfig()
+const { locale } = useI18n()
+const c = useContent()
+const { asset } = useSiteUrl()
 
-// Works under a sub-path too (GitHub Pages serves the site from /<repo>/)
-const asset = (file: string) => `${app.baseURL}${file}`
-const absolute = (file: string) => `${(i18n.baseUrl as string).replace(/\/$/, '')}${asset(file)}`
-
-// <html lang>, hreflang alternates and og:locale for every language
-const i18nHead = useLocaleHead()
+// <html lang>, canonical, hreflang alternates and og:locale for every language
+const localeHead = useLocaleHead({ dir: false, lang: true, seo: true })
 
 useHead(() => ({
-  htmlAttrs: { lang: i18nHead.value.htmlAttrs.lang },
+  htmlAttrs: { lang: localeHead.value.htmlAttrs?.lang },
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: asset('favicon.svg') },
-    ...(i18nHead.value.link ?? [])
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: asset('favicon-32.png') },
+    { rel: 'apple-touch-icon', href: asset('apple-touch-icon.png') },
+    { rel: 'manifest', href: asset('site.webmanifest') },
+    ...(localeHead.value.link ?? []),
   ],
   meta: [
-    ...(i18nHead.value.meta ?? []),
-    { name: 'theme-color', content: '#fafafa', media: '(prefers-color-scheme: light)' },
-    { name: 'theme-color', content: '#0a0a0a', media: '(prefers-color-scheme: dark)' }
-  ]
+    ...(localeHead.value.meta ?? []),
+    { name: 'theme-color', content: '#fcfcfd', media: '(prefers-color-scheme: light)' },
+    { name: 'theme-color', content: '#09090b', media: '(prefers-color-scheme: dark)' },
+    { name: 'msapplication-TileColor', content: site.themeColor },
+  ],
 }))
-
-useSeoMeta({
-  title: () => `${site.name} — ${t('meta.title')}`,
-  description: () => t('meta.description'),
-  ogTitle: site.name,
-  ogDescription: () => t('meta.title'),
-  ogImage: absolute('og-image.png'),
-  twitterCard: 'summary_large_image'
-})
 
 // Nuxt UI's own strings (aria labels etc.); Chinese is Simplified
 const uiLocale = computed(() => {
@@ -43,10 +35,9 @@ const uiLocale = computed(() => {
 
 <template>
   <UApp :locale="uiLocale">
+    <a class="skip-link" href="#main">{{ c.common.skipToContent }}</a>
     <AppHeader />
-    <UMain>
-      <NuxtPage />
-    </UMain>
+    <NuxtPage />
     <AppFooter />
   </UApp>
 </template>

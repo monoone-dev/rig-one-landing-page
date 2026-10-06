@@ -1,19 +1,9 @@
-// "Mono" skin: grayscale only. `primary` is remapped to pure black / white in main.css.
+// Nuxt UI colours; the exact tokens are bridged from app/assets/scss/_tokens.scss
 export default defineAppConfig({
   ui: {
     colors: {
-      primary: 'neutral',
-      neutral: 'neutral'
+      primary: 'violet',
+      neutral: 'zinc',
     },
-    button: {
-      slots: {
-        base: 'rounded-full'
-      }
-    },
-    pageCard: {
-      slots: {
-        root: 'rounded-2xl'
-      }
-    }
-  }
+  },
 })

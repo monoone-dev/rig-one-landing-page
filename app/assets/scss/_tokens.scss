@@ -1,0 +1,119 @@
+// The RigOne skin: zinc surfaces and the violet of the mark. Same token names as IndexOne's
+// Studio skin, so components read the same in both sites. Nuxt UI is bridged onto them below.
+@use 'sass:map';
+@use 'sass:meta';
+
+$violet: (
+  300: oklch(81.1% 0.111 293.571),
+  400: oklch(70.2% 0.183 293.541),
+  500: oklch(60.6% 0.25 292.717),
+  600: oklch(54.1% 0.281 293.009),
+  700: oklch(49.1% 0.27 292.581),
+);
+
+$zinc: (
+  50: oklch(98.5% 0 0),
+  100: oklch(96.7% 0.001 286.375),
+  200: oklch(92% 0.004 286.32),
+  300: oklch(87.1% 0.006 286.286),
+  400: oklch(70.5% 0.015 286.067),
+  500: oklch(55.2% 0.016 285.938),
+  600: oklch(44.2% 0.017 285.786),
+  700: oklch(37% 0.013 285.805),
+  800: oklch(27.4% 0.006 286.033),
+  900: oklch(21% 0.006 285.885),
+  950: oklch(14.1% 0.005 285.823),
+);
+
+@function violet($n) { @return map.get($violet, $n); }
+@function zinc($n) { @return map.get($zinc, $n); }
+
+$light: (
+  surface-base: oklch(99.2% 0.002 293),
+  surface-raised: oklch(100% 0 0),
+  surface-sunken: zinc(100),
+  surface-hover: zinc(100),
+  text-primary: zinc(900),
+  text-secondary: zinc(600),
+  text-muted: zinc(500),
+  accent: violet(600),
+  accent-hover: violet(700),
+  accent-text: violet(700),
+  text-on-accent: oklch(100% 0 0),
+  accent-soft: color-mix(in oklch, #{violet(500)} 9%, transparent),
+  accent-ring: color-mix(in oklch, #{violet(500)} 40%, transparent),
+  border: zinc(200),
+  border-subtle: color-mix(in oklch, #{zinc(200)} 70%, transparent),
+  safe-text: #1f9d4d,
+  warn-text: #b9791f,
+  live-text: #d9532e,
+  shadow-lg: (0 24px 60px -24px rgb(76 29 149 / 0.28), 0 8px 24px -12px rgb(0 0 0 / 0.12)),
+  aurora-field: (
+    radial-gradient(48% 42% at 8% 6%, oklch(70.2% 0.183 293.541 / 0.16), transparent 60%),
+    radial-gradient(36% 32% at 30% 0%, oklch(81.1% 0.111 293.571 / 0.16), transparent 62%),
+    radial-gradient(40% 40% at 96% 18%, oklch(85% 0.08 320 / 0.14), transparent 62%)
+  ),
+);
+
+$dark: (
+  surface-base: zinc(950),
+  surface-raised: color-mix(in oklch, #{zinc(900)} 70%, #{zinc(950)}),
+  surface-sunken: oklch(11% 0.005 286),
+  surface-hover: zinc(800),
+  text-primary: zinc(50),
+  text-secondary: zinc(300),
+  text-muted: zinc(400),
+  accent: violet(400),
+  accent-hover: color-mix(in oklch, #{violet(400)} 85%, white),
+  accent-text: violet(300),
+  text-on-accent: zinc(950),
+  accent-soft: color-mix(in oklch, #{violet(400)} 13%, transparent),
+  accent-ring: color-mix(in oklch, #{violet(400)} 45%, transparent),
+  border: zinc(800),
+  border-subtle: color-mix(in oklch, #{zinc(800)} 70%, transparent),
+  safe-text: #4ade80,
+  warn-text: #f5b14c,
+  live-text: #ff7a5c,
+  shadow-lg: (0 24px 60px -24px rgb(0 0 0 / 0.7), 0 8px 24px -12px rgb(0 0 0 / 0.5)),
+  aurora-field: (
+    radial-gradient(40% 46% at 4% 4%, oklch(60.6% 0.25 292.717 / 0.16), transparent 58%),
+    radial-gradient(38% 42% at 98% 12%, oklch(49.1% 0.27 292.581 / 0.12), transparent 60%)
+  ),
+);
+
+@mixin tokens($map) {
+  @each $name, $value in $map {
+    --#{$name}: #{meta.inspect($value)};
+  }
+}
+
+html:root {
+  color-scheme: light;
+  --font: 'Figtree', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, monospace;
+  --radius: 0.75rem;
+  @include tokens($light);
+
+  --ui-primary: var(--accent);
+  --ui-bg: var(--surface-base);
+  --ui-bg-muted: var(--surface-hover);
+  --ui-bg-elevated: var(--surface-raised);
+  --ui-bg-accented: var(--surface-hover);
+  --ui-bg-inverted: var(--text-primary);
+  --ui-text: var(--text-secondary);
+  --ui-text-dimmed: var(--text-muted);
+  --ui-text-muted: var(--text-muted);
+  --ui-text-toned: var(--text-secondary);
+  --ui-text-highlighted: var(--text-primary);
+  --ui-text-inverted: var(--surface-base);
+  --ui-border: var(--border);
+  --ui-border-muted: var(--border-subtle);
+  --ui-border-accented: var(--border);
+  --ui-border-inverted: var(--text-primary);
+  --ui-radius: calc(var(--radius) * 0.5);
+}
+
+html:root.dark {
+  color-scheme: dark;
+  @include tokens($dark);
+}

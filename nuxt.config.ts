@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   i18n: {
     // Origin only; GitHub Pages serves the site under /<repo>/ and Nuxt adds that base path.
     // The deploy sets NUXT_PUBLIC_I18N_BASE_URL to the Pages origin.
-    baseUrl: 'https://monoone-dev.github.io',
+    baseUrl: 'https://monoone.dev',
     defaultLocale: 'en',
     strategy: 'prefix_except_default',
     trailingSlash: true,

@@ -9,9 +9,9 @@ connect the steps, and run the graph against a project on your Mac — Claude Co
 first-class peers, in parallel, with checks RigOne runs itself.
 
 [Download for macOS](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) ·
-[Website](https://monoone-dev.github.io/rig-one-landing-page/) ·
-[Documentation](https://monoone-dev.github.io/rig-one-landing-page/docs/) ·
-[Changelog](https://monoone-dev.github.io/rig-one-landing-page/changelog/) ·
+[Website](https://monoone.dev/rig-one-landing-page/) ·
+[Documentation](https://monoone.dev/rig-one-landing-page/docs/) ·
+[Changelog](https://monoone.dev/rig-one-landing-page/changelog/) ·
 [Support](#support)
 
 macOS 13+ · Apple Silicon · signed and notarized · free
@@ -63,9 +63,9 @@ text, Markdown, images and PDFs, a shared versioned plan across steps, a Lab tha
 cases from your own code to evaluate an agent, Linear triggers, and run evidence — receipts,
 handoffs, full answers and a diagnostic bundle — that outlives the terminal.
 
-The full feature list is on the [website](https://monoone-dev.github.io/rig-one-landing-page/features/),
+The full feature list is on the [website](https://monoone.dev/rig-one-landing-page/features/),
 and how RigOne compares with other ways to run coding agents is
-[here](https://monoone-dev.github.io/rig-one-landing-page/compare/).
+[here](https://monoone.dev/rig-one-landing-page/compare/).
 
 ## Install
 
@@ -98,7 +98,7 @@ answer `accepted` and `source=Notarized Developer ID`.
 
 **Permissions.** macOS asks for each one the first time it is needed: the folders you work in,
 sending events to other applications, and the microphone if a workflow drives an app that records.
-Details: [Getting started](https://monoone-dev.github.io/rig-one-landing-page/docs/#getting-started).
+Details: [Getting started](https://monoone.dev/rig-one-landing-page/docs/#getting-started).
 
 ## Built to fail honestly
 
@@ -115,7 +115,7 @@ RigOne treats orchestration failures as product failures, not terminal noise:
 
 RigOne itself runs on your Mac and works in your folders. The agents it starts are Claude Code and
 Codex, so what they read goes to their providers exactly as when you run them in a terminal. More:
-[Safety model](https://monoone-dev.github.io/rig-one-landing-page/docs/#safety-model).
+[Safety model](https://monoone.dev/rig-one-landing-page/docs/#safety-model).
 
 ## Where your data lives
 
@@ -177,7 +177,7 @@ The site makes no third-party requests: fonts and icons are bundled, and there i
 CI ([`ci.yml`](.github/workflows/ci.yml)) typechecks and builds the site and checks branch names,
 commits and PR titles; [`pages.yml`](.github/workflows/pages.yml) deploys `main` to GitHub Pages
 and sets `NUXT_APP_BASE_URL` to the Pages sub-path, so the site works both at
-`monoone-dev.github.io/rig-one-landing-page/` and at a custom domain later. `pnpm install` also
+`monoone.dev/rig-one-landing-page/` and at a custom domain later. `pnpm install` also
 wires git hooks that check branch names and commit messages
 ([Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), no AI attribution).
 Runbooks for people and coding agents are in [`AGENTS.md`](AGENTS.md) and `.agents/skills/`.
@@ -189,7 +189,7 @@ deploy.
 
 ## Support
 
-- **Docs first:** [the documentation](https://monoone-dev.github.io/rig-one-landing-page/docs/).
+- **Docs first:** [the documentation](https://monoone.dev/rig-one-landing-page/docs/).
 - **Bug or idea:** [open an issue](https://github.com/monoone-dev/rig-one-landing-page/issues/new)
   with your RigOne version, macOS version and what you expected.
 - **Security issue:** don't put the details in a public issue. Open an issue that only says you have

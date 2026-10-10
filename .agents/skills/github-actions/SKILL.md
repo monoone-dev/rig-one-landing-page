@@ -68,5 +68,5 @@ Reproduce the deploy build locally:
 
 ```bash
 NITRO_PRESET=github_pages NUXT_APP_BASE_URL=/rig-one-landing-page/ \
-NUXT_PUBLIC_I18N_BASE_URL=https://monoone-dev.github.io pnpm generate
+NUXT_PUBLIC_I18N_BASE_URL=https://monoone.dev pnpm generate
 ```

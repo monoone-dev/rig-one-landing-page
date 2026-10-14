@@ -137,11 +137,42 @@
     background: var(--surface-hover);
   }
 
+  // A screenshot of the app (modules/markdown.ts): both colour modes, the site's one shown
+  .md-shot {
+    display: block;
+    overflow: hidden;
+    margin: 20px 0 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--round-lg);
+    background: var(--surface-raised);
+    box-shadow: var(--shadow-lg);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    img[data-mode='light'] {
+      display: none;
+    }
+  }
+
   > :first-child {
     margin-top: 0;
   }
 
   > :last-child {
     margin-bottom: 0;
+  }
+}
+
+html.light .md .md-shot {
+  img[data-mode='dark'] {
+    display: none;
+  }
+
+  img[data-mode='light'] {
+    display: block;
   }
 }

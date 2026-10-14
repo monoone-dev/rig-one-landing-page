@@ -3,26 +3,26 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — 面向编程智能体的 macOS 控制室',
-      description: '在同一张画布上为 Claude Code 和 Codex 搭建工作流，对着你 Mac 上的项目运行，看每个智能体并行工作。面向 Apple Silicon，免费。',
+      title: 'RigOne — 在 Mac 上并行运行 Claude Code 和 Codex 智能体',
+      description: '面向编程智能体的原生 macOS 控制室：在同一张画布上为 Claude Code 和 Codex 搭建工作流，在你的项目上并行运行。免费。',
     },
     features: {
-      title: '功能 — RigOne',
-      description: '可视化工作流、真正的并行运行、Auto 目标、可复用的智能体、由 RigOne 自己运行的检查、留在独立分支上的改动、共享看板、触发器，以及比终端留存更久的证据。',
+      title: 'RigOne 功能：可视化工作流、并行智能体与检查',
+      description: '可视化工作流、并行运行、Auto 目标、可复用的智能体、由 RigOne 自己运行的检查、留在独立分支上的改动、共享看板和触发器。',
       breadcrumb: '功能',
     },
     docs: {
-      title: '文档 — RigOne',
-      description: '安装 RigOne，搭建第一个工作流，对着项目运行并查看结果。包括概念、安全模型、磁盘上的文件和故障排查。',
+      title: 'RigOne 文档与分步教程',
+      description: '安装 RigOne 并跟着分步教程操作：创建智能体、搭建工作流、在 Mac 上运行，再把目标交给 Auto。附完整参考文档。',
       breadcrumb: '文档',
     },
     compare: {
       title: 'RigOne 与 Superset、Conductor、Nimbalyst、Codex 和 Cursor 对比',
-      description: 'RigOne 与 Superset、Conductor、Nimbalyst、OpenAI Codex 应用和 Cursor Cloud Agents 有何不同：本地运行、同一工作流中的 Claude Code 与 Codex、可保存的工作流、检查和花费，以及各自的取舍。',
+      description: '与 Superset、Conductor、Nimbalyst、Codex 应用和 Cursor Cloud Agents 对比：本地运行、两家服务商、工作流、检查和花费。',
       breadcrumb: '对比',
     },
     changelog: {
-      title: '更新日志 — RigOne',
+      title: 'RigOne 更新日志：版本说明与校验和',
       description: 'RigOne 的每个版本：改了什么，更新时要做什么，以及已签名、已公证安装包的校验和。',
       breadcrumb: '更新日志',
     },
@@ -440,6 +440,7 @@ export default {
     eyebrow: '文档',
     title: '使用 RigOne',
     lead: '安装它，搭建工作流，对着项目运行，再查看发生了什么。',
+    tutorial: '开始分步教程',
     onThisPage: '本页内容',
     englishNote: '文档为英文。',
     helpHtml: '这里有不清楚或不对的地方？<a href="{issues}">提交一个问题</a>。',

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import docs from '#docs'
+import notes from '#release-notes'
 import { site } from '~/data/site'
 
 const c = useContent()
 const { locale } = useI18n()
-const { absolute } = useSiteUrl()
+const { absolute, asset } = useSiteUrl()
 const localePath = useLocalePath()
+// Screenshots in the guide point at `__BASE__/screenshots/…` (modules/markdown.ts)
+const html = docs.html.replaceAll('__BASE__/', asset(''))
+const tutorial = docs.toc.find(section => section.title.startsWith('Tutorial'))
 const help = computed(() => fill(c.value.docs.helpHtml, { issues: site.links.newIssue }))
 
 usePageSeo({
@@ -20,7 +24,24 @@ usePageSeo({
     'about': { '@id': absolute('#app') },
     'publisher': { '@id': absolute('#organization') },
     'articleSection': docs.toc.map(s => s.title),
-  }],
+    'image': absolute('og-image.png'),
+    ...(notes[0] ? { dateModified: notes[0].date } : {}),
+  }, ...(tutorial ? [{
+    '@type': 'HowTo',
+    'name': tutorial.title,
+    'inLanguage': 'en',
+    'url': absolute(`${localePath('/docs')}#${tutorial.id}`),
+    'totalTime': 'PT15M',
+    'tool': [{ '@type': 'HowToTool', 'name': site.name }, { '@type': 'HowToTool', 'name': 'Claude Code or Codex' }],
+    'step': tutorial.children.filter(step => step.title.startsWith('Step')).map((step, index) => ({
+      '@type': 'HowToStep',
+      'position': index + 1,
+      'name': step.title.replace(/^Step \d+:\s*(.)/, (_, first: string) => first.toUpperCase()),
+      'url': absolute(`${localePath('/docs')}#${step.id}`),
+      'text': step.summary ?? step.title,
+      ...(step.image ? { image: absolute(step.image) } : {}),
+    })),
+  }] : [])],
 })
 </script>
 
@@ -31,6 +52,14 @@ usePageSeo({
         <span class="eyebrow eyebrow--accent">{{ c.docs.eyebrow }}</span>
         <h1>{{ c.docs.title }}</h1>
         <p>{{ c.docs.lead }}</p>
+        <UButton
+          v-if="tutorial"
+          :to="`#${tutorial.id}`"
+          :label="c.docs.tutorial"
+          trailing-icon="i-lucide-arrow-down"
+          size="lg"
+          class="docs__start"
+        />
         <p v-if="locale !== 'en'" class="docs__note">
           <UIcon name="i-lucide-languages" class="size-4 shrink-0" />
           {{ c.docs.englishNote }}
@@ -52,7 +81,7 @@ usePageSeo({
 
       <article class="docs__body" lang="en">
         <!-- eslint-disable-next-line vue/no-v-html -- built from this repository's docs/user-guide.md -->
-        <div class="md" v-html="docs.html" />
+        <div class="md" v-html="html" />
         <!-- eslint-disable-next-line vue/no-v-html -- our own copy, see i18n/content -->
         <p class="docs__help" :lang="locale" v-html="help" />
       </article>
@@ -84,6 +113,10 @@ usePageSeo({
       color: var(--text-secondary);
       font-size: clamp(16px, 1.8vw, 18px);
     }
+  }
+
+  &__start {
+    margin-top: 22px;
   }
 
   &__note {

@@ -3,26 +3,26 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — コーディングエージェントのための macOS 管制室',
-      description: 'Claude Code と Codex のワークフローをひとつのキャンバスで組み、Mac 上のプロジェクトに対して実行し、すべてのエージェントが並列で働く様子を見られます。Apple Silicon 向けで無料です。',
+      title: 'RigOne — Mac で Claude Code と Codex のエージェントを並列実行',
+      description: 'コーディングエージェントの macOS 管制室。Claude Code と Codex のワークフローをキャンバスで組み、プロジェクトで並列に実行。無料です。',
     },
     features: {
-      title: '機能 — RigOne',
-      description: '目に見えるワークフロー、本物の並列実行、Auto のゴール、使い回せるエージェント、RigOne 自身が走らせるチェック、専用のブランチに残る変更、共有ボード、トリガー、そしてターミナルより長く残る証拠。',
+      title: 'RigOne の機能：ワークフロー、並列エージェント、チェック',
+      description: '目に見えるワークフロー、並列実行、Auto のゴール、使い回せるエージェント、RigOne 自身のチェック、専用ブランチに残る変更、共有ボード、トリガー。',
       breadcrumb: '機能',
     },
     docs: {
-      title: 'ドキュメント — RigOne',
-      description: 'RigOne をインストールし、最初のワークフローを組み、プロジェクトに対して実行して結果を読みます。概念、安全モデル、ディスク上のファイル、トラブルシューティング。',
+      title: 'RigOne ドキュメントとステップごとのチュートリアル',
+      description: 'RigOne をインストールし、チュートリアルに沿ってエージェントを作り、ワークフローを組み、Mac で実行し、ゴールを Auto に任せます。完全なリファレンス付き。',
       breadcrumb: 'ドキュメント',
     },
     compare: {
       title: 'RigOne と Superset、Conductor、Nimbalyst、Codex、Cursor の比較',
-      description: 'RigOne と Superset、Conductor、Nimbalyst、OpenAI Codex アプリ、Cursor Cloud Agents の違い：ローカル実行、ひとつのワークフローでの Claude Code と Codex、保存できるワークフロー、チェック、費用、そしてそれぞれのトレードオフ。',
+      description: 'Superset、Conductor、Nimbalyst、Codex アプリ、Cursor Cloud Agents との比較：ローカル実行、2 社の提供元、ワークフロー、チェック、費用。',
       breadcrumb: '比較',
     },
     changelog: {
-      title: '変更履歴 — RigOne',
+      title: 'RigOne 変更履歴：リリースノートとチェックサム',
       description: 'RigOne の全リリース：何が変わったか、アップデート時にすること、署名・公証済みビルドのチェックサム。',
       breadcrumb: '変更履歴',
     },
@@ -440,6 +440,7 @@ export default {
     eyebrow: 'ドキュメント',
     title: 'RigOne の使い方',
     lead: 'インストールし、ワークフローを組み、プロジェクトに対して実行し、何が起きたかを読みます。',
+    tutorial: 'ステップごとのチュートリアルを始める',
     onThisPage: 'このページの内容',
     englishNote: 'ドキュメントは英語で書かれています。',
     helpHtml: 'わかりにくい点や誤りがあれば<a href="{issues}">課題を作成</a>してください。',

@@ -3,26 +3,26 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — una sala de control de macOS para agentes de código',
-      description: 'Monta un flujo para Claude Code y Codex en un lienzo, ejecútalo sobre un proyecto en tu Mac y mira cómo cada agente trabaja en paralelo. Gratis para Apple Silicon.',
+      title: 'RigOne — agentes de Claude Code y Codex en paralelo en tu Mac',
+      description: 'Una sala de control nativa de macOS para agentes de código: monta un flujo para Claude Code y Codex en un lienzo y ejecútalo en paralelo en tu proyecto. Gratis.',
     },
     features: {
-      title: 'Funciones — RigOne',
-      description: 'Flujos visuales, ejecuciones en paralelo de verdad, objetivos en Auto, agentes reutilizables, comprobaciones que RigOne ejecuta por sí mismo, trabajo guardado en su propia rama, tableros compartidos, disparadores y pruebas que sobreviven al terminal.',
+      title: 'Funciones de RigOne: flujos visuales, agentes en paralelo y comprobaciones',
+      description: 'Flujos visuales, ejecuciones en paralelo, objetivos en Auto, agentes reutilizables, comprobaciones propias, cambios en su propia rama, tableros y disparadores.',
       breadcrumb: 'Funciones',
     },
     docs: {
-      title: 'Documentación — RigOne',
-      description: 'Instala RigOne, monta tu primer flujo, ejecútalo sobre un proyecto y lee los resultados. Conceptos, modelo de seguridad, archivos en disco y solución de problemas.',
+      title: 'Documentación de RigOne y tutorial paso a paso',
+      description: 'Instala RigOne y sigue el tutorial paso a paso: crea un agente, monta un flujo, ejecútalo en tu Mac y pasa un objetivo a Auto. Con la referencia completa.',
       breadcrumb: 'Documentación',
     },
     compare: {
       title: 'RigOne frente a Superset, Conductor, Nimbalyst, Codex y Cursor',
-      description: 'En qué se diferencia RigOne de Superset, Conductor, Nimbalyst, la app OpenAI Codex y Cursor Cloud Agents: ejecuciones locales, Claude Code y Codex en un mismo flujo, flujos guardados, comprobaciones y gasto, con sus pros y contras.',
+      description: 'RigOne frente a Superset, Conductor, Nimbalyst, la app Codex y Cursor Cloud Agents: ejecuciones locales, dos proveedores, flujos guardados, comprobaciones y gasto.',
       breadcrumb: 'Comparar',
     },
     changelog: {
-      title: 'Novedades — RigOne',
+      title: 'Novedades de RigOne: notas de versión y sumas de comprobación',
       description: 'Cada versión de RigOne: qué ha cambiado, qué hacer al actualizar y la suma de comprobación de la compilación firmada y notarizada.',
       breadcrumb: 'Novedades',
     },
@@ -440,6 +440,7 @@ export default {
     eyebrow: 'Documentación',
     title: 'Cómo usar RigOne',
     lead: 'Instálalo, monta un flujo, ejecútalo sobre un proyecto y lee qué ha pasado.',
+    tutorial: 'Empezar el tutorial paso a paso',
     onThisPage: 'En esta página',
     englishNote: 'La documentación está escrita en inglés.',
     helpHtml: '¿Algo poco claro o incorrecto? <a href="{issues}">Abre una incidencia</a>.',

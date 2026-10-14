@@ -12,7 +12,7 @@ description: Change what the RigOne website says or shows — page copy in any o
 | All visible text, per language | `i18n/content/{en,pl,es,it,fr,pt,de,zh,ja}.ts` (typed by `types.ts`) |
 | What is not translated: links, versions, icons, comparison values | `app/data/site.ts`, `app/data/shared.ts` |
 | Pages | `app/pages/{index,features,docs,compare,changelog}.vue`; one component per section in `app/components/` |
-| Documentation (English only) | `docs/user-guide.md`, rendered into `/docs/` by `modules/markdown.ts`; `##` headings become the table of contents |
+| Documentation (English only) | `docs/user-guide.md`, rendered into `/docs/` by `modules/markdown.ts`; `##` headings become the table of contents; `![alt](../public/screenshots/<id>.webp)` becomes a framed screenshot in both colour modes; the tutorial's `### Step N:` sections feed the HowTo structured data |
 | Changelog entries (English only) | `release-notes/vX.Y.Z.md`: `# RigOne X.Y.Z — Title`, then `*Released on YYYY-MM-DD.*`, then the notes, ending with `## The package` (the DMG's name in backticks, its SHA-256 in a code block). The page shows the title, the notes and the package apart (`modules/markdown.ts`); the newest one also drives the hero badge and the structured data |
 | Screenshots | `public/screenshots/<id>.webp` (1512 × 950, from the release build), listed in `screens` in `app/data/shared.ts`, alt text in `screens.items` of every content file; `ScreenShot.vue` frames one, `ScreensSection.vue` shows them on the home page, `shot` on a feature puts one on the features page |
 | Header: desktop bar, tablet and phone menus | `app/components/AppHeader.vue` |

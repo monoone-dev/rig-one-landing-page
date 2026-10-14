@@ -3,26 +3,26 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — eine macOS-Leitstelle für Coding-Agenten',
-      description: 'Bauen Sie einen Workflow für Claude Code und Codex auf einer Leinwand, lassen Sie ihn auf einem Projekt auf Ihrem Mac laufen und sehen Sie jedem Agenten bei der parallelen Arbeit zu. Kostenlos für Apple Silicon.',
+      title: 'RigOne — Claude-Code- und Codex-Agenten parallel auf Ihrem Mac',
+      description: 'Eine native macOS-Leitstelle für Coding-Agenten: Workflow für Claude Code und Codex auf einer Leinwand bauen und parallel auf Ihrem Projekt ausführen. Kostenlos.',
     },
     features: {
-      title: 'Funktionen — RigOne',
-      description: 'Visuelle Workflows, echte parallele Läufe, Auto-Ziele, wiederverwendbare Agenten, Prüfungen, die RigOne selbst ausführt, Arbeit auf einem eigenen Branch, gemeinsame Boards, Trigger und Belege, die das Terminal überleben.',
+      title: 'RigOne-Funktionen: visuelle Workflows, parallele Agenten, Prüfungen',
+      description: 'Visuelle Workflows, parallele Läufe, Auto-Ziele, wiederverwendbare Agenten, eigene Prüfungen, Änderungen auf eigenem Branch, gemeinsame Boards und Trigger.',
       breadcrumb: 'Funktionen',
     },
     docs: {
-      title: 'Dokumentation — RigOne',
-      description: 'RigOne installieren, den ersten Workflow bauen, ihn auf einem Projekt ausführen und die Ergebnisse lesen. Konzepte, Sicherheitsmodell, Dateien auf der Festplatte und Fehlerbehebung.',
+      title: 'RigOne-Dokumentation und Schritt-für-Schritt-Tutorial',
+      description: 'RigOne installieren und dem Tutorial folgen: Agenten anlegen, Workflow bauen, auf dem Mac ausführen und ein Ziel an Auto übergeben. Mit voller Referenz.',
       breadcrumb: 'Dokumentation',
     },
     compare: {
-      title: 'RigOne im Vergleich mit Superset, Conductor, Nimbalyst, Codex und Cursor',
-      description: 'Wie sich RigOne von Superset, Conductor, Nimbalyst, der OpenAI-Codex-App und Cursor Cloud Agents unterscheidet: lokale Läufe, Claude Code und Codex in einem Workflow, gespeicherte Workflows, Prüfungen und Kosten — mit den Abwägungen.',
+      title: 'RigOne vs. Superset, Conductor, Nimbalyst, Codex und Cursor',
+      description: 'RigOne im Vergleich mit Superset, Conductor, Nimbalyst, der Codex-App und Cursor Cloud Agents: lokale Läufe, zwei Anbieter, Workflows, Prüfungen und Kosten.',
       breadcrumb: 'Vergleich',
     },
     changelog: {
-      title: 'Änderungsprotokoll — RigOne',
+      title: 'RigOne-Änderungsprotokoll: Versionshinweise und Prüfsummen',
       description: 'Jede RigOne-Version: was sich geändert hat, was beim Aktualisieren zu tun ist, und die Prüfsumme des signierten, notarisierten Builds.',
       breadcrumb: 'Änderungsprotokoll',
     },
@@ -440,6 +440,7 @@ export default {
     eyebrow: 'Dokumentation',
     title: 'RigOne verwenden',
     lead: 'Installieren, einen Workflow bauen, ihn auf einem Projekt ausführen und nachlesen, was passiert ist.',
+    tutorial: 'Mit dem Schritt-für-Schritt-Tutorial beginnen',
     onThisPage: 'Auf dieser Seite',
     englishNote: 'Die Dokumentation ist auf Englisch verfasst.',
     helpHtml: 'Etwas unklar oder falsch? <a href="{issues}">Issue eröffnen</a>.',

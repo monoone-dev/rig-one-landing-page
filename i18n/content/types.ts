@@ -183,6 +183,8 @@ export interface SiteContent {
     eyebrow: string
     title: string
     lead: string
+    /** Link from the header to the tutorial section of the guide. */
+    tutorial: string
     onThisPage: string
     englishNote: string
     /** `{issues}` is replaced with the issue tracker URL. */

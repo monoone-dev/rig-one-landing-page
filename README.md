@@ -40,7 +40,7 @@ RigOne's public home. The app's source code is not public and is not here.
 | --- | --- |
 | [Releases](https://github.com/monoone-dev/rig-one-landing-page/releases) | The signed, notarized DMG of every release, with its notes and `SHA256SUMS.txt` |
 | [`release-notes/`](release-notes/) | The same release notes, as Markdown — the website's changelog is built from them |
-| [`docs/user-guide.md`](docs/user-guide.md) | The documentation — the website's docs page is built from it |
+| [`docs/user-guide.md`](docs/user-guide.md) | The documentation — the website's docs pages are built from it, one per `##` section |
 | [`public/screenshots/`](public/screenshots/) | Screens of the shipped app, shown on the website and below |
 | [`app/`](app/), [`i18n/`](i18n/), [`modules/`](modules/), [`public/`](public/), [`server/`](server/) | The website — Nuxt, statically generated |
 | [Issues](https://github.com/monoone-dev/rig-one-landing-page/issues) | Bug reports, ideas and questions |
@@ -125,7 +125,7 @@ answer `accepted` and `source=Notarized Developer ID`.
 **Permissions.** macOS asks for each one the first time it is needed: the folders you work in,
 sending events to other applications, the microphone if a workflow drives an app that records, and
 notifications for decisions that wait for you.
-Details: [Getting started](https://monoone.dev/rig-one-landing-page/docs/#getting-started).
+Details: [Getting started](https://monoone.dev/rig-one-landing-page/docs/getting-started/).
 
 ## Built to fail honestly
 
@@ -145,7 +145,7 @@ Codex, so what they read goes to their providers exactly as when you run them in
 sends the MonoOne server only encrypted tasks, comments and activity. In Auto, **Skip permissions**
 (on by default) runs steps with the same full access as the agent CLI in your terminal; turn it off
 to keep them fenced in their copies. More:
-[Safety model](https://monoone.dev/rig-one-landing-page/docs/#safety-model).
+[Safety model](https://monoone.dev/rig-one-landing-page/docs/safety-model/).
 
 ## Where your data lives
 
@@ -200,7 +200,7 @@ pnpm generate     # static output in .output/public
 | `app/pages/` | Home, features, docs, compare and changelog (the layout of SurfaceOne's changelog template: a versions list, a timeline and each release's package) |
 | `app/assets/scss/` | Fonts, colour tokens (light and dark, the violet taken from the mark), base and Markdown styles |
 | `app/composables/usePageSeo.ts` | Meta tags, Open Graph and JSON-LD; `hreflang` and canonical come from Nuxt i18n |
-| `modules/markdown.ts` | Renders `docs/user-guide.md` and `release-notes/*.md` into the pages at build time; takes each note's title and package apart |
+| `modules/markdown.ts` | Splits `docs/user-guide.md` into grouped docs pages and renders it and `release-notes/*.md` into the pages at build time; takes each note's title and package apart |
 | `server/routes/` | `sitemap.xml` (every language as an alternate) and `robots.txt` |
 | `public/` | Static files served as they are: favicon, app icons, Open Graph image, web manifest, `screenshots/` |
 

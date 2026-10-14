@@ -5,7 +5,7 @@ import { addTemplate, addTypeTemplate, createResolver, defineNuxtModule, updateT
 // Turns the Markdown kept in this repository into HTML at build time, so the pages ship it as
 // static markup:
 //   #release-notes  ← release-notes/v<x.y.z>.md, newest first (the changelog page)
-//   #docs           ← docs/user-guide.md, with a table of contents (the docs page)
+//   #docs           ← docs/user-guide.md, one page per "##" section, grouped (the docs pages)
 // Both are also readable on GitHub as they are.
 
 const datePattern = /^\*Released on (\d{4}-\d{2}-\d{2})\.\*\s*/
@@ -21,11 +21,35 @@ export interface ReleaseNote {
   package?: { file: string, sha256: string, noteHtml: string }
 }
 
-export interface DocsSection {
+export interface DocsPage {
+  /** The slug of the page's "##" heading, also its path: /docs/<id>/. */
   id: string
   title: string
-  children: { id: string, title: string }[]
+  group: string
+  /** The first sentence of the page, for the overview and the meta description. */
+  summary: string
+  /** Rounded up, at 220 words a minute. */
+  minutes: number
+  html: string
+  /** The page's "###" headings, rendered as <h2>. */
+  toc: { id: string, title: string }[]
 }
+
+export interface Docs {
+  groups: { title: string, pages: string[] }[]
+  pages: DocsPage[]
+}
+
+// How the left navigation groups the guide's "##" sections, in reading order. Every section of
+// docs/user-guide.md must be in exactly one group, or the build fails.
+const docsGroups: { title: string, pages: string[] }[] = [
+  { title: 'Start here', pages: ['getting-started', 'concepts'] },
+  { title: 'Build', pages: ['agents', 'workflows'] },
+  { title: 'Run', pages: ['running-a-workflow', 'auto', 'checks-and-second-opinions', 'where-the-changes-go'] },
+  { title: 'Beyond one run', pages: ['knowledge-and-the-lab', 'boards', 'triggers'] },
+  { title: 'Trust and data', pages: ['safety-model', 'files-on-disk', 'settings'] },
+  { title: 'Maintain', pages: ['updating', 'uninstall', 'troubleshooting'] },
+]
 
 const slug = (text: string) =>
   text.toLowerCase().replace(/<[^>]+>/g, '').replace(/[`'’"]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -102,19 +126,57 @@ function readNotes(dir: string): ReleaseNote[] {
     .sort((a, b) => compareVersions(a.version, b.version))
 }
 
-function readDocs(file: string) {
+const plain = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+
+/** The "##" slugs of the guide, in order: the docs pages to prerender. */
+export function docsPageIds(file: string) {
+  return [...readFileSync(file, 'utf8').matchAll(/^## (.+)$/gm)].map(m => slug(m[1]!))
+}
+
+function readDocs(file: string): Docs {
   const marked = createMarked(true)
-  // The file's own "# Title" and intro paragraph are the page header; the page renders the rest.
-  const source = readFileSync(file, 'utf8').replace(/^# .*\n+(?:(?!## ).*\n)*/, '')
-  const tokens = marked.lexer(source)
-  const toc: DocsSection[] = []
+  const source = readFileSync(file, 'utf8')
+  // The file's own "# Title" and intro paragraph are for GitHub; the site has its own header.
+  const tokens = marked.lexer(source.replace(/^# .*\n+(?:(?!## ).*\n)*/, ''))
+
+  // Split at every "##": each section is a page whose title is that heading.
+  const sections: { title: string, tokens: Token[] }[] = []
   for (const token of tokens) {
-    if (token.type !== 'heading') continue
-    const title = token.text.replace(/`/g, '')
-    if (token.depth === 2) toc.push({ id: slug(token.text), title, children: [] })
-    else if (token.depth === 3) toc.at(-1)?.children.push({ id: slug(token.text), title })
+    if (token.type === 'heading' && token.depth === 2) sections.push({ title: token.text, tokens: [] })
+    else sections.at(-1)?.tokens.push(token)
   }
-  return { html: marked.parser(tokens) as string, toc }
+
+  const groupOf = new Map(docsGroups.flatMap(g => g.pages.map(id => [id, g.title] as const)))
+  const pages = sections.map(({ title, tokens: body }): DocsPage => {
+    const id = slug(title)
+    const group = groupOf.get(id)
+    if (!group) throw new Error(`docs/user-guide.md: add "## ${title}" (${id}) to docsGroups in modules/markdown.ts`)
+    // The page title is the <h1>, so "###" becomes <h2> and so on.
+    const toc: DocsPage['toc'] = []
+    for (const t of body) {
+      if (t.type !== 'heading') continue
+      if (t.depth === 3) toc.push({ id: slug(t.text), title: t.text.replace(/`/g, '') })
+      t.depth = Math.max(2, t.depth - 1)
+    }
+    const html = marked.parser(body) as string
+    // The opening paragraph, or the first item of an opening list, or else the page's headings.
+    const opening = body.findIndex(t => t.type === 'heading')
+    const lead = body.slice(0, opening < 0 ? body.length : opening)
+      .find(t => t.type === 'paragraph' || t.type === 'list')
+    const first = lead?.type === 'list' ? (lead as Tokens.List).items[0]?.text : (lead as Tokens.Paragraph | undefined)?.text
+    const text = first ? plain(marked.parseInline(first) as string) : `${toc.map(h => h.title).join(', ')}.`
+    const summary = text.match(/^.*?[.:](?=\s|$)/s)?.[0].replace(/\s+/g, ' ').replace(/:$/, '.') ?? text
+    const words = plain(html).split(/\s+/).filter(Boolean).length
+    return { id, title: title.replace(/`/g, ''), group, summary, minutes: Math.max(1, Math.ceil(words / 220)), html, toc }
+  })
+
+  const ids = new Set(pages.map(p => p.id))
+  const missing = docsGroups.flatMap(g => g.pages).filter(id => !ids.has(id))
+  if (missing.length) throw new Error(`modules/markdown.ts: docsGroups names sections the guide no longer has: ${missing.join(', ')}`)
+  // Pages in navigation order, so previous and next follow the left column.
+  const order = docsGroups.flatMap(g => g.pages)
+  pages.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id))
+  return { groups: docsGroups, pages }
 }
 
 export default defineNuxtModule({
@@ -151,7 +213,18 @@ export default defineNuxtModule({
   export default notes
 }
 declare module '#docs' {
-  const docs: { html: string, toc: { id: string, title: string, children: { id: string, title: string }[] }[] }
+  const docs: {
+    groups: { title: string, pages: string[] }[]
+    pages: {
+      id: string
+      title: string
+      group: string
+      summary: string
+      minutes: number
+      html: string
+      toc: { id: string, title: string }[]
+    }[]
+  }
   export default docs
 }
 `,

@@ -1,3 +1,4 @@
+import docs from '#docs'
 import type { H3Event } from 'h3'
 
 // Keep in step with `i18n.locales` and the prerendered pages in nuxt.config.ts.
@@ -13,7 +14,7 @@ export const sitemapLocales = [
   { code: 'ja', language: 'ja-JP' },
 ]
 
-export const sitemapPages = ['/', '/features/', '/docs/', '/compare/', '/changelog/']
+export const sitemapPages = ['/', '/features/', '/docs/', ...docs.pages.map(p => `/docs/${p.id}/`), '/compare/', '/changelog/']
 
 /** Origin + base path, e.g. https://monoone.dev/rig-one-landing-page */
 export function siteRoot(event: H3Event) {

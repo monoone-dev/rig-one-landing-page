@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { differentiators } from '~/data/shared'
+import { differentiators, screens } from '~/data/shared'
 
 const c = useContent()
 const app = useSoftwareApplicationSchema()
+const { absolute } = useSiteUrl()
 
 usePageSeo({
   path: '/',
@@ -11,6 +12,13 @@ usePageSeo({
     app({
       description: c.value.meta.home.description,
       featureList: differentiators.map(d => c.value.unique.items[d.id].title),
+      screenshot: screens.map(s => ({
+        '@type': 'ImageObject',
+        'url': absolute(`screenshots/${s.id}.webp`),
+        'width': s.width,
+        'height': s.height,
+        'caption': c.value.screens.items[s.id].alt,
+      })),
     }),
   ],
 })
@@ -22,6 +30,7 @@ usePageSeo({
     <TrustStrip />
     <UniqueSection />
     <HowItWorks />
+    <ScreensSection />
     <HonestSection />
     <CtaSection />
   </main>

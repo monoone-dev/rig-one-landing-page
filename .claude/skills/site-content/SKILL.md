@@ -13,7 +13,8 @@ description: Change what the RigOne website says or shows — page copy in any o
 | What is not translated: links, versions, icons, comparison values | `app/data/site.ts`, `app/data/shared.ts` |
 | Pages | `app/pages/{index,features,docs,compare,changelog}.vue`; one component per section in `app/components/` |
 | Documentation (English only) | `docs/user-guide.md`, rendered into `/docs/` by `modules/markdown.ts`; `##` headings become the table of contents |
-| Changelog entries (English only) | `release-notes/vX.Y.Z.md`: `# Title`, then `*Released on YYYY-MM-DD.*`, then the notes. The newest one also drives the hero badge and the structured data |
+| Changelog entries (English only) | `release-notes/vX.Y.Z.md`: `# RigOne X.Y.Z — Title`, then `*Released on YYYY-MM-DD.*`, then the notes, ending with `## The package` (the DMG's name in backticks, its SHA-256 in a code block). The page shows the title, the notes and the package apart (`modules/markdown.ts`); the newest one also drives the hero badge and the structured data |
+| Screenshots | `public/screenshots/<id>.webp` (1512 × 950, from the release build), listed in `screens` in `app/data/shared.ts`, alt text in `screens.items` of every content file; `ScreenShot.vue` frames one, `ScreensSection.vue` shows them on the home page, `shot` on a feature puts one on the features page |
 | Header: desktop bar, tablet and phone menus | `app/components/AppHeader.vue` |
 | Language and theme menus | `app/composables/useLanguageMenu.ts`, `useThemeMenu.ts`; buttons in `LanguageSelect.vue`, `ThemeMenu.vue`; flags in `app/data/site.ts` |
 | Languages, default, browser detection, prerendered routes | `i18n` and `nitro.prerender` in `nuxt.config.ts` |
@@ -22,7 +23,7 @@ description: Change what the RigOne website says or shows — page copy in any o
 | Sitemap and robots | `server/routes/sitemap.xml.ts`, `server/routes/robots.txt.ts`; page list in `server/utils/site.ts` |
 | The RigOne mark | `app/components/RigMark.vue` (inline SVG); source file `app/assets/brand/rig-one-icon.svg`; favicons, app icons and `og-image.png` in `public/` |
 | Colours (light and dark), fonts, base and Markdown styles | `app/assets/scss/_tokens.scss`, `_fonts.scss`, `_base.scss`, `_markdown.scss`; Nuxt UI colours in `app/app.config.ts` |
-| Hero drawing of the Run screen | `app/components/RunIllustration.vue` (English, like the app) |
+| Hero: who it is for, the problem, the answer, then the real Run screen | `app/components/HeroSection.vue`; copy in `hero.*` (audience, title, the three problem → answer pairs, chips) |
 
 ## Content rules
 
@@ -35,9 +36,10 @@ description: Change what the RigOne website says or shows — page copy in any o
   screenshots or examples taken from someone's machine.
 - **Claims must be true of the shipped app.** Describe what the released build does today. Every item
   of the "honest" list must be verifiable in the shipped build.
-- **Competitor facts** come from public documentation, with the month they were checked
-  (`comparisonCheckedOn` in `app/data/shared.ts` and the footnote). Compare kinds of tool, name
-  examples, and mark what cannot be verified as "Not stated" instead of guessing.
+- **Competitor facts** come from each product's public documentation and pricing, with the month
+  they were checked (`comparisonCheckedOn` in `app/data/shared.ts` and the footnote). Compare named
+  products (`competitors` in `app/data/shared.ts`, as IndexOne does), and mark what cannot be
+  verified as "Not stated" instead of guessing.
 - Short sentences, no marketing superlatives. In-app labels (Run, Look only, `/run`) stay in English.
 - **No third-party requests.** No analytics, no CDN fonts or scripts, no runtime `fetch`.
 

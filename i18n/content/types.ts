@@ -10,6 +10,11 @@ export interface SubPageMeta extends PageMeta {
   breadcrumb: string
 }
 
+export interface Problem {
+  problem: string
+  answer: string
+}
+
 export interface Card {
   title: string
   body: string
@@ -18,15 +23,18 @@ export interface Card {
 export type DifferentiatorId = 'graph' | 'peers' | 'parallel' | 'checks' | 'branches' | 'evidence'
 
 export type FeatureId =
-  | 'canvas' | 'parallel' | 'run' | 'agents' | 'knowledge'
-  | 'checks' | 'branches' | 'triggers' | 'lab' | 'evidence'
+  | 'canvas' | 'parallel' | 'run' | 'auto' | 'agents' | 'knowledge'
+  | 'checks' | 'branches' | 'boards' | 'triggers' | 'lab' | 'evidence'
+
+/** The app screenshots in public/screenshots/<id>.webp, in the order of `screens` in app/data/shared.ts. */
+export type ScreenId = 'run' | 'canvas' | 'agents' | 'workflows' | 'settings'
 
 export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'unknown' | 'green' | 'files'
 
-export type ComparisonRowId = 'local' | 'mix' | 'graph' | 'isolated' | 'checks' | 'budget' | 'platforms' | 'price'
+export type ComparisonRowId = 'local' | 'mix' | 'graph' | 'isolated' | 'checks' | 'budget' | 'boards' | 'platforms' | 'price'
 
-/** RigOne, then four kinds of alternative — in the order of `competitors` in app/data/shared.ts. */
-export type ComparisonCells = [string, string, string, string, string]
+/** RigOne, then the five named products — in the order of `competitors` in app/data/shared.ts. */
+export type ComparisonCells = [string, string, string, string, string, string]
 
 export interface SiteContent {
   meta: {
@@ -66,14 +74,21 @@ export interface SiteContent {
     badgeAgents: string
     /** `{version}` is replaced with the latest release tag. */
     badgeRelease: string
+    /** Who RigOne is for, above the title. */
+    audience: string
     titleStrong: string
     titleSoft: string
     sub: string
+    /** Label of the problem → answer list. */
+    problemsLabel: string
+    problems: [Problem, Problem, Problem]
     download: string
     docsCta: string
     note: string
-    illustrationLabel: string
+    /** Short true statements floating over the screenshot; decorative, hidden from screen readers. */
+    chips: [string, string, string]
   }
+
   trust: {
     aria: string
     items: [string, string, string, string]
@@ -90,6 +105,15 @@ export interface SiteContent {
     title: string
     lead: string
     steps: [Card, Card, Card]
+  }
+  screens: {
+    eyebrow: string
+    title: string
+    lead: string
+    /** Label of the tab list. */
+    label: string
+    /** `tab` names the button, `alt` describes the picture. */
+    items: Record<ScreenId, Card & { tab: string, alt: string }>
   }
   honest: {
     eyebrow: string
@@ -109,10 +133,8 @@ export interface SiteContent {
     lead: string
     caption: string
     capability: string
-    /** Column headings after RigOne. */
-    columns: [string, string, string, string]
-    /** Examples shown under each column heading. */
-    examples: [string, string, string, string]
+    /** What each product is, shown under its name (the names are in `competitors`, not translated). */
+    examples: [string, string, string, string, string]
     labels: { yes: string, partial: string, no: string, unknown: string }
     notStated: string
     rows: Record<ComparisonRowId, { criterion: string, cells: ComparisonCells }>
@@ -142,6 +164,20 @@ export interface SiteContent {
     github: string
     latest: string
     englishNote: string
+    /** Heading of the list of versions beside the releases. */
+    versions: string
+    /** Label of the filter, then its three choices. */
+    show: string
+    all: string
+    featureReleases: string
+    patchReleases: string
+    /** Shown before the number of releases listed, e.g. "Releases: 12". */
+    count: string
+    empty: string
+    showOlder: string
+    package: string
+    copyChecksum: string
+    copied: string
   }
   docs: {
     eyebrow: string

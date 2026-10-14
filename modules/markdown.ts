@@ -14,7 +14,11 @@ export interface ReleaseNote {
   tag: string
   version: string
   date: string
+  /** The headline after the version, e.g. "Boards: shared task boards, encrypted on your Mac". */
+  title: string
   html: string
+  /** From the note's "## The package" section, shown apart from the notes. */
+  package?: { file: string, sha256: string, noteHtml: string }
 }
 
 export interface DocsSection {
@@ -68,15 +72,32 @@ function readNotes(dir: string): ReleaseNote[] {
     .filter(name => /^v\d+\.\d+\.\d+\.md$/.test(name))
     .map((name) => {
       const tag = name.replace(/\.md$/, '')
+      const version = tag.slice(1)
       let source = readFileSync(`${dir}/${name}`, 'utf8')
-      // The first line is the release title; the page shows the version instead.
+      // The first line is "# RigOne <version> — <title>"; the page shows the version and the title apart.
+      const heading = source.match(/^# (.*)\n+/)?.[1] ?? ''
+      const title = heading.replace(new RegExp(`^RigOne ${version.replace(/\./g, '\\.')}\\s*[—:-]\\s*`), '').trim()
       source = source.replace(/^# .*\n+/, '')
       const date = source.match(datePattern)?.[1]
       if (!date) throw new Error(`release-notes/${name}: start it with "# <title>" then "*Released on YYYY-MM-DD.*"`)
       source = source.replace(datePattern, '')
+      // "## The package": the DMG's name in backticks, its SHA-256 in a code block, then any remarks.
+      let pkg: ReleaseNote['package']
+      const at = source.search(/^## The package\s*$/m)
+      if (at >= 0) {
+        const section = source.slice(at)
+        const file = section.match(/`(RigOne_[^`]+\.dmg)`/)?.[1]
+        const sha256 = section.match(/\b[0-9a-f]{64}\b/)?.[0]
+        if (file && sha256) {
+          const remarks = section.replace(/^[\s\S]*?```[^\n]*\n[\s\S]*?```\s*/, '')
+          pkg = { file, sha256, noteHtml: remarks.trim() ? marked.parse(remarks) as string : '' }
+          source = source.slice(0, at)
+        }
+      }
       const tokens = marked.lexer(source)
       shiftHeadings(tokens)
-      return { tag, version: tag.slice(1), date, html: marked.parser(tokens) as string }
+      const headline = title || heading
+      return { tag, version, date, title: headline.charAt(0).toUpperCase() + headline.slice(1), html: marked.parser(tokens) as string, package: pkg }
     })
     .sort((a, b) => compareVersions(a.version, b.version))
 }
@@ -119,7 +140,14 @@ export default defineNuxtModule({
     addTypeTemplate({
       filename: 'types/markdown.d.ts',
       getContents: () => `declare module '#release-notes' {
-  const notes: { tag: string, version: string, date: string, html: string }[]
+  const notes: {
+    tag: string
+    version: string
+    date: string
+    title: string
+    html: string
+    package?: { file: string, sha256: string, noteHtml: string }
+  }[]
   export default notes
 }
 declare module '#docs' {

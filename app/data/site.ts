@@ -11,7 +11,7 @@ export const site = {
   organizationGithub: 'https://github.com/monoone-dev',
   description: 'A native macOS control room for coding agents: build a workflow for Claude Code and Codex on one canvas and run it against a project on your Mac.',
   ogImage: 'og-image.png',
-  themeColor: '#6d28d9',
+  themeColor: '#5c29ff',
   minMacOS: '13',
   links: {
     repo,

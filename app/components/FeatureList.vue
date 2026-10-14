@@ -23,10 +23,17 @@ const c = useContent()
             <span class="eyebrow eyebrow--accent">{{ c.features.items[f.id].eyebrow }}</span>
             <h2>{{ c.features.items[f.id].title }}</h2>
             <p>{{ c.features.items[f.id].body }}</p>
+            <ul v-if="f.shot" class="row__points">
+              <li v-for="point in c.features.items[f.id].points" :key="point">
+                <UIcon name="i-lucide-check" class="row__check" />
+                {{ point }}
+              </li>
+            </ul>
           </div>
-          <div class="row__card">
+          <ScreenShot v-if="f.shot" :id="f.shot" />
+          <div v-else class="row__card">
             <span class="icon-tile icon-tile--lg"><UIcon :name="f.icon" /></span>
-            <ul>
+            <ul class="row__points">
               <li v-for="point in c.features.items[f.id].points" :key="point">
                 <UIcon name="i-lucide-check" class="row__check" />
                 {{ point }}
@@ -120,13 +127,14 @@ const c = useContent()
       padding: 22px;
     }
 
-    ul {
-      display: grid;
-      gap: 12px;
-      margin: 20px 0 0;
-      padding: 0;
-      list-style: none;
-    }
+  }
+
+  &__points {
+    display: grid;
+    gap: 12px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
 
     li {
       display: flex;

@@ -7,6 +7,8 @@ documentation page.
 
 ## Getting started
 
+Install RigOne, check that the download is genuine and open it for the first time.
+
 ### What you need
 
 - A Mac with **Apple Silicon** and **macOS 13** or later.
@@ -406,6 +408,8 @@ Two steps that would write to overlapping places at the same time are refused be
 process starts.
 
 ## Knowledge and the Lab
+
+Knowledge is what agents take into their prompts; the Lab lets you try an agent on your own code.
 
 ### Notes and skills
 

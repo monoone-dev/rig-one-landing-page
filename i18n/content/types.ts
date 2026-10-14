@@ -186,6 +186,19 @@ export interface SiteContent {
     /** Link from the header to the tutorial section of the guide. */
     tutorial: string
     onThisPage: string
+    /** Link to /docs/ itself, first in the navigation. */
+    overview: string
+    /** Placeholder and label of the field that filters the navigation. */
+    search: string
+    noMatches: string
+    /** The button that opens the navigation on a phone. */
+    menu: string
+    /** `{minutes}` is replaced with the page's reading time. */
+    readTime: string
+    previous: string
+    next: string
+    /** Label of the previous / next links under a page. */
+    pager: string
     englishNote: string
     /** `{issues}` is replaced with the issue tracker URL. */
     helpHtml: string

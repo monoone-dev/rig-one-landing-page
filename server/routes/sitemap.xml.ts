@@ -6,7 +6,7 @@ const homeShots = ['run', 'canvas', 'agents', 'workflows', 'settings']
 const pageImages: Record<string, string[]> = {
   '/': homeShots.map(id => `screenshots/${id}.webp`),
   '/features/': ['run', 'canvas', 'agents'].map(id => `screenshots/${id}.webp`),
-  '/docs/': [...new Set(docs.toc.flatMap(s => s.children.flatMap(c => c.image ?? [])))],
+  ...Object.fromEntries(docs.pages.map(p => [`/docs/${p.id}/`, [...new Set(p.toc.flatMap(h => h.image ?? []))]])),
 }
 
 export default defineEventHandler((event) => {

@@ -1,3 +1,5 @@
+import { docsPageIds } from './modules/markdown'
+
 // Copy lives in i18n/content/<code>.ts (loaded by app/plugins/content.ts), so vue-i18n gets one
 // empty bundle per language and only handles routing, detection and hreflang.
 const localeFile = { path: 'bundled.ts', cache: false }
@@ -14,7 +16,9 @@ const locales = [
   { code: 'ja', language: 'ja-JP', name: '日本語', file: localeFile },
 ]
 
-const pages = ['/', '/features/', '/docs/', '/compare/', '/changelog/']
+// Every "##" section of docs/user-guide.md is its own page under /docs/
+const docsPages = docsPageIds('docs/user-guide.md').map(id => `/docs/${id}/`)
+const pages = ['/', '/features/', '/docs/', ...docsPages, '/compare/', '/changelog/']
 
 const localizedRoutes = locales.flatMap(({ code }) =>
   pages.map(page => (code === 'en' ? page : `/${code}${page}`)),

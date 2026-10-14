@@ -14,12 +14,15 @@ first-class peers, in parallel, with checks RigOne runs itself.
 [Changelog](https://monoone.dev/rig-one-landing-page/changelog/) ·
 [Support](#support)
 
-macOS 13+ · Apple Silicon · signed and notarized · free
+macOS 13+ · Apple Silicon · signed and notarized · free · in nine languages
+
+![The Run screen in dark mode: a four-step plan on the left, the command bar with /run, /ask and /stop at the bottom](public/screenshots/run.webp)
 
 ## Contents
 
 - [This repository](#this-repository)
 - [What RigOne does](#what-rigone-does)
+- [Screens](#screens)
 - [Install](#install)
 - [Built to fail honestly](#built-to-fail-honestly)
 - [Where your data lives](#where-your-data-lives)
@@ -38,6 +41,7 @@ RigOne's public home. The app's source code is not public and is not here.
 | [Releases](https://github.com/monoone-dev/rig-one-landing-page/releases) | The signed, notarized DMG of every release, with its notes and `SHA256SUMS.txt` |
 | [`release-notes/`](release-notes/) | The same release notes, as Markdown — the website's changelog is built from them |
 | [`docs/user-guide.md`](docs/user-guide.md) | The documentation — the website's docs page is built from it |
+| [`public/screenshots/`](public/screenshots/) | Screens of the shipped app, shown on the website and below |
 | [`app/`](app/), [`i18n/`](i18n/), [`modules/`](modules/), [`public/`](public/), [`server/`](server/) | The website — Nuxt, statically generated |
 | [Issues](https://github.com/monoone-dev/rig-one-landing-page/issues) | Bug reports, ideas and questions |
 
@@ -50,7 +54,7 @@ RigOne's public home. The app's source code is not public and is not here.
    after"; steps that do not depend on each other run at the same time. A step can be an agent, a
    check or a checkpoint where you decide.
 3. **Run it and watch** — point the graph at a folder on your Mac, set how many agents may work at
-   once and the most the run may spend. The plan reads on the left, what every agent said on the
+   once and when to warn you about spend. The plan reads on the left, what every agent said on the
    right, and the question that stopped the run is pinned where you will answer it.
 
 Each step works in its own copy of your code. When the run ends, what the agents changed waits on
@@ -58,14 +62,34 @@ its own branch in your project: **nothing is pushed, and nothing reaches your ow
 take it.** When a step finishes, RigOne runs the checks itself instead of asking the agent whether
 it worked; a second opinion from the other vendor can raise concerns, but never approve.
 
+**Auto** goes one step further: hand the Lead a goal in a sentence, and it picks the roles and
+skills it needs, builds ordinary workflows for each part and keeps going until checks and reviews
+prove the work. Every decision that waits for you — a question, an approval, a design review of
+the tester's screenshots — sits in one list, **Needs you**, and macOS tells you when one arrives.
+
+**Boards** are shared task boards — Kanban or sprints — encrypted and signed on your Mac before
+anything leaves it. Start a task as a workflow or an Auto goal, and its progress shows on the board
+for every member. Boards is the only part of RigOne that needs an account (MonoOne).
+
 Also included: project-scoped knowledge (notes you approve and skills), named context sets from
 text, Markdown, images and PDFs, a shared versioned plan across steps, a Lab that drafts test
-cases from your own code to evaluate an agent, Linear triggers, and run evidence — receipts,
-handoffs, full answers and a diagnostic bundle — that outlives the terminal.
+cases from your own code to evaluate an agent, Linear triggers, live plan limits for both vendors,
+and run evidence — receipts, handoffs, full answers and a diagnostic bundle — that outlives the
+terminal. The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese,
+Chinese and Japanese, in a Minimalist or Studio look, light or dark.
 
 The full feature list is on the [website](https://monoone.dev/rig-one-landing-page/features/),
-and how RigOne compares with other ways to run coding agents is
+and how RigOne compares with Superset, Conductor, the OpenAI Codex app and Cursor Cloud Agents is
 [here](https://monoone.dev/rig-one-landing-page/compare/).
+
+## Screens
+
+| | |
+| --- | --- |
+| ![The Agents screen in dark mode: a list of four roles beside the Scout role, which runs with Claude Code](public/screenshots/agents.webp) | ![The Workflows screen in light mode: Fix a bug across the top, Review a pull request and Ship a feature below it](public/screenshots/workflows.webp) |
+| **Agents** — the whole role on one screen: instructions, CLI, model and effort, file and web access, timeout. | **Workflows** — each saved workflow with its steps and agents; the one you run most takes the width. |
+| ![Settings → Appearance in light mode: the Minimalist and Studio themes, and System, Light or Dark](public/screenshots/settings.webp) | ![The Run screen in dark mode: a four-step plan on the left and the command bar at the bottom](public/screenshots/run.webp) |
+| **Settings** — its own window; Minimalist or Studio, in light, dark or following macOS. | **Run** — the plan on the left, the conversation with the Lead on the right. |
 
 ## Install
 
@@ -97,7 +121,8 @@ answer `accepted` and `source=Notarized Developer ID`.
 </details>
 
 **Permissions.** macOS asks for each one the first time it is needed: the folders you work in,
-sending events to other applications, and the microphone if a workflow drives an app that records.
+sending events to other applications, the microphone if a workflow drives an app that records, and
+notifications for decisions that wait for you.
 Details: [Getting started](https://monoone.dev/rig-one-landing-page/docs/#getting-started).
 
 ## Built to fail honestly
@@ -114,7 +139,10 @@ RigOne treats orchestration failures as product failures, not terminal noise:
 | Treat its database as the truth | Keeps files as the truth; the SQLite index can be deleted and rebuilt |
 
 RigOne itself runs on your Mac and works in your folders. The agents it starts are Claude Code and
-Codex, so what they read goes to their providers exactly as when you run them in a terminal. More:
+Codex, so what they read goes to their providers exactly as when you run them in a terminal. Boards
+sends the MonoOne server only encrypted tasks, comments and activity. In Auto, **Skip permissions**
+(on by default) runs steps with the same full access as the agent CLI in your terminal; turn it off
+to keep them fenced in their copies. More:
 [Safety model](https://monoone.dev/rig-one-landing-page/docs/#safety-model).
 
 ## Where your data lives
@@ -124,6 +152,7 @@ Codex, so what they read goes to their providers exactly as when you run them in
 | Your library: agents, workflows, skills, notes, triggers, context sets, settings | `~/.rig-one/` |
 | A project's own notes and its run history (plain files, safe to commit) | `.rig-one/` inside the project folder |
 | The work of a run | A branch in your project's own Git repository |
+| Board keys | The macOS Keychain |
 
 ## Updating, and coming from Loadout
 
@@ -164,14 +193,14 @@ pnpm generate     # static output in .output/public
 | Path | What it holds |
 | --- | --- |
 | `i18n/content/` | All page copy, one typed file per language (`en.ts` is the source; `types.ts` keeps the others complete) |
-| `app/data/` | What doesn't get translated: links, icons, the comparison's yes/no values |
-| `app/components/` | One component per section; `RigMark.vue` is the logo |
-| `app/pages/` | Home, features, docs, compare and changelog |
-| `app/assets/scss/` | Fonts, colour tokens (light and dark), base and Markdown styles |
+| `app/data/` | What doesn't get translated: links, icons, the screenshots, the compared products and their yes/no values |
+| `app/components/` | One component per section; `RigMark.vue` is the logo, `ScreensSection.vue` the screenshots |
+| `app/pages/` | Home, features, docs, compare and changelog (the layout of SurfaceOne's changelog template: a versions list, a timeline and each release's package) |
+| `app/assets/scss/` | Fonts, colour tokens (light and dark, the violet taken from the mark), base and Markdown styles |
 | `app/composables/usePageSeo.ts` | Meta tags, Open Graph and JSON-LD; `hreflang` and canonical come from Nuxt i18n |
-| `modules/markdown.ts` | Renders `docs/user-guide.md` and `release-notes/*.md` into the pages at build time |
+| `modules/markdown.ts` | Renders `docs/user-guide.md` and `release-notes/*.md` into the pages at build time; takes each note's title and package apart |
 | `server/routes/` | `sitemap.xml` (every language as an alternate) and `robots.txt` |
-| `public/` | Static files served as they are: favicon, app icons, Open Graph image, web manifest |
+| `public/` | Static files served as they are: favicon, app icons, Open Graph image, web manifest, `screenshots/` |
 
 The site makes no third-party requests: fonts and icons are bundled, and there is no analytics.
 CI ([`ci.yml`](.github/workflows/ci.yml)) typechecks and builds the site and checks branch names,
@@ -182,10 +211,14 @@ wires git hooks that check branch names and commit messages
 ([Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), no AI attribution).
 Runbooks for people and coding agents are in [`AGENTS.md`](AGENTS.md) and `.agents/skills/`.
 
-**A release** adds `release-notes/v<version>.md` — a `# Title` line, then `*Released on YYYY-MM-DD.*`,
-then the notes — and the GitHub release with the DMG and `SHA256SUMS.txt`. The changelog page, the
-"version is out" badge, the sitemap and the structured data pick up the new version on the next
-deploy.
+**A release** adds `release-notes/v<version>.md` — `# RigOne <version> — <title>`, then
+`*Released on YYYY-MM-DD.*`, then the notes, ending with a `## The package` section that names
+`RigOne_<version>_aarch64.dmg` and gives its SHA-256 in a code block — and the GitHub release with
+the DMG and `SHA256SUMS.txt`. The changelog page shows the package and its checksum apart from the
+notes, and it, the "version is out" badge, the sitemap and the structured data pick up the new
+version on the next deploy. **New screenshots** go to `public/screenshots/<screen>.webp` (1512 ×
+950, from the release build, no personal data on screen), with their alt text in every
+`i18n/content/` file.
 
 ## Support
 

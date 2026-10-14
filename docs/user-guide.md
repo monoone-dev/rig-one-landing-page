@@ -1,8 +1,9 @@
 # Using RigOne
 
 RigOne is a native macOS control room for coding agents. This guide covers installing it, building
-a workflow, running it against a project and reading what happened. The website renders this file
-as its documentation page.
+a workflow, running it against a project, handing a whole goal to Auto, sharing tasks on a board
+and reading what happened. It describes RigOne 1.6. The website renders this file as its
+documentation page.
 
 ## Getting started
 
@@ -46,8 +47,13 @@ blank screens: make an agent, put agents in a row, run it. Every section you can
 in words what it is waiting for.
 
 macOS asks for each permission the first time it is needed: access to the folders you work in,
-sending events to other applications, and the microphone if a workflow drives an app that
-records.
+sending events to other applications, the microphone if a workflow drives an app that records,
+and notifications, which RigOne uses when a decision waits for you while it is in the background.
+
+The interface follows the macOS language. RigOne speaks English, Polish, German, Spanish, French,
+Italian, Portuguese, Chinese and Japanese; choose another in **Settings → Appearance**. What agents
+and the engine write in a run stays in English, and this guide uses the English names of buttons
+and screens.
 
 ## Concepts
 
@@ -65,16 +71,21 @@ RigOne uses a small, fixed vocabulary. The same words appear on screen, in error
 | **Check** | A command RigOne runs itself to decide whether a step's work holds. |
 | **Second opinion** | A review by another agent. It can raise concerns; it can never approve or block. |
 | **Note** | Something learned in a run, kept for future prompts once approved. |
-| **Tool server** | A connection an agent may use, such as a design tool or an issue tracker. |
-| **Lead agent** | The agent you talk to in the command bar. It can prepare; only `/run` starts work. |
+| **Connection** | A tool server an agent may use, such as a browser, a design tool or an issue tracker. |
+| **Lead** | The agent you talk to in the command bar. It can prepare; only `/run` starts work. |
+| **Auto** | A mode in which the Lead plans, runs and verifies a whole goal across several workflows. |
+| **Goal** | What you hand to Auto, in a sentence. It is saved, so you can resume it later. |
+| **Needs you** | The one list of every decision that waits for you. |
+| **Board** | A shared list of tasks with comments and members, encrypted on your Mac. |
 
 The sidebar groups the screens by why you came:
 
-- **Make** — Agents and Workflows.
-- **Run** — Run and Triggers.
-- **Know** — Knowledge and Lab.
+- **Make** — Agents (⌘1) and Workflows (⌘2).
+- **Run** — Run (⌘3), Triggers (⌘4) and Boards (⌘9).
+- **Know** — Knowledge (⌘5), Context (⌘6) and Lab (⌘7).
 
-Settings sit at the bottom. The sidebar folds to icons and remembers the choice.
+Settings (⌘8) sit at the bottom. The sidebar folds to icons and remembers the choice; the state of
+your agent CLIs stays visible under it.
 
 ## Agents
 
@@ -150,9 +161,14 @@ shows the workspace, the number of steps and whether checks are configured.
 
 ### Limits before you start
 
-- **How many agents at once** — the most steps that may work at the same time. The limit is real:
-  independent branches do run in parallel up to it.
-- **Spend at most** — the most a run may cost, in dollars.
+- **Agents** — how many steps may work at the same time. The limit is real: independent branches
+  do run in parallel up to it.
+- **Warn at $** — a budget warning, in dollars. RigOne tells you when a run reaches the amount;
+  it does not stop the run there, and it cannot count a model whose price it does not know. Set a
+  default in Settings and change it for each run.
+
+Some work waits its turn on its own, whatever the limit: only one Rust build runs at a time on your
+Mac, whichever step or shell started it, while tests, running apps and reviews carry on beside it.
 
 Before any step starts, RigOne checks the whole graph: required inputs, permissions, and every
 step's model and effort against what your CLI reports. An unsupported choice stops the run before
@@ -168,18 +184,72 @@ everything that does not depend on the answer keeps going.
 
 Outcomes say what really happened: **done**, **failed**, **stopped** or **not run**. An agent
 saying "Done" never hides a later failure. Repeated runs of the same step share one card with a
-count.
+count. A long conversation keeps its newest lines on screen and brings earlier ones back from the
+saved files as you scroll up.
+
+**Usage** shows what runs have cost and each vendor's session and weekly plan limits, read live
+from Claude Code and Codex. When a provider is at capacity or a usage limit is reached, the step
+waits, says when it tries again, and continues the same conversation.
 
 ### The command bar
 
-The bar at the bottom talks to the lead agent. It can talk things through and prepare, but only
-`/run` starts work. Other commands include `/ask` an agent, `/start` a command, `/history` for past
-runs and `/open` a folder.
+The bar at the bottom talks to the Lead. It can talk things through and prepare, but only `/run`
+starts work. Other commands include `/ask` an agent, `/start` a command, `/tasks` to break a goal
+into tasks you review before anything runs, `/history` for past runs, `/open` a folder and `/stop`
+the run. A message you send while the Lead is working joins its current turn, and the Lead
+answers it before it carries on.
 
 ### Stopping a run
 
 **Stop** ends the whole process group of every running agent, then verifies that the processes
 are gone and records the proof with the run.
+
+## Auto
+
+Auto hands a whole goal to the Lead. Turn on **Auto** in the command bar, choose a folder, and
+write what you want in a sentence. The Lead picks the roles and skills it needs, builds ordinary
+workflows for the parts of the goal, runs them, reads the results and chooses the next part,
+until every part is verified. You can keep talking to it while it works.
+
+- **RigOne decides when work is verified, not the Lead.** A part counts as done only when its
+  checks and review prove it. A review that fails reopens exactly the result it judged. The Lead's
+  own commands show as "Lead's command passed"; only your saved checks show "Checks passed".
+- **Results arrive as in any run.** Auto's workflows work in their own copies, and the result is
+  committed with a conventional message. Pushes and pull requests are checked against the GitHub
+  account chosen for the project and show "Pushed as …". An Auto step uses that account only when
+  its agent's **More settings** has **Allow GitHub writes in Auto** on.
+- **Saved goals.** A goal is saved where it reached. **Resume a goal** in the header of the
+  conversation lists the saved ones. Each tab runs its own goal; two goals in the same folder take
+  turns.
+- **Stopping.** **Stop the Lead** stops only the Lead, while its workflows keep running.
+  **Stop Auto** says how many workflows it will end and asks first.
+
+### Skip permissions
+
+The **Skip permissions** switch beside the agent picker, also in **Settings → Auto**, decides how
+much Auto's steps may do. On (the default), the Lead and every step run with full access, the way
+`claude --dangerously-skip-permissions` or `codex --yolo` runs in your terminal: no fence around
+the step's copy, no approval prompts, and your normal environment, so a step can run the whole
+test suite or use your keychain. Off, the steps stay fenced in their copy and writing outside it
+needs your approval once per plan. Either way the project's `deny` rules, the GitHub account check
+and keeping secrets out of command lines stay in force. The switch reads "Skip permissions: on" or
+"Skip permissions: off", so you always know which you have.
+
+In Auto the Lead can give a step any Connection you have turned on. A Connection you turned off
+stays off, and a plan that names it is refused by name.
+
+### Needs you
+
+Every decision that waits for you sits in one list, **Needs you**: the Lead's questions,
+approvals, exclusions and design reviews. Each says what it is about and what happens after each
+answer; answers are numbered, and a question can be dismissed, which the Lead hears. When RigOne is
+not in front, macOS tells you a decision is waiting, or that a goal finished or stopped, and the
+Dock icon shows how many decisions wait.
+
+**Design review.** When an Auto result changes screens, RigOne shows you the tester's screenshots
+before the result is recorded. Accept them, or click a spot on a screenshot, write what should
+change and send the comments: the Lead turns each one into the next repair. Turn the review off in
+**Settings → Auto**.
 
 ## Checks and second opinions
 
@@ -225,6 +295,29 @@ process starts.
 **Lab** lets you try an agent on your own code. Pick an agent and RigOne drafts test cases from
 this project, so you can see whether a change to the agent made the work better.
 
+## Boards
+
+**Boards** (⌘9) holds shared boards of tasks, with comments and members. It works without
+choosing a folder, and it is the only part of RigOne that needs an account: create a MonoOne
+account or sign in from Boards or Settings. An IndexOne account signs in with the same email and
+password, and the password is checked with OPAQUE, so the server never learns it.
+
+- **Encrypted on your Mac.** Tasks, comments and activity are encrypted and signed before they
+  leave your Mac; the server only relays ciphertext. Board keys are kept in the macOS Keychain.
+- **Members and devices.** Invite people by email as **Editor** (changes tasks and posts) or
+  **Viewer** (reads). Before a new member or device receives a board key, both sides compare the
+  same fingerprint. The server refuses changes from a Viewer.
+- **Offline.** Changes made without a connection wait in a queue and are sent when it returns.
+- **Kanban or Sprints.** A board can switch between Kanban and Sprints, with planned, running and
+  closed sprints. **Board settings** set the columns, their colours and order, and whether
+  finished tasks are archived or deleted after a number of days.
+
+**Run a task from its board.** Start a task as a saved workflow or as an Auto goal, in a folder you
+choose on this Mac. One computer claims the task; a second start elsewhere is refused with the
+name of the device that runs it. Progress and the final status appear on the board for every
+member. A question from the agent appears in the task: a member who can edit the board answers it
+there, and RigOne passes the answer to the run exactly once.
+
 ## Triggers
 
 A trigger starts a workflow without you pressing Run. Today the supported source is **Linear**:
@@ -255,11 +348,16 @@ RigOne treats orchestration failures as product failures, not terminal noise:
 Settings passed through to a vendor CLI can never raise an agent's file permissions; the
 **Can it change files** control is the only way to do that.
 
+Auto with **Skip permissions** on is the exception to the fence: its steps run with the same
+access as the agent CLI in your terminal. Turn it off when you want Auto's steps to stay in their
+copies.
+
 ### What leaves your Mac
 
 RigOne runs on your Mac and works in your folders. The agents it starts are Claude Code and Codex,
-so what they read goes to their providers exactly as when you run them in a terminal. A trigger
-talks to Linear with the key you gave it.
+so what they read goes to their providers exactly as when you run them in a terminal, and their
+commands may reach the network. A trigger talks to Linear with the key you gave it. Boards talks to
+the MonoOne server, which only ever receives encrypted tasks, comments and activity.
 
 ## Files on disk
 
@@ -273,14 +371,32 @@ talks to Linear with the key you gave it.
 A project's `.rig-one/` folder is plain files and safe to commit. Agents, workflows and notes are
 Markdown and JSON, so they diff cleanly in Git.
 
+Board keys are kept in the macOS Keychain.
+
 **Copy diagnostics** on the Run screen copies a diagnostic bundle for a bug report. Read it before
 you share it: it can contain paths that include your macOS user name.
 
+## Settings
+
+**Settings** (⌘8) opens as its own window, with categories:
+
+- **Work** — **General** (the default budget warning), **Auto** (Skip permissions, design review
+  and how much of this computer Auto may use) and **Project** (the default conversation, project
+  instructions and Connections).
+- **Account** — the MonoOne account Boards uses.
+- **App** — **Appearance** and **About**.
+
+**Appearance** sets the language and the look: **Minimalist** (flat and neutral, the default) or
+**Studio** (cool, airy surfaces with soft depth), each in **Light**, **Dark** or following the
+**System**. **About** shows your version and links to the latest release.
+
 ## Updating
 
-RigOne does not install updates by itself. To update, download the new DMG from the
+RigOne does not install updates by itself. **Settings → About** shows your version and links to the
+latest release. To update, download the new DMG from the
 [latest release](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) and replace
-the app in Applications. Your library and project folders stay where they are.
+the app in Applications. Your library and project folders stay where they are. What changed in each
+version is in the [changelog](https://monoone.dev/rig-one-landing-page/changelog/).
 
 ### Coming from Loadout
 
@@ -312,8 +428,17 @@ that it is installed and signed in, then restart RigOne.
 level your CLI no longer offers, a connection that is turned off, or a step that must save a plan
 but may only look. Fix the step and start again.
 
-**Nothing happened after I pressed Enter in the command bar.** The lead agent talks and prepares;
-only `/run` starts work.
+**Nothing happened after I pressed Enter in the command bar.** The Lead talks and prepares; only
+`/run` starts work, or a goal in Auto.
+
+**Auto asks for approval at every step, or a step cannot reach a file outside its copy.** Skip
+permissions is off. Turn it on next to the agent picker or in **Settings → Auto**.
+
+**Auto is waiting and nothing moves.** Open **Needs you**: a question or a design review may be
+waiting. If a provider is busy or a usage limit was reached, the step says when it tries again.
+
+**Boards says sign-in is required.** Boards is the only part that needs an account. Sign in from
+Boards or **Settings → Account**; the rest of RigOne works without one.
 
 **Something else.** [Open an issue](https://github.com/monoone-dev/rig-one-landing-page/issues/new)
 with your RigOne version, macOS version and what you expected. Issues are public: never paste API

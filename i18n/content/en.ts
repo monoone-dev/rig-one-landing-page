@@ -3,26 +3,26 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — a macOS control room for coding agents',
-      description: 'Build a workflow for Claude Code and Codex on one canvas, run it against a project on your Mac, and watch every agent work in parallel. Free for Apple Silicon.',
+      title: 'RigOne — run Claude Code and Codex agents in parallel on your Mac',
+      description: 'A native macOS control room for coding agents: build a workflow for Claude Code and Codex on one canvas and run it on your project, in parallel. Free.',
     },
     features: {
-      title: 'Features — RigOne',
-      description: 'Visual workflows, real parallel runs, Auto goals, reusable agents, checks RigOne runs itself, work kept on its own branch, shared boards, triggers and evidence that outlives the terminal.',
+      title: 'RigOne features: visual workflows, parallel agents and checks',
+      description: 'Visual workflows, parallel runs, Auto goals, reusable agents, checks RigOne runs itself, changes kept on their own branch, shared boards and Linear triggers.',
       breadcrumb: 'Features',
     },
     docs: {
-      title: 'Documentation — RigOne',
-      description: 'Install RigOne, build your first workflow, run it against a project and read the results. Concepts, safety model, files on disk and troubleshooting.',
+      title: 'RigOne documentation and step-by-step tutorial',
+      description: 'Install RigOne and follow a step-by-step tutorial: make an agent, build a workflow, run it on your Mac and hand a goal to Auto. Full reference included.',
       breadcrumb: 'Documentation',
     },
     compare: {
       title: 'RigOne vs Superset, Conductor, Nimbalyst, Codex and Cursor',
-      description: 'How RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex app and Cursor Cloud Agents: local runs, Claude Code and Codex in one workflow, saved workflows, checks and spend — with the trade-offs.',
+      description: 'RigOne compared with Superset, Conductor, Nimbalyst, the Codex app and Cursor Cloud Agents: local runs, mixed vendors, saved workflows, checks and spend.',
       breadcrumb: 'Compare',
     },
     changelog: {
-      title: 'Changelog — RigOne',
+      title: 'RigOne changelog: release notes and checksums',
       description: 'Every RigOne release: what changed, what to do when you update, and the checksum of the signed, notarized build.',
       breadcrumb: 'Changelog',
     },
@@ -440,6 +440,7 @@ export default {
     eyebrow: 'Documentation',
     title: 'Using RigOne',
     lead: 'Install it, build a workflow, run it against a project and read what happened.',
+    tutorial: 'Start the step-by-step tutorial',
     onThisPage: 'On this page',
     overview: 'Overview',
     search: 'Search the docs',

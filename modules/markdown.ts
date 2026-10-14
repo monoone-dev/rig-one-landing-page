@@ -31,8 +31,21 @@ export interface DocsPage {
   /** Rounded up, at 220 words a minute. */
   minutes: number
   html: string
-  /** The page's "###" headings, rendered as <h2>. */
-  toc: { id: string, title: string }[]
+  /** The page's "###" headings, rendered as <h2>, with their first paragraph and first screenshot
+   *  (for structured data). */
+  toc: { id: string, title: string, summary?: string, image?: string }[]
+}
+
+// Width and height of a WebP file at its natural size, so the page reserves the space.
+function webpSize(file: string) {
+  const b = readFileSync(file)
+  const chunk = b.toString('ascii', 12, 16)
+  if (chunk === 'VP8X') return { width: 1 + b.readUIntLE(24, 3), height: 1 + b.readUIntLE(27, 3) }
+  if (chunk === 'VP8L') {
+    const bits = b.readUInt32LE(21)
+    return { width: 1 + (bits & 0x3fff), height: 1 + ((bits >> 14) & 0x3fff) }
+  }
+  return { width: b.readUInt16LE(26) & 0x3fff, height: b.readUInt16LE(28) & 0x3fff }
 }
 
 export interface Docs {
@@ -43,7 +56,7 @@ export interface Docs {
 // How the left navigation groups the guide's "##" sections, in reading order. Every section of
 // docs/user-guide.md must be in exactly one group, or the build fails.
 const docsGroups: { title: string, pages: string[] }[] = [
-  { title: 'Start here', pages: ['getting-started', 'concepts'] },
+  { title: 'Start here', pages: ['getting-started', 'tutorial-your-first-run-step-by-step', 'concepts'] },
   { title: 'Build', pages: ['agents', 'workflows'] },
   { title: 'Run', pages: ['running-a-workflow', 'auto', 'checks-and-second-opinions', 'where-the-changes-go'] },
   { title: 'Beyond one run', pages: ['knowledge-and-the-lab', 'boards', 'triggers'] },
@@ -54,7 +67,10 @@ const docsGroups: { title: string, pages: string[] }[] = [
 const slug = (text: string) =>
   text.toLowerCase().replace(/<[^>]+>/g, '').replace(/[`'’"]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
-function createMarked(withIds: boolean) {
+// `![alt](../public/screenshots/<id>.webp)` reads on GitHub as it is. On the site it becomes a
+// framed figure holding the dark `<id>.webp` and the light `<id>-light.webp`, shown by colour
+// mode, at half their pixel size; `__BASE__/` is replaced with the app base path by the page.
+function createMarked(withIds: boolean, publicDir?: string) {
   return new Marked({
     gfm: true,
     renderer: {
@@ -62,6 +78,14 @@ function createMarked(withIds: boolean) {
         const text = this.parser.parseInline(tokens)
         const external = /^https?:\/\//.test(href) ? ' target="_blank" rel="noopener"' : ''
         return `<a href="${href}"${title ? ` title="${title}"` : ''}${external}>${text}</a>`
+      },
+      image({ href, text }) {
+        const id = href.match(/^\.\.\/public\/screenshots\/([a-z0-9-]+)\.webp$/)?.[1]
+        if (!id || !publicDir) return `<img src="${href}" alt="${text}">`
+        const { width, height } = webpSize(`${publicDir}/screenshots/${id}.webp`)
+        const img = (file: string, mode: string) =>
+          `<img src="__BASE__/screenshots/${file}.webp" data-mode="${mode}" width="${width / 2}" height="${height / 2}" alt="${text.replace(/"/g, '&quot;')}" loading="lazy" decoding="async">`
+        return `<span class="md-shot">${img(id, 'dark')}${img(`${id}-light`, 'light')}</span>`
       },
       heading({ tokens, depth }) {
         const text = this.parser.parseInline(tokens)
@@ -128,13 +152,16 @@ function readNotes(dir: string): ReleaseNote[] {
 
 const plain = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
 
+/** Markdown source as plain text: link text kept, emphasis and code marks dropped. */
+const plainText = (text: string) => text.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[*`]/g, '').replace(/\s+/g, ' ').trim()
+
 /** The "##" slugs of the guide, in order: the docs pages to prerender. */
 export function docsPageIds(file: string) {
   return [...readFileSync(file, 'utf8').matchAll(/^## (.+)$/gm)].map(m => slug(m[1]!))
 }
 
-function readDocs(file: string): Docs {
-  const marked = createMarked(true)
+function readDocs(file: string, publicDir: string): Docs {
+  const marked = createMarked(true, publicDir)
   const source = readFileSync(file, 'utf8')
   // The file's own "# Title" and intro paragraph are for GitHub; the site has its own header.
   const tokens = marked.lexer(source.replace(/^# .*\n+(?:(?!## ).*\n)*/, ''))
@@ -153,9 +180,16 @@ function readDocs(file: string): Docs {
     if (!group) throw new Error(`docs/user-guide.md: add "## ${title}" (${id}) to docsGroups in modules/markdown.ts`)
     // The page title is the <h1>, so "###" becomes <h2> and so on.
     const toc: DocsPage['toc'] = []
+    let child: DocsPage['toc'][number] | undefined
     for (const t of body) {
+      if (t.type === 'paragraph' && child) {
+        const shot = t.tokens?.find((i): i is Tokens.Image => i.type === 'image')?.href.match(/screenshots\/([a-z0-9-]+)\.webp$/)?.[1]
+        if (shot) child.image ??= `screenshots/${shot}.webp`
+        else child.summary ??= plainText(t.text)
+      }
       if (t.type !== 'heading') continue
-      if (t.depth === 3) toc.push({ id: slug(t.text), title: t.text.replace(/`/g, '') })
+      child = undefined
+      if (t.depth === 3) toc.push(child = { id: slug(t.text), title: t.text.replace(/`/g, '') })
       t.depth = Math.max(2, t.depth - 1)
     }
     const html = marked.parser(body) as string
@@ -194,7 +228,7 @@ export default defineNuxtModule({
     const docs = addTemplate({
       filename: 'docs.mjs',
       write: true,
-      getContents: () => `export default ${JSON.stringify(readDocs(docsFile))}\n`,
+      getContents: () => `export default ${JSON.stringify(readDocs(docsFile, resolve('../public')))}\n`,
     })
     nuxt.options.alias['#release-notes'] = notes.dst
     nuxt.options.alias['#docs'] = docs.dst
@@ -222,7 +256,7 @@ declare module '#docs' {
       summary: string
       minutes: number
       html: string
-      toc: { id: string, title: string }[]
+      toc: { id: string, title: string, summary?: string, image?: string }[]
     }[]
   }
   export default docs
@@ -232,7 +266,7 @@ declare module '#docs' {
 
     nuxt.hook('builder:watch', async (_event, path) => {
       if (path.includes('release-notes/')) await updateTemplates({ filter: t => t.filename === 'release-notes.mjs' })
-      if (path.includes('docs/')) await updateTemplates({ filter: t => t.filename === 'docs.mjs' })
+      if (path.includes('docs/') || path.includes('public/screenshots/')) await updateTemplates({ filter: t => t.filename === 'docs.mjs' })
     })
   },
 })

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import docs from '#docs'
+import notes from '#release-notes'
 
 const c = useContent()
 const { locale } = useI18n()
@@ -8,6 +9,7 @@ const localePath = useLocalePath()
 const router = useRouter()
 
 const byId = new Map(docs.pages.map(p => [p.id, p]))
+const tutorial = docs.pages.find(p => p.title.startsWith('Tutorial'))
 const groups = docs.groups.map(g => ({ title: g.title, pages: g.pages.map(id => byId.get(id)!) }))
 
 // The guide used to be one page: an old link such as /docs/#safety-model opens its page now.
@@ -30,6 +32,8 @@ usePageSeo({
     'about': { '@id': absolute('#app') },
     'publisher': { '@id': absolute('#organization') },
     'articleSection': docs.pages.map(p => p.title),
+    'image': absolute('og-image.png'),
+    ...(notes[0] ? { dateModified: notes[0].date } : {}),
   }],
 })
 </script>
@@ -42,6 +46,14 @@ usePageSeo({
       <p class="intro__lead">
         {{ c.docs.lead }}
       </p>
+      <UButton
+        v-if="tutorial"
+        :to="localePath(`/docs/${tutorial.id}`)"
+        :label="c.docs.tutorial"
+        trailing-icon="i-lucide-arrow-right"
+        size="lg"
+        class="intro__start"
+      />
       <p v-if="locale !== 'en'" class="intro__note">
         <UIcon name="i-lucide-languages" class="size-4 shrink-0" />
         {{ c.docs.englishNote }}
@@ -87,6 +99,10 @@ usePageSeo({
     max-width: 38em;
     color: var(--text-secondary);
     font-size: clamp(16px, 1.8vw, 18px);
+  }
+
+  &__start {
+    margin-top: 10px;
   }
 
   &__note {

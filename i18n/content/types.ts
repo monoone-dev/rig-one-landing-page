@@ -183,6 +183,8 @@ export interface SiteContent {
     eyebrow: string
     title: string
     lead: string
+    /** Link from the header to the tutorial section of the guide. */
+    tutorial: string
     onThisPage: string
     /** Link to /docs/ itself, first in the navigation. */
     overview: string

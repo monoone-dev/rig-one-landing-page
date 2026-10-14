@@ -8,6 +8,10 @@ const { asset } = useSiteUrl()
 
 // <html lang>, canonical, hreflang alternates and og:locale for every language
 const localeHead = useLocaleHead({ dir: false, lang: true, seo: true })
+// Every page ends with a slash (trailingSlash, the sitemap, og:url), but Nuxt i18n leaves it off the
+// home page, which would make "/" and "" two URLs for the same page.
+const withSlash = <T,>(href: T) => (typeof href === 'string' && !href.endsWith('/') ? `${href}/` : href) as T
+const localeLinks = computed(() => (localeHead.value.link ?? []).map(link => ({ ...link, href: withSlash(link.href) })))
 
 useHead(() => ({
   htmlAttrs: { lang: localeHead.value.htmlAttrs?.lang },
@@ -16,7 +20,7 @@ useHead(() => ({
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: asset('favicon-32.png') },
     { rel: 'apple-touch-icon', href: asset('apple-touch-icon.png') },
     { rel: 'manifest', href: asset('site.webmanifest') },
-    ...(localeHead.value.link ?? []),
+    ...localeLinks.value,
   ],
   meta: [
     ...(localeHead.value.meta ?? []),

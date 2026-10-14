@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import docs from '#docs'
+import notes from '#release-notes'
 import { site } from '~/data/site'
 
 // One "##" section of docs/user-guide.md (see modules/markdown.ts).
@@ -7,7 +8,7 @@ import { site } from '~/data/site'
 const c = useContent()
 const route = useRoute()
 const { locale } = useI18n()
-const { absolute } = useSiteUrl()
+const { absolute, asset } = useSiteUrl()
 const localePath = useLocalePath()
 
 const index = computed(() => docs.pages.findIndex(p => p.id === route.params.slug))
@@ -16,6 +17,9 @@ if (index.value < 0) throw createError({ statusCode: 404, statusMessage: 'Page n
 const page = computed(() => docs.pages[index.value]!)
 const previous = computed(() => docs.pages[index.value - 1])
 const next = computed(() => docs.pages[index.value + 1])
+// Screenshots in the guide point at `__BASE__/screenshots/…` (modules/markdown.ts)
+const html = computed(() => page.value.html.replaceAll('__BASE__/', asset('')))
+const isTutorial = computed(() => page.value.title.startsWith('Tutorial'))
 const help = computed(() => fill(c.value.docs.helpHtml, { issues: site.links.newIssue }))
 
 usePageSeo({
@@ -35,7 +39,25 @@ usePageSeo({
     'about': { '@id': absolute('#app') },
     'publisher': { '@id': absolute('#organization') },
     'timeRequired': `PT${page.value.minutes}M`,
-  }],
+    'image': absolute(page.value.toc.find(h => h.image)?.image ?? 'og-image.png'),
+    ...(notes[0] ? { dateModified: notes[0].date } : {}),
+  }, ...(isTutorial.value ? [{
+    '@type': 'HowTo',
+    'name': page.value.title,
+    'description': page.value.summary,
+    'inLanguage': 'en',
+    'url': absolute(localePath(`/docs/${page.value.id}`)),
+    'totalTime': 'PT15M',
+    'tool': [{ '@type': 'HowToTool', 'name': site.name }, { '@type': 'HowToTool', 'name': 'Claude Code or Codex' }],
+    'step': page.value.toc.filter(step => step.title.startsWith('Step')).map((step, index) => ({
+      '@type': 'HowToStep',
+      'position': index + 1,
+      'name': step.title.replace(/^Step \d+:\s*(.)/, (_, first: string) => first.toUpperCase()),
+      'url': `${absolute(localePath(`/docs/${page.value.id}`))}#${step.id}`,
+      'text': step.summary ?? step.title,
+      ...(step.image ? { image: absolute(step.image) } : {}),
+    })),
+  }] : [])],
 })
 </script>
 
@@ -62,7 +84,7 @@ usePageSeo({
       </p>
 
       <!-- eslint-disable-next-line vue/no-v-html -- built from this repository's docs/user-guide.md -->
-      <div class="md article__body" lang="en" v-html="page.html" />
+      <div class="md article__body" lang="en" v-html="html" />
 
       <!-- eslint-disable-next-line vue/no-v-html -- our own copy, see i18n/content -->
       <p class="help" v-html="help" />

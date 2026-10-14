@@ -1,8 +1,8 @@
 # Using RigOne
 
-RigOne is a native macOS control room for coding agents. This guide covers installing it, building
-a workflow, running it against a project, handing a whole goal to Auto, sharing tasks on a board
-and reading what happened. It describes RigOne 1.6. The website renders this file as its
+RigOne is a native macOS control room for coding agents. This guide covers installing it, a
+step-by-step tutorial for your first run, building a workflow, running it against a project,
+handing a whole goal to Auto, sharing tasks on a board and reading what happened. It describes RigOne 1.6. The website renders this file as its
 documentation page.
 
 ## Getting started
@@ -56,6 +56,133 @@ The interface follows the macOS language. RigOne speaks English, Polish, German,
 Italian, Portuguese, Chinese and Japanese; choose another in **Settings → Appearance**. What agents
 and the engine write in a run stays in English, and this guide uses the English names of buttons
 and screens.
+
+## Tutorial: your first run, step by step
+
+This tutorial takes you from an empty RigOne to a finished run and a goal handed to Auto. It uses a
+small web project as the example; any folder with code works. Plan on about fifteen minutes, most of
+it spent watching the agents work. The screenshots show the shipped app with demo data.
+
+### Step 1: open a project and check your agent CLIs
+
+Open RigOne and choose your project folder in the project menu at the top of the sidebar. An empty
+RigOne opens on **Run** with **Your first run**: three stages that tick off as you go — make an
+agent, put agents in a row, run it and watch.
+
+![The Run screen on first launch: the Your first run guide with its three stages, Welcome to RigOne with a Make your first agent button, ready-made agents below, and the command bar at the bottom.](../public/screenshots/tutorial-welcome.webp)
+
+Before you build anything, open **Agent apps** at the bottom of the sidebar and check that Claude
+Code or Codex is ready. If one is not, run `claude` or `codex` once in Terminal to install it or
+sign in, then restart RigOne.
+
+You do not need an agent to start talking: the command bar at the bottom already answers in the
+project folder. To skip the guide, press **I know my way**, or take one of the ready-made agents
+under **Or take one that is ready**.
+
+### Step 2: make an agent with one job
+
+Press **Make your first agent**, or open **Agents** (⌘1) and press **Create**. Give the agent a
+**Name**, a one-line **What it does**, and **Instructions** in your own words. Then set its
+**Run settings**:
+
+- **Runs with** — Claude Code or Codex, with the model and effort your CLI offers.
+- **Can it change files** — keep **Look only** for agents that read, research or review. Only the
+  agent that writes the change needs more.
+- **Can it reach the web** — reading and searching only; it never widens what the agent may do with
+  your files.
+- **Give up after** — a timeout, stopped the same supervised way as **Stop**.
+
+![The Agents screen with a new agent called Reviewer: its name, what it does and its instructions filled in, and run settings below with Claude Code, Look only, Read and search the web, and 30 minutes.](../public/screenshots/tutorial-agent.webp)
+
+Press **Save**. For a first workflow, make three agents: one that reads and finds the cause, one
+that writes the change, and a reviewer. **Create from description** drafts an agent from a sentence
+when you would rather edit than write.
+
+### Step 3: put agents in a row
+
+Open **Workflows** (⌘2) and press **Create**. Add a step for each agent and draw arrows between
+them. An arrow means "runs after", nothing else. Two steps that come after the same step start
+together, so a test check and a second opinion can run side by side once the fix is written.
+
+![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side.](../public/screenshots/canvas.webp)
+
+Add a **Check** after the step that changes code, with the command that proves the work, such as
+`npm test`. RigOne runs it itself and records what it found; the agent does not get to say it
+passed. Give the reviewing step an agent from the other vendor, so the second opinion comes from a
+different model.
+
+### Step 4: read the plan, then start
+
+Open **Run** (⌘3). RigOne picks a workflow for you; choose another from the menu next to its name.
+The header shows the workspace, the number of steps and whether checks are configured, and the plan
+lists every step with the one it waits for.
+
+![The Run screen ready to run Ship a feature: four waiting steps in the plan, each naming the step it runs after, the Agents and Warn at $ limits in the header, and Learn from this run ticked.](../public/screenshots/tutorial-ready.webp)
+
+Set two limits in the header before you start:
+
+- **Agents** — how many steps may work at the same time.
+- **Warn at $** — the amount at which RigOne tells you what the run has cost. It warns; it does not
+  stop the run.
+
+Leave **Learn from this run** ticked to get up to three suggested notes afterwards. Press
+**Run workflow**, or type `/run` in the command bar. Before the first step starts, RigOne checks
+the whole graph and names any step whose model, effort or permissions will not work.
+
+### Step 5: watch, and answer when asked
+
+The plan on the left shows each step's state. The stream on the right carries what every agent
+said, in order, with the files it read and edited, the commands it ran and what they cost.
+
+![The Run screen while Ship a feature runs: three steps done and Second opinion working, what each agent said in the stream, and the Lead asking whether to ship the fix now or add the cleanup first.](../public/screenshots/run.webp)
+
+When an agent asks something, the question is pinned where you answer it, with numbered answers.
+Everything that does not depend on the answer keeps going. You can keep writing to the Lead in the
+command bar; a message sent while it works joins its current turn. **Stop** ends every running
+agent and records the proof that the processes are gone.
+
+### Step 6: take the result
+
+Each step ends **done**, **failed**, **stopped** or **not run**, and the run keeps apart what the
+agents said, what the checks found and what you approved. Everything the agents changed waits on
+its own branch in your project: nothing is pushed, and nothing reaches your own branch until you
+take it. Review that branch with Git as you would a colleague's, then merge it or delete it.
+
+If you left **Learn from this run** on, open **Knowledge** and approve the notes worth keeping. An
+approved note goes into every future prompt in this project.
+
+### Step 7: hand a whole goal to Auto
+
+Once a workflow has run, try Auto. In the command bar press **Auto**, check the
+**Skip permissions** switch beside it, write the goal in a sentence and press **Send**.
+
+![The Run screen with Auto on: Skip permissions on beside it and a goal in the command bar, asking RigOne to let people export their invoices as CSV from the billing page, with tests.](../public/screenshots/tutorial-auto.webp)
+
+The Lead picks the agents it needs, builds ordinary workflows for the parts of the goal, runs them
+and reads the results until every part is verified by checks and review. Decisions that wait for
+you collect in **Needs you**, and macOS tells you when one waits while RigOne is in the background.
+The goal is saved, so **Resume a goal** picks it up later. Read [Auto](#auto) before you turn
+**Skip permissions** on for a project you care about.
+
+### Working efficiently
+
+- **One job per agent.** Small agents are easier to reuse across workflows and easier to fix when a
+  step goes wrong.
+- **Only the writer writes.** Keep readers, researchers and reviewers on **Look only**; it also
+  lets RigOne run them beside each other without overlapping writes.
+- **Split independent work.** Steps that do not depend on each other go on separate branches of the
+  graph, and **Agents** sets how many run at once.
+- **Prove every change.** Put a **Check** after each step that changes code. "Nothing ran" never
+  counts as a pass.
+- **Mix vendors.** A second opinion from Claude Code on a change Codex wrote, or the other way
+  round, catches what one model misses.
+- **Give context once.** Put specifications, screenshots and PDFs in a **Context** set and attach it
+  to the steps that need it, instead of pasting them into instructions.
+- **Break a big goal down first.** `/tasks` turns a goal into a list you review before anything
+  runs.
+- **Reuse your setup.** **Import setup from project** copies agents and workflows from another
+  project; **Triggers** start a workflow from a Linear issue.
+- **Move with the keyboard.** ⌘1 to ⌘9 open the screens, and ⌘B folds the sidebar.
 
 ## Concepts
 

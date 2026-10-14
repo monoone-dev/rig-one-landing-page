@@ -16,7 +16,7 @@ export const differentiators: { id: DifferentiatorId, icon: string, to: string }
 
 /** `shot` puts a screenshot beside the feature on the features page, as IndexOne does. */
 export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
-  { id: 'canvas', icon: 'i-lucide-workflow', shot: 'workflows' },
+  { id: 'canvas', icon: 'i-lucide-workflow', shot: 'canvas' },
   { id: 'parallel', icon: 'i-lucide-split' },
   { id: 'run', icon: 'i-lucide-radio', shot: 'run' },
   { id: 'auto', icon: 'i-lucide-sparkles' },
@@ -31,11 +31,13 @@ export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
 ]
 
 /**
- * Screenshots of the app, rendered from its real frontend with demo data: `<id>.webp` in dark mode
- * and `<id>-light.webp` in light mode, both in public/screenshots/.
+ * Screenshots of the app, rendered from its real frontend with demo data (no real names, paths or
+ * accounts): `<id>.webp` in dark mode and `<id>-light.webp` in light mode, both in
+ * public/screenshots/, at twice the listed size for sharp screens.
  */
 export const screens: { id: ScreenId, icon: string, width: number, height: number }[] = [
-  { id: 'run', icon: 'i-lucide-play', width: 1512, height: 950 },
+  { id: 'run', icon: 'i-lucide-play', width: 1512, height: 1080 },
+  { id: 'canvas', icon: 'i-lucide-git-fork', width: 1512, height: 950 },
   { id: 'agents', icon: 'i-lucide-users', width: 1512, height: 950 },
   { id: 'workflows', icon: 'i-lucide-workflow', width: 1512, height: 950 },
   { id: 'settings', icon: 'i-lucide-settings', width: 1512, height: 950 },

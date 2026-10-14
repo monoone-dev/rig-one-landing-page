@@ -16,7 +16,7 @@ first-class peers, in parallel, with checks RigOne runs itself.
 
 macOS 13+ · Apple Silicon · signed and notarized · free · in nine languages
 
-![The Run screen in dark mode: a four-step plan on the left, the command bar with /run, /ask and /stop at the bottom](public/screenshots/run.webp)
+![The Run screen while Ship a feature runs: three steps done, Second opinion working, and the Lead asking whether to ship the fix now](public/screenshots/run.webp)
 
 ## Contents
 
@@ -86,10 +86,12 @@ and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex ap
 
 | | |
 | --- | --- |
-| ![The Agents screen in dark mode: a list of four roles beside the Scout role, which runs with Claude Code](public/screenshots/agents.webp) | ![The Workflows screen in light mode: Fix a bug across the top, Review a pull request and Ship a feature below it](public/screenshots/workflows.webp) |
+| ![The Agents screen: four roles beside Scout, which runs with Claude Code](public/screenshots/agents.webp) | ![The Workflows screen: Fix a bug across the top, Review a pull request and Ship a feature below it](public/screenshots/workflows-light.webp) |
 | **Agents** — the whole role on one screen: instructions, CLI, model and effort, file and web access, timeout. | **Workflows** — each saved workflow with its steps and agents; the one you run most takes the width. |
-| ![Settings → Appearance in light mode: the Minimalist and Studio themes, and System, Light or Dark](public/screenshots/settings.webp) | ![The Run screen in dark mode: a four-step plan on the left and the command bar at the bottom](public/screenshots/run.webp) |
-| **Settings** — its own window; Minimalist or Studio, in light, dark or following macOS. | **Run** — the plan on the left, the conversation with the Lead on the right. |
+| ![Settings → Appearance: the Minimalist and Studio themes, and System, Light or Dark](public/screenshots/settings-light.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas.webp) |
+| **Settings** — its own window; Minimalist or Studio, in light, dark or following macOS. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
+
+Every screen is in `public/screenshots/` in dark (`<screen>.webp`) and light (`<screen>-light.webp`).
 
 ## Install
 
@@ -216,9 +218,9 @@ Runbooks for people and coding agents are in [`AGENTS.md`](AGENTS.md) and `.agen
 `RigOne_<version>_aarch64.dmg` and gives its SHA-256 in a code block — and the GitHub release with
 the DMG and `SHA256SUMS.txt`. The changelog page shows the package and its checksum apart from the
 notes, and it, the "version is out" badge, the sitemap and the structured data pick up the new
-version on the next deploy. **New screenshots** go to `public/screenshots/<screen>.webp` (1512 ×
-950, from the release build, no personal data on screen), with their alt text in every
-`i18n/content/` file.
+version on the next deploy. **New screenshots** go to `public/screenshots/<screen>.webp` (dark) and `<screen>-light.webp`
+(light), rendered at twice their size from the app's real frontend with demo data — no real names,
+paths or accounts on screen — with their alt text in every `i18n/content/` file.
 
 ## Support
 

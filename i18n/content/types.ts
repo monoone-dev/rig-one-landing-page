@@ -27,7 +27,7 @@ export type FeatureId =
   | 'checks' | 'branches' | 'boards' | 'triggers' | 'lab' | 'evidence'
 
 /** The app screenshots in public/screenshots/<id>.webp, in the order of `screens` in app/data/shared.ts. */
-export type ScreenId = 'run' | 'agents' | 'workflows' | 'settings'
+export type ScreenId = 'run' | 'canvas' | 'agents' | 'workflows' | 'settings'
 
 export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'unknown' | 'green' | 'files'
 

@@ -8,7 +8,7 @@ export default {
     },
     features: {
       title: 'Features — RigOne',
-      description: 'Visual workflows, real parallel runs, reusable agents, checks RigOne runs itself, work kept on its own branch, triggers and evidence that outlives the terminal.',
+      description: 'Visual workflows, real parallel runs, Auto goals, reusable agents, checks RigOne runs itself, work kept on its own branch, shared boards, triggers and evidence that outlives the terminal.',
       breadcrumb: 'Features',
     },
     docs: {
@@ -17,8 +17,8 @@ export default {
       breadcrumb: 'Documentation',
     },
     compare: {
-      title: 'RigOne compared with other ways to run coding agents',
-      description: 'How RigOne differs from an agent CLI on its own, parallel-agent desktop apps, terminal session managers and cloud coding agents — with the trade-offs.',
+      title: 'RigOne vs Superset, Conductor, Codex and Cursor',
+      description: 'How RigOne compares with Superset, Conductor, the OpenAI Codex app and Cursor Cloud Agents: local runs, Claude Code and Codex in one workflow, saved workflows, checks and spend — with the trade-offs.',
       breadcrumb: 'Compare',
     },
     changelog: {
@@ -114,7 +114,7 @@ export default {
   how: {
     eyebrow: 'How it works',
     title: 'Three steps, and only the third one spends money',
-    lead: 'You stay in charge of what runs, how many at once and how much it may cost.',
+    lead: 'You stay in charge of what runs, how many at once and when to be warned about cost.',
     steps: [
       {
         title: 'Write an agent',
@@ -129,6 +129,38 @@ export default {
         body: 'Point the graph at a folder on this Mac. Answer when an agent asks; everything else keeps going.',
       },
     ],
+  },
+  screens: {
+    eyebrow: 'Screens',
+    title: 'See it before you download it',
+    lead: 'The app as it ships today, in the default Minimalist look. Every screen works in light and dark.',
+    label: 'Screens of the app',
+    items: {
+      run: {
+        tab: 'Run',
+        title: 'Run a workflow, or talk it through first',
+        body: 'The plan on the left, the conversation with the Lead on the right. Set how many agents may work at once and when to warn about spend, then press Run workflow.',
+        alt: 'The Run screen in dark mode: a four-step plan on the left and the command bar with /run, /ask and /stop at the bottom.',
+      },
+      agents: {
+        tab: 'Agents',
+        title: 'The whole role on one screen',
+        body: 'Its instructions, the CLI, model and effort it runs with, whether it may change files or reach the web, and when it gives up.',
+        alt: 'The Agents screen in dark mode: a list of four roles beside the Scout role, which runs with Claude Code.',
+      },
+      workflows: {
+        tab: 'Workflows',
+        title: 'Workflows you run again',
+        body: 'Each saved workflow with its steps and agents. The one you run most often takes the full width.',
+        alt: 'The Workflows screen in light mode: Fix a bug across the top, Review a pull request and Ship a feature below it.',
+      },
+      settings: {
+        tab: 'Settings',
+        title: 'Settings in a window of its own',
+        body: 'Categories for work, your account and the app. Pick the Minimalist or Studio look, in light, dark or following macOS.',
+        alt: 'Settings → Appearance in light mode: the Minimalist and Studio themes, and System, Light or Dark.',
+      },
+    },
   },
   honest: {
     eyebrow: 'Built to fail honestly',
@@ -167,7 +199,7 @@ export default {
         body: 'Independent branches overlap in time instead of taking turns behind a single worker.',
         points: [
           'Choose how many agents may work at once',
-          'Set the most a run may spend before it starts',
+          'Get a warning when a run reaches the amount you set',
           'Models and effort levels are checked against your installed CLI before any step starts',
         ],
       },
@@ -179,6 +211,17 @@ export default {
           'Questions, spawned commands, output and spend stay together',
           'Outcomes say what happened: done, failed, stopped or not run',
           'A lead agent can talk things through with you — only /run starts work',
+        ],
+      },
+      auto: {
+        eyebrow: 'Auto',
+        title: 'From one sentence to a verified result',
+        body: 'Give the Lead a goal. Auto picks the roles and skills it needs, builds ordinary workflows for each part and keeps going until checks and reviews prove the work. RigOne decides when a goal is verified, not the Lead.',
+        points: [
+          'Every decision that waits for you sits in one list: Needs you',
+          'Design review: accept the tester’s screenshots, or click a spot and say what should change',
+          'Waits out a busy provider or a usage limit, then carries on',
+          'Skip permissions turns full access on or off for the whole Auto run',
         ],
       },
       agents: {
@@ -222,6 +265,17 @@ export default {
           'A real conflict names the branches where the work is kept',
         ],
       },
+      boards: {
+        eyebrow: 'Boards',
+        title: 'Shared boards, encrypted on your Mac',
+        body: 'Tasks, comments and members on a Kanban or sprint board. Start a task as a workflow or an Auto goal in a folder on this Mac, and its progress shows on the board for everyone.',
+        points: [
+          'Encrypted and signed on your Mac; the server only relays ciphertext',
+          'Invite members as Editor or Viewer, and approve every new device',
+          'Works offline and sends changes when the connection returns',
+          'The only part of RigOne that needs a MonoOne account',
+        ],
+      },
       triggers: {
         eyebrow: 'Triggers',
         title: 'Triggers and recovery',
@@ -255,49 +309,52 @@ export default {
   },
   compare: {
     eyebrow: 'Compare',
-    title: 'RigOne and the other ways to run coding agents',
-    lead: 'There are good tools for running one agent, or many side by side. RigOne is for when the work is a sequence of steps you want to run again.',
-    caption: 'RigOne compared with four kinds of tool for running coding agents',
+    title: 'RigOne compared with Superset, Conductor, Codex and Cursor',
+    lead: 'Several good tools run coding agents side by side. RigOne is for when the work is a sequence of steps you want to run again, with checks it runs itself.',
+    caption: 'RigOne compared with Superset, Conductor, the OpenAI Codex app and Cursor Cloud Agents',
     capability: 'Capability',
-    columns: ['Agent CLI on its own', 'Parallel-agent desktop apps', 'Terminal session managers', 'Cloud coding agents'],
-    examples: ['Claude Code, Codex CLI', 'e.g. Conductor', 'e.g. Claude Squad', 'e.g. Codex cloud, Copilot coding agent'],
+    examples: ['Desktop app, source-available', 'Mac app', 'OpenAI’s desktop app', 'Cloud agents in Cursor'],
     labels: { yes: 'Yes', partial: 'Partly', no: 'No', unknown: 'Not stated' },
     notStated: 'Not stated publicly',
     rows: {
       local: {
         criterion: 'Works on your own Mac and folder',
-        cells: ['', '', '', '', 'Runs in the provider’s sandbox'],
+        cells: ['', 'Local by default', 'Cloud workspaces on Pro', 'Plus Codex Cloud', 'Cloud VMs only'],
       },
       mix: {
         criterion: 'Claude Code and Codex in one workflow',
-        cells: ['', 'One vendor per session', 'Side by side, not in one flow', 'Side by side, not in one flow', 'One vendor per service'],
+        cells: ['', 'Side by side, one agent per workspace', 'Side by side, one agent per workspace', 'Codex only', 'Cursor’s own agent'],
       },
       graph: {
         criterion: 'Saved multi-step workflow you can run again',
-        cells: ['Visual graph', 'Scripts, hooks and subagents', '', '', ''],
+        cells: ['Visual graph', 'Presets and scripts; automations on Pro', 'Setup and run scripts', 'Scheduled automations', ''],
       },
       isolated: {
         criterion: 'Parallel work in isolated copies of the code',
-        cells: ['One workspace per step', 'Worktrees you manage', 'One worktree per agent', 'One worktree per agent', 'One sandbox per task'],
+        cells: ['One workspace per step', 'One worktree per workspace', 'One workspace per task', 'Worktrees', 'One VM per agent'],
       },
       checks: {
         criterion: 'Checks run by the tool, separate from the agent’s claim',
-        cells: ['“Nothing ran” is never a pass', 'With your own hooks', '', '', 'CI on the pull request'],
+        cells: ['“Nothing ran” is never a pass', 'Setup and run scripts', 'Shows CI and pull-request status', 'Setup scripts', 'The agent tests its own work'],
       },
       budget: {
-        criterion: 'Spend limit and concurrency per run',
-        cells: ['', 'Per-session limits only', '', '', 'Plan limits'],
+        criterion: 'Spend warning and concurrency per run',
+        cells: ['A warning per run', '', '', 'Plan limits', 'A spend limit, no concurrency limit'],
+      },
+      boards: {
+        criterion: 'Shared task board and issue tracker',
+        cells: ['Encrypted boards, Linear triggers', 'Linear and Slack on Pro', 'Linear and GitHub issues', 'Linear and GitHub', 'Linear, GitHub and Slack'],
       },
       platforms: {
         criterion: 'Platforms',
-        cells: ['macOS 13+, Apple Silicon', 'macOS, Linux, Windows', 'macOS', 'macOS, Linux', 'Browser'],
+        cells: ['macOS 13+, Apple Silicon', 'macOS; Linux experimental', 'macOS', 'macOS, Windows, Linux', 'Cloud'],
       },
       price: {
         criterion: 'Price',
-        cells: ['Free; uses your Claude Code or Codex plan', 'Included with the vendor plan', 'See the product’s site', 'Free, open source', 'Included with the vendor plan'],
+        cells: ['Free; uses your Claude Code or Codex plan', 'Free; Pro $20 per user a month', 'Free; Pro $50 a month', 'Included in ChatGPT plans', 'Paid Cursor plan plus API pricing'],
       },
     },
-    footnoteHtml: 'Compared by kind of tool, from public documentation, in October 2026. Individual products differ and change quickly. Found a mistake? <a href="{issues}">Tell us</a>.',
+    footnoteHtml: 'From each product’s public documentation and pricing, checked in October 2026. Products change quickly; “Not stated” means we found nothing public. Found a mistake? <a href="{issues}">Tell us</a>.',
   },
   faq: {
     eyebrow: 'FAQ',
@@ -310,11 +367,11 @@ export default {
       },
       {
         question: 'Does RigOne send my code anywhere?',
-        answer: 'RigOne itself runs on your Mac and works in your folder. The agents you start are Claude Code and Codex, so the code they read goes to their providers exactly as it would if you ran them in a terminal.',
+        answer: 'RigOne itself runs on your Mac and works in your folder. The agents you start are Claude Code and Codex, so the code they read goes to their providers exactly as it would if you ran them in a terminal. Boards, the only part that needs an account, encrypts tasks and comments on your Mac before they leave it.',
       },
       {
         question: 'How much does it cost?',
-        answer: 'RigOne is free to download and use. Runs use your own Claude Code or Codex plan, and you can set the most a run may spend before it starts.',
+        answer: 'RigOne is free to download and use. Runs use your own Claude Code or Codex plan, and RigOne warns you when a run reaches the amount you set.',
       },
       {
         question: 'Will an agent push to my repository?',
@@ -323,6 +380,10 @@ export default {
       {
         question: 'Can I use only Claude Code, or only Codex?',
         answer: 'Yes. One installed and signed-in CLI is enough. Mixing both is useful when you want one vendor to write and the other to give a second opinion.',
+      },
+      {
+        question: 'Is the app in my language?',
+        answer: 'Yes, in the same nine languages as this site. It follows the macOS language, and you can choose another in Settings → Appearance. What agents write in a run stays in English.',
       },
       {
         question: 'Is there a Windows, Linux or Intel version?',
@@ -350,6 +411,17 @@ export default {
     github: 'Releases on GitHub',
     latest: 'Latest',
     englishNote: 'Release notes are written in English.',
+    versions: 'Versions',
+    show: 'Show releases',
+    all: 'All',
+    featureReleases: 'Features',
+    patchReleases: 'Fixes',
+    count: 'Releases:',
+    empty: 'No releases of this kind.',
+    showOlder: 'Show older releases',
+    package: 'Package',
+    copyChecksum: 'Copy SHA-256',
+    copied: 'Copied',
   },
   docs: {
     eyebrow: 'Documentation',

@@ -1,5 +1,5 @@
 // What does not get translated: ids, icons, link targets and the comparison's yes/no values.
-import type { ComparisonRowId, DifferentiatorId, FeatureId, HonestId } from '~~/i18n/content/types'
+import type { ComparisonRowId, DifferentiatorId, FeatureId, HonestId, ScreenId } from '~~/i18n/content/types'
 
 export type Support = 'yes' | 'partial' | 'no' | 'unknown' | 'info'
 
@@ -14,33 +14,52 @@ export const differentiators: { id: DifferentiatorId, icon: string, to: string }
   { id: 'evidence', icon: 'i-lucide-receipt-text', to: '/features#evidence' },
 ]
 
-export const features: { id: FeatureId, icon: string }[] = [
-  { id: 'canvas', icon: 'i-lucide-workflow' },
+/** `shot` puts a screenshot beside the feature on the features page, as IndexOne does. */
+export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
+  { id: 'canvas', icon: 'i-lucide-workflow', shot: 'workflows' },
   { id: 'parallel', icon: 'i-lucide-split' },
-  { id: 'run', icon: 'i-lucide-radio' },
-  { id: 'agents', icon: 'i-lucide-users' },
+  { id: 'run', icon: 'i-lucide-radio', shot: 'run' },
+  { id: 'auto', icon: 'i-lucide-sparkles' },
+  { id: 'agents', icon: 'i-lucide-users', shot: 'agents' },
   { id: 'knowledge', icon: 'i-lucide-book-open' },
   { id: 'checks', icon: 'i-lucide-list-checks' },
   { id: 'branches', icon: 'i-lucide-git-branch' },
+  { id: 'boards', icon: 'i-lucide-square-kanban' },
   { id: 'triggers', icon: 'i-lucide-alarm-clock' },
   { id: 'lab', icon: 'i-lucide-flask-conical' },
   { id: 'evidence', icon: 'i-lucide-receipt-text' },
+]
+
+/** Screenshots of the shipped app, in public/screenshots/<id>.webp (1512 × 950, taken from the release build). */
+export const screens: { id: ScreenId, icon: string, theme: 'dark' | 'light' }[] = [
+  { id: 'run', icon: 'i-lucide-play', theme: 'dark' },
+  { id: 'agents', icon: 'i-lucide-users', theme: 'dark' },
+  { id: 'workflows', icon: 'i-lucide-workflow', theme: 'light' },
+  { id: 'settings', icon: 'i-lucide-settings', theme: 'light' },
 ]
 
 export const honest: HonestId[] = ['scopes', 'cancel', 'timeouts', 'secrets', 'env', 'unknown', 'green', 'files']
 
 export const howIcons = ['i-lucide-pen-line', 'i-lucide-workflow', 'i-lucide-play'] as const
 
-/** Column order of the comparison: RigOne first, then the four kinds of alternative. */
+/**
+ * The products RigOne is compared with, after RigOne itself. Facts come from each product's public
+ * documentation and pricing (see the footnote); re-check them when `comparisonCheckedOn` moves.
+ * Left out on purpose: Vibe Kanban (sunsetting), Crystal (replaced by Nimbalyst).
+ */
+export const competitors = ['Superset', 'Conductor', 'OpenAI Codex app', 'Cursor Cloud Agents'] as const
+
 export const comparisonCheckedOn = '2026-10'
 
+/** Column order: RigOne, then `competitors`. */
 export const comparison: { id: ComparisonRowId, values: [Support, Support, Support, Support, Support] }[] = [
   { id: 'local', values: ['yes', 'yes', 'yes', 'yes', 'no'] },
-  { id: 'mix', values: ['yes', 'no', 'partial', 'partial', 'no'] },
-  { id: 'graph', values: ['yes', 'partial', 'unknown', 'no', 'no'] },
-  { id: 'isolated', values: ['yes', 'partial', 'yes', 'yes', 'yes'] },
-  { id: 'checks', values: ['yes', 'partial', 'unknown', 'no', 'partial'] },
-  { id: 'budget', values: ['yes', 'partial', 'unknown', 'no', 'partial'] },
+  { id: 'mix', values: ['yes', 'partial', 'partial', 'no', 'no'] },
+  { id: 'graph', values: ['yes', 'partial', 'no', 'partial', 'unknown'] },
+  { id: 'isolated', values: ['yes', 'yes', 'yes', 'yes', 'yes'] },
+  { id: 'checks', values: ['yes', 'partial', 'partial', 'partial', 'no'] },
+  { id: 'budget', values: ['yes', 'unknown', 'unknown', 'partial', 'partial'] },
+  { id: 'boards', values: ['yes', 'partial', 'partial', 'partial', 'partial'] },
   { id: 'platforms', values: ['info', 'info', 'info', 'info', 'info'] },
   { id: 'price', values: ['info', 'info', 'info', 'info', 'info'] },
 ]

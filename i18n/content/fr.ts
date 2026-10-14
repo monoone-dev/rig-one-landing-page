@@ -8,7 +8,7 @@ export default {
     },
     features: {
       title: 'Fonctions — RigOne',
-      description: 'Flux visuels, vraies exécutions en parallèle, agents réutilisables, vérifications lancées par RigOne lui-même, travail gardé sur sa propre branche, déclencheurs et traces qui survivent au terminal.',
+      description: 'Flux visuels, vraies exécutions en parallèle, objectifs Auto, agents réutilisables, vérifications lancées par RigOne lui-même, travail gardé sur sa propre branche, tableaux partagés, déclencheurs et traces qui survivent au terminal.',
       breadcrumb: 'Fonctions',
     },
     docs: {
@@ -17,8 +17,8 @@ export default {
       breadcrumb: 'Documentation',
     },
     compare: {
-      title: 'RigOne comparé aux autres façons de lancer des agents de code',
-      description: 'Ce qui distingue RigOne d’une CLI d’agent seule, des applications de bureau pour agents en parallèle, des gestionnaires de sessions de terminal et des agents de code dans le cloud — avec les compromis.',
+      title: 'RigOne face à Superset, Conductor, Codex et Cursor',
+      description: 'Ce qui distingue RigOne de Superset, Conductor, l’app OpenAI Codex et Cursor Cloud Agents : exécutions locales, Claude Code et Codex dans un même flux, flux enregistrés, vérifications et dépenses — avec les compromis.',
       breadcrumb: 'Comparer',
     },
     changelog: {
@@ -114,7 +114,7 @@ export default {
   how: {
     eyebrow: 'Comment ça marche',
     title: 'Trois étapes, et seule la troisième dépense de l’argent',
-    lead: 'Vous décidez de ce qui s’exécute, de combien en même temps et de ce que cela peut coûter.',
+    lead: 'Vous décidez de ce qui s’exécute, de combien en même temps et du moment où être prévenu de la dépense.',
     steps: [
       {
         title: 'Écrivez un agent',
@@ -129,6 +129,38 @@ export default {
         body: 'Pointez le graphe vers un dossier de ce Mac. Répondez quand un agent demande ; tout le reste continue.',
       },
     ],
+  },
+  screens: {
+    eyebrow: 'Écrans',
+    title: 'Voyez-le avant de le télécharger',
+    lead: 'L’app telle qu’elle est livrée aujourd’hui, avec l’apparence Minimalist par défaut. Chaque écran fonctionne en clair et en sombre.',
+    label: 'Écrans de l’app',
+    items: {
+      run: {
+        tab: 'Run',
+        title: 'Lancez un flux, ou parlez-en d’abord',
+        body: 'Le plan à gauche, la conversation avec le Lead à droite. Choisissez combien d’agents travaillent à la fois et quand prévenir de la dépense, puis appuyez sur Run workflow.',
+        alt: 'L’écran Run en mode sombre : un plan en quatre étapes à gauche et la barre de commandes avec /run, /ask et /stop en bas.',
+      },
+      agents: {
+        tab: 'Agents',
+        title: 'Tout le rôle sur un seul écran',
+        body: 'Ses instructions, la CLI, le modèle et l’effort avec lesquels il travaille, s’il peut modifier des fichiers ou accéder au web, et quand il abandonne.',
+        alt: 'L’écran Agents en mode sombre : une liste de quatre rôles à côté du rôle Scout, qui tourne avec Claude Code.',
+      },
+      workflows: {
+        tab: 'Workflows',
+        title: 'Des flux que vous relancez',
+        body: 'Chaque flux enregistré avec ses étapes et ses agents. Celui que vous lancez le plus prend toute la largeur.',
+        alt: 'L’écran Workflows en mode clair : Fix a bug en haut, Review a pull request et Ship a feature en dessous.',
+      },
+      settings: {
+        tab: 'Settings',
+        title: 'Des réglages dans leur propre fenêtre',
+        body: 'Des catégories pour le travail, le compte et l’app. Choisissez l’apparence Minimalist ou Studio, en clair, en sombre ou selon macOS.',
+        alt: 'Settings → Appearance en mode clair : les thèmes Minimalist et Studio, et System, Light ou Dark.',
+      },
+    },
   },
   honest: {
     eyebrow: 'Conçu pour échouer honnêtement',
@@ -167,7 +199,7 @@ export default {
         body: 'Les branches indépendantes se chevauchent dans le temps au lieu d’attendre leur tour derrière un seul exécutant.',
         points: [
           'Choisissez combien d’agents peuvent travailler en même temps',
-          'Fixez le maximum qu’une exécution peut dépenser avant qu’elle démarre',
+          'Un avertissement quand une exécution atteint le montant choisi',
           'Modèles et niveaux d’effort sont vérifiés auprès de votre CLI installée avant le démarrage de toute étape',
         ],
       },
@@ -179,6 +211,17 @@ export default {
           'Questions, commandes lancées, sortie et dépenses restent ensemble',
           'Les résultats disent ce qui s’est passé : terminé, échoué, arrêté ou non exécuté',
           'Un agent principal peut discuter avec vous — seul /run lance le travail',
+        ],
+      },
+      auto: {
+        eyebrow: 'Auto',
+        title: 'D’une phrase à un résultat vérifié',
+        body: 'Donnez un objectif au Lead. Auto choisit les rôles et les compétences nécessaires, construit des flux ordinaires pour chaque partie et continue jusqu’à ce que les vérifications et les revues prouvent le travail. C’est RigOne qui décide qu’un objectif est vérifié, pas le Lead.',
+        points: [
+          'Chaque décision qui vous attend est dans une seule liste : Needs you',
+          'Revue de design : acceptez les captures du testeur, ou cliquez sur un endroit et dites ce qui doit changer',
+          'Patiente quand le fournisseur est saturé ou qu’une limite d’usage est atteinte, puis reprend',
+          'Skip permissions active ou coupe l’accès complet pour toute l’exécution Auto',
         ],
       },
       agents: {
@@ -222,6 +265,17 @@ export default {
           'Un vrai conflit nomme les branches où le travail est gardé',
         ],
       },
+      boards: {
+        eyebrow: 'Boards',
+        title: 'Des tableaux partagés, chiffrés sur votre Mac',
+        body: 'Tâches, commentaires et membres sur un tableau Kanban ou par sprints. Lancez une tâche comme flux ou comme objectif Auto dans un dossier de ce Mac, et sa progression s’affiche sur le tableau pour tous.',
+        points: [
+          'Chiffré et signé sur votre Mac ; le serveur ne relaie que du texte chiffré',
+          'Invitez des membres comme Editor ou Viewer, et approuvez chaque nouvel appareil',
+          'Fonctionne hors ligne et envoie les changements au retour de la connexion',
+          'La seule partie de RigOne qui demande un compte MonoOne',
+        ],
+      },
       triggers: {
         eyebrow: 'Déclencheurs',
         title: 'Déclencheurs et reprise',
@@ -255,49 +309,52 @@ export default {
   },
   compare: {
     eyebrow: 'Comparer',
-    title: 'RigOne et les autres façons de lancer des agents de code',
-    lead: 'Il existe de bons outils pour lancer un agent, ou plusieurs côte à côte. RigOne sert quand le travail est une suite d’étapes que vous voulez relancer.',
-    caption: 'RigOne comparé à quatre types d’outils pour lancer des agents de code',
+    title: 'RigOne face à Superset, Conductor, Codex et Cursor',
+    lead: 'Plusieurs bons outils lancent des agents de code côte à côte. RigOne sert quand le travail est une suite d’étapes que vous voulez relancer, avec des vérifications qu’il lance lui-même.',
+    caption: 'RigOne comparé à Superset, Conductor, l’app OpenAI Codex et Cursor Cloud Agents',
     capability: 'Fonction',
-    columns: ['CLI d’agent seule', 'Applications de bureau pour agents en parallèle', 'Gestionnaires de sessions de terminal', 'Agents de code dans le cloud'],
-    examples: ['Claude Code, Codex CLI', 'p. ex. Conductor', 'p. ex. Claude Squad', 'p. ex. Codex cloud, Copilot coding agent'],
+    examples: ['App de bureau, code consultable', 'App pour Mac', 'L’app de bureau d’OpenAI', 'Agents cloud dans Cursor'],
     labels: { yes: 'Oui', partial: 'En partie', no: 'Non', unknown: 'Non précisé' },
     notStated: 'Non précisé publiquement',
     rows: {
       local: {
         criterion: 'Fonctionne sur votre Mac et dans votre dossier',
-        cells: ['', '', '', '', 'Tourne dans le bac à sable du fournisseur'],
+        cells: ['', 'En local par défaut', 'Espaces cloud avec Pro', 'Plus Codex Cloud', 'Machines cloud uniquement'],
       },
       mix: {
         criterion: 'Claude Code et Codex dans un même flux',
-        cells: ['', 'Un fournisseur par session', 'Côte à côte, pas dans un même flux', 'Côte à côte, pas dans un même flux', 'Un fournisseur par service'],
+        cells: ['', 'Côte à côte, un agent par espace', 'Côte à côte, un agent par espace', 'Codex uniquement', 'L’agent maison de Cursor'],
       },
       graph: {
         criterion: 'Flux en plusieurs étapes enregistré et relançable',
-        cells: ['Graphe visuel', 'Scripts, hooks et sous-agents', '', '', ''],
+        cells: ['Graphe visuel', 'Préréglages et scripts ; automatisations avec Pro', 'Scripts de préparation et d’exécution', 'Automatisations planifiées', ''],
       },
       isolated: {
         criterion: 'Travail en parallèle dans des copies isolées du code',
-        cells: ['Un espace de travail par étape', 'Des worktrees que vous gérez', 'Un worktree par agent', 'Un worktree par agent', 'Un bac à sable par tâche'],
+        cells: ['Un espace de travail par étape', 'Un worktree par espace', 'Un espace par tâche', 'Worktrees', 'Une machine par agent'],
       },
       checks: {
         criterion: 'Vérifications lancées par l’outil, distinctes de ce qu’affirme l’agent',
-        cells: ['« Rien n’a tourné » n’est jamais une réussite', 'Avec vos propres hooks', '', '', 'CI sur la pull request'],
+        cells: ['« Rien n’a tourné » n’est jamais une réussite', 'Scripts de préparation et d’exécution', 'Affiche l’état de la CI et de la pull request', 'Scripts de préparation', 'L’agent teste son propre travail'],
       },
       budget: {
-        criterion: 'Limite de dépense et de concurrence par exécution',
-        cells: ['', 'Limites par session seulement', '', '', 'Limites de l’abonnement'],
+        criterion: 'Alerte de dépense et parallélisme par exécution',
+        cells: ['Un avertissement par exécution', '', '', 'Limites du forfait', 'Une limite de dépense, sans limite de parallélisme'],
+      },
+      boards: {
+        criterion: 'Tableau de tâches partagé et suivi des tickets',
+        cells: ['Tableaux chiffrés, déclencheurs Linear', 'Linear et Slack avec Pro', 'Tickets Linear et GitHub', 'Linear et GitHub', 'Linear, GitHub et Slack'],
       },
       platforms: {
         criterion: 'Plateformes',
-        cells: ['macOS 13+, Apple Silicon', 'macOS, Linux, Windows', 'macOS', 'macOS, Linux', 'Navigateur'],
+        cells: ['macOS 13+, Apple Silicon', 'macOS ; Linux expérimental', 'macOS', 'macOS, Windows, Linux', 'Cloud'],
       },
       price: {
         criterion: 'Prix',
-        cells: ['Gratuit ; utilise votre abonnement Claude Code ou Codex', 'Inclus dans l’abonnement du fournisseur', 'Voir le site du produit', 'Gratuit, open source', 'Inclus dans l’abonnement du fournisseur'],
+        cells: ['Gratuit ; utilise votre forfait Claude Code ou Codex', 'Gratuit ; Pro 20 $ par personne et par mois', 'Gratuit ; Pro 50 $ par mois', 'Inclus dans les forfaits ChatGPT', 'Forfait Cursor payant plus tarifs API'],
       },
     },
-    footnoteHtml: 'Comparaison par type d’outil, d’après la documentation publique, en octobre 2026. Chaque produit diffère et évolue vite. Vous avez trouvé une erreur ? <a href="{issues}">Dites-le-nous</a>.',
+    footnoteHtml: 'D’après la documentation publique et les tarifs de chaque produit, vérifiés en octobre 2026. Les produits évoluent vite ; « Non précisé » signifie que nous n’avons rien trouvé de public. Une erreur ? <a href="{issues}">Dites-le-nous</a>.',
   },
   faq: {
     eyebrow: 'FAQ',
@@ -310,11 +367,11 @@ export default {
       },
       {
         question: 'RigOne envoie-t-il mon code quelque part ?',
-        answer: 'RigOne lui-même tourne sur votre Mac et travaille dans votre dossier. Les agents qu’il lance sont Claude Code et Codex : le code qu’ils lisent part chez leurs fournisseurs exactement comme si vous les lanciez dans un terminal.',
+        answer: 'RigOne lui-même tourne sur votre Mac et travaille dans votre dossier. Les agents qu’il lance sont Claude Code et Codex : le code qu’ils lisent part chez leurs fournisseurs exactement comme si vous les lanciez dans un terminal. Boards, la seule partie qui demande un compte, chiffre tâches et commentaires sur votre Mac avant qu’ils ne le quittent.',
       },
       {
         question: 'Combien ça coûte ?',
-        answer: 'RigOne est gratuit à télécharger et à utiliser. Les exécutions utilisent votre propre abonnement Claude Code ou Codex, et vous pouvez fixer le maximum qu’une exécution peut dépenser avant qu’elle démarre.',
+        answer: 'RigOne est gratuit à télécharger et à utiliser. Les exécutions utilisent votre propre forfait Claude Code ou Codex, et RigOne vous prévient quand une exécution atteint le montant choisi.',
       },
       {
         question: 'Un agent va-t-il pousser vers mon dépôt ?',
@@ -323,6 +380,10 @@ export default {
       {
         question: 'Puis-je utiliser seulement Claude Code, ou seulement Codex ?',
         answer: 'Oui. Une seule CLI installée et connectée suffit. Mélanger les deux est utile quand vous voulez qu’un fournisseur écrive et que l’autre donne un second avis.',
+      },
+      {
+        question: 'L’app est-elle dans ma langue ?',
+        answer: 'Oui, dans les neuf mêmes langues que ce site. Elle suit la langue de macOS, et vous pouvez en choisir une autre dans Settings → Appearance. Ce que les agents écrivent pendant une exécution reste en anglais.',
       },
       {
         question: 'Existe-t-il une version Windows, Linux ou Intel ?',
@@ -350,6 +411,17 @@ export default {
     github: 'Versions sur GitHub',
     latest: 'Dernière',
     englishNote: 'Les notes de version sont rédigées en anglais.',
+    versions: 'Versions',
+    show: 'Afficher les versions',
+    all: 'Toutes',
+    featureReleases: 'Fonctions',
+    patchReleases: 'Correctifs',
+    count: 'Versions :',
+    empty: 'Aucune version de ce type.',
+    showOlder: 'Afficher les versions plus anciennes',
+    package: 'Paquet',
+    copyChecksum: 'Copier le SHA-256',
+    copied: 'Copié',
   },
   docs: {
     eyebrow: 'Documentation',

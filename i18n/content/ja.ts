@@ -8,7 +8,7 @@ export default {
     },
     features: {
       title: '機能 — RigOne',
-      description: '目に見えるワークフロー、本物の並列実行、使い回せるエージェント、RigOne 自身が走らせるチェック、専用のブランチに残る変更、トリガー、そしてターミナルより長く残る証拠。',
+      description: '目に見えるワークフロー、本物の並列実行、Auto のゴール、使い回せるエージェント、RigOne 自身が走らせるチェック、専用のブランチに残る変更、共有ボード、トリガー、そしてターミナルより長く残る証拠。',
       breadcrumb: '機能',
     },
     docs: {
@@ -17,8 +17,8 @@ export default {
       breadcrumb: 'ドキュメント',
     },
     compare: {
-      title: 'RigOne とほかのコーディングエージェントの動かし方の比較',
-      description: 'エージェントの CLI 単体、並列エージェントのデスクトップアプリ、ターミナルのセッション管理ツール、クラウドのコーディングエージェントと RigOne の違いと、それぞれのトレードオフ。',
+      title: 'RigOne と Superset、Conductor、Codex、Cursor の比較',
+      description: 'RigOne と Superset、Conductor、OpenAI Codex アプリ、Cursor Cloud Agents の違い：ローカル実行、ひとつのワークフローでの Claude Code と Codex、保存できるワークフロー、チェック、費用、そしてそれぞれのトレードオフ。',
       breadcrumb: '比較',
     },
     changelog: {
@@ -114,7 +114,7 @@ export default {
   how: {
     eyebrow: '使い方',
     title: '三段階。お金がかかるのは三つ目だけです',
-    lead: '何を実行するか、同時にいくつ動かすか、いくらまで使ってよいかは、あなたが決めます。',
+    lead: '何を実行するか、同時にいくつ動かすか、いくらで費用を警告するかは、あなたが決めます。',
     steps: [
       {
         title: 'エージェントを書く',
@@ -129,6 +129,38 @@ export default {
         body: 'この Mac のフォルダにグラフを向けます。エージェントが尋ねたら答え、ほかはそのまま進みます。',
       },
     ],
+  },
+  screens: {
+    eyebrow: '画面',
+    title: 'ダウンロードの前に見てみる',
+    lead: 'いま配布しているアプリの画面です。外観は標準の Minimalist。どの画面もライトとダークの両方で動きます。',
+    label: 'アプリの画面',
+    items: {
+      run: {
+        tab: 'Run',
+        title: 'ワークフローを実行する、または先に相談する',
+        body: '左に計画、右に Lead との会話。同時に働くエージェントの数と、費用を警告する金額を決めて、Run workflow を押します。',
+        alt: 'ダークモードの Run 画面：左に 4 ステップの計画、下に /run、/ask、/stop があるコマンドバー。',
+      },
+      agents: {
+        tab: 'Agents',
+        title: '役割のすべてがひとつの画面に',
+        body: '指示、使う CLI・モデル・エフォート、ファイルを変更できるか、Web にアクセスできるか、いつ打ち切るか。',
+        alt: 'ダークモードの Agents 画面：4 つの役割の一覧と、Claude Code で動く Scout の役割。',
+      },
+      workflows: {
+        tab: 'Workflows',
+        title: 'もう一度実行するワークフロー',
+        body: '保存したワークフローとそのステップ、エージェント。いちばんよく実行するものが横幅いっぱいに表示されます。',
+        alt: 'ライトモードの Workflows 画面：上に Fix a bug、その下に Review a pull request と Ship a feature。',
+      },
+      settings: {
+        tab: 'Settings',
+        title: '独立したウィンドウの設定',
+        body: '作業、アカウント、アプリのカテゴリ。Minimalist か Studio の外観を、ライト、ダーク、または macOS に合わせて選べます。',
+        alt: 'ライトモードの Settings → Appearance：Minimalist と Studio のテーマ、そして System、Light、Dark。',
+      },
+    },
   },
   honest: {
     eyebrow: '正直に失敗するための設計',
@@ -167,7 +199,7 @@ export default {
         body: '依存しない枝は、ひとりの実行者の後ろで順番待ちをせず、時間の上で重なって進みます。',
         points: [
           '同時に動かせるエージェントの数を選べます',
-          '実行が始まる前に、使ってよい上限額を決められます',
+          '実行が設定した金額に達したら警告',
           'どのステップも始まる前に、モデルと思考の深さをインストール済みの CLI と照らし合わせます',
         ],
       },
@@ -179,6 +211,17 @@ export default {
           '質問、起動したコマンド、出力、費用がひとまとまりに',
           '結果は何が起きたかを示します：完了、失敗、停止、未実行',
           'リードエージェントと相談できます。作業を始めるのは /run だけです',
+        ],
+      },
+      auto: {
+        eyebrow: 'Auto',
+        title: 'ひと言から、検証済みの結果まで',
+        body: 'Lead にゴールを伝えます。Auto は必要な役割とスキルを選び、各部分のために普通のワークフローを組み、チェックとレビューが成果を証明するまで続けます。ゴールが検証済みかどうかを決めるのは Lead ではなく RigOne です。',
+        points: [
+          'あなたの判断を待つものは、ひとつのリストにまとまります：Needs you',
+          'デザインレビュー：テスターのスクリーンショットを承認するか、場所をクリックして直してほしい点を書く',
+          '提供元の混雑や利用上限を待ってから、続きを進めます',
+          'Skip permissions で Auto の実行全体のフルアクセスをオン・オフ',
         ],
       },
       agents: {
@@ -222,6 +265,17 @@ export default {
           '本当に衝突したときは、成果が残っているブランチを示します',
         ],
       },
+      boards: {
+        eyebrow: 'Boards',
+        title: 'Mac 上で暗号化される共有ボード',
+        body: 'Kanban またはスプリントのボードで、タスク、コメント、メンバーを扱います。この Mac のフォルダでタスクをワークフローか Auto のゴールとして開始すると、進み具合がメンバー全員のボードに表示されます。',
+        points: [
+          'Mac 上で暗号化・署名され、サーバーは暗号文を中継するだけ',
+          'メンバーを Editor か Viewer として招待し、新しいデバイスはそれぞれ承認',
+          'オフラインでも動き、接続が戻ったら変更を送ります',
+          'RigOne の中で MonoOne アカウントが必要なのはここだけ',
+        ],
+      },
       triggers: {
         eyebrow: 'トリガー',
         title: 'トリガーと復旧',
@@ -255,49 +309,52 @@ export default {
   },
   compare: {
     eyebrow: '比較',
-    title: 'RigOne とほかのコーディングエージェントの動かし方',
-    lead: 'エージェントをひとつ動かすにも、複数を並べて動かすにも、良いツールがあります。RigOne は、何度も実行したい一連のステップから成る仕事のためのものです。',
-    caption: 'RigOne と、コーディングエージェントを動かす四種類のツールとの比較',
+    title: 'RigOne と Superset、Conductor、Codex、Cursor の比較',
+    lead: 'コーディングエージェントを並べて動かせる良いツールはいくつもあります。RigOne が向いているのは、何度も実行したい一連のステップからなる作業を、RigOne 自身が走らせるチェックとともに進めたいときです。',
+    caption: 'RigOne と Superset、Conductor、OpenAI Codex アプリ、Cursor Cloud Agents の比較',
     capability: '機能',
-    columns: ['エージェントの CLI 単体', '並列エージェントのデスクトップアプリ', 'ターミナルのセッション管理ツール', 'クラウドのコーディングエージェント'],
-    examples: ['Claude Code、Codex CLI', '例：Conductor', '例：Claude Squad', '例：Codex cloud、Copilot coding agent'],
+    examples: ['デスクトップアプリ、ソース公開', 'Mac アプリ', 'OpenAI のデスクトップアプリ', 'Cursor のクラウドエージェント'],
     labels: { yes: 'あり', partial: '一部', no: 'なし', unknown: '記載なし' },
     notStated: '公開情報に記載なし',
     rows: {
       local: {
         criterion: '自分の Mac とフォルダで動く',
-        cells: ['', '', '', '', '提供元のサンドボックスで動く'],
+        cells: ['', '標準はローカル', 'Pro でクラウドのワークスペース', 'Codex Cloud も利用可', 'クラウドの VM のみ'],
       },
       mix: {
         criterion: 'ひとつのワークフローで Claude Code と Codex を使う',
-        cells: ['', 'セッションごとに一ベンダー', '並べて動かすが、ひとつの流れではない', '並べて動かすが、ひとつの流れではない', 'サービスごとに一ベンダー'],
+        cells: ['', '並べて実行、ワークスペースごとに 1 エージェント', '並べて実行、ワークスペースごとに 1 エージェント', 'Codex のみ', 'Cursor 独自のエージェント'],
       },
       graph: {
         criterion: '保存して何度でも実行できる多段階のワークフロー',
-        cells: ['目に見えるグラフ', 'スクリプト、フック、サブエージェント', '', '', ''],
+        cells: ['ビジュアルなグラフ', 'プリセットとスクリプト。Pro で自動化', 'セットアップと実行のスクリプト', '定期実行の自動化', ''],
       },
       isolated: {
         criterion: 'コードの隔離されたコピーでの並列作業',
-        cells: ['ステップごとにワークスペース', '自分で管理する worktree', 'エージェントごとに worktree', 'エージェントごとに worktree', 'タスクごとにサンドボックス'],
+        cells: ['ステップごとにワークスペース', 'ワークスペースごとに worktree', 'タスクごとにワークスペース', 'Worktree', 'エージェントごとに VM'],
       },
       checks: {
         criterion: 'エージェントの主張とは別に、ツールが走らせるチェック',
-        cells: ['「何も実行されなかった」は合格にならない', '自分で用意したフックで', '', '', 'プルリクエスト上の CI'],
+        cells: ['「何も実行されなかった」は合格にならない', 'セットアップと実行のスクリプト', 'CI とプルリクエストの状態を表示', 'セットアップスクリプト', 'エージェントが自分の仕事をテスト'],
       },
       budget: {
-        criterion: '実行ごとの費用上限と同時実行数',
-        cells: ['', 'セッション単位の上限のみ', '', '', 'プランの上限'],
+        criterion: '実行ごとの費用の警告と同時実行数',
+        cells: ['実行ごとの警告', '', '', 'プランの上限', '支出上限あり、同時実行数の上限なし'],
+      },
+      boards: {
+        criterion: '共有タスクボードと課題管理',
+        cells: ['暗号化されたボード、Linear トリガー', 'Pro で Linear と Slack', 'Linear と GitHub の課題', 'Linear と GitHub', 'Linear、GitHub、Slack'],
       },
       platforms: {
         criterion: 'プラットフォーム',
-        cells: ['macOS 13+、Apple Silicon', 'macOS、Linux、Windows', 'macOS', 'macOS、Linux', 'ブラウザ'],
+        cells: ['macOS 13 以降、Apple Silicon', 'macOS。Linux は試験提供', 'macOS', 'macOS、Windows、Linux', 'クラウド'],
       },
       price: {
         criterion: '価格',
-        cells: ['無料。Claude Code または Codex のプランを使用', 'ベンダーのプランに含まれる', '製品のサイトを参照', '無料、オープンソース', 'ベンダーのプランに含まれる'],
+        cells: ['無料。Claude Code または Codex のプランを使用', '無料。Pro は 1 人あたり月 20 ドル', '無料。Pro は月 50 ドル', 'ChatGPT のプランに含まれる', 'Cursor の有料プランと API 料金'],
       },
     },
-    footnoteHtml: '2026 年 10 月時点の公開ドキュメントをもとに、ツールの種類ごとに比較しています。個々の製品には違いがあり、変化も速いです。誤りを見つけたら<a href="{issues}">お知らせください</a>。',
+    footnoteHtml: '各製品の公開ドキュメントと価格をもとに、2026 年 10 月に確認しました。製品はすぐに変わります。「記載なし」は公開情報が見つからなかったことを意味します。誤りを見つけたら<a href="{issues}">お知らせください</a>。',
   },
   faq: {
     eyebrow: 'よくある質問',
@@ -310,11 +367,11 @@ export default {
       },
       {
         question: 'RigOne はコードをどこかに送りますか？',
-        answer: 'RigOne 自体はあなたの Mac で動き、あなたのフォルダで作業します。起動するエージェントは Claude Code と Codex なので、それらが読むコードは、ターミナルで実行したときとまったく同じように各提供元に送られます。',
+        answer: 'RigOne 自体はあなたの Mac で動き、あなたのフォルダで作業します。起動するエージェントは Claude Code と Codex なので、それらが読むコードは、ターミナルで実行したときとまったく同じように各提供元に送られます。アカウントが必要な唯一の部分である Boards は、タスクとコメントを Mac から出る前に暗号化します。',
       },
       {
         question: '費用はいくらですか？',
-        answer: 'RigOne は無料でダウンロードして使えます。実行にはあなた自身の Claude Code または Codex のプランを使い、実行が始まる前に使ってよい上限額を決められます。',
+        answer: 'RigOne は無料でダウンロードして使えます。実行にはご自身の Claude Code または Codex のプランを使い、実行が設定した金額に達すると RigOne が警告します。',
       },
       {
         question: 'エージェントがリポジトリにプッシュすることはありますか？',
@@ -323,6 +380,10 @@ export default {
       {
         question: 'Claude Code だけ、または Codex だけでも使えますか？',
         answer: '使えます。インストールしてサインイン済みの CLI がひとつあれば十分です。片方のベンダーに書かせ、もう片方にセカンドオピニオンを出させたいときは、両方を組み合わせると便利です。',
+      },
+      {
+        question: 'アプリは自分の言語で使えますか？',
+        answer: 'はい。このサイトと同じ 9 言語に対応しています。macOS の言語に従い、Settings → Appearance で別の言語も選べます。実行中にエージェントが書く内容は英語のままです。',
       },
       {
         question: 'Windows、Linux、Intel 版はありますか？',
@@ -350,6 +411,17 @@ export default {
     github: 'GitHub のリリース',
     latest: '最新',
     englishNote: 'リリースノートは英語で書かれています。',
+    versions: 'バージョン',
+    show: '表示するリリース',
+    all: 'すべて',
+    featureReleases: '機能',
+    patchReleases: '修正',
+    count: 'リリース数：',
+    empty: 'この種類のリリースはありません。',
+    showOlder: '以前のリリースを表示',
+    package: 'パッケージ',
+    copyChecksum: 'SHA-256 をコピー',
+    copied: 'コピーしました',
   },
   docs: {
     eyebrow: 'ドキュメント',

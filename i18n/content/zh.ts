@@ -8,7 +8,7 @@ export default {
     },
     features: {
       title: '功能 — RigOne',
-      description: '可视化工作流、真正的并行运行、可复用的智能体、由 RigOne 自己运行的检查、留在独立分支上的改动、触发器，以及比终端留存更久的证据。',
+      description: '可视化工作流、真正的并行运行、Auto 目标、可复用的智能体、由 RigOne 自己运行的检查、留在独立分支上的改动、共享看板、触发器，以及比终端留存更久的证据。',
       breadcrumb: '功能',
     },
     docs: {
@@ -17,8 +17,8 @@ export default {
       breadcrumb: '文档',
     },
     compare: {
-      title: 'RigOne 与其他运行编程智能体的方式对比',
-      description: 'RigOne 与单独使用智能体 CLI、并行智能体桌面应用、终端会话管理器和云端编程智能体有何不同，以及各自的取舍。',
+      title: 'RigOne 与 Superset、Conductor、Codex 和 Cursor 对比',
+      description: 'RigOne 与 Superset、Conductor、OpenAI Codex 应用和 Cursor Cloud Agents 有何不同：本地运行、同一工作流中的 Claude Code 与 Codex、可保存的工作流、检查和花费，以及各自的取舍。',
       breadcrumb: '对比',
     },
     changelog: {
@@ -114,7 +114,7 @@ export default {
   how: {
     eyebrow: '工作方式',
     title: '三步，只有第三步才花钱',
-    lead: '运行什么、同时运行几个、最多花多少钱，都由你决定。',
+    lead: '运行什么、同时运行几个、花到多少时提醒你，都由你决定。',
     steps: [
       {
         title: '写一个智能体',
@@ -129,6 +129,38 @@ export default {
         body: '把图指向这台 Mac 上的一个文件夹。智能体提问时你来回答，其余照常推进。',
       },
     ],
+  },
+  screens: {
+    eyebrow: '界面',
+    title: '下载之前先看看',
+    lead: '应用如今发布时的样子，使用默认的 Minimalist 外观。每个界面都支持浅色和深色。',
+    label: '应用界面',
+    items: {
+      run: {
+        tab: 'Run',
+        title: '运行工作流，或先商量一下',
+        body: '左边是计划，右边是与 Lead 的对话。设定同时工作的智能体数量和花费提醒的金额，然后按 Run workflow。',
+        alt: '深色模式下的 Run 界面：左边是四个步骤的计划，底部是带有 /run、/ask 和 /stop 的命令栏。',
+      },
+      agents: {
+        tab: 'Agents',
+        title: '整个角色都在一个界面上',
+        body: '它的指令、所用的 CLI、模型和推理强度、能否修改文件或访问网络，以及何时放弃。',
+        alt: '深色模式下的 Agents 界面：四个角色的列表，旁边是使用 Claude Code 运行的 Scout 角色。',
+      },
+      workflows: {
+        tab: 'Workflows',
+        title: '可以再次运行的工作流',
+        body: '每个已保存的工作流及其步骤和智能体。最常运行的那个占满整行。',
+        alt: '浅色模式下的 Workflows 界面：顶部是 Fix a bug，下方是 Review a pull request 和 Ship a feature。',
+      },
+      settings: {
+        tab: 'Settings',
+        title: '独立窗口中的设置',
+        body: '按工作、账户和应用分类。选择 Minimalist 或 Studio 外观，浅色、深色或跟随 macOS。',
+        alt: '浅色模式下的 Settings → Appearance：Minimalist 和 Studio 主题，以及 System、Light 或 Dark。',
+      },
+    },
   },
   honest: {
     eyebrow: '为诚实地失败而造',
@@ -167,7 +199,7 @@ export default {
         body: '互不依赖的分支在时间上重叠，而不是排队等同一个执行者。',
         points: [
           '选择最多可以同时工作的智能体数量',
-          '在运行开始前设定它最多能花多少钱',
+          '运行花费达到你设定的金额时发出提醒',
           '任何步骤开始前，会先对照你安装的 CLI 检查模型和思考深度',
         ],
       },
@@ -179,6 +211,17 @@ export default {
           '提问、启动的命令、输出和花费都放在一起',
           '结果会说明发生了什么：完成、失败、已停止或未运行',
           '主智能体可以和你商量——只有 /run 才会开始工作',
+        ],
+      },
+      auto: {
+        eyebrow: 'Auto',
+        title: '从一句话到经过验证的结果',
+        body: '给 Lead 一个目标。Auto 选出所需的角色和技能，为每个部分搭建普通的工作流，一直推进到检查和审查证明工作成立。目标是否已验证由 RigOne 判断，而不是 Lead。',
+        points: [
+          '所有等你决定的事都在一个列表里：Needs you',
+          '设计审查：接受测试者的截图，或点击某处并写下要改什么',
+          '服务商繁忙或达到用量上限时会等待，然后继续',
+          'Skip permissions 为整个 Auto 运行开启或关闭完全访问',
         ],
       },
       agents: {
@@ -222,6 +265,17 @@ export default {
           '真正发生冲突时，会写明保存成果的分支',
         ],
       },
+      boards: {
+        eyebrow: 'Boards',
+        title: '共享看板，在你的 Mac 上加密',
+        body: '在 Kanban 或冲刺看板上管理任务、评论和成员。在这台 Mac 的某个文件夹里把任务作为工作流或 Auto 目标启动，进度会显示在看板上，所有成员都能看到。',
+        points: [
+          '在你的 Mac 上加密并签名；服务器只转发密文',
+          '以 Editor 或 Viewer 身份邀请成员，并批准每一台新设备',
+          '离线也能用，连接恢复后发送改动',
+          'RigOne 中唯一需要 MonoOne 账户的部分',
+        ],
+      },
       triggers: {
         eyebrow: '触发器',
         title: '触发器与恢复',
@@ -255,49 +309,52 @@ export default {
   },
   compare: {
     eyebrow: '对比',
-    title: 'RigOne 与其他运行编程智能体的方式',
-    lead: '运行单个智能体，或并排运行多个智能体，都有不错的工具。RigOne 适合那种由一系列步骤组成、你想反复运行的工作。',
-    caption: 'RigOne 与四类运行编程智能体的工具对比',
+    title: 'RigOne 与 Superset、Conductor、Codex 和 Cursor 对比',
+    lead: '有不少好工具可以并排运行编码智能体。RigOne 适合那些由一连串步骤组成、你想再次运行的工作，并由它自己运行检查。',
+    caption: 'RigOne 与 Superset、Conductor、OpenAI Codex 应用和 Cursor Cloud Agents 的对比',
     capability: '能力',
-    columns: ['单独使用智能体 CLI', '并行智能体桌面应用', '终端会话管理器', '云端编程智能体'],
-    examples: ['Claude Code、Codex CLI', '例如 Conductor', '例如 Claude Squad', '例如 Codex cloud、Copilot coding agent'],
+    examples: ['桌面应用，源码可见', 'Mac 应用', 'OpenAI 的桌面应用', 'Cursor 的云端智能体'],
     labels: { yes: '是', partial: '部分', no: '否', unknown: '未说明' },
     notStated: '未公开说明',
     rows: {
       local: {
         criterion: '在你自己的 Mac 和文件夹上工作',
-        cells: ['', '', '', '', '在服务商的沙盒中运行'],
+        cells: ['', '默认在本地', 'Pro 提供云端工作区', '另有 Codex Cloud', '仅云端虚拟机'],
       },
       mix: {
         criterion: '在一个工作流里同时使用 Claude Code 和 Codex',
-        cells: ['', '每个会话一家供应商', '并排运行，不在同一流程中', '并排运行，不在同一流程中', '每项服务一家供应商'],
+        cells: ['', '并排运行，每个工作区一个智能体', '并排运行，每个工作区一个智能体', '仅 Codex', 'Cursor 自己的智能体'],
       },
       graph: {
         criterion: '可保存并反复运行的多步骤工作流',
-        cells: ['可视化的图', '脚本、钩子和子智能体', '', '', ''],
+        cells: ['可视化图', '预设和脚本；Pro 提供自动化', '准备和运行脚本', '定时自动化', ''],
       },
       isolated: {
         criterion: '在隔离的代码副本中并行工作',
-        cells: ['每个步骤一个工作区', '由你自己管理的 worktree', '每个智能体一个 worktree', '每个智能体一个 worktree', '每个任务一个沙盒'],
+        cells: ['每个步骤一个工作区', '每个工作区一个 worktree', '每个任务一个工作区', 'Worktree', '每个智能体一台虚拟机'],
       },
       checks: {
         criterion: '由工具运行的检查，与智能体的说法分开',
-        cells: ['“什么都没运行”绝不算通过', '借助你自己的钩子', '', '', '在拉取请求上运行 CI'],
+        cells: ['“什么都没运行”绝不算通过', '准备和运行脚本', '显示 CI 和拉取请求状态', '准备脚本', '由智能体测试自己的工作'],
       },
       budget: {
-        criterion: '每次运行的花费上限与并发数',
-        cells: ['', '仅有按会话的限制', '', '', '套餐限制'],
+        criterion: '每次运行的花费提醒和并发数',
+        cells: ['每次运行一个提醒', '', '', '套餐限额', '有花费上限，无并发限制'],
+      },
+      boards: {
+        criterion: '共享任务看板和问题跟踪',
+        cells: ['加密看板，Linear 触发器', 'Pro 支持 Linear 和 Slack', 'Linear 和 GitHub 问题', 'Linear 和 GitHub', 'Linear、GitHub 和 Slack'],
       },
       platforms: {
         criterion: '平台',
-        cells: ['macOS 13+、Apple Silicon', 'macOS、Linux、Windows', 'macOS', 'macOS、Linux', '浏览器'],
+        cells: ['macOS 13+，Apple Silicon', 'macOS；Linux 为实验性', 'macOS', 'macOS、Windows、Linux', '云端'],
       },
       price: {
         criterion: '价格',
-        cells: ['免费；使用你的 Claude Code 或 Codex 套餐', '包含在供应商套餐中', '见该产品的网站', '免费，开源', '包含在供应商套餐中'],
+        cells: ['免费；使用你的 Claude Code 或 Codex 套餐', '免费；Pro 每人每月 20 美元', '免费；Pro 每月 50 美元', '包含在 ChatGPT 套餐中', 'Cursor 付费套餐加 API 价格'],
       },
     },
-    footnoteHtml: '按工具类别对比，依据 2026 年 10 月的公开文档。具体产品各有不同，且变化很快。发现错误？<a href="{issues}">告诉我们</a>。',
+    footnoteHtml: '依据各产品公开的文档和价格，于 2026 年 10 月核对。产品变化很快；“未说明”表示我们没有找到公开信息。发现错误？<a href="{issues}">告诉我们</a>。',
   },
   faq: {
     eyebrow: '常见问题',
@@ -310,11 +367,11 @@ export default {
       },
       {
         question: 'RigOne 会把我的代码发送到别处吗？',
-        answer: 'RigOne 本身在你的 Mac 上运行，并在你的文件夹里工作。它启动的智能体是 Claude Code 和 Codex，所以它们读取的代码会发给各自的服务商，与你在终端里运行它们时完全一样。',
+        answer: 'RigOne 本身在你的 Mac 上运行，并在你的文件夹里工作。它启动的智能体是 Claude Code 和 Codex，所以它们读取的代码会发给各自的服务商，与你在终端里运行它们时完全一样。Boards 是唯一需要账户的部分，任务和评论在离开你的 Mac 之前就已在本机加密。',
       },
       {
         question: '要花多少钱？',
-        answer: 'RigOne 可以免费下载和使用。运行时使用你自己的 Claude Code 或 Codex 套餐，你还可以在运行开始前设定它最多能花多少钱。',
+        answer: 'RigOne 可免费下载和使用。运行使用你自己的 Claude Code 或 Codex 套餐，运行花费达到你设定的金额时 RigOne 会提醒你。',
       },
       {
         question: '智能体会推送到我的仓库吗？',
@@ -323,6 +380,10 @@ export default {
       {
         question: '可以只用 Claude Code，或只用 Codex 吗？',
         answer: '可以。一个已安装并登录的 CLI 就够了。如果你想让一家供应商来写、另一家提供第二意见，同时使用两者会很有用。',
+      },
+      {
+        question: '应用有我的语言吗？',
+        answer: '有，与本网站相同的九种语言。它跟随 macOS 的语言，也可以在 Settings → Appearance 中另选一种。智能体在运行中写下的内容仍为英文。',
       },
       {
         question: '有 Windows、Linux 或 Intel 版本吗？',
@@ -350,6 +411,17 @@ export default {
     github: 'GitHub 上的发布',
     latest: '最新',
     englishNote: '发布说明为英文。',
+    versions: '版本',
+    show: '显示版本',
+    all: '全部',
+    featureReleases: '功能',
+    patchReleases: '修复',
+    count: '版本数：',
+    empty: '没有这类版本。',
+    showOlder: '显示更早的版本',
+    package: '安装包',
+    copyChecksum: '复制 SHA-256',
+    copied: '已复制',
   },
   docs: {
     eyebrow: '文档',

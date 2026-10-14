@@ -23,7 +23,7 @@ const stream = [
     <div class="mock__bar" aria-hidden="true">
       <span class="mock__lights"><i /><i /><i /></span>
       <span class="mock__title">Ship a feature</span>
-      <span class="mock__meta">5 steps · 3 at once · spend at most $20</span>
+      <span class="mock__meta">5 steps · 3 at once · warn at $20</span>
     </div>
     <div class="mock__body" aria-hidden="true">
       <ol class="mock__plan">

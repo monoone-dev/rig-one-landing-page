@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { comparison, type Support } from '~/data/shared'
+import { comparison, competitors, type Support } from '~/data/shared'
 import { site } from '~/data/site'
 
 defineProps<{ level?: 1 | 2 }>()
@@ -7,7 +7,7 @@ defineProps<{ level?: 1 | 2 }>()
 const c = useContent()
 const label = computed<Record<Support, string>>(() => ({ ...c.value.compare.labels, info: '' }))
 const icon: Partial<Record<Support, string>> = { yes: 'i-lucide-check', partial: 'i-lucide-circle-dashed', no: 'i-lucide-minus', unknown: 'i-lucide-circle-help' }
-const columns = computed(() => [site.name, ...c.value.compare.columns])
+const columns = [site.name, ...competitors]
 const footnote = computed(() => fill(c.value.compare.footnoteHtml, { issues: site.links.issues }))
 </script>
 

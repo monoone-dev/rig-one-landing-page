@@ -79,7 +79,7 @@ terminal. The interface speaks English, Polish, German, Spanish, French, Italian
 Chinese and Japanese, in a Minimalist or Studio look, light or dark.
 
 The full feature list is on the [website](https://monoone.dev/rig-one-landing-page/features/),
-and how RigOne compares with Superset, Conductor, the OpenAI Codex app and Cursor Cloud Agents is
+and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex app and Cursor Cloud Agents is
 [here](https://monoone.dev/rig-one-landing-page/compare/).
 
 ## Screens

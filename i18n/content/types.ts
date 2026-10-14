@@ -10,6 +10,11 @@ export interface SubPageMeta extends PageMeta {
   breadcrumb: string
 }
 
+export interface Problem {
+  problem: string
+  answer: string
+}
+
 export interface Card {
   title: string
   body: string
@@ -28,8 +33,8 @@ export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'u
 
 export type ComparisonRowId = 'local' | 'mix' | 'graph' | 'isolated' | 'checks' | 'budget' | 'boards' | 'platforms' | 'price'
 
-/** RigOne, then the four named products — in the order of `competitors` in app/data/shared.ts. */
-export type ComparisonCells = [string, string, string, string, string]
+/** RigOne, then the five named products — in the order of `competitors` in app/data/shared.ts. */
+export type ComparisonCells = [string, string, string, string, string, string]
 
 export interface SiteContent {
   meta: {
@@ -69,14 +74,21 @@ export interface SiteContent {
     badgeAgents: string
     /** `{version}` is replaced with the latest release tag. */
     badgeRelease: string
+    /** Who RigOne is for, above the title. */
+    audience: string
     titleStrong: string
     titleSoft: string
     sub: string
+    /** Label of the problem → answer list. */
+    problemsLabel: string
+    problems: [Problem, Problem, Problem]
     download: string
     docsCta: string
     note: string
-    illustrationLabel: string
+    /** Short true statements floating over the screenshot; decorative, hidden from screen readers. */
+    chips: [string, string, string]
   }
+
   trust: {
     aria: string
     items: [string, string, string, string]
@@ -122,7 +134,7 @@ export interface SiteContent {
     caption: string
     capability: string
     /** What each product is, shown under its name (the names are in `competitors`, not translated). */
-    examples: [string, string, string, string]
+    examples: [string, string, string, string, string]
     labels: { yes: string, partial: string, no: string, unknown: string }
     notStated: string
     rows: Record<ComparisonRowId, { criterion: string, cells: ComparisonCells }>

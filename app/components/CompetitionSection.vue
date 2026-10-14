@@ -70,7 +70,7 @@ const footnote = computed(() => fill(c.value.compare.footnoteHtml, { issues: sit
 
   table {
     width: 100%;
-    min-width: 920px;
+    min-width: 1080px;
     border-collapse: collapse;
   }
 

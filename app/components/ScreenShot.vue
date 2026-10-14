@@ -2,27 +2,27 @@
 import type { ScreenId } from '~~/i18n/content/types'
 import { screens } from '~/data/shared'
 
-// One screenshot of the shipped app in a window frame, as IndexOne shows its screens. The frame
-// takes the screenshot's own light or dark surface, so it reads the same in either site mode.
+// One screenshot of the shipped app in a window frame. As on IndexOne, every screen exists in the
+// app's dark and light mode (`<id>.webp`, `<id>-light.webp`) and follows the site's colour mode.
 const props = withDefaults(defineProps<{ id: ScreenId, eager?: boolean }>(), { eager: false })
 const c = useContent()
 const { asset } = useSiteUrl()
-const theme = computed(() => screens.find(s => s.id === props.id)?.theme ?? 'dark')
+const shot = computed(() => screens.find(s => s.id === props.id)!)
 </script>
 
 <template>
-  <figure class="shot" :data-theme="theme">
+  <figure class="shot">
     <div class="shot__chrome" aria-hidden="true">
       <span /><span /><span />
     </div>
-    <img
-      :src="asset(`screenshots/${id}.webp`)"
+    <ThemeImage
+      :dark="asset(`screenshots/${id}.webp`)"
+      :light="asset(`screenshots/${id}-light.webp`)"
+      :width="shot.width"
+      :height="shot.height"
       :alt="c.screens.items[id].alt"
-      width="1512"
-      height="950"
-      :loading="eager ? 'eager' : 'lazy'"
-      decoding="async"
-    >
+      :eager="eager"
+    />
   </figure>
 </template>
 
@@ -34,18 +34,8 @@ const theme = computed(() => screens.find(s => s.id === props.id)?.theme ?? 'dar
   margin: 0;
   border: 1px solid var(--border);
   border-radius: var(--round-lg);
-  background: #18181b;
+  background: var(--surface-raised);
   box-shadow: var(--shadow-lg);
-
-  &[data-theme='light'] {
-    background: #f4f4f5;
-  }
-
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
 
   &__chrome {
     display: flex;

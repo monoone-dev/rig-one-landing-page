@@ -23,7 +23,7 @@ description: Change what the RigOne website says or shows — page copy in any o
 | Sitemap and robots | `server/routes/sitemap.xml.ts`, `server/routes/robots.txt.ts`; page list in `server/utils/site.ts` |
 | The RigOne mark | `app/components/RigMark.vue` (inline SVG); source file `app/assets/brand/rig-one-icon.svg`; favicons, app icons and `og-image.png` in `public/` |
 | Colours (light and dark), fonts, base and Markdown styles | `app/assets/scss/_tokens.scss`, `_fonts.scss`, `_base.scss`, `_markdown.scss`; Nuxt UI colours in `app/app.config.ts` |
-| Hero drawing of the Run screen | `app/components/RunIllustration.vue` (English, like the app) |
+| Hero: who it is for, the problem, the answer, then the real Run screen | `app/components/HeroSection.vue`; copy in `hero.*` (audience, title, the three problem → answer pairs, chips) |
 
 ## Content rules
 

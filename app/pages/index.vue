@@ -15,8 +15,8 @@ usePageSeo({
       screenshot: screens.map(s => ({
         '@type': 'ImageObject',
         'url': absolute(`screenshots/${s.id}.webp`),
-        'width': 1512,
-        'height': 950,
+        'width': s.width,
+        'height': s.height,
         'caption': c.value.screens.items[s.id].alt,
       })),
     }),

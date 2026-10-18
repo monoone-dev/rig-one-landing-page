@@ -54,12 +54,12 @@ export default {
   },
   hero: {
     badgePlatform: 'macOS · Apple Silicon',
-    badgeAgents: 'Claude Code + Codex',
+    badgeAgents: 'Claude Code · Codex · OpenCode',
     badgeRelease: 'Version {version} is out',
     audience: 'For developers who already use Claude Code or Codex',
     titleStrong: 'Run your coding agents as a team,',
     titleSoft: 'not one terminal at a time.',
-    sub: 'RigOne is a free Mac app that turns Claude Code and Codex into a workflow you can run again: steps in parallel, each in its own copy of your code, with checks RigOne runs itself before anything reaches your branch.',
+    sub: 'RigOne is a free Mac app that turns Claude Code, Codex and OpenCode into a workflow you can run again: steps in parallel, each in its own copy of your code, with checks RigOne runs itself before anything reaches your branch.',
     problemsLabel: 'What RigOne fixes',
     problems: [
       { problem: 'Juggling terminals', answer: 'One window plans, runs and shows every agent.' },
@@ -75,7 +75,7 @@ export default {
     aria: 'What you can count on',
     items: [
       'Runs on your Mac, against your folder',
-      'Claude Code and Codex as peers',
+      'Claude Code, Codex and OpenCode as peers',
       'Nothing reaches your branch until you take it',
       'Signed with Apple Developer ID',
     ],
@@ -125,7 +125,7 @@ export default {
     steps: [
       {
         title: 'Write an agent',
-        body: 'One job, one instruction. Pick Claude Code or Codex, the model, the effort and what it may touch.',
+        body: 'One job, one instruction. Pick Claude Code, Codex or OpenCode, the model, the effort and what it may touch.',
       },
       {
         title: 'Put agents in a row',
@@ -140,19 +140,19 @@ export default {
   screens: {
     eyebrow: 'Screens',
     title: 'See it before you download it',
-    lead: 'The app as it ships today, in the default Minimalist look. Every screen works in light and dark.',
+    lead: 'The app as it ships today, in the default Surface look. Every screen works in light and dark.',
     label: 'Screens of the app',
     items: {
       run: {
-        tab: 'Run',
+        tab: 'Tasks',
         title: 'Run a workflow, or talk it through first',
-        body: 'The plan on the left, the conversation with the Lead on the right. Set how many agents may work at once and when to warn about spend, then press Run workflow.',
-        alt: 'The Run screen while Ship a feature runs: three steps done and Second opinion working in the plan, what each agent said in the stream, and the Lead asking whether to ship the fix now or add the cleanup first.',
+        body: 'What every agent said, in order, beside the plan with the question that stopped the run. Choose how many agents may work at once, then press Run workflow.',
+        alt: 'The Tasks screen while Ship a feature runs: what each agent said in the stream, three steps done in the plan on the right, and Second opinion asking whether to ship the fix now or add the cleanup first.',
       },
       agents: {
         tab: 'Agents',
         title: 'The whole role on one screen',
-        body: 'Its instructions, the CLI, model and effort it runs with, whether it may change files or reach the web, and when it gives up.',
+        body: 'Its instructions, the agent app — Claude Code, Codex or OpenCode — with its model and effort, whether it may change files or reach the web, and when it gives up.',
         alt: 'The Agents screen: four roles in a list beside Scout, which runs with Claude Code and reads the code before anyone changes it.',
       },
       canvas: {
@@ -161,17 +161,23 @@ export default {
         body: 'Steps on a canvas, joined by arrows that mean “runs after”. After Fix, the tests and a second opinion from the other vendor run at the same time.',
         alt: 'The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side.',
       },
-      workflows: {
-        tab: 'Workflows',
-        title: 'Workflows you run again',
-        body: 'Each saved workflow with its steps and agents. The one you run most often takes the full width.',
-        alt: 'The Workflows screen: Fix a bug across the top with its three steps, Review a pull request and Ship a feature below it.',
+      project: {
+        tab: 'Project rig',
+        title: 'The whole project on one page',
+        body: 'Its agents, workflows, knowledge, triggers and Auto rules, with what needs fixing. Generate project setup drafts a rig from the repository.',
+        alt: 'Project rig for client-website: four agents with their file access and model, three ready workflows, the knowledge cards and the Auto rules.',
+      },
+      knowledge: {
+        tab: 'Knowledge',
+        title: 'What your agents know, approved by you',
+        body: 'Notes an agent suggests wait for your Keep or Discard. Approved notes go into every prompt; skills are used when they fit the work.',
+        alt: 'The Knowledge screen: two suggested notes waiting for you, two notes always in context and three skills used when they fit.',
       },
       settings: {
         tab: 'Settings',
         title: 'Settings in a window of its own',
-        body: 'Categories for work, your account and the app. Pick the Minimalist or Studio look, in light, dark or following macOS.',
-        alt: 'Settings → Appearance: the Minimalist and Studio themes, and System, Light or Dark.',
+        body: 'Categories for work, your account and the app, with a Health check that says what works. Pick the Surface, Minimalist or Studio look and an accent colour, in light, dark or following macOS.',
+        alt: 'Settings → Appearance: the app language, the Surface, Minimalist and Studio themes, System, Light or Dark, and the accent colours.',
       },
     },
   },
@@ -212,18 +218,19 @@ export default {
         body: 'Independent branches overlap in time instead of taking turns behind a single worker.',
         points: [
           'Choose how many agents may work at once',
-          'Get a warning when a run reaches the amount you set',
-          'Models and effort levels are checked against your installed CLI before any step starts',
+          'An optional warning when a run reaches an amount you set',
+          'Models and effort levels are checked against your installed agent app before any step starts',
         ],
       },
       run: {
         eyebrow: 'Run screen',
         title: 'A run you can read',
-        body: 'The plan on the left, each card naming the step it waits for. On the right, what every agent said, in order, with the question that stopped the run pinned where you will answer it.',
+        body: 'What every agent said, in order, with the question that stopped the run pinned where you will answer it. The plan beside it names the step each card waits for.',
         points: [
           'Questions, spawned commands, output and spend stay together',
           'Outcomes say what happened: done, failed, stopped or not run',
           'A lead agent can talk things through with you — only /run starts work',
+          'Your tasks come back after a restart, each with its own conversation',
         ],
       },
       auto: {
@@ -234,6 +241,7 @@ export default {
           'Every decision that waits for you sits in one list: Needs you',
           'Design review: accept the tester’s screenshots, or click a spot and say what should change',
           'Waits out a busy provider or a usage limit, then carries on',
+          'Pause Auto and Resume; up to three goals work in one folder at a time',
           'Skip permissions turns full access on or off for the whole Auto run',
         ],
       },
@@ -242,9 +250,10 @@ export default {
         title: 'Reusable agents',
         body: 'Define a role once and reuse it in every workflow. The whole role — its words, its model, its file access — is on screen when you open it.',
         points: [
-          'Vendor, model, effort, timeout and whether it may reach the web',
+          'Claude Code, Codex or OpenCode, with model, effort, timeout and web access',
           'File access from “look only” upwards',
           'Tool servers (connections) and skills picked from what the project has',
+          'A model gateway of your own, or a local model through Ollama',
           'Import a setup from another project without copying secrets or history',
         ],
       },
@@ -254,6 +263,7 @@ export default {
         body: 'Notes and skills live on disk with the project. A note an agent suggests only reaches a future prompt after you approve it.',
         points: [
           'Notes go into every prompt; skills are used when they fit the work',
+          'Skills lists what the project’s .claude/skills and .agents/skills give its agents',
           'Named context sets from text, Markdown, images and PDFs',
           'See which context a run actually used',
         ],
@@ -285,8 +295,9 @@ export default {
         points: [
           'Encrypted and signed on your Mac; the server only relays ciphertext',
           'Invite members as Editor or Viewer, and approve every new device',
+          'Short task numbers, a task history and Run with Auto on each card',
           'Works offline and sends changes when the connection returns',
-          'The only part of RigOne that needs a MonoOne account',
+          'Needs a MonoOne account, as Remote access does',
         ],
       },
       triggers: {
@@ -306,6 +317,27 @@ export default {
         points: [
           'Cases come from your code, not a generic benchmark',
           'Compare an agent before and after you edit it',
+        ],
+      },
+      rig: {
+        eyebrow: 'Project rig',
+        title: 'One page for the whole project',
+        body: 'Who works in this project, how, and what they know: its agents, workflows, knowledge, triggers and Auto rules side by side.',
+        points: [
+          'Generate project setup drafts agents and workflows from the repository; nothing changes until you choose Apply',
+          'A workflow that needs a change says so, with Fix where RigOne can do it',
+          'New lessons from runs wait here for Keep or Discard',
+        ],
+      },
+      remote: {
+        eyebrow: 'Remote access',
+        title: 'Your runs, from your phone',
+        body: 'Pair a phone or tablet with a code and follow your work from anywhere: answer what waits in Needs you, start an Auto goal, message the Lead or stop work.',
+        points: [
+          'Face ID or Touch ID is always on',
+          'Writing outside a copy and full Auto access are approved only on the Mac',
+          'Choose which projects are available, and revoke a device at any time',
+          'Needs a MonoOne account, as Boards does',
         ],
       },
       evidence: {
@@ -376,15 +408,15 @@ export default {
     items: [
       {
         question: 'What do I need to run RigOne?',
-        answer: 'A Mac with Apple Silicon and macOS 13 or later, and at least one agent CLI installed and signed in: Claude Code or Codex.',
+        answer: 'A Mac with Apple Silicon and macOS 13 or later, and at least one agent app installed and signed in: Claude Code, Codex or OpenCode.',
       },
       {
         question: 'Does RigOne send my code anywhere?',
-        answer: 'RigOne itself runs on your Mac and works in your folder. The agents you start are Claude Code and Codex, so the code they read goes to their providers exactly as it would if you ran them in a terminal. Boards, the only part that needs an account, encrypts tasks and comments on your Mac before they leave it.',
+        answer: 'RigOne itself runs on your Mac and works in your folder. The agents you start are Claude Code, Codex or OpenCode, so the code they read goes to their providers exactly as it would if you ran them in a terminal. Boards encrypts tasks and comments on your Mac before they leave it. Boards and Remote access are the only parts that need an account.',
       },
       {
         question: 'How much does it cost?',
-        answer: 'RigOne is free to download and use. Runs use your own Claude Code or Codex plan, and RigOne warns you when a run reaches the amount you set.',
+        answer: 'RigOne is free to download and use. Runs use your own plan with Claude Code, Codex or OpenCode, and RigOne can warn you when a run reaches an amount you set.',
       },
       {
         question: 'Will an agent push to my repository?',
@@ -392,7 +424,7 @@ export default {
       },
       {
         question: 'Can I use only Claude Code, or only Codex?',
-        answer: 'Yes. One installed and signed-in CLI is enough. Mixing both is useful when you want one vendor to write and the other to give a second opinion.',
+        answer: 'Yes. One installed and signed-in agent app is enough: Claude Code, Codex or OpenCode. Mixing them is useful when you want one vendor to write and another to give a second opinion.',
       },
       {
         question: 'Is the app in my language?',
@@ -414,7 +446,7 @@ export default {
     download: 'Download for macOS',
     docs: 'Read the docs',
     compare: 'How it compares',
-    note: 'Needs Claude Code or Codex installed and signed in.',
+    note: 'Needs Claude Code, Codex or OpenCode installed and signed in.',
   },
   changelog: {
     eyebrow: 'Changelog',

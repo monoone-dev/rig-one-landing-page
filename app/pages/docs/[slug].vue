@@ -17,8 +17,17 @@ if (index.value < 0) throw createError({ statusCode: 404, statusMessage: 'Page n
 const page = computed(() => docs.pages[index.value]!)
 const previous = computed(() => docs.pages[index.value - 1])
 const next = computed(() => docs.pages[index.value + 1])
-// Screenshots in the guide point at `__BASE__/screenshots/…` (modules/markdown.ts)
-const html = computed(() => page.value.html.replaceAll('__BASE__/', asset('')))
+const router = useRouter()
+// Screenshots in the guide point at `__BASE__/screenshots/…` (modules/markdown.ts). A link such as
+// `[Auto](#auto)` names a section of the whole guide, so it goes to the page that holds it.
+const html = computed(() => page.value.html
+  .replaceAll('__BASE__/', asset(''))
+  .replace(/href="#([a-z0-9-]+)"/g, (link, id: string) => {
+    const target = docs.pages.find(p => p.id === id)
+      ?? (page.value.toc.some(h => h.id === id) ? page.value : docs.pages.find(p => p.toc.some(h => h.id === id)))
+    if (!target || target === page.value) return link
+    return `href="${router.resolve(localePath(`/docs/${target.id}`)).href}${target.id === id ? '' : `#${id}`}"`
+  }))
 const isTutorial = computed(() => page.value.title.startsWith('Tutorial'))
 const help = computed(() => fill(c.value.docs.helpHtml, { issues: site.links.newIssue }))
 

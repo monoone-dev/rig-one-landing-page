@@ -21,10 +21,12 @@ export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
   { id: 'run', icon: 'i-lucide-radio', shot: 'run' },
   { id: 'auto', icon: 'i-lucide-sparkles' },
   { id: 'agents', icon: 'i-lucide-users', shot: 'agents' },
-  { id: 'knowledge', icon: 'i-lucide-book-open' },
+  { id: 'rig', icon: 'i-lucide-sliders-horizontal', shot: 'project' },
+  { id: 'knowledge', icon: 'i-lucide-book-open', shot: 'knowledge' },
   { id: 'checks', icon: 'i-lucide-list-checks' },
   { id: 'branches', icon: 'i-lucide-git-branch' },
   { id: 'boards', icon: 'i-lucide-square-kanban' },
+  { id: 'remote', icon: 'i-lucide-smartphone' },
   { id: 'triggers', icon: 'i-lucide-alarm-clock' },
   { id: 'lab', icon: 'i-lucide-flask-conical' },
   { id: 'evidence', icon: 'i-lucide-receipt-text' },
@@ -38,8 +40,9 @@ export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
 export const screens: { id: ScreenId, icon: string, width: number, height: number }[] = [
   { id: 'run', icon: 'i-lucide-play', width: 1512, height: 1080 },
   { id: 'canvas', icon: 'i-lucide-git-fork', width: 1512, height: 950 },
+  { id: 'project', icon: 'i-lucide-sliders-horizontal', width: 1512, height: 950 },
   { id: 'agents', icon: 'i-lucide-users', width: 1512, height: 950 },
-  { id: 'workflows', icon: 'i-lucide-workflow', width: 1512, height: 950 },
+  { id: 'knowledge', icon: 'i-lucide-book-open', width: 1512, height: 950 },
   { id: 'settings', icon: 'i-lucide-settings', width: 1512, height: 950 },
 ]
 

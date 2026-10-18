@@ -2,10 +2,10 @@ import docs from '#docs'
 import notes from '#release-notes'
 
 // Screenshots shown on a page, for Google Images (dark versions; the light ones are the same screens)
-const homeShots = ['run', 'canvas', 'agents', 'workflows', 'settings']
+const homeShots = ['run', 'canvas', 'project', 'agents', 'knowledge', 'settings']
 const pageImages: Record<string, string[]> = {
   '/': homeShots.map(id => `screenshots/${id}.webp`),
-  '/features/': ['run', 'canvas', 'agents'].map(id => `screenshots/${id}.webp`),
+  '/features/': ['canvas', 'run', 'agents', 'project', 'knowledge'].map(id => `screenshots/${id}.webp`),
   ...Object.fromEntries(docs.pages.map(p => [`/docs/${p.id}/`, [...new Set(p.toc.flatMap(h => h.image ?? []))]])),
 }
 

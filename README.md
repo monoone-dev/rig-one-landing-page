@@ -5,8 +5,8 @@
 # RigOne
 
 **A native macOS control room for coding agents.** Define an agent once, place it on a canvas,
-connect the steps, and run the graph against a project on your Mac — Claude Code and Codex as
-first-class peers, in parallel, with checks RigOne runs itself.
+connect the steps, and run the graph against a project on your Mac — Claude Code, Codex and
+OpenCode as first-class peers, in parallel, with checks RigOne runs itself.
 
 [Download for macOS](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) ·
 [Website](https://monoone.dev/rig-one-landing-page/) ·
@@ -16,7 +16,7 @@ first-class peers, in parallel, with checks RigOne runs itself.
 
 macOS 13+ · Apple Silicon · signed and notarized · free · in nine languages
 
-![The Run screen while Ship a feature runs: three steps done, Second opinion working, and the Lead asking whether to ship the fix now](public/screenshots/run.webp)
+![The Tasks screen while Ship a feature runs: what each agent said, three steps done in the plan, and Second opinion asking whether to ship the fix now](public/screenshots/run.webp)
 
 ## Contents
 
@@ -47,15 +47,15 @@ RigOne's public home. The app's source code is not public and is not here.
 
 ## What RigOne does
 
-1. **Write an agent** — one job, one instruction. Pick Claude Code or Codex, the model, the effort
+1. **Write an agent** — one job, one instruction. Pick Claude Code, Codex or OpenCode, the model, the effort
    and what it may touch: file access from *look only* upwards, web access, a timeout, tool
    servers and skills.
 2. **Put agents in a row** — that row is a workflow, saved as a graph. An arrow means "runs
    after"; steps that do not depend on each other run at the same time. A step can be an agent, a
    check or a checkpoint where you decide.
-3. **Run it and watch** — point the graph at a folder on your Mac, set how many agents may work at
-   once and when to warn you about spend. The plan reads on the left, what every agent said on the
-   right, and the question that stopped the run is pinned where you will answer it.
+3. **Run it and watch** — point the graph at a folder on your Mac and set how many agents may work
+   at once. What every agent said reads in the middle, the plan on the right, and the question that
+   stopped the run is pinned where you will answer it.
 
 Each step works in its own copy of your code. When the run ends, what the agents changed waits on
 its own branch in your project: **nothing is pushed, and nothing reaches your own branch until you
@@ -66,17 +66,26 @@ it worked; a second opinion from the other vendor can raise concerns, but never 
 skills it needs, builds ordinary workflows for each part and keeps going until checks and reviews
 prove the work. Every decision that waits for you — a question, an approval, a design review of
 the tester's screenshots — sits in one list, **Needs you**, and macOS tells you when one arrives.
+**Pause Auto** and **Resume** hold a whole goal, and up to three goals work in one folder at a time.
+
+**Project rig** shows a project on one page — its agents, workflows, knowledge, triggers and Auto
+rules — and **Generate project setup** drafts a rig from the repository for you to review.
+
+**Remote access** pairs your phone or tablet: answer what waits in Needs you, start an Auto goal,
+message the Lead or stop work from anywhere, with Face ID or Touch ID on every session.
 
 **Boards** are shared task boards — Kanban or sprints — encrypted and signed on your Mac before
 anything leaves it. Start a task as a workflow or an Auto goal, and its progress shows on the board
-for every member. Boards is the only part of RigOne that needs an account (MonoOne).
+for every member. Boards and Remote access are the only parts of RigOne that need an account
+(MonoOne).
 
 Also included: project-scoped knowledge (notes you approve and skills), named context sets from
 text, Markdown, images and PDFs, a shared versioned plan across steps, a Lab that drafts test
-cases from your own code to evaluate an agent, Linear triggers, live plan limits for both vendors,
-and run evidence — receipts, handoffs, full answers and a diagnostic bundle — that outlives the
-terminal. The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese,
-Chinese and Japanese, in a Minimalist or Studio look, light or dark.
+cases from your own code to evaluate an agent, Linear triggers, model gateways and local models,
+live plan limits for both vendors, a Health check, updates for the agent apps themselves, and run
+evidence — receipts, handoffs, full answers and a diagnostic bundle — that outlives the terminal.
+The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese, Chinese and
+Japanese, in a Surface, Minimalist or Studio look, light or dark.
 
 The full feature list is on the [website](https://monoone.dev/rig-one-landing-page/features/),
 and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex app and Cursor Cloud Agents is
@@ -86,17 +95,19 @@ and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex ap
 
 | | |
 | --- | --- |
-| ![The Agents screen: four roles beside Scout, which runs with Claude Code](public/screenshots/agents.webp) | ![The Workflows screen: Fix a bug across the top, Review a pull request and Ship a feature below it](public/screenshots/workflows-light.webp) |
-| **Agents** — the whole role on one screen: instructions, CLI, model and effort, file and web access, timeout. | **Workflows** — each saved workflow with its steps and agents; the one you run most takes the width. |
-| ![Settings → Appearance: the Minimalist and Studio themes, and System, Light or Dark](public/screenshots/settings-light.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas.webp) |
-| **Settings** — its own window; Minimalist or Studio, in light, dark or following macOS. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
+| ![Project rig for client-website: four agents, three ready workflows, the knowledge cards and the Auto rules](public/screenshots/project.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas-light.webp) |
+| **Project rig** — the whole project on one page: agents, workflows, knowledge, triggers and Auto rules. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
+| ![The Agents screen: four roles beside Scout, which runs with Claude Code](public/screenshots/agents-light.webp) | ![The Knowledge screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
+| **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Knowledge** — notes an agent suggests wait for you; approved notes go into every prompt. |
+| ![Settings → Appearance: the Surface, Minimalist and Studio themes, System, Light or Dark, and the accent colours](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
+| **Settings** — Surface, Minimalist or Studio, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
 
 Every screen is in `public/screenshots/` in dark (`<screen>.webp`) and light (`<screen>-light.webp`).
 
 ## Install
 
-You need a Mac with Apple Silicon and macOS 13 or later, and at least one agent CLI installed and
-signed in: **Claude Code** or **Codex**. Runs use your own plan with each vendor.
+You need a Mac with Apple Silicon and macOS 13 or later, and at least one agent app installed and
+signed in: **Claude Code**, **Codex** or **OpenCode**. Runs use your own plan with each vendor.
 
 1. Download `RigOne_<version>_aarch64.dmg` from the
    [latest release](https://github.com/monoone-dev/rig-one-landing-page/releases/latest).
@@ -140,11 +151,11 @@ RigOne treats orchestration failures as product failures, not terminal noise:
 | Count a green exit code as a pass when no tests ran | Shows "nothing ran" as its own outcome |
 | Treat its database as the truth | Keeps files as the truth; the SQLite index can be deleted and rebuilt |
 
-RigOne itself runs on your Mac and works in your folders. The agents it starts are Claude Code and
-Codex, so what they read goes to their providers exactly as when you run them in a terminal. Boards
-sends the MonoOne server only encrypted tasks, comments and activity. In Auto, **Skip permissions**
-(on by default) runs steps with the same full access as the agent CLI in your terminal; turn it off
-to keep them fenced in their copies. More:
+RigOne itself runs on your Mac and works in your folders. The agents it starts are Claude Code,
+Codex or OpenCode, so what they read goes to their providers exactly as when you run them in a
+terminal. Boards sends the MonoOne server only encrypted tasks, comments and activity. In Auto,
+**Full access** (on by default) runs steps with the same access as the agent app in your terminal;
+switch it to **In its own copy** to keep them fenced in their copies. More:
 [Safety model](https://monoone.dev/rig-one-landing-page/docs/safety-model/).
 
 ## Where your data lives
@@ -154,6 +165,7 @@ to keep them fenced in their copies. More:
 | Your library: agents, workflows, skills, notes, triggers, context sets, settings | `~/.rig-one/` |
 | A project's own notes and its run history (plain files, safe to commit) | `.rig-one/` inside the project folder |
 | The work of a run | A branch in your project's own Git repository |
+| Access keys for model gateways | `~/.rig-one/env` |
 | Board keys | The macOS Keychain |
 
 ## Updating, and coming from Loadout

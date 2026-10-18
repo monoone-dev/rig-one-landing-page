@@ -54,12 +54,12 @@ export default {
   },
   hero: {
     badgePlatform: 'macOS · Apple Silicon',
-    badgeAgents: 'Claude Code + Codex',
+    badgeAgents: 'Claude Code · Codex · OpenCode',
     badgeRelease: 'Versão {version} disponível',
     audience: 'Para desenvolvedores que já usam Claude Code ou Codex',
     titleStrong: 'Trabalhe com seus agentes de código como uma equipe,',
     titleSoft: 'não um terminal por vez.',
-    sub: 'O RigOne é um app gratuito para Mac que transforma Claude Code e Codex em um fluxo que você roda de novo: etapas em paralelo, cada uma na própria cópia do seu código, com verificações que o RigOne roda antes que qualquer coisa chegue ao seu branch.',
+    sub: 'O RigOne é um app gratuito para Mac que transforma Claude Code, Codex e OpenCode em um fluxo que você roda de novo: etapas em paralelo, cada uma na própria cópia do seu código, com verificações que o RigOne roda antes que qualquer coisa chegue ao seu branch.',
     problemsLabel: 'O que o RigOne resolve',
     problems: [
       { problem: 'Malabarismo com terminais', answer: 'Uma janela planeja, roda e mostra cada agente.' },
@@ -75,7 +75,7 @@ export default {
     aria: 'Com o que você pode contar',
     items: [
       'Roda no seu Mac, sobre a sua pasta',
-      'Claude Code e Codex em pé de igualdade',
+      'Claude Code, Codex e OpenCode lado a lado',
       'Nada chega ao seu branch até você aceitar',
       'Assinado com Apple Developer ID',
     ],
@@ -125,7 +125,7 @@ export default {
     steps: [
       {
         title: 'Escreva um agente',
-        body: 'Um trabalho, uma instrução. Escolha Claude Code ou Codex, o modelo, o esforço e o que ele pode tocar.',
+        body: 'Um trabalho, uma instrução. Escolha Claude Code, Codex ou OpenCode, o modelo, o esforço e o que ele pode tocar.',
       },
       {
         title: 'Ponha os agentes em fila',
@@ -140,19 +140,19 @@ export default {
   screens: {
     eyebrow: 'Telas',
     title: 'Veja antes de baixar',
-    lead: 'O app como é distribuído hoje, no visual padrão Minimalist. Cada tela funciona no claro e no escuro.',
+    lead: 'O app como é lançado hoje, no visual padrão Surface. Toda tela funciona no claro e no escuro.',
     label: 'Telas do app',
     items: {
       run: {
-        tab: 'Run',
+        tab: 'Tasks',
         title: 'Rode um fluxo, ou converse antes',
-        body: 'O plano à esquerda, a conversa com o Lead à direita. Escolha quantos agentes podem trabalhar ao mesmo tempo e quando avisar sobre o gasto, e aperte Run workflow.',
-        alt: 'A tela Run enquanto Ship a feature roda: três etapas concluídas e Second opinion trabalhando; no fluxo, o que cada agente disse, e o Lead pergunta se envia a correção agora ou faz a limpeza antes.',
+        body: 'O que cada agente disse, em ordem, ao lado do plano com a pergunta que parou a execução. Escolha quantos agentes podem trabalhar ao mesmo tempo e aperte Run workflow.',
+        alt: 'A tela Tasks enquanto Ship a feature roda: o que cada agente disse no fluxo, três etapas concluídas no plano à direita e Second opinion perguntando se entrega a correção agora ou limpa antes.',
       },
       agents: {
         tab: 'Agents',
         title: 'O papel inteiro em uma tela',
-        body: 'As instruções, a CLI, o modelo e o esforço com que roda, se pode alterar arquivos ou acessar a web, e quando desiste.',
+        body: 'As instruções, o app do agente — Claude Code, Codex ou OpenCode — com modelo e esforço, se pode mudar arquivos ou acessar a web, e quando desiste.',
         alt: 'A tela Agents: quatro papéis em uma lista ao lado de Scout, que roda com Claude Code e lê o código antes que alguém o altere.',
       },
       canvas: {
@@ -161,17 +161,23 @@ export default {
         body: 'Etapas em uma tela, ligadas por setas que significam “roda depois”. Depois de Fix, os testes e uma segunda opinião do outro fornecedor rodam ao mesmo tempo.',
         alt: 'A tela de Ship a feature: Reproduce, depois Fix, depois Tests pass e Second opinion lado a lado.',
       },
-      workflows: {
-        tab: 'Workflows',
-        title: 'Fluxos que você roda de novo',
-        body: 'Cada fluxo salvo com suas etapas e agentes. O que você roda com mais frequência ocupa a largura toda.',
-        alt: 'A tela Workflows: Fix a bug no topo com suas três etapas, Review a pull request e Ship a feature abaixo.',
+      project: {
+        tab: 'Project rig',
+        title: 'O projeto inteiro numa página',
+        body: 'Seus agentes, fluxos, conhecimento, gatilhos e regras do Auto, com o que precisa de correção. Generate project setup monta um rig a partir do repositório.',
+        alt: 'Project rig de client-website: quatro agentes com acesso a arquivos e modelo, três fluxos prontos, os cartões de conhecimento e as regras do Auto.',
+      },
+      knowledge: {
+        tab: 'Knowledge',
+        title: 'O que seus agentes sabem, com a sua aprovação',
+        body: 'Notas que um agente sugere esperam seu Keep ou Discard. As aprovadas vão em todo prompt; habilidades são usadas quando combinam com o trabalho.',
+        alt: 'A tela Knowledge: duas notas sugeridas esperando por você, duas notas sempre no contexto e três habilidades usadas quando combinam.',
       },
       settings: {
         tab: 'Settings',
         title: 'Ajustes em uma janela própria',
-        body: 'Categorias para o trabalho, a conta e o app. Escolha o visual Minimalist ou Studio, claro, escuro ou seguindo o macOS.',
-        alt: 'Settings → Appearance: os temas Minimalist e Studio, e System, Light ou Dark.',
+        body: 'Categorias para o trabalho, a conta e o app, com um Health check que diz o que funciona. Escolha o visual Surface, Minimalist ou Studio e uma cor de destaque, claro, escuro ou seguindo o macOS.',
+        alt: 'Settings → Appearance: o idioma do app, os temas Surface, Minimalist e Studio, System, Light ou Dark e as cores de destaque.',
       },
     },
   },
@@ -212,18 +218,19 @@ export default {
         body: 'Ramos independentes se sobrepõem no tempo em vez de esperar a vez atrás de um único executor.',
         points: [
           'Escolha quantos agentes podem trabalhar ao mesmo tempo',
-          'Um aviso quando uma execução chega ao valor que você definiu',
-          'Modelos e níveis de esforço são conferidos com a sua CLI instalada antes de qualquer passo começar',
+          'Um aviso opcional quando uma execução chega a um valor que você definiu',
+          'Modelos e níveis de esforço são conferidos com o app de agente instalado antes de qualquer etapa começar',
         ],
       },
       run: {
         eyebrow: 'Tela de execução',
         title: 'Uma execução que dá para ler',
-        body: 'O plano à esquerda, com cada cartão indicando o passo que ele espera. À direita, o que cada agente disse, em ordem, com a pergunta que parou a execução fixada onde você vai respondê-la.',
+        body: 'O que cada agente disse, em ordem, com a pergunta que parou a execução fixada onde você vai responder. O plano ao lado diz a etapa que cada cartão espera.',
         points: [
           'Perguntas, comandos iniciados, saída e gasto ficam juntos',
-          'Os resultados dizem o que aconteceu: concluído, falhou, interrompido ou não rodou',
-          'Um agente principal pode discutir as coisas com você; só /run começa o trabalho',
+          'Os resultados dizem o que aconteceu: feito, falhou, parado ou não executado',
+          'Um agente líder pode conversar com você — só /run inicia o trabalho',
+          'Suas tarefas voltam depois de reiniciar, cada uma com a própria conversa',
         ],
       },
       auto: {
@@ -232,8 +239,9 @@ export default {
         body: 'Dê um objetivo ao Lead. O Auto escolhe os papéis e as skills de que precisa, monta fluxos comuns para cada parte e continua até que as verificações e revisões comprovem o trabalho. Quem decide que um objetivo está verificado é o RigOne, não o Lead.',
         points: [
           'Toda decisão que espera por você fica em uma só lista: Needs you',
-          'Revisão de design: aceite as capturas do tester, ou clique em um ponto e diga o que deve mudar',
-          'Espera passar a sobrecarga do fornecedor ou um limite de uso e continua',
+          'Revisão de design: aceite as capturas do testador, ou clique num ponto e diga o que deve mudar',
+          'Espera um provedor ocupado ou um limite de uso e depois continua',
+          'Pause Auto e Resume; até três objetivos trabalham ao mesmo tempo numa pasta',
           'Skip permissions liga ou desliga o acesso total para toda a execução do Auto',
         ],
       },
@@ -242,10 +250,11 @@ export default {
         title: 'Agentes reutilizáveis',
         body: 'Defina um papel uma vez e reuse-o em todos os fluxos. O papel inteiro (as instruções, o modelo, o acesso a arquivos) aparece na tela quando você o abre.',
         points: [
-          'Fornecedor, modelo, esforço, tempo limite e se ele pode acessar a web',
+          'Claude Code, Codex ou OpenCode, com modelo, esforço, tempo limite e acesso à web',
           'Acesso a arquivos a partir de “só olhar”',
-          'Servidores de ferramentas (conexões) e habilidades escolhidos entre os que o projeto tem',
-          'Importe uma configuração de outro projeto sem copiar segredos nem histórico',
+          'Servidores de ferramentas (conexões) e habilidades escolhidos entre o que o projeto tem',
+          'Um gateway de modelos seu, ou um modelo local pelo Ollama',
+          'Importe uma configuração de outro projeto sem copiar segredos ou histórico',
         ],
       },
       knowledge: {
@@ -254,8 +263,9 @@ export default {
         body: 'Notas e habilidades ficam em disco junto com o projeto. Uma nota sugerida por um agente só chega a um prompt futuro depois que você a aprova.',
         points: [
           'Notas vão em todo prompt; habilidades são usadas quando combinam com o trabalho',
+          'Skills mostra o que .claude/skills e .agents/skills do projeto dão aos agentes',
           'Conjuntos de contexto com nome a partir de texto, Markdown, imagens e PDFs',
-          'Veja qual contexto uma execução realmente usou',
+          'Veja qual contexto uma execução usou de verdade',
         ],
       },
       checks: {
@@ -284,9 +294,10 @@ export default {
         body: 'Tarefas, comentários e membros em um quadro Kanban ou por sprints. Inicie uma tarefa como fluxo ou como objetivo do Auto em uma pasta deste Mac, e o progresso aparece no quadro para todos.',
         points: [
           'Criptografado e assinado no seu Mac; o servidor só repassa texto cifrado',
-          'Convide membros como Editor ou Viewer e aprove cada dispositivo novo',
-          'Funciona offline e envia as alterações quando a conexão volta',
-          'A única parte do RigOne que precisa de uma conta MonoOne',
+          'Convide membros como Editor ou Viewer e aprove cada novo dispositivo',
+          'Números curtos de tarefa, histórico da tarefa e Run with Auto em cada cartão',
+          'Funciona offline e envia as mudanças quando a conexão volta',
+          'Precisa de uma conta MonoOne, como o Remote access',
         ],
       },
       triggers: {
@@ -306,6 +317,27 @@ export default {
         points: [
           'Os casos vêm do seu código, não de um benchmark genérico',
           'Compare um agente antes e depois de editá-lo',
+        ],
+      },
+      rig: {
+        eyebrow: 'Project rig',
+        title: 'Uma página para o projeto inteiro',
+        body: 'Quem trabalha neste projeto, como e o que sabe: agentes, fluxos, conhecimento, gatilhos e regras do Auto lado a lado.',
+        points: [
+          'Generate project setup monta agentes e fluxos a partir do repositório; nada muda até você escolher Apply',
+          'Um fluxo que precisa de mudança avisa, com Fix quando o RigOne consegue resolver',
+          'Novas lições das execuções esperam aqui seu Keep ou Discard',
+        ],
+      },
+      remote: {
+        eyebrow: 'Remote access',
+        title: 'Suas execuções no celular',
+        body: 'Pareie um celular ou tablet com um código e acompanhe o trabalho de qualquer lugar: responda o que espera em Needs you, inicie um objetivo do Auto, escreva para o Lead ou pare o trabalho.',
+        points: [
+          'Face ID ou Touch ID sempre ligado',
+          'Escrever fora de uma cópia e o acesso total do Auto só são aprovados no Mac',
+          'Escolha quais projetos ficam disponíveis e revogue um dispositivo quando quiser',
+          'Precisa de uma conta MonoOne, como o Boards',
         ],
       },
       evidence: {
@@ -376,15 +408,15 @@ export default {
     items: [
       {
         question: 'Do que preciso para usar o RigOne?',
-        answer: 'Um Mac com Apple Silicon e macOS 13 ou posterior, e pelo menos uma CLI de agente instalada e com login feito: Claude Code ou Codex.',
+        answer: 'Um Mac com Apple Silicon e macOS 13 ou mais recente, e pelo menos um app de agente instalado e com login feito: Claude Code, Codex ou OpenCode.',
       },
       {
         question: 'O RigOne envia meu código para algum lugar?',
-        answer: 'O RigOne em si roda no seu Mac e trabalha na sua pasta. Os agentes que você inicia são Claude Code e Codex, então o código que eles leem vai para os fornecedores deles exatamente como iria se você os rodasse em um terminal. O Boards, única parte que precisa de conta, criptografa tarefas e comentários no seu Mac antes que saiam dele.',
+        answer: 'O RigOne roda no seu Mac e trabalha na sua pasta. Os agentes que você inicia são Claude Code, Codex ou OpenCode, então o código que eles leem vai para os provedores deles exatamente como se você os rodasse num terminal. O Boards criptografa tarefas e comentários no seu Mac antes que saiam dele. Boards e Remote access são as únicas partes que precisam de uma conta.',
       },
       {
         question: 'Quanto custa?',
-        answer: 'O RigOne é gratuito para baixar e usar. As execuções usam seu próprio plano do Claude Code ou do Codex, e o RigOne avisa quando uma execução chega ao valor que você definiu.',
+        answer: 'O RigOne é gratuito para baixar e usar. As execuções usam seu próprio plano do Claude Code, do Codex ou do OpenCode, e o RigOne pode avisar quando uma execução chega a um valor que você definiu.',
       },
       {
         question: 'Um agente vai dar push no meu repositório?',
@@ -392,7 +424,7 @@ export default {
       },
       {
         question: 'Posso usar só o Claude Code, ou só o Codex?',
-        answer: 'Sim. Uma CLI instalada e com login feito basta. Misturar as duas é útil quando você quer que um fornecedor escreva e o outro dê uma segunda opinião.',
+        answer: 'Sim. Basta um app de agente instalado e com login feito: Claude Code, Codex ou OpenCode. Misturar é útil quando você quer que um fornecedor escreva e outro dê uma segunda opinião.',
       },
       {
         question: 'O app está no meu idioma?',
@@ -414,7 +446,7 @@ export default {
     download: 'Baixar para macOS',
     docs: 'Ler a documentação',
     compare: 'Como ele se compara',
-    note: 'Precisa do Claude Code ou do Codex instalado e com login feito.',
+    note: 'Precisa do Claude Code, do Codex ou do OpenCode instalado e com login feito.',
   },
   changelog: {
     eyebrow: 'Novidades',

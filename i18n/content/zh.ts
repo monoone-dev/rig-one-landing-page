@@ -54,12 +54,12 @@ export default {
   },
   hero: {
     badgePlatform: 'macOS · Apple Silicon',
-    badgeAgents: 'Claude Code + Codex',
+    badgeAgents: 'Claude Code · Codex · OpenCode',
     badgeRelease: '{version} 已发布',
     audience: '为已经在用 Claude Code 或 Codex 的开发者打造',
     titleStrong: '让你的编码智能体像团队一样协作，',
     titleSoft: '而不是一个终端接一个终端。',
-    sub: 'RigOne 是一款免费的 Mac 应用，把 Claude Code 和 Codex 变成可以再次运行的工作流：步骤并行，每一步都在你代码的独立副本中进行，并且在任何改动进入你的分支之前，由 RigOne 自己运行检查。',
+    sub: 'RigOne 是一款免费的 Mac 应用，把 Claude Code、Codex 和 OpenCode 变成可以再次运行的工作流：步骤并行，每一步都在你代码的独立副本中进行，并且在任何改动进入你的分支之前，由 RigOne 自己运行检查。',
     problemsLabel: 'RigOne 解决的问题',
     problems: [
       { problem: '在多个终端间来回切换', answer: '一个窗口就能规划、运行并查看每个智能体。' },
@@ -75,7 +75,7 @@ export default {
     aria: '你可以放心的几点',
     items: [
       '在你的 Mac 上、对着你的文件夹运行',
-      'Claude Code 与 Codex 平起平坐',
+      'Claude Code、Codex 和 OpenCode 平起平坐',
       '在你接收之前，什么都不会进入你的分支',
       '使用 Apple Developer ID 签名',
     ],
@@ -125,7 +125,7 @@ export default {
     steps: [
       {
         title: '写一个智能体',
-        body: '一件事，一条指令。选好 Claude Code 或 Codex、模型、思考深度，以及它能碰什么。',
+        body: '一件事，一条指令。选好 Claude Code、Codex 或 OpenCode、模型、思考深度，以及它能碰什么。',
       },
       {
         title: '把智能体排成一行',
@@ -140,19 +140,19 @@ export default {
   screens: {
     eyebrow: '界面',
     title: '下载之前先看看',
-    lead: '应用如今发布时的样子，使用默认的 Minimalist 外观。每个界面都支持浅色和深色。',
+    lead: '应用如今发布时的样子，使用默认的 Surface 外观。每个界面都支持浅色和深色。',
     label: '应用界面',
     items: {
       run: {
-        tab: 'Run',
+        tab: 'Tasks',
         title: '运行工作流，或先商量一下',
-        body: '左边是计划，右边是与 Lead 的对话。设定同时工作的智能体数量和花费提醒的金额，然后按 Run workflow。',
-        alt: 'Ship a feature 运行中的 Run 界面：计划中三个步骤已完成，Second opinion 正在工作；对话流里是每个智能体说的话，Lead 在问是现在就发布修复，还是先做清理。',
+        body: '每个智能体说了什么，按顺序排列，旁边是计划和让运行停下来的问题。设定同时工作的智能体数量，然后按 Run workflow。',
+        alt: 'Ship a feature 运行中的 Tasks 界面：信息流中是每个智能体说的话，右侧计划里三个步骤已完成，Second opinion 正在问是现在发布修复还是先清理。',
       },
       agents: {
         tab: 'Agents',
         title: '整个角色都在一个界面上',
-        body: '它的指令、所用的 CLI、模型和推理强度、能否修改文件或访问网络，以及何时放弃。',
+        body: '它的指令、所用的智能体应用（Claude Code、Codex 或 OpenCode）及模型和思考深度、能否修改文件或访问网络，以及何时放弃。',
         alt: 'Agents 界面：四个角色的列表，旁边是使用 Claude Code 运行、在任何人改代码之前先读代码的 Scout。',
       },
       canvas: {
@@ -161,17 +161,23 @@ export default {
         body: '画布上的步骤由箭头相连，箭头的意思是“在之后运行”。Fix 之后，测试和来自另一家服务商的第二意见同时运行。',
         alt: 'Ship a feature 的画布：Reproduce，然后 Fix，接着 Tests pass 和 Second opinion 并排运行。',
       },
-      workflows: {
-        tab: 'Workflows',
-        title: '可以再次运行的工作流',
-        body: '每个已保存的工作流及其步骤和智能体。最常运行的那个占满整行。',
-        alt: 'Workflows 界面：顶部是带三个步骤的 Fix a bug，下方是 Review a pull request 和 Ship a feature。',
+      project: {
+        tab: 'Project rig',
+        title: '整个项目，一页看完',
+        body: '它的智能体、工作流、知识、触发器和 Auto 规则，以及需要修复的地方。Generate project setup 会根据仓库起草一套配置。',
+        alt: 'client-website 的 Project rig：四个智能体及其文件访问和模型、三个就绪的工作流、知识卡片和 Auto 规则。',
+      },
+      knowledge: {
+        tab: 'Knowledge',
+        title: '智能体知道什么，由你批准',
+        body: '智能体建议的笔记等你选择 Keep 或 Discard。批准的笔记进入每一条提示词；技能在适合当前工作时使用。',
+        alt: 'Knowledge 界面：两条建议的笔记在等你，两条笔记始终在上下文中，三项技能在合适时使用。',
       },
       settings: {
         tab: 'Settings',
         title: '独立窗口中的设置',
-        body: '按工作、账户和应用分类。选择 Minimalist 或 Studio 外观，浅色、深色或跟随 macOS。',
-        alt: 'Settings → Appearance：Minimalist 和 Studio 主题，以及 System、Light 或 Dark。',
+        body: '按工作、账户和应用分类，还有告诉你什么正常的 Health check。选择 Surface、Minimalist 或 Studio 外观和强调色，浅色、深色或跟随 macOS。',
+        alt: 'Settings → Appearance：应用语言、Surface、Minimalist 和 Studio 三种主题、System、Light 或 Dark，以及强调色。',
       },
     },
   },
@@ -211,19 +217,20 @@ export default {
         title: '真正的并行运行',
         body: '互不依赖的分支在时间上重叠，而不是排队等同一个执行者。',
         points: [
-          '选择最多可以同时工作的智能体数量',
-          '运行花费达到你设定的金额时发出提醒',
-          '任何步骤开始前，会先对照你安装的 CLI 检查模型和思考深度',
+          '选择同时可以工作的智能体数量',
+          '可选：运行花费达到你设定的金额时发出提醒',
+          '任何步骤开始之前，都会按你已安装的智能体应用核对模型和思考深度',
         ],
       },
       run: {
         eyebrow: '运行界面',
         title: '读得懂的运行',
-        body: '左边是计划，每张卡片都写明它在等哪个步骤。右边按顺序列出每个智能体说的话，让运行停下来的问题就钉在你要回答它的位置。',
+        body: '每个智能体说了什么，按顺序排列，让运行停下来的问题就固定在你回答的地方。旁边的计划标出每张卡片在等哪一步。',
         points: [
-          '提问、启动的命令、输出和花费都放在一起',
-          '结果会说明发生了什么：完成、失败、已停止或未运行',
-          '主智能体可以和你商量——只有 /run 才会开始工作',
+          '问题、启动的命令、输出和花费都放在一起',
+          '结果如实说明发生了什么：完成、失败、停止或未运行',
+          '主导智能体可以先和你商量——只有 /run 才会开始工作',
+          '重启后你的任务会回来，每个都带着自己的对话',
         ],
       },
       auto: {
@@ -232,9 +239,10 @@ export default {
         body: '给 Lead 一个目标。Auto 选出所需的角色和技能，为每个部分搭建普通的工作流，一直推进到检查和审查证明工作成立。目标是否已验证由 RigOne 判断，而不是 Lead。',
         points: [
           '所有等你决定的事都在一个列表里：Needs you',
-          '设计审查：接受测试者的截图，或点击某处并写下要改什么',
-          '服务商繁忙或达到用量上限时会等待，然后继续',
-          'Skip permissions 为整个 Auto 运行开启或关闭完全访问',
+          '设计评审：接受测试者的截图，或点一下某处并说明要改什么',
+          '等待繁忙的提供方或用量限制恢复，然后继续',
+          'Pause Auto 与 Resume；同一个文件夹最多同时进行三个目标',
+          'Skip permissions 为整个 Auto 运行打开或关闭完全访问',
         ],
       },
       agents: {
@@ -242,10 +250,11 @@ export default {
         title: '可复用的智能体',
         body: '角色只需定义一次，就能在每个工作流里复用。打开它时，整个角色——它的说明、模型和文件权限——都显示在屏幕上。',
         points: [
-          '供应商、模型、思考深度、超时，以及是否可以访问网络',
-          '文件权限从“只看”往上逐级设定',
-          '从项目已有的工具服务器（连接）和技能中挑选',
-          '从另一个项目导入配置，不会复制密钥或历史记录',
+          'Claude Code、Codex 或 OpenCode，以及模型、思考深度、超时和网络访问',
+          '文件访问权限从“只看”往上',
+          '工具服务器（连接）和技能，从项目已有的里面挑选',
+          '你自己的模型网关，或通过 Ollama 使用本地模型',
+          '从另一个项目导入配置，不复制密钥和历史',
         ],
       },
       knowledge: {
@@ -254,8 +263,9 @@ export default {
         body: '笔记和技能与项目一起存放在磁盘上。智能体建议的笔记，只有经你批准后才会进入之后的提示词。',
         points: [
           '笔记进入每一条提示词；技能在适合当前工作时使用',
-          '用文本、Markdown、图片和 PDF 组成有名称的上下文集',
-          '查看一次运行实际用到了哪些上下文',
+          'Skills 显示项目的 .claude/skills 和 .agents/skills 给了智能体什么',
+          '用文本、Markdown、图片和 PDF 建立有名称的上下文集',
+          '查看一次运行实际用了哪些上下文',
         ],
       },
       checks: {
@@ -285,8 +295,9 @@ export default {
         points: [
           '在你的 Mac 上加密并签名；服务器只转发密文',
           '以 Editor 或 Viewer 身份邀请成员，并批准每一台新设备',
-          '离线也能用，连接恢复后发送改动',
-          'RigOne 中唯一需要 MonoOne 账户的部分',
+          '简短的任务编号、任务历史，以及每张卡片上的 Run with Auto',
+          '离线也能用，联网后再发送更改',
+          '需要 MonoOne 账户，Remote access 也一样',
         ],
       },
       triggers: {
@@ -306,6 +317,27 @@ export default {
         points: [
           '用例来自你的代码，而不是通用基准测试',
           '对比智能体在你修改前后的表现',
+        ],
+      },
+      rig: {
+        eyebrow: 'Project rig',
+        title: '一页掌握整个项目',
+        body: '这个项目里谁在工作、怎么工作、知道什么：智能体、工作流、知识、触发器和 Auto 规则并排展示。',
+        points: [
+          'Generate project setup 根据仓库起草智能体和工作流；在你选择 Apply 之前什么都不会改变',
+          '需要修改的工作流会说明原因，RigOne 能修的地方有 Fix 按钮',
+          '运行中学到的新经验在这里等你选择 Keep 或 Discard',
+        ],
+      },
+      remote: {
+        eyebrow: 'Remote access',
+        title: '在手机上看你的运行',
+        body: '用一个代码配对手机或平板，随时随地跟进工作：回答 Needs you 中等待的事项、启动 Auto 目标、给 Lead 发消息或停止工作。',
+        points: [
+          'Face ID 或 Touch ID 始终开启',
+          '在副本外写入和 Auto 的完全访问只能在 Mac 上批准',
+          '选择哪些项目可用，随时撤销某台设备',
+          '需要 MonoOne 账户，Boards 也一样',
         ],
       },
       evidence: {
@@ -376,15 +408,15 @@ export default {
     items: [
       {
         question: '运行 RigOne 需要什么？',
-        answer: '一台搭载 Apple Silicon、运行 macOS 13 或更高版本的 Mac，以及至少一个已安装并登录的智能体 CLI：Claude Code 或 Codex。',
+        answer: '一台搭载 Apple Silicon、macOS 13 或更高版本的 Mac，以及至少一个已安装并登录的智能体应用：Claude Code、Codex 或 OpenCode。',
       },
       {
         question: 'RigOne 会把我的代码发送到别处吗？',
-        answer: 'RigOne 本身在你的 Mac 上运行，并在你的文件夹里工作。它启动的智能体是 Claude Code 和 Codex，所以它们读取的代码会发给各自的服务商，与你在终端里运行它们时完全一样。Boards 是唯一需要账户的部分，任务和评论在离开你的 Mac 之前就已在本机加密。',
+        answer: 'RigOne 本身在你的 Mac 上运行，在你的文件夹里工作。你启动的智能体是 Claude Code、Codex 或 OpenCode，所以它们读取的代码会像你在终端里运行它们时一样发送给各自的提供方。Boards 会在任务和评论离开你的 Mac 之前在本机加密。只有 Boards 和 Remote access 需要账户。',
       },
       {
         question: '要花多少钱？',
-        answer: 'RigOne 可免费下载和使用。运行使用你自己的 Claude Code 或 Codex 套餐，运行花费达到你设定的金额时 RigOne 会提醒你。',
+        answer: 'RigOne 可免费下载和使用。运行使用你自己的 Claude Code、Codex 或 OpenCode 套餐，运行花费达到你设定的金额时 RigOne 可以提醒你。',
       },
       {
         question: '智能体会推送到我的仓库吗？',
@@ -392,7 +424,7 @@ export default {
       },
       {
         question: '可以只用 Claude Code，或只用 Codex 吗？',
-        answer: '可以。一个已安装并登录的 CLI 就够了。如果你想让一家供应商来写、另一家提供第二意见，同时使用两者会很有用。',
+        answer: '可以。一个已安装并登录的智能体应用就够了：Claude Code、Codex 或 OpenCode。想让一家写代码、另一家给出第二意见时，混用会很有帮助。',
       },
       {
         question: '应用有我的语言吗？',
@@ -414,7 +446,7 @@ export default {
     download: '下载 macOS 版',
     docs: '阅读文档',
     compare: '对比看看',
-    note: '需要已安装并登录 Claude Code 或 Codex。',
+    note: '需要已安装并登录 Claude Code、Codex 或 OpenCode。',
   },
   changelog: {
     eyebrow: '更新日志',

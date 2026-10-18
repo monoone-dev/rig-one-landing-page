@@ -56,11 +56,12 @@ export interface Docs {
 // How the left navigation groups the guide's "##" sections, in reading order. Every section of
 // docs/user-guide.md must be in exactly one group, or the build fails.
 const docsGroups: { title: string, pages: string[] }[] = [
-  { title: 'Start here', pages: ['getting-started', 'tutorial-your-first-run-step-by-step', 'concepts'] },
-  { title: 'Build', pages: ['agents', 'workflows'] },
-  { title: 'Run', pages: ['running-a-workflow', 'auto', 'checks-and-second-opinions', 'where-the-changes-go'] },
-  { title: 'Beyond one run', pages: ['knowledge-and-the-lab', 'boards', 'triggers'] },
-  { title: 'Trust and data', pages: ['safety-model', 'files-on-disk', 'settings'] },
+  { title: 'Start here', pages: ['getting-started', 'tutorial-your-first-run-step-by-step', 'concepts', 'the-window-and-the-sidebar'] },
+  { title: 'Sidebar: run the work', pages: ['tasks', 'auto', 'boards', 'triggers'] },
+  { title: 'Sidebar: build the rig', pages: ['agents', 'workflows', 'project-rig'] },
+  { title: 'Sidebar: what agents know', pages: ['knowledge', 'context', 'skills', 'lab'] },
+  { title: 'Settings and your phone', pages: ['settings', 'remote-access'] },
+  { title: 'Trust and data', pages: ['checks-and-second-opinions', 'where-the-changes-go', 'safety-model', 'files-on-disk'] },
   { title: 'Maintain', pages: ['updating', 'uninstall', 'troubleshooting'] },
 ]
 

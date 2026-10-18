@@ -23,11 +23,11 @@ export interface Card {
 export type DifferentiatorId = 'graph' | 'peers' | 'parallel' | 'checks' | 'branches' | 'evidence'
 
 export type FeatureId =
-  | 'canvas' | 'parallel' | 'run' | 'auto' | 'agents' | 'knowledge'
-  | 'checks' | 'branches' | 'boards' | 'triggers' | 'lab' | 'evidence'
+  | 'canvas' | 'parallel' | 'run' | 'auto' | 'agents' | 'rig' | 'knowledge'
+  | 'checks' | 'branches' | 'boards' | 'remote' | 'triggers' | 'lab' | 'evidence'
 
 /** The app screenshots in public/screenshots/<id>.webp, in the order of `screens` in app/data/shared.ts. */
-export type ScreenId = 'run' | 'canvas' | 'agents' | 'workflows' | 'settings'
+export type ScreenId = 'run' | 'canvas' | 'project' | 'agents' | 'knowledge' | 'settings'
 
 export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'unknown' | 'green' | 'files'
 

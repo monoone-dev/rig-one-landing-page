@@ -140,7 +140,7 @@ export default {
   screens: {
     eyebrow: 'Telas',
     title: 'Veja antes de baixar',
-    lead: 'O app como é lançado hoje, no visual padrão Surface. Toda tela funciona no claro e no escuro.',
+    lead: 'O app como é lançado hoje, no visual padrão Airy. Toda tela funciona no claro e no escuro.',
     label: 'Telas do app',
     items: {
       run: {
@@ -176,8 +176,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Ajustes em uma janela própria',
-        body: 'Categorias para o trabalho, a conta e o app, com um Health check que diz o que funciona. Escolha o visual Surface, Minimalist ou Studio e uma cor de destaque, claro, escuro ou seguindo o macOS.',
-        alt: 'Settings → Appearance: o idioma do app, os temas Surface, Minimalist e Studio, System, Light ou Dark e as cores de destaque.',
+        body: 'Categorias para o trabalho, a conta e o app, com um Health check que diz o que funciona. Escolha o visual Airy, Surface, Minimalist ou Studio e uma cor de destaque, claro, escuro ou seguindo o macOS.',
+        alt: 'Settings → Appearance: o idioma do app, os temas Airy, Surface, Minimalist e Studio, System, Light ou Dark.',
       },
     },
   },

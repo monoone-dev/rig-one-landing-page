@@ -140,7 +140,7 @@ export default {
   screens: {
     eyebrow: 'Écrans',
     title: 'Voyez-le avant de le télécharger',
-    lead: 'L’app telle qu’elle est livrée aujourd’hui, avec l’apparence Surface par défaut. Chaque écran fonctionne en clair et en sombre.',
+    lead: 'L’app telle qu’elle est livrée aujourd’hui, avec l’apparence Airy par défaut. Chaque écran fonctionne en clair et en sombre.',
     label: 'Écrans de l’app',
     items: {
       run: {
@@ -176,8 +176,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Des réglages dans leur propre fenêtre',
-        body: 'Des catégories pour le travail, le compte et l’app, avec un Health check qui dit ce qui fonctionne. Choisissez l’apparence Surface, Minimalist ou Studio et une couleur d’accent, en clair, en sombre ou selon macOS.',
-        alt: 'Settings → Appearance : la langue de l’app, les thèmes Surface, Minimalist et Studio, System, Light ou Dark, et les couleurs d’accent.',
+        body: 'Des catégories pour le travail, le compte et l’app, avec un Health check qui dit ce qui fonctionne. Choisissez l’apparence Airy, Surface, Minimalist ou Studio et une couleur d’accent, en clair, en sombre ou selon macOS.',
+        alt: 'Settings → Appearance : la langue de l’app, les thèmes Airy, Surface, Minimalist et Studio, System, Light ou Dark.',
       },
     },
   },

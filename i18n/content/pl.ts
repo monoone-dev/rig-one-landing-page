@@ -140,7 +140,7 @@ export default {
   screens: {
     eyebrow: 'Ekrany',
     title: 'Zobacz, zanim pobierzesz',
-    lead: 'Aplikacja taka, jaka jest dziś, w domyślnym wyglądzie Surface. Każdy ekran działa w jasnym i ciemnym trybie.',
+    lead: 'Aplikacja taka, jaka jest dziś, w domyślnym wyglądzie Airy. Każdy ekran działa w jasnym i ciemnym trybie.',
     label: 'Ekrany aplikacji',
     items: {
       run: {
@@ -176,8 +176,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Ustawienia we własnym oknie',
-        body: 'Kategorie dla pracy, konta i aplikacji oraz Health check, który mówi, co działa. Wybierz wygląd Surface, Minimalist albo Studio i kolor akcentu, w trybie jasnym, ciemnym lub zgodnym z macOS.',
-        alt: 'Settings → Appearance: język aplikacji, motywy Surface, Minimalist i Studio, System, Light albo Dark oraz kolory akcentu.',
+        body: 'Kategorie dla pracy, konta i aplikacji oraz Health check, który mówi, co działa. Wybierz wygląd Airy, Surface, Minimalist albo Studio i kolor akcentu, w trybie jasnym, ciemnym lub zgodnym z macOS.',
+        alt: 'Settings → Appearance: język aplikacji, motywy Airy, Surface, Minimalist i Studio, System, Light albo Dark.',
       },
     },
   },

@@ -17,6 +17,7 @@ const lead = computed(() => fill(c.value.faq.leadHtml, { docs: asset(localePath(
       </SectionHead>
       <UAccordion
         v-reveal
+        class="faq__card"
         :items="items"
         type="multiple"
         :unmount-on-hide="false"
@@ -27,8 +28,20 @@ const lead = computed(() => fill(c.value.faq.leadHtml, { docs: asset(localePath(
 </template>
 
 <style lang="scss" scoped>
+@use '~/assets/scss/mixins' as *;
+
 .faq {
-  max-width: 780px;
+  max-width: 820px;
+
+  &__card {
+    @include card;
+
+    padding: 8px 28px;
+
+    @include below(xs) {
+      padding: 4px 20px;
+    }
+  }
 
   :deep(.section-head a) {
     color: var(--accent-text);

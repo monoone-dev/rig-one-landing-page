@@ -26,18 +26,18 @@ const to = useLocalLink()
 </template>
 
 <style lang="scss" scoped>
+@use '~/assets/scss/mixins' as *;
+
 .cta {
   text-align: center;
 
   &__card {
+    @include card;
+
     position: relative;
     overflow: hidden;
-    padding: 64px 28px;
-    border: 1px solid var(--border);
-    border-radius: var(--round-xl);
-    background:
-      radial-gradient(60% 80% at 50% 0%, var(--accent-soft), transparent 70%),
-      var(--surface-raised);
+    padding: 72px 28px;
+    border-radius: 28px;
 
     h2 {
       margin-bottom: 14px;

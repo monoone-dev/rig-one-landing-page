@@ -82,15 +82,12 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
     padding-top: 44px;
   }
 
-  // A soft field of the mark's violet behind the title and the screenshot.
+  // Airy keeps the canvas calm: only a faint lift of light behind the title.
   &__glow {
     position: absolute;
     inset: -10% -10% auto;
-    height: 900px;
-    background:
-      radial-gradient(40% 36% at 50% 8%, var(--accent-soft), transparent 70%),
-      radial-gradient(30% 30% at 18% 60%, color-mix(in oklch, var(--accent) 10%, transparent), transparent 70%),
-      radial-gradient(30% 30% at 82% 64%, color-mix(in oklch, var(--accent) 12%, transparent), transparent 70%);
+    height: 720px;
+    background: radial-gradient(46% 50% at 50% 0%, color-mix(in srgb, var(--surface-raised) 70%, transparent), transparent 72%);
     pointer-events: none;
   }
 
@@ -121,24 +118,22 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
     color: var(--accent-text);
     font-family: var(--font-mono);
     font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 
   &__title {
     margin-bottom: 22px;
     font-size: clamp(36px, 6vw, 68px);
     line-height: 1.04;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.035em;
     text-wrap: balance;
     overflow-wrap: break-word;
   }
 
   &__title-soft {
     display: block;
-    background: linear-gradient(90deg, var(--accent-text), color-mix(in oklch, var(--accent-text) 55%, var(--text-muted)));
-    background-clip: text;
-    color: transparent;
+    color: var(--text-muted);
   }
 
   &__sub {
@@ -174,9 +169,9 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
   &__problems {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
+    gap: 16px;
     max-width: 1000px;
-    margin: 40px auto 0;
+    margin: 48px auto 0;
     padding: 0;
     list-style: none;
 
@@ -190,17 +185,14 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
   &__stage {
     position: relative;
     max-width: 1080px;
-    margin: 48px auto 0;
+    margin: 56px auto 0;
 
     @include below(sm) {
       margin-top: 32px;
     }
 
     :deep(.shot) {
-      box-shadow:
-        0 0 0 1px color-mix(in oklch, var(--accent) 22%, transparent),
-        0 40px 100px -40px color-mix(in oklch, var(--accent) 55%, transparent),
-        var(--shadow-lg);
+      box-shadow: var(--shadow-lg), 0 40px 80px -40px rgb(20 30 25 / 0.18);
     }
   }
 
@@ -217,22 +209,20 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
 
 .problem {
   display: flex;
-  gap: 12px;
+  @include card;
+
+  gap: 14px;
   align-items: flex-start;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--round-md);
-  background: color-mix(in oklch, var(--surface-raised) 85%, transparent);
-  backdrop-filter: blur(6px);
+  padding: 18px 20px;
   text-align: left;
 
   &__icon {
     display: grid;
     flex: none;
     place-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: var(--round-sm);
+    width: 34px;
+    height: 34px;
+    border-radius: var(--round-pill);
     background: var(--accent-soft);
     color: var(--accent-text);
   }
@@ -262,8 +252,7 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 9px 14px;
-  border: 1px solid var(--border);
+  padding: 10px 16px;
   border-radius: var(--round-pill);
   background: var(--surface-raised);
   box-shadow: var(--shadow-lg);
@@ -318,10 +307,10 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 6px 12px;
-  border: 1px solid var(--border);
+  padding: 6px 13px;
   border-radius: var(--round-pill);
   background: var(--surface-raised);
+  box-shadow: var(--shadow-sm), 0 0 0 1px var(--border);
   color: var(--text-secondary);
   font-size: 12.5px;
   font-weight: 500;
@@ -342,10 +331,10 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
   }
 
   &--link {
-    transition: border-color 0.15s ease, color 0.15s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
 
     &:hover {
-      border-color: var(--accent-ring);
+      background: var(--surface-hover);
       color: var(--text-primary);
     }
   }

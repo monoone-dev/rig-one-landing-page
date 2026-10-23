@@ -32,22 +32,25 @@ const shot = computed(() => screens.find(s => s.id === props.id)!)
 .shot {
   overflow: hidden;
   margin: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--round-lg);
+  border-radius: var(--round-xl);
   background: var(--surface-raised);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-card), 0 0 0 1px var(--border);
+
+  @include below(xs) {
+    border-radius: var(--round-md);
+  }
 
   &__chrome {
     display: flex;
     gap: 7px;
     padding: 11px 14px;
-    border-bottom: 1px solid rgb(127 127 127 / 0.18);
+    border-bottom: 1px solid var(--border);
 
     span {
       width: 11px;
       height: 11px;
       border-radius: 50%;
-      background: rgb(127 127 127 / 0.35);
+      background: var(--surface-active);
     }
 
     @include below(xs) {

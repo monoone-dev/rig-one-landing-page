@@ -1,10 +1,11 @@
 @use 'mixins' as *;
 
 :root {
-  --round-sm: calc(var(--radius) * 0.6);
-  --round-md: calc(var(--radius) * 0.8);
+  // Airy's shape: 10px small parts, 12px fields, 16px panels, 20px cards
+  --round-sm: 10px;
+  --round-md: 12px;
   --round-lg: var(--radius);
-  --round-xl: calc(var(--radius) * 1.4);
+  --round-xl: 20px;
   --round-pill: 999px;
   --maxw: 1120px;
 }
@@ -59,15 +60,6 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   transition: background-color 0.25s ease, color 0.25s ease;
-
-  &::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: var(--aurora-field);
-    pointer-events: none;
-    z-index: 0;
-  }
 }
 
 h1,
@@ -75,7 +67,6 @@ h2,
 h3 {
   margin: 0;
   text-wrap: balance;
-  
   letter-spacing: -0.02em;
   font-weight: 600;
   color: var(--text-primary);
@@ -109,8 +100,8 @@ code {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
 
@@ -121,10 +112,10 @@ code {
 
 .section {
   position: relative;
-  padding: 96px 0;
+  padding: 112px 0;
 
   @include below(sm) {
-    padding: 64px 0;
+    padding: 72px 0;
   }
 
   &--ruled {
@@ -147,6 +138,11 @@ code {
 
   &--page h1 {
     font-size: clamp(34px, 5vw, 56px);
+    letter-spacing: -0.03em;
+  }
+
+  h1,
+  h2 {
     letter-spacing: -0.03em;
   }
 
@@ -191,7 +187,7 @@ code {
   top: -100px;
   z-index: 100;
   padding: 10px 16px;
-  border-radius: var(--round-md);
+  border-radius: var(--round-pill);
   background: var(--accent);
   color: var(--text-on-accent);
   font-weight: 600;
@@ -202,8 +198,8 @@ code {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline: 3px solid var(--accent-ring);
+  outline-offset: 2px;
   border-radius: 6px;
 }
 
@@ -218,10 +214,9 @@ code {
   background: var(--accent-ring);
 }
 
+// A deeper band of stone; the white cards in it float a little higher.
 .section--tinted {
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-  background: color-mix(in oklch, var(--surface-sunken) 55%, transparent);
+  background: var(--surface-sunken);
 }
 
 .section-head--left {
@@ -235,10 +230,10 @@ code {
   width: 40px;
   height: 40px;
   margin-bottom: 14px;
-  border-radius: var(--round-sm);
+  border-radius: var(--round-md);
   background: var(--accent-soft);
   color: var(--accent-text);
-  font-size: 21px;
+  font-size: 20px;
 
   &--lg {
     width: 48px;

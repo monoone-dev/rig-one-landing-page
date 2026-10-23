@@ -172,9 +172,9 @@ h1 {
 
 .help {
   margin-top: 48px;
-  padding: 16px 20px;
-  border: 1px solid var(--border);
-  border-radius: var(--round-md);
+  padding: 18px 22px;
+  border-radius: var(--round-lg);
+  background: var(--surface-sunken);
   color: var(--text-secondary);
   font-size: 14.5px;
 
@@ -198,16 +198,17 @@ h1 {
   &__link {
     display: grid;
     gap: 4px;
-    padding: 16px;
-    border: 1px solid var(--border);
-    border-radius: var(--round-md);
+    padding: 18px 20px;
+    border-radius: var(--round-xl);
+    background: var(--surface-raised);
+    box-shadow: var(--shadow-card);
     color: var(--text-primary);
     text-decoration: none;
-    transition: border-color 0.15s, background-color 0.15s;
+    transition: box-shadow 0.15s, transform 0.15s;
 
     &:hover {
-      border-color: var(--accent-ring);
-      background: var(--surface-hover);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-1px);
     }
 
     &:focus-visible {

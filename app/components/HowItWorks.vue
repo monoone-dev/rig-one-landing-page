@@ -40,12 +40,12 @@ const c = useContent()
   }
 
   &__item {
-    padding: 24px;
-    border: 1px solid var(--border);
-    border-radius: var(--round-lg);
-    background: var(--surface-raised);
+    @include card;
+
+    padding: 28px;
 
     &:last-child .steps__n {
+      background: var(--accent-soft);
       color: var(--accent-text);
     }
 
@@ -64,11 +64,14 @@ const c = useContent()
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 5px 12px;
+    border-radius: var(--round-pill);
+    background: var(--surface-hover);
     color: var(--text-muted);
     font-family: var(--font-mono);
     font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
   }
 }
 </style>

@@ -92,8 +92,7 @@
 
   pre {
     overflow-x: auto;
-    padding: 14px 16px;
-    border: 1px solid var(--border-subtle);
+    padding: 16px 18px;
     border-radius: var(--round-md);
     background: var(--surface-sunken);
     font-size: 13.5px;
@@ -107,7 +106,8 @@
 
   blockquote {
     padding-left: 14px;
-    border-left: 3px solid var(--accent-ring);
+    border-left: 2px solid var(--border-strong);
+    color: var(--text-secondary);
   }
 
   hr {
@@ -142,10 +142,9 @@
     display: block;
     overflow: hidden;
     margin: 20px 0 28px;
-    border: 1px solid var(--border);
-    border-radius: var(--round-lg);
+    border-radius: var(--round-xl);
     background: var(--surface-raised);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-card), 0 0 0 1px var(--border);
 
     img {
       display: block;

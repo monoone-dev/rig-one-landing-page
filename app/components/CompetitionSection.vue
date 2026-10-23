@@ -55,11 +55,12 @@ const footnote = computed(() => fill(c.value.compare.footnoteHtml, { issues: sit
 </template>
 
 <style lang="scss" scoped>
+@use '~/assets/scss/mixins' as *;
+
 .compare {
+  @include card;
+
   overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: var(--round-lg);
-  background: var(--surface-raised);
 
   &__scroll {
     // Contains the absolutely positioned .sr-only labels; without it WebKit lets them escape the
@@ -76,7 +77,7 @@ const footnote = computed(() => fill(c.value.compare.footnoteHtml, { issues: sit
 
   th,
   td {
-    padding: 14px 16px;
+    padding: 16px 18px;
     border-top: 1px solid var(--border-subtle);
     font-size: 14px;
     text-align: left;
@@ -86,8 +87,8 @@ const footnote = computed(() => fill(c.value.compare.footnoteHtml, { issues: sit
   thead th {
     border-top: 0;
     border-bottom: 1px solid var(--border);
-    color: var(--text-primary);
-    font-weight: 700;
+    color: var(--text-muted);
+    font-weight: 500;
   }
 
   tbody tr:first-child > * {
@@ -117,7 +118,7 @@ const footnote = computed(() => fill(c.value.compare.footnoteHtml, { issues: sit
   }
 
   &__foot {
-    padding: 14px 20px;
+    padding: 16px 22px;
     border-top: 1px solid var(--border);
     color: var(--text-muted);
     font-size: 13px;

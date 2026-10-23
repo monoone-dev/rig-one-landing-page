@@ -26,23 +26,37 @@ const c = useContent()
 .honest {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  @include card;
+
   gap: 0 40px;
-  max-width: 920px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0;
+  padding: 12px 32px;
   list-style: none;
 
   @include below(md) {
     grid-template-columns: minmax(0, 1fr);
+    padding: 8px 22px;
   }
 
   &__item {
     display: flex;
     gap: 12px;
-    padding: 16px 0;
+    padding: 18px 0;
     border-top: 1px solid var(--border-subtle);
     color: var(--text-secondary);
     font-size: 15px;
+
+    // The first row of each column sits on the card's own edge
+    &:nth-child(-n + 2) {
+      border-top: 0;
+    }
+
+    @include below(md) {
+      &:nth-child(2) {
+        border-top: 1px solid var(--border-subtle);
+      }
+    }
   }
 
   &__icon {

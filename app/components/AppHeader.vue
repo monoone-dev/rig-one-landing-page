@@ -63,7 +63,7 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
   top: 0;
   z-index: 40;
   border-bottom: 1px solid var(--border-subtle);
-  background: color-mix(in oklch, var(--surface-base) 82%, transparent);
+  background: color-mix(in srgb, var(--surface-base) 80%, transparent);
   backdrop-filter: saturate(1.4) blur(14px);
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
 
@@ -85,7 +85,7 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
     flex: 1;
     align-items: center;
     justify-content: center;
-    gap: 26px;
+    gap: 4px;
     min-width: 0;
 
     @media (max-width: 1023px) {
@@ -94,15 +94,22 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
   }
 
   &__link {
-    padding: 10px 0;
+    padding: 7px 14px;
+    border-radius: var(--round-pill);
     color: var(--text-secondary);
     font-size: 15px;
     font-weight: 500;
     white-space: nowrap;
-    transition: color 0.15s;
+    transition: color 0.15s, background-color 0.15s;
 
-    &:hover,
+    &:hover {
+      background: var(--surface-hover);
+      color: var(--text-primary);
+    }
+
+    // The current page is a quiet stone fill with the ink, never a coloured box
     &.router-link-active {
+      background: var(--surface-active);
       color: var(--text-primary);
     }
   }

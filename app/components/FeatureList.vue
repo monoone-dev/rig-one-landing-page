@@ -61,16 +61,16 @@ const c = useContent()
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 6px 12px;
-    border: 1px solid var(--border);
+    padding: 7px 14px;
     border-radius: var(--round-pill);
-    color: var(--text-secondary);
+    background: var(--surface-hover);
+    color: var(--text-soft);
     font-size: 13.5px;
     font-weight: 500;
-    transition: border-color 0.15s, color 0.15s;
+    transition: background-color 0.15s, color 0.15s;
 
     &:hover {
-      border-color: var(--accent-ring);
+      background: var(--surface-active);
       color: var(--text-primary);
     }
   }
@@ -116,17 +116,13 @@ const c = useContent()
   }
 
   &__card {
-    padding: 28px;
-    border: 1px solid var(--border);
-    border-radius: var(--round-xl);
-    background:
-      radial-gradient(80% 60% at 100% 0%, var(--accent-soft), transparent 70%),
-      var(--surface-raised);
+    @include card;
+
+    padding: 32px;
 
     @include below(xs) {
-      padding: 22px;
+      padding: 24px;
     }
-
   }
 
   &__points {

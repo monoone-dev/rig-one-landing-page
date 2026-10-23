@@ -24,3 +24,11 @@ $breakpoints: (
     @content;
   }
 }
+
+// Airy's card: no edge, a white fill and a soft, wide shadow that lifts it off the canvas
+@mixin card {
+  border: 0;
+  border-radius: var(--round-xl);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-card);
+}

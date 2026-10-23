@@ -360,17 +360,16 @@ async function copy(tag: string, sha256: string) {
 .segmented {
   display: inline-flex;
   gap: 2px;
-  padding: 3px;
-  border: 1px solid var(--border);
-  border-radius: var(--round-md);
-  background: var(--surface-sunken);
+  padding: 4px;
+  border-radius: var(--round-pill);
+  background: var(--surface-active);
 
   &__option {
-    padding: 5px 12px;
-    border-radius: calc(var(--round-md) - 3px);
-    color: var(--text-secondary);
+    padding: 5px 14px;
+    border-radius: var(--round-pill);
+    color: var(--text-muted);
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
 
     &:hover {
@@ -380,7 +379,7 @@ async function copy(tag: string, sha256: string) {
     &[aria-pressed='true'] {
       background: var(--surface-raised);
       color: var(--text-primary);
-      box-shadow: 0 1px 2px rgb(0 0 0 / 0.08), 0 0 0 1px var(--border);
+      box-shadow: 0 1px 3px rgb(26 29 27 / 0.08), 0 0 0 1px var(--border);
     }
   }
 }
@@ -480,10 +479,10 @@ async function copy(tag: string, sha256: string) {
 .package {
   display: grid;
   gap: 10px;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--round-md);
+  padding: 18px 20px;
+  border-radius: var(--round-xl);
   background: var(--surface-raised);
+  box-shadow: var(--shadow-card);
   font-size: 14px;
 
   &__head {

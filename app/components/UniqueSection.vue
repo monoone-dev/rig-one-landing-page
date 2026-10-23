@@ -36,7 +36,7 @@ const to = useLocalLink()
 .unique {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 36px 28px;
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -50,10 +50,11 @@ const to = useLocalLink()
   }
 
   &__item {
+    @include card;
+
     display: flex;
     flex-direction: column;
-    padding-top: 22px;
-    border-top: 1px solid var(--border);
+    padding: 28px;
 
     h3 {
       margin-bottom: 8px;

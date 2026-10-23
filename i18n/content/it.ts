@@ -140,7 +140,7 @@ export default {
   screens: {
     eyebrow: 'Schermate',
     title: 'Guardala prima di scaricarla',
-    lead: 'L’app così come esce oggi, nell’aspetto predefinito Surface. Ogni schermata funziona in chiaro e in scuro.',
+    lead: 'L’app così come esce oggi, nell’aspetto predefinito Airy. Ogni schermata funziona in chiaro e in scuro.',
     label: 'Schermate dell’app',
     items: {
       run: {
@@ -176,8 +176,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Impostazioni in una finestra tutta loro',
-        body: 'Categorie per il lavoro, l’account e l’app, con un Health check che dice che cosa funziona. Scegli l’aspetto Surface, Minimalist o Studio e un colore d’accento, chiaro, scuro o come macOS.',
-        alt: 'Settings → Appearance: la lingua dell’app, i temi Surface, Minimalist e Studio, System, Light o Dark e i colori d’accento.',
+        body: 'Categorie per il lavoro, l’account e l’app, con un Health check che dice che cosa funziona. Scegli l’aspetto Airy, Surface, Minimalist o Studio e un colore d’accento, chiaro, scuro o come macOS.',
+        alt: 'Settings → Appearance: la lingua dell’app, i temi Airy, Surface, Minimalist e Studio, System, Light o Dark.',
       },
     },
   },

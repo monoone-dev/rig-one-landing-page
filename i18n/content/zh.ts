@@ -140,7 +140,7 @@ export default {
   screens: {
     eyebrow: '界面',
     title: '下载之前先看看',
-    lead: '应用如今发布时的样子，使用默认的 Surface 外观。每个界面都支持浅色和深色。',
+    lead: '应用如今发布时的样子，使用默认的 Airy 外观。每个界面都支持浅色和深色。',
     label: '应用界面',
     items: {
       run: {
@@ -176,8 +176,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: '独立窗口中的设置',
-        body: '按工作、账户和应用分类，还有告诉你什么正常的 Health check。选择 Surface、Minimalist 或 Studio 外观和强调色，浅色、深色或跟随 macOS。',
-        alt: 'Settings → Appearance：应用语言、Surface、Minimalist 和 Studio 三种主题、System、Light 或 Dark，以及强调色。',
+        body: '按工作、账户和应用分类，还有告诉你什么正常的 Health check。选择 Airy、Surface、Minimalist 或 Studio 外观和强调色，浅色、深色或跟随 macOS。',
+        alt: 'Settings → Appearance：应用语言、Airy、Surface、Minimalist 和 Studio 四种主题、System、Light 或 Dark。',
       },
     },
   },

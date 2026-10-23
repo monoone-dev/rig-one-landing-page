@@ -82,9 +82,8 @@ function onKey(event: KeyboardEvent) {
     max-width: 100%;
     padding: 4px;
     overflow-x: auto;
-    border: 1px solid var(--border);
     border-radius: 999px;
-    background: var(--surface-raised);
+    background: var(--surface-active);
     scrollbar-width: none;
 
     @include below(sm) {
@@ -101,20 +100,22 @@ function onKey(event: KeyboardEvent) {
     gap: 8px;
     padding: 8px 16px;
     border-radius: 999px;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     white-space: nowrap;
     cursor: pointer;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 
     &:hover {
       color: var(--text-primary);
     }
 
+    // A segmented control: the current tab is a white raised pill with the ink
     &[aria-selected='true'] {
-      background: var(--accent-soft);
-      color: var(--accent-text);
+      background: var(--surface-raised);
+      box-shadow: 0 1px 3px rgb(26 29 27 / 0.08), 0 0 0 1px var(--border);
+      color: var(--text-primary);
     }
 
     @include below(sm) {

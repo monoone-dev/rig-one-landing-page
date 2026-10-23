@@ -142,15 +142,16 @@ usePageSeo({
   align-content: start;
   gap: 6px;
   height: 100%;
-  padding: 16px 18px;
-  border: 1px solid var(--border);
-  border-radius: var(--round-md);
+  padding: 20px 22px;
+  border-radius: var(--round-xl);
   background: var(--surface-raised);
+  box-shadow: var(--shadow-card);
   text-decoration: none;
-  transition: border-color 0.15s, background-color 0.15s;
+  transition: box-shadow 0.15s, transform 0.15s;
 
   &:hover {
-    border-color: var(--accent-ring);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
   }
 
   &:focus-visible {

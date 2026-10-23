@@ -1,9 +1,9 @@
 # Fonts
 
-The site bundles these typefaces, the same ones IndexOne uses. Each is licensed under the SIL
-Open Font License 1.1; the license text travels with the files in `OFL-<family>.txt`.
+The site bundles the typefaces of SurfaceOne's Airy skin. Each is licensed under the SIL Open Font
+License 1.1; the license text travels with the files in `OFL-<family>.txt`.
 
 | Files | Family | Source |
 | --- | --- | --- |
-| `figtree*.woff2` | Figtree | https://fonts.google.com/specimen/Figtree |
-| `jetbrains-mono*.woff2` | JetBrains Mono | https://github.com/JetBrains/JetBrainsMono |
+| `schibsted-grotesk*.woff2` | Schibsted Grotesk | https://github.com/schibsted/schibsted-grotesk |
+| `geist-mono*.woff2` | Geist Mono | https://github.com/vercel/geist-font |

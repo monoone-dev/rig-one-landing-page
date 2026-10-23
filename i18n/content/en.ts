@@ -140,7 +140,7 @@ export default {
   screens: {
     eyebrow: 'Screens',
     title: 'See it before you download it',
-    lead: 'The app as it ships today, in the default Surface look. Every screen works in light and dark.',
+    lead: 'The app as it ships today, in the default Airy look. Every screen works in light and dark.',
     label: 'Screens of the app',
     items: {
       run: {
@@ -176,8 +176,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Settings in a window of its own',
-        body: 'Categories for work, your account and the app, with a Health check that says what works. Pick the Surface, Minimalist or Studio look and an accent colour, in light, dark or following macOS.',
-        alt: 'Settings → Appearance: the app language, the Surface, Minimalist and Studio themes, System, Light or Dark, and the accent colours.',
+        body: 'Categories for work, your account and the app, with a Health check that says what works. Pick the Airy, Surface, Minimalist or Studio look and an accent colour, in light, dark or following macOS.',
+        alt: 'Settings → Appearance: the app language, the Airy, Surface, Minimalist and Studio themes, System, Light or Dark.',
       },
     },
   },

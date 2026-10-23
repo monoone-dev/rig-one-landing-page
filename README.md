@@ -85,7 +85,7 @@ cases from your own code to evaluate an agent, Linear triggers, model gateways a
 live plan limits for both vendors, a Health check, updates for the agent apps themselves, and run
 evidence — receipts, handoffs, full answers and a diagnostic bundle — that outlives the terminal.
 The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese, Chinese and
-Japanese, in a Surface, Minimalist or Studio look, light or dark.
+Japanese, in an Airy, Surface, Minimalist or Studio look, light or dark.
 
 The full feature list is on the [website](https://monoone.dev/rig-one-landing-page/features/),
 and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex app and Cursor Cloud Agents is
@@ -99,8 +99,8 @@ and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex ap
 | **Project rig** — the whole project on one page: agents, workflows, knowledge, triggers and Auto rules. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
 | ![The Agents screen: four roles beside Scout, which runs with Claude Code](public/screenshots/agents-light.webp) | ![The Knowledge screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
 | **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Knowledge** — notes an agent suggests wait for you; approved notes go into every prompt. |
-| ![Settings → Appearance: the Surface, Minimalist and Studio themes, System, Light or Dark, and the accent colours](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
-| **Settings** — Surface, Minimalist or Studio, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
+| ![Settings → Appearance: the Airy, Surface, Minimalist and Studio themes, and System, Light or Dark](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
+| **Settings** — Airy, Surface, Minimalist or Studio, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
 
 Every screen is in `public/screenshots/` in dark (`<screen>.webp`) and light (`<screen>-light.webp`).
 
@@ -210,7 +210,7 @@ pnpm generate     # static output in .output/public
 | `app/data/` | What doesn't get translated: links, icons, the screenshots, the compared products and their yes/no values |
 | `app/components/` | One component per section; `RigMark.vue` is the logo, `ScreensSection.vue` the screenshots |
 | `app/pages/` | Home, features, docs, compare and changelog (the layout of SurfaceOne's changelog template: a versions list, a timeline and each release's package) |
-| `app/assets/scss/` | Fonts, colour tokens (light and dark, the violet taken from the mark), base and Markdown styles |
+| `app/assets/scss/` | Fonts, colour tokens (SurfaceOne's Airy surfaces in light and dark, the violet taken from the mark), base and Markdown styles |
 | `app/composables/usePageSeo.ts` | Meta tags, Open Graph and JSON-LD; `hreflang` and canonical come from Nuxt i18n |
 | `modules/markdown.ts` | Splits `docs/user-guide.md` into grouped docs pages and renders it and `release-notes/*.md` into the pages at build time; takes each note's title and package apart |
 | `server/routes/` | `sitemap.xml` (every language as an alternate) and `robots.txt` |

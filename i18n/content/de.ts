@@ -140,7 +140,7 @@ export default {
   screens: {
     eyebrow: 'Ansichten',
     title: 'Ansehen, bevor Sie laden',
-    lead: 'Die App, wie sie heute ausgeliefert wird, im Standard-Look Surface. Jeder Bildschirm funktioniert hell und dunkel.',
+    lead: 'Die App, wie sie heute ausgeliefert wird, im Standard-Look Airy. Jeder Bildschirm funktioniert hell und dunkel.',
     label: 'Ansichten der App',
     items: {
       run: {
@@ -176,8 +176,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Einstellungen in einem eigenen Fenster',
-        body: 'Kategorien für Arbeit, Konto und App, mit einem Health check, der sagt, was funktioniert. Wählen Sie den Look Surface, Minimalist oder Studio und eine Akzentfarbe, hell, dunkel oder wie macOS.',
-        alt: 'Settings → Appearance: die Sprache der App, die Themes Surface, Minimalist und Studio, System, Light oder Dark und die Akzentfarben.',
+        body: 'Kategorien für Arbeit, Konto und App, mit einem Health check, der sagt, was funktioniert. Wählen Sie den Look Airy, Surface, Minimalist oder Studio und eine Akzentfarbe, hell, dunkel oder wie macOS.',
+        alt: 'Settings → Appearance: die Sprache der App, die Themes Airy, Surface, Minimalist und Studio, System, Light oder Dark.',
       },
     },
   },

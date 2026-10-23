@@ -140,7 +140,7 @@ export default {
   screens: {
     eyebrow: '画面',
     title: 'ダウンロードの前に見てみる',
-    lead: '現在リリースされているアプリそのまま、既定の Surface の外観です。どの画面もライトとダークに対応しています。',
+    lead: '現在リリースされているアプリそのまま、既定の Airy の外観です。どの画面もライトとダークに対応しています。',
     label: 'アプリの画面',
     items: {
       run: {
@@ -176,8 +176,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: '独立したウィンドウの設定',
-        body: '作業、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check。Surface、Minimalist、Studio の外観とアクセントカラーを、ライト、ダーク、または macOS に合わせて選べます。',
-        alt: 'Settings → Appearance：アプリの言語、Surface・Minimalist・Studio のテーマ、System・Light・Dark、アクセントカラー。',
+        body: '作業、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check。Airy、Surface、Minimalist、Studio の外観とアクセントカラーを、ライト、ダーク、または macOS に合わせて選べます。',
+        alt: 'Settings → Appearance：アプリの言語、Airy・Surface・Minimalist・Studio のテーマ、System・Light・Dark。',
       },
     },
   },

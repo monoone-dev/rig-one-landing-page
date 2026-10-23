@@ -269,11 +269,11 @@ onBeforeUnmount(() => observer?.disconnect())
       color: var(--text-primary);
     }
 
+    // The current page is a quiet stone fill with the ink, as in Airy's sidebar
     &[aria-current='page'] {
-      background: var(--accent-soft);
+      background: var(--surface-active);
       color: var(--text-primary);
       font-weight: 600;
-      box-shadow: inset 2px 0 0 var(--accent);
     }
 
     &:focus-visible {
@@ -383,8 +383,9 @@ onBeforeUnmount(() => observer?.disconnect())
     position: static;
     max-width: 46rem;
     max-height: none;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--round-md);
+    border-radius: var(--round-lg);
+    background: var(--surface-raised);
+    box-shadow: var(--shadow-card);
 
     &__title {
       display: none;
@@ -426,8 +427,9 @@ onBeforeUnmount(() => observer?.disconnect())
   .nav {
     margin-top: 12px;
     padding: 16px 12px;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--round-md);
+    border-radius: var(--round-lg);
+    background: var(--surface-raised);
+    box-shadow: var(--shadow-card);
 
     &:not([data-open]) {
       display: none;

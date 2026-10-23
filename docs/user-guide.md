@@ -155,7 +155,7 @@ Once a workflow has run, try Auto. Press **＋** next to **Tasks** in the side p
 **Auto**, write the goal in a sentence and press **Run**. The line under the box says whether Auto
 has full access here; its **rules** link opens **Settings → Auto**.
 
-![The new task screen with Auto chosen: a goal asking RigOne to let people export their invoices as CSV from the billing page, with tests, and the line saying Auto has full access here.](../public/screenshots/tutorial-auto.webp)
+![The new task screen with Auto chosen: a goal asking RigOne to let people export their invoices as CSV from the billing page, with tests, and the line saying that with YOLO on, Auto agents have your access.](../public/screenshots/tutorial-auto.webp)
 
 The Lead picks the agents it needs, builds ordinary workflows for the parts of the goal, runs them
 and reads the results until every part is verified by checks and review. Decisions that wait for
@@ -736,7 +736,7 @@ add skills to your RigOne library instead, use **Used when they fit** in [Knowle
 
 **Settings** (⌘8) opens over the window, with categories under **Work**, **Account** and **App**.
 
-![Settings → Appearance: the app language, the Surface, Minimalist and Studio themes, System, Light or Dark, and the accent colours.](../public/screenshots/settings.webp)
+![Settings → Appearance: the app language, the Airy, Surface, Minimalist and Studio themes, and System, Light or Dark.](../public/screenshots/settings.webp)
 
 ### General
 
@@ -789,7 +789,7 @@ when idle** it looks at most every six hours.
 
 ### Appearance
 
-The **App language**; the theme — **Surface** (the default), **Minimalist** or **Studio** — each in
+The **App language**; the theme — **Airy** (the default), **Surface**, **Minimalist** or **Studio** — each in
 **System**, **Light** or **Dark**; an **Accent color**; and the **Conversation view**: **Terminal**
 or **Agent chat**.
 

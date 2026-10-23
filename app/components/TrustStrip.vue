@@ -17,10 +17,8 @@ const c = useContent()
 
 <style lang="scss" scoped>
 .trust {
-  margin-top: 56px;
+  margin-top: 64px;
   padding: 24px 0;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
 
   &__inner {
     display: flex;

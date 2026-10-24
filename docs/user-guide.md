@@ -924,7 +924,7 @@ RigOne does not install its own updates. **Settings → About** shows your versi
 download the new DMG from the
 [latest release](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) and replace
 the app in Applications. Your library and project folders stay where they are. What changed in each
-version is in the [changelog](https://monoone.dev/rig-one-landing-page/changelog/).
+version is in the [changelog](https://rig-one.io/changelog/).
 
 Claude Code, Codex and OpenCode are another matter: RigOne can update them for you in **Settings →
 Agent apps**, only when nothing is using them.

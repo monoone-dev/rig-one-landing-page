@@ -9,9 +9,9 @@ connect the steps, and run the graph against a project on your Mac — Claude Co
 OpenCode as first-class peers, in parallel, with checks RigOne runs itself.
 
 [Download for macOS](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) ·
-[Website](https://monoone.dev/rig-one-landing-page/) ·
-[Documentation](https://monoone.dev/rig-one-landing-page/docs/) ·
-[Changelog](https://monoone.dev/rig-one-landing-page/changelog/) ·
+[Website](https://rig-one.io/) ·
+[Documentation](https://rig-one.io/docs/) ·
+[Changelog](https://rig-one.io/changelog/) ·
 [Support](#support)
 
 macOS 13+ · Apple Silicon · signed and notarized · free · in nine languages
@@ -87,9 +87,9 @@ evidence — receipts, handoffs, full answers and a diagnostic bundle — that o
 The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese, Chinese and
 Japanese, in an Airy, Surface, Minimalist or Studio look, light or dark.
 
-The full feature list is on the [website](https://monoone.dev/rig-one-landing-page/features/),
+The full feature list is on the [website](https://rig-one.io/features/),
 and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex app and Cursor Cloud Agents is
-[here](https://monoone.dev/rig-one-landing-page/compare/).
+[here](https://rig-one.io/compare/).
 
 ## Screens
 
@@ -136,7 +136,7 @@ answer `accepted` and `source=Notarized Developer ID`.
 **Permissions.** macOS asks for each one the first time it is needed: the folders you work in,
 sending events to other applications, the microphone if a workflow drives an app that records, and
 notifications for decisions that wait for you.
-Details: [Getting started](https://monoone.dev/rig-one-landing-page/docs/getting-started/).
+Details: [Getting started](https://rig-one.io/docs/getting-started/).
 
 ## Built to fail honestly
 
@@ -156,7 +156,7 @@ Codex or OpenCode, so what they read goes to their providers exactly as when you
 terminal. Boards sends the MonoOne server only encrypted tasks, comments and activity. In Auto,
 **Full access** (on by default) runs steps with the same access as the agent app in your terminal;
 switch it to **In its own copy** to keep them fenced in their copies. More:
-[Safety model](https://monoone.dev/rig-one-landing-page/docs/safety-model/).
+[Safety model](https://rig-one.io/docs/safety-model/).
 
 ## Where your data lives
 
@@ -219,8 +219,8 @@ pnpm generate     # static output in .output/public
 The site makes no third-party requests: fonts and icons are bundled, and there is no analytics.
 CI ([`ci.yml`](.github/workflows/ci.yml)) typechecks and builds the site and checks branch names,
 commits and PR titles; [`pages.yml`](.github/workflows/pages.yml) deploys `main` to GitHub Pages
-and sets `NUXT_APP_BASE_URL` to the Pages sub-path, so the site works both at
-`monoone.dev/rig-one-landing-page/` and at a custom domain later. `pnpm install` also
+and serves it at `rig-one.io` (the Pages custom domain; `NUXT_APP_BASE_URL` follows the Pages
+base path, so the site also builds under a sub-path). `pnpm install` also
 wires git hooks that check branch names and commit messages
 ([Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), no AI attribution).
 Runbooks for people and coding agents are in [`AGENTS.md`](AGENTS.md) and `.agents/skills/`.
@@ -236,7 +236,7 @@ paths or accounts on screen — with their alt text in every `i18n/content/` fil
 
 ## Support
 
-- **Docs first:** [the documentation](https://monoone.dev/rig-one-landing-page/docs/).
+- **Docs first:** [the documentation](https://rig-one.io/docs/).
 - **Bug or idea:** [open an issue](https://github.com/monoone-dev/rig-one-landing-page/issues/new)
   with your RigOne version, macOS version and what you expected.
 - **Security issue:** don't put the details in a public issue. Open an issue that only says you have

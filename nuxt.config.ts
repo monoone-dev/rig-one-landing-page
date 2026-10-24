@@ -41,9 +41,9 @@ export default defineNuxtConfig({
   // English is the default (no prefix); other languages live under /pl/, /es/, ...
   // The first visit follows the browser language, then the choice is kept in a cookie.
   i18n: {
-    // Origin only; GitHub Pages serves the site under /<repo>/ and Nuxt adds that base path.
+    // Origin only; the site lives at the Pages custom domain rig-one.io.
     // The deploy sets NUXT_PUBLIC_I18N_BASE_URL to the Pages origin.
-    baseUrl: 'https://monoone.dev',
+    baseUrl: 'https://rig-one.io',
     defaultLocale: 'en',
     strategy: 'prefix_except_default',
     trailingSlash: true,

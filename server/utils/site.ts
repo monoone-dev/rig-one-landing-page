@@ -16,9 +16,9 @@ export const sitemapLocales = [
 
 export const sitemapPages = ['/', '/features/', '/docs/', ...docs.pages.map(p => `/docs/${p.id}/`), '/compare/', '/changelog/']
 
-/** Origin + base path, e.g. https://monoone.dev/rig-one-landing-page */
+/** Origin + base path, e.g. https://rig-one.io */
 export function siteRoot(event: H3Event) {
   const config = useRuntimeConfig(event)
-  const origin = String((config.public.i18n as { baseUrl?: string }).baseUrl || 'https://monoone.dev').replace(/\/$/, '')
+  const origin = String((config.public.i18n as { baseUrl?: string }).baseUrl || 'https://rig-one.io').replace(/\/$/, '')
   return `${origin}${config.app.baseURL.replace(/\/$/, '')}`
 }

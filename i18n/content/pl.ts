@@ -17,8 +17,8 @@ export default {
       breadcrumb: 'Dokumentacja',
     },
     compare: {
-      title: 'RigOne a Superset, Conductor, Nimbalyst, Codex i Cursor',
-      description: 'RigOne na tle Superset, Conductor, Nimbalyst, aplikacji Codex i Cursor Cloud Agents: lokalne biegi, dwóch dostawców, zapisane workflow, sprawdzenia i koszty.',
+      title: 'RigOne a Orca, Paseo, Superset, Conductor i inne',
+      description: 'Uczciwe porównanie RigOne z Orca, Paseo, Superset, Conductor, Nimbalyst, aplikacją ChatGPT i Cursor Cloud Agents: gdzie RigOne wypada lepiej, a gdzie gorzej.',
       breadcrumb: 'Porównanie',
     },
     changelog: {
@@ -450,52 +450,149 @@ export default {
   },
   compare: {
     eyebrow: 'Porównanie',
-    title: 'RigOne na tle Superset, Conductor, Nimbalyst, Codex i Cursor',
-    lead: 'Kilka dobrych narzędzi uruchamia agentów kodujących obok siebie. RigOne jest na sytuacje, gdy praca to ciąg kroków, który chcesz uruchamiać ponownie, ze sprawdzeniami, które uruchamia samo.',
-    caption: 'RigOne w porównaniu z Superset, Conductor, Nimbalyst, aplikacją OpenAI Codex i Cursor Cloud Agents',
-    capability: 'Możliwość',
-    examples: ['Aplikacja desktopowa, kod dostępny', 'Aplikacja na Maca', 'Aplikacja desktopowa, licencja MIT', 'Aplikacja desktopowa OpenAI', 'Agenci w chmurze w Cursorze'],
+    title: 'Gdzie RigOne wypada lepiej, a gdzie gorzej',
+    lead: 'RigOne obok Orca, Paseo, Superset, Conductor, Nimbalyst, aplikacji ChatGPT i Cursor Cloud Agents, wiersz po wierszu, na podstawie tego, co każdy produkt publicznie dokumentuje. Kilka z nich robi więcej niż RigOne w wielu miejscach.',
+    tally: {
+      title: 'W każdym wierszu na tle najmocniejszego z pozostałych siedmiu',
+      note: 'Wiersz liczy się jako przewaga tylko wtedy, gdy żaden inny produkt nie dokumentuje tego samego. „Nie podano” nie liczy się jako „nie”.',
+    },
+    verdicts: { ahead: 'RigOne lepiej', level: 'Mniej więcej równo', behind: 'RigOne gorzej' },
+    wins: {
+      title: 'Gdzie RigOne wypada lepiej',
+      items: [
+        { title: 'Zapisane wieloetapowe workflow', body: 'Wizualny graf z pętlami, warunkami i ponowieniami, który uruchamiasz ponownie. Orca ma grafy zadań w eksperymentalnym trybie wiersza poleceń; pozostałe uruchamiają jednego agenta na zadanie, ze skryptami wokół niego.' },
+        { title: 'Sprawdzenia uruchamiane przez samo narzędzie', body: 'Po każdym kroku RigOne uruchamia sprawdzenia i trzyma je osobno od tego, co mówi agent. „Nic się nie wykonało” nigdy nie jest zaliczeniem. Inne zwykle pokazują status CI albo pozwalają agentowi testować własną pracę.' },
+        { title: 'Limit agentów pracujących naraz', body: 'Wybierasz, ilu agentów może pracować jednocześnie w biegu. Żaden inny produkt tutaj nie podaje takiego limitu.' },
+        { title: 'Dostawcy przekazują sobie pracę', body: 'Jeden krok wykonuje Claude Code, następny przegląda Codex, w jednym biegu. Paseo też to potrafi; pozostałe stawiają agentów obok siebie.' },
+      ],
+    },
+    losses: {
+      title: 'Gdzie RigOne wypada gorzej',
+      items: [
+        { title: 'Tylko Mac, tylko Apple Silicon', body: 'Orca, Paseo, Nimbalyst i aplikacja ChatGPT działają też na Windows i Linuksie. Orca obsługuje także Maki z procesorami Intel.' },
+        { title: 'Kod źródłowy nie jest opublikowany', body: 'RigOne jest darmowe, ale nie można czytać ani forkować jego kodu. Orca i Nimbalyst mają licencję MIT, Paseo — Apache 2.0.' },
+        { title: 'Trzy aplikacje agentów', body: 'Claude Code, Codex i OpenCode. Orca, Paseo i Superset uruchamiają dowolnego agenta wiersza poleceń i wymieniają od 20 do 30 lub więcej.' },
+        { title: 'Brak wbudowanego edytora i terminala', body: 'RigOne otwiera plik w twoim własnym edytorze. Orca, Paseo i Nimbalyst mają wbudowane jedno i drugie; większość pozostałych ma terminal.' },
+        { title: 'Brak pull requestów z aplikacji', body: 'Praca czeka na lokalnej gałęzi; wypychać może tylko Auto, gdy na to pozwolisz. Orca, Paseo, Superset, Conductor i Cursor otwierają pull requesty, a kilka z nich je scala.' },
+        { title: 'Mało integracji, brak harmonogramów', body: 'Bieg może uruchomić tylko zgłoszenie Linear przypisane do ciebie. Inne działają według harmonogramu albo startują z GitHuba, Slacka lub Jiry.' },
+        { title: 'Dostęp z telefonu przez stronę WWW', body: 'Wymaga konta MonoOne. Paseo ma aplikacje na iOS i Androida bez konta; Nimbalyst, ChatGPT i Cursor też mają aplikacje.' },
+        { title: 'Ostrzeżenie o kosztach, nie limit', body: 'RigOne ostrzega, gdy bieg osiągnie daną kwotę, i go nie zatrzymuje. Cursor zatrzymuje się na limicie wydatków.' },
+      ],
+    },
+    table: {
+      title: 'Wiersz po wierszu',
+      lead: 'Ukryj produkty, które cię nie interesują, albo pokaż tylko wiersze, w których RigOne wypada lepiej lub gorzej.',
+      caption: 'RigOne w porównaniu z Orca, Paseo, Superset, Conductor, Nimbalyst, aplikacją ChatGPT i Cursor Cloud Agents',
+      capability: 'Możliwość',
+      products: 'Produkty',
+      rows: 'Wiersze',
+      all: 'Wszystkie',
+    },
     labels: { yes: 'Tak', partial: 'Częściowo', no: 'Nie', unknown: 'Nie podano' },
     notStated: 'Nie podano publicznie',
+    groups: {
+      where: 'Gdzie działa',
+      agents: 'Agenci',
+      workflows: 'Workflow i biegi',
+      verify: 'Weryfikacja',
+      review: 'Przegląd i narzędzia',
+      team: 'Zespoły i integracje',
+      cost: 'Koszt',
+    },
     rows: {
+      platforms: {
+        criterion: 'Platformy',
+        cells: ['macOS 13+, tylko Apple Silicon', 'macOS, Windows, Linux', 'macOS, Windows, Linux, WWW', 'macOS; Linux eksperymentalnie', 'macOS', 'macOS, Windows, Linux', 'macOS, Windows; Linux w wersji preview', 'Chmura; komputer, WWW i telefon'],
+      },
       local: {
-        criterion: 'Działa na twoim Macu i w twoim folderze',
-        cells: ['', 'Domyślnie lokalnie', 'Przestrzenie w chmurze w Pro', 'Aplikacja desktopowa; synchronizacja dla zespołów', 'Plus Codex Cloud', 'Tylko maszyny w chmurze'],
+        criterion: 'Działa na twoim komputerze i w twoim folderze',
+        cells: ['', 'Także przez SSH i na maszynach w chmurze', 'Albo daemon na dowolnej maszynie', 'Przestrzenie w chmurze w Team', 'Przestrzenie w chmurze w Pro', '', 'Plus czaty w chmurze', 'Maszyny w chmurze albo twój komputer'],
+      },
+      remote: {
+        criterion: 'Śledzenie i sterowanie z telefonu',
+        cells: ['Strona WWW; wymaga konta', 'Aplikacja towarzysząca na iOS i Androida, beta', 'iOS, Android i WWW; bez konta', 'Aplikacja na iOS w Pro', 'Aplikacja mobilna w Pro', 'Aplikacja na iOS', 'Aplikacja ChatGPT na iOS', 'WWW, iOS i Android'],
+      },
+      source: {
+        criterion: 'Otwarty kod źródłowy',
+        cells: ['Darmowe; kod źródłowy nieopublikowany', 'MIT', 'Apache 2.0', 'Kod dostępny, Elastic License 2.0', '', 'MIT', '', ''],
+      },
+      agents: {
+        criterion: 'Agenci, których może uruchamiać',
+        cells: ['Claude Code, Codex, OpenCode; lokalne modele przez Ollama', 'Dowolny agent CLI; wymienionych około 30', '7 wbudowanych, 30+ przez ACP', '21 wymienionych plus dowolny agent CLI', 'Claude Code, Codex, Cursor, OpenCode', 'Claude Code, Codex; OpenCode i Copilot w wersji alfa', 'Tylko Codex', 'Własny agent Cursora'],
       },
       mix: {
-        criterion: 'Claude Code i Codex w jednym workflow',
-        cells: ['', 'Obok siebie, jeden agent na przestrzeń', 'Obok siebie, jeden agent na przestrzeń', 'Równoległe sesje, po jednym agencie', 'Tylko Codex', 'Własny agent Cursora'],
+        criterion: 'Różni dostawcy przekazują sobie pracę',
+        cells: ['Kroki różnych dostawców w jednym biegu', 'Jeden prompt do kilku agentów; osobno dla każdego wykonawcy w eksperymentalnej orkiestracji', 'Agenci uruchamiają agentów innych dostawców i piszą do nich', 'Obok siebie w jednej przestrzeni', 'Kilku na przestrzeń, jeden na kartę czatu', 'Równoległe sesje, po jednym agencie', '', ''],
       },
       graph: {
         criterion: 'Zapisany wieloetapowy workflow do ponownego uruchomienia',
-        cells: ['Wizualny graf', 'Presety i skrypty; automatyzacje w Pro', 'Skrypty setup i run', 'Polecenia slash', 'Zaplanowane automatyzacje', ''],
+        cells: ['Wizualny graf z pętlami, warunkami i ponowieniami', 'Grafy zadań w eksperymentalnej orkiestracji CLI', 'Agent orkiestruje na podstawie promptu; nic nie jest zapisywane', 'Presety i skrypty setup', 'Skrypty setup, run i archive', 'Polecenia slash i skille', 'Zaplanowane zadania i skrypty setup', 'Automatyzacja uruchamia jednego agenta'],
       },
-      isolated: {
-        criterion: 'Równoległa praca na odizolowanych kopiach kodu',
-        cells: ['Jedna przestrzeń robocza na krok', 'Jedno worktree na przestrzeń', 'Jedna przestrzeń na zadanie', 'Opcjonalne worktree na sesję', 'Worktree', 'Jedna maszyna na agenta'],
+      triggers: {
+        criterion: 'Uruchamianie według harmonogramu lub zdarzenia',
+        cells: ['Zgłoszenie Linear przypisane do ciebie; bez harmonogramu czasowego', 'Harmonogramy, ze sprawdzeniem przed każdym uruchomieniem', 'Harmonogramy; wzmianki z GitHuba, Slacka i Discorda w becie', 'Automatyzacje w Pro', '', '', 'Zaplanowane zadania; Linear i Slack uruchamiają czaty w chmurze', 'Harmonogramy i zdarzenia z GitHuba, Slacka, Linear i innych'],
+      },
+      concurrency: {
+        criterion: 'Limit agentów pracujących naraz',
+        cells: ['Ustawiany na bieg', '', '', '', '', '', '', 'Dowolnie wielu równolegle'],
+      },
+      spend: {
+        criterion: 'Ostrzeżenie lub limit wydatków',
+        cells: ['Ostrzeżenie na bieg; nie zatrzymuje go', 'Ostrzeżenia o limitach zapytań, szacowany koszt', 'Limity i salda', '', '', '', 'Limity planu, dodatkowe kredyty', 'Limit wydatków'],
       },
       checks: {
         criterion: 'Sprawdzenia uruchamiane przez narzędzie, niezależnie od deklaracji agenta',
-        cells: ['„Nic się nie wykonało” nigdy nie jest zaliczeniem', 'Skrypty setup i run', 'Pokazuje status CI i pull requestu', '', 'Skrypty setup', 'Agent sam testuje swoją pracę'],
+        cells: ['„Nic się nie wykonało” nigdy nie jest zaliczeniem', 'Pokazuje status CI; sprawdzenie przed zaplanowanymi uruchomieniami', 'Uruchamia nazwane skrypty; pokazuje sprawdzenia pull requestów', '', 'Pokazuje CI i sprawdzenia pull requestów', '', '', 'Agent sam testuje swoją pracę i wysyła wideo'],
       },
-      budget: {
-        criterion: 'Ostrzeżenie o kosztach i współbieżność na bieg',
-        cells: ['Ostrzeżenie na bieg', '', '', '', 'Limity planu', 'Limit wydatków, bez limitu współbieżności'],
+      review: {
+        criterion: 'Przegląd linia po linii z komentarzami do agenta',
+        cells: ['Komentarze wracają do agenta, który napisał linię', 'Komentarze wracają do agenta', 'Przegląd diffu; komentarze do linii nie podano', 'Komentowanie, edycja i commit', 'Podgląd diffu', 'Diffy w treści, przegląd pull requestów', 'Komentarze do linii, stage i revert', 'Przegląd pull requestu'],
+      },
+      preview: {
+        criterion: 'Podgląd aplikacji',
+        cells: ['Uruchamia twoją aplikację na wolnym porcie', 'Wbudowana przeglądarka z trybem projektowania', 'Wbudowana przeglądarka', 'Panel przeglądarki', '', 'Panel przeglądarki', 'Przeglądarka i computer use', 'Zrzuty ekranu, wideo, zdalny pulpit'],
+      },
+      editor: {
+        criterion: 'Wbudowany edytor kodu',
+        cells: ['Otwiera twój własny edytor na właściwej linii', 'Edytor w stylu VS Code', 'Edycja plików', 'Przekazuje do twojego IDE', '', 'Edytory kodu i wizualne', '', 'Edytor Cursor'],
+      },
+      terminal: {
+        criterion: 'Wbudowany terminal',
+        cells: ['Wyjście agenta jako log, bez powłoki', 'Terminale z akceleracją GPU', 'Terminale w podzielonych panelach', 'Karty, podziały, zachowane sesje', 'Jeden na przestrzeń', '', '', 'Zdalny pulpit maszyny wirtualnej'],
+      },
+      prs: {
+        criterion: 'Otwieranie i scalanie pull requestów',
+        cells: ['Wypycha tylko Auto, gdy pozwolisz; poza tym lokalna gałąź', 'Otwieranie, scalanie, automatyczne scalanie', 'GitHub, GitLab, Gitea i inne', 'Agenci otwierają je przez gh', 'Otwieranie, scalanie i archiwizacja', 'Przegląd pull requestów', 'Commit i push', 'Pull requesty gotowe do scalenia'],
+      },
+      trackers: {
+        criterion: 'Trackery zgłoszeń i czat',
+        cells: ['Tylko Linear, jako wyzwalacz', 'GitHub, GitLab, Linear, Jira', 'Zgłoszenia z GitHuba; Slack i Discord przez Hub', 'Linear i Slack w Pro', 'Zgłoszenia z Linear i GitHuba', 'Przez serwery MCP', 'Linear, Slack, GitHub', 'Linear, GitHub, Slack, Bitbucket'],
       },
       boards: {
-        criterion: 'Wspólna tablica zadań i tracker zgłoszeń',
-        cells: ['Szyfrowane tablice, wyzwalacze Linear', 'Linear i Slack w Pro', 'Zgłoszenia z Linear i GitHuba', 'Kanban sesji', 'Linear i GitHub', 'Linear, GitHub i Slack'],
-      },
-      platforms: {
-        criterion: 'Platformy',
-        cells: ['macOS 13+, Apple Silicon', 'macOS; Linux eksperymentalnie', 'macOS', 'macOS, Windows, Linux', 'macOS, Windows, Linux', 'Chmura'],
+        criterion: 'Wspólna tablica zadań',
+        cells: ['Szyfrowana end-to-end; wymaga konta', 'Tablice Jira w aplikacji', 'Przez wtyczki', '', 'Tryb wieloosobowy w Pro', 'Kanban sesji, tracker zadań, wiki zespołu', '', ''],
       },
       price: {
         criterion: 'Cena',
-        cells: ['Za darmo; korzysta z twojego planu Claude Code lub Codex', 'Za darmo; Pro 20 USD za osobę miesięcznie', 'Za darmo; Pro 50 USD miesięcznie', 'Za darmo, licencja MIT', 'W planach ChatGPT', 'Płatny plan Cursora plus ceny API'],
+        cells: ['Za darmo; korzysta z twoich planów agentów', 'Za darmo; Enterprise na zapytanie', 'Za darmo; Hub Pro 15 USD za stanowisko miesięcznie', 'Za darmo; Pro 20 USD, Team 60 USD za osobę miesięcznie', 'Za darmo; Pro 50 USD miesięcznie, Teams 60 USD za osobę', 'Za darmo; wiki zespołu 20 USD za osobę, w becie za darmo', 'W każdym planie ChatGPT, także Free', 'Plan Cursora; użycie według stawek modeli'],
       },
     },
-    footnoteHtml: 'Na podstawie publicznej dokumentacji i cenników każdego produktu, sprawdzone w październiku 2026. Produkty szybko się zmieniają; „Nie podano” znaczy, że nie znaleźliśmy nic publicznego. Widzisz błąd? <a href="{issues}">Daj nam znać</a>.',
+    picks: {
+      title: 'Który wybrać',
+      lead: 'Każde z nich to dobre narzędzie. Oto kiedy wybralibyśmy każde z nich.',
+      rigone: 'Wybierz RigOne, gdy praca to ciąg kroków uruchamiany ponownie, ze sprawdzeniami, które uruchamia samo narzędzie, na Macu.',
+      website: 'Strona WWW',
+    },
+    products: {
+      orca: { kind: 'Aplikacja desktopowa, MIT', pick: 'Wybierz Orca dla najszerszej obsługi agentów, Windows i Linuksa, wbudowanego edytora i terminala oraz pull requestów scalanych z aplikacji.' },
+      paseo: { kind: 'Komputer, telefon i WWW, Apache 2.0', pick: 'Wybierz Paseo, by sterować agentami z natywnych aplikacji na telefon lub z WWW bez konta, uruchamiać je na dowolnej maszynie i mieć wszystko na otwartym kodzie.' },
+      superset: { kind: 'Aplikacja desktopowa, kod dostępny', pick: 'Wybierz Superset, by uruchamiać wielu różnych agentów wiersza poleceń w worktree, z CLI, SDK i serwerem MCP wokół nich.' },
+      conductor: { kind: 'Aplikacja na Maca', pick: 'Wybierz Conductor dla dopracowanej aplikacji na Maca ze sprawdzeniami, pull requestami i scalaniem w jednym miejscu oraz trybem wieloosobowym w Pro.' },
+      nimbalyst: { kind: 'Aplikacja desktopowa, MIT', pick: 'Wybierz Nimbalyst dla wizualnych edytorów Markdown, diagramów i makiet obok sesji agentów, na każdym systemie desktopowym.' },
+      chatgpt: { kind: 'Codex w aplikacji desktopowej ChatGPT', pick: 'Wybierz aplikację ChatGPT, jeśli już korzystasz z Codex: jest w każdym planie ChatGPT, z computer use i sterowaniem z telefonu.' },
+      cursor: { kind: 'Agenci w chmurze w Cursorze', pick: 'Wybierz Cursor Cloud Agents dla agentów w maszynach w chmurze, które startują od zdarzeń z GitHuba, Slacka lub Linear i odsyłają wideo ze swojej pracy.' },
+    },
+    footnoteHtml: 'Na podstawie publicznej dokumentacji, README i cenników każdego produktu, sprawdzone w październiku 2026. Te produkty zmieniają się co tydzień, więc część wierszy się zestarzeje. Widzisz błąd? <a href="{issues}">Daj nam znać</a>.',
   },
   faq: {
     eyebrow: 'FAQ',

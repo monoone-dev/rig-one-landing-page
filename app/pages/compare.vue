@@ -17,7 +17,9 @@ usePageSeo({
 
 <template>
   <main id="main">
-    <CompetitionSection :level="1" />
+    <CompareVerdict :level="1" />
+    <CompetitionSection />
+    <ComparePicks />
     <FaqSection />
     <CtaSection />
   </main>

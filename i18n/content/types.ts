@@ -31,10 +31,20 @@ export type ScreenId = 'run' | 'review' | 'review-tools' | 'projects' | 'canvas'
 
 export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'unknown' | 'green' | 'files'
 
-export type ComparisonRowId = 'local' | 'mix' | 'graph' | 'isolated' | 'checks' | 'budget' | 'boards' | 'platforms' | 'price'
+/** The products RigOne is compared with, in the order of `competitors` in app/data/shared.ts. */
+export type CompetitorId = 'orca' | 'paseo' | 'superset' | 'conductor' | 'nimbalyst' | 'chatgpt' | 'cursor'
 
-/** RigOne, then the five named products — in the order of `competitors` in app/data/shared.ts. */
-export type ComparisonCells = [string, string, string, string, string, string]
+export type ComparisonGroupId = 'where' | 'agents' | 'workflows' | 'verify' | 'review' | 'team' | 'cost'
+
+export type ComparisonRowId =
+  | 'platforms' | 'local' | 'remote' | 'source' | 'agents' | 'mix' | 'graph' | 'triggers' | 'concurrency'
+  | 'spend' | 'checks' | 'review' | 'editor' | 'terminal' | 'preview' | 'prs' | 'trackers' | 'boards' | 'price'
+
+/** How RigOne stands on a row against the strongest of the other products. */
+export type Verdict = 'ahead' | 'level' | 'behind'
+
+/** RigOne, then the seven named products — in the order of `competitors` in app/data/shared.ts. */
+export type ComparisonCells = [string, string, string, string, string, string, string, string]
 
 export interface SiteContent {
   meta: {
@@ -140,13 +150,27 @@ export interface SiteContent {
     eyebrow: string
     title: string
     lead: string
-    caption: string
-    capability: string
-    /** What each product is, shown under its name (the names are in `competitors`, not translated). */
-    examples: [string, string, string, string, string]
+    /** The tally of verdicts above the two lists. */
+    tally: { title: string, note: string }
+    verdicts: Record<Verdict, string>
+    wins: { title: string, items: Card[] }
+    losses: { title: string, items: Card[] }
+    table: {
+      title: string
+      lead: string
+      caption: string
+      capability: string
+      products: string
+      rows: string
+      all: string
+    }
     labels: { yes: string, partial: string, no: string, unknown: string }
     notStated: string
+    groups: Record<ComparisonGroupId, string>
     rows: Record<ComparisonRowId, { criterion: string, cells: ComparisonCells }>
+    /** Who should pick which product. `kind` is shown under the product's name in the table. */
+    picks: { title: string, lead: string, rigone: string, website: string }
+    products: Record<CompetitorId, { kind: string, pick: string }>
     /** `{issues}` is replaced with the issue tracker URL. */
     footnoteHtml: string
   }

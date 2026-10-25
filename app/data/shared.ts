@@ -1,5 +1,5 @@
 // What does not get translated: ids, icons, link targets and the comparison's yes/no values.
-import type { ComparisonRowId, DifferentiatorId, FeatureId, HonestId, ScreenId } from '~~/i18n/content/types'
+import type { ComparisonGroupId, ComparisonRowId, CompetitorId, DifferentiatorId, FeatureId, HonestId, ScreenId, Verdict } from '~~/i18n/content/types'
 
 export type Support = 'yes' | 'partial' | 'no' | 'unknown' | 'info'
 
@@ -66,22 +66,81 @@ export const howIcons = ['i-lucide-pen-line', 'i-lucide-workflow', 'i-lucide-pla
 
 /**
  * The products RigOne is compared with, after RigOne itself. Facts come from each product's public
- * documentation and pricing (see the footnote); re-check them when `comparisonCheckedOn` moves.
- * Left out on purpose: Vibe Kanban (sunsetting) and Crystal (replaced by Nimbalyst).
+ * documentation, README and pricing (see the footnote); re-check them when `comparisonCheckedOn`
+ * moves. Left out on purpose: Vibe Kanban (its company shut down; community-maintained since) and
+ * Crystal (replaced by Nimbalyst). The Codex app is now Codex inside the ChatGPT desktop app.
  */
-export const competitors = ['Superset', 'Conductor', 'Nimbalyst', 'OpenAI Codex app', 'Cursor Cloud Agents'] as const
+export const competitors: { id: CompetitorId, name: string, url: string }[] = [
+  { id: 'orca', name: 'Orca', url: 'https://onorca.dev' },
+  { id: 'paseo', name: 'Paseo', url: 'https://paseo.sh' },
+  { id: 'superset', name: 'Superset', url: 'https://superset.sh' },
+  { id: 'conductor', name: 'Conductor', url: 'https://conductor.build' },
+  { id: 'nimbalyst', name: 'Nimbalyst', url: 'https://nimbalyst.com' },
+  { id: 'chatgpt', name: 'ChatGPT app (Codex)', url: 'https://learn.chatgpt.com/docs/app' },
+  { id: 'cursor', name: 'Cursor Cloud Agents', url: 'https://cursor.com/docs/cloud-agent' },
+]
 
 export const comparisonCheckedOn = '2026-10'
 
-/** Column order: RigOne, then `competitors`. */
-export const comparison: { id: ComparisonRowId, values: [Support, Support, Support, Support, Support, Support] }[] = [
-  { id: 'local', values: ['yes', 'yes', 'yes', 'yes', 'yes', 'no'] },
-  { id: 'mix', values: ['yes', 'partial', 'partial', 'partial', 'no', 'no'] },
-  { id: 'graph', values: ['yes', 'partial', 'no', 'partial', 'partial', 'unknown'] },
-  { id: 'isolated', values: ['yes', 'yes', 'yes', 'yes', 'yes', 'yes'] },
-  { id: 'checks', values: ['yes', 'partial', 'partial', 'unknown', 'partial', 'no'] },
-  { id: 'budget', values: ['yes', 'unknown', 'unknown', 'unknown', 'partial', 'partial'] },
-  { id: 'boards', values: ['yes', 'partial', 'partial', 'partial', 'partial', 'partial'] },
-  { id: 'platforms', values: ['info', 'info', 'info', 'info', 'info', 'info'] },
-  { id: 'price', values: ['info', 'info', 'info', 'info', 'info', 'info'] },
+type Values = [Support, Support, Support, Support, Support, Support, Support, Support]
+
+/**
+ * Column order: RigOne, then `competitors`. `verdict` judges RigOne against the strongest of the
+ * others: `ahead` only when no other product documents the same thing publicly.
+ */
+export const comparison: { group: ComparisonGroupId, rows: { id: ComparisonRowId, verdict: Verdict, values: Values }[] }[] = [
+  {
+    group: 'where',
+    rows: [
+      { id: 'platforms', verdict: 'behind', values: ['partial', 'yes', 'yes', 'partial', 'partial', 'yes', 'yes', 'yes'] },
+      { id: 'local', verdict: 'level', values: ['yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'partial'] },
+      { id: 'remote', verdict: 'behind', values: ['partial', 'partial', 'yes', 'partial', 'partial', 'yes', 'yes', 'yes'] },
+      { id: 'source', verdict: 'behind', values: ['no', 'yes', 'yes', 'partial', 'no', 'yes', 'no', 'no'] },
+    ],
+  },
+  {
+    group: 'agents',
+    rows: [
+      { id: 'agents', verdict: 'behind', values: ['partial', 'yes', 'yes', 'yes', 'partial', 'partial', 'no', 'no'] },
+      { id: 'mix', verdict: 'level', values: ['yes', 'partial', 'yes', 'partial', 'partial', 'partial', 'no', 'no'] },
+    ],
+  },
+  {
+    group: 'workflows',
+    rows: [
+      { id: 'graph', verdict: 'ahead', values: ['yes', 'partial', 'partial', 'no', 'no', 'no', 'no', 'no'] },
+      { id: 'triggers', verdict: 'behind', values: ['partial', 'yes', 'yes', 'partial', 'unknown', 'unknown', 'yes', 'yes'] },
+      { id: 'concurrency', verdict: 'ahead', values: ['yes', 'unknown', 'unknown', 'unknown', 'unknown', 'unknown', 'unknown', 'no'] },
+      { id: 'spend', verdict: 'behind', values: ['partial', 'partial', 'partial', 'unknown', 'unknown', 'unknown', 'partial', 'yes'] },
+    ],
+  },
+  {
+    group: 'verify',
+    rows: [
+      { id: 'checks', verdict: 'ahead', values: ['yes', 'partial', 'partial', 'unknown', 'partial', 'unknown', 'unknown', 'partial'] },
+    ],
+  },
+  {
+    group: 'review',
+    rows: [
+      { id: 'review', verdict: 'level', values: ['yes', 'yes', 'partial', 'yes', 'partial', 'partial', 'yes', 'partial'] },
+      { id: 'preview', verdict: 'level', values: ['yes', 'yes', 'yes', 'yes', 'unknown', 'yes', 'yes', 'yes'] },
+      { id: 'editor', verdict: 'behind', values: ['no', 'yes', 'yes', 'no', 'unknown', 'yes', 'unknown', 'yes'] },
+      { id: 'terminal', verdict: 'behind', values: ['no', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'partial'] },
+      { id: 'prs', verdict: 'behind', values: ['partial', 'yes', 'yes', 'yes', 'yes', 'partial', 'partial', 'yes'] },
+    ],
+  },
+  {
+    group: 'team',
+    rows: [
+      { id: 'trackers', verdict: 'behind', values: ['partial', 'yes', 'partial', 'partial', 'yes', 'partial', 'yes', 'yes'] },
+      { id: 'boards', verdict: 'level', values: ['yes', 'partial', 'partial', 'unknown', 'partial', 'yes', 'no', 'unknown'] },
+    ],
+  },
+  {
+    group: 'cost',
+    rows: [
+      { id: 'price', verdict: 'level', values: ['info', 'info', 'info', 'info', 'info', 'info', 'info', 'info'] },
+    ],
+  },
 ]

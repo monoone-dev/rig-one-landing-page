@@ -17,8 +17,8 @@ export default {
       breadcrumb: 'ドキュメント',
     },
     compare: {
-      title: 'RigOne と Superset、Conductor、Nimbalyst、Codex、Cursor の比較',
-      description: 'Superset、Conductor、Nimbalyst、Codex アプリ、Cursor Cloud Agents との比較：ローカル実行、2 社の提供元、ワークフロー、チェック、費用。',
+      title: 'RigOne と Orca、Paseo、Superset、Conductor などの比較',
+      description: 'RigOne を Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT アプリ、Cursor Cloud Agents と正直に比較：RigOne が勝っているところと負けているところ。',
       breadcrumb: '比較',
     },
     changelog: {
@@ -450,52 +450,149 @@ export default {
   },
   compare: {
     eyebrow: '比較',
-    title: 'RigOne と Superset、Conductor、Nimbalyst、Codex、Cursor の比較',
-    lead: 'コーディングエージェントを並べて動かせる良いツールはいくつもあります。RigOne が向いているのは、何度も実行したい一連のステップからなる作業を、RigOne 自身が走らせるチェックとともに進めたいときです。',
-    caption: 'RigOne と Superset、Conductor、Nimbalyst、OpenAI Codex アプリ、Cursor Cloud Agents の比較',
-    capability: '機能',
-    examples: ['デスクトップアプリ、ソース公開', 'Mac アプリ', 'デスクトップアプリ、MIT ライセンス', 'OpenAI のデスクトップアプリ', 'Cursor のクラウドエージェント'],
+    title: 'RigOne が勝っているところ、負けているところ',
+    lead: 'RigOne を Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT アプリ、Cursor Cloud Agents と、各製品が公開している情報をもとに 1 行ずつ比べました。RigOne より多くの点で多くのことができる製品もいくつかあります。',
+    tally: {
+      title: '各行で、ほかの 7 製品のうち最も強いものと比べた結果',
+      note: 'ほかのどの製品も同じことを公開情報に記載していない場合にだけ、その行は勝ちとして数えます。「記載なし」は「なし」として数えません。',
+    },
+    verdicts: { ahead: 'RigOne が上', level: 'ほぼ互角', behind: 'RigOne が下' },
+    wins: {
+      title: 'RigOne が勝っているところ',
+      items: [
+        { title: '保存して再実行できる多段階のワークフロー', body: 'ループ、条件、リトライを備えたビジュアルなグラフを、何度でも実行できます。Orca には試験的なコマンドラインモードでタスクグラフがあります。ほかの製品はタスクごとに 1 つのエージェントを動かし、その周りにスクリプトを置きます。' },
+        { title: 'ツール自身が走らせるチェック', body: '各ステップの後、RigOne がチェックを走らせ、その結果をエージェントの主張とは分けて扱います。「何も実行されなかった」は合格になりません。ほかの製品の多くは CI の状態を表示するか、エージェントに自分の仕事をテストさせます。' },
+        { title: '同時に動くエージェント数の上限', body: '1 回の実行で同時に動けるエージェントの数を決められます。ここに挙げたほかの製品には、そうした上限の記載がありません。' },
+        { title: '提供元の異なるエージェント間の受け渡し', body: '1 回の実行の中で、あるステップを Claude Code が行い、次のステップで Codex がレビューします。Paseo も同じことができます。ほかの製品はエージェントを並べるだけです。' },
+      ],
+    },
+    losses: {
+      title: 'RigOne が負けているところ',
+      items: [
+        { title: 'Mac のみ、Apple Silicon のみ', body: 'Orca、Paseo、Nimbalyst、ChatGPT アプリは Windows と Linux でも動きます。Orca は Intel Mac にも対応しています。' },
+        { title: 'ソースコードは非公開', body: 'RigOne は無料で使えますが、コードを読んだりフォークしたりはできません。Orca と Nimbalyst は MIT、Paseo は Apache 2.0 です。' },
+        { title: 'エージェントアプリは 3 つ', body: 'Claude Code、Codex、OpenCode です。Orca、Paseo、Superset はどのコマンドラインエージェントでも動かせ、20〜30 以上を挙げています。' },
+        { title: 'エディタもターミナルも内蔵していない', body: 'RigOne はファイルをあなた自身のエディタで開きます。Orca、Paseo、Nimbalyst は両方を内蔵し、ほかの多くもターミナルを備えています。' },
+        { title: 'アプリからプルリクエストを出せない', body: '作業はローカルのブランチに残ります。プッシュできるのは、あなたが許可したときの Auto だけです。Orca、Paseo、Superset、Conductor、Cursor はプルリクエストを作成し、いくつかはマージもします。' },
+        { title: '連携が少なく、定期実行がない', body: '実行を開始できるのは、あなたに割り当てられた Linear の課題だけです。ほかの製品は定期実行や、GitHub、Slack、Jira からの開始に対応しています。' },
+        { title: 'スマートフォンからは Web ページ経由', body: 'MonoOne アカウントが必要です。Paseo にはアカウント不要の iOS・Android アプリがあり、Nimbalyst、ChatGPT、Cursor にもアプリがあります。' },
+        { title: '費用は警告のみで、上限はない', body: 'RigOne は実行が一定の金額に達すると警告しますが、実行は止めません。Cursor は支出上限で止まります。' },
+      ],
+    },
+    table: {
+      title: '1 行ずつの比較',
+      lead: '関心のない製品を隠したり、RigOne が勝っている行や負けている行だけを表示したりできます。',
+      caption: 'RigOne と Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT アプリ、Cursor Cloud Agents の比較',
+      capability: '機能',
+      products: '製品',
+      rows: '行',
+      all: 'すべて',
+    },
     labels: { yes: 'あり', partial: '一部', no: 'なし', unknown: '記載なし' },
     notStated: '公開情報に記載なし',
+    groups: {
+      where: '動作環境',
+      agents: 'エージェント',
+      workflows: 'ワークフローと実行',
+      verify: '検証',
+      review: 'レビューとツール',
+      team: 'チームと連携',
+      cost: '費用',
+    },
     rows: {
+      platforms: {
+        criterion: 'プラットフォーム',
+        cells: ['macOS 13 以降、Apple Silicon のみ', 'macOS、Windows、Linux', 'macOS、Windows、Linux、Web', 'macOS。Linux は試験提供', 'macOS', 'macOS、Windows、Linux', 'macOS、Windows。Linux はプレビュー', 'クラウド。デスクトップ、Web、スマートフォン'],
+      },
       local: {
-        criterion: '自分の Mac とフォルダで動く',
-        cells: ['', '標準はローカル', 'Pro でクラウドのワークスペース', 'デスクトップアプリ。チーム向け同期あり', 'Codex Cloud も利用可', 'クラウドの VM のみ'],
+        criterion: '自分のマシンとフォルダで動く',
+        cells: ['', 'SSH 経由やクラウドの VM でも', 'または任意のマシン上のデーモン', 'Team でクラウドのワークスペース', 'Pro でクラウドのワークスペース', '', 'クラウドのチャットも', 'クラウドの VM、または自分のマシン'],
+      },
+      remote: {
+        criterion: 'スマートフォンから追いかけて操作する',
+        cells: ['Web ページ。アカウントが必要', 'iOS・Android のコンパニオンアプリ、ベータ', 'iOS、Android、Web。アカウント不要', 'Pro で iOS アプリ', 'Pro でモバイルアプリ', 'iOS アプリ', 'ChatGPT の iOS アプリ', 'Web、iOS、Android'],
+      },
+      source: {
+        criterion: 'オープンソース',
+        cells: ['無料で使えるが、ソースは非公開', 'MIT', 'Apache 2.0', 'ソース公開、Elastic License 2.0', '', 'MIT', '', ''],
+      },
+      agents: {
+        criterion: '動かせるエージェント',
+        cells: ['Claude Code、Codex、OpenCode。Ollama 経由でローカルモデル', '任意の CLI エージェント。約 30 を記載', '内蔵 7、ACP 経由で 30 以上', '21 を記載、ほかに任意の CLI エージェント', 'Claude Code、Codex、Cursor、OpenCode', 'Claude Code、Codex。OpenCode と Copilot はアルファ版', 'Codex のみ', 'Cursor 独自のエージェント'],
       },
       mix: {
-        criterion: 'ひとつのワークフローで Claude Code と Codex を使う',
-        cells: ['', '並べて実行、ワークスペースごとに 1 エージェント', '並べて実行、ワークスペースごとに 1 エージェント', '並列セッション、各 1 エージェント', 'Codex のみ', 'Cursor 独自のエージェント'],
+        criterion: '提供元の異なるエージェント間で作業を受け渡す',
+        cells: ['1 回の実行で提供元の異なるステップ', '1 つのプロンプトを複数のエージェントへ。試験的なオーケストレーションではワーカーごと', 'エージェントがほかの提供元のエージェントを起動し、メッセージを送る', '1 つのワークスペースで並べて実行', 'ワークスペースごとに複数、チャットタブごとに 1 つ', '並列セッション、各 1 エージェント', '', ''],
       },
       graph: {
         criterion: '保存して何度でも実行できる多段階のワークフロー',
-        cells: ['ビジュアルなグラフ', 'プリセットとスクリプト。Pro で自動化', 'セットアップと実行のスクリプト', 'スラッシュコマンド', '定期実行の自動化', ''],
+        cells: ['ループ、条件、リトライを備えたビジュアルなグラフ', '試験的な CLI オーケストレーションのタスクグラフ', 'エージェントがプロンプトから指揮。保存されない', 'プリセットとセットアップスクリプト', 'セットアップ、実行、アーカイブのスクリプト', 'スラッシュコマンドとスキル', '定期タスクとセットアップスクリプト', '1 つの自動化が 1 つのエージェントを動かす'],
       },
-      isolated: {
-        criterion: 'コードの隔離されたコピーでの並列作業',
-        cells: ['ステップごとにワークスペース', 'ワークスペースごとに worktree', 'タスクごとにワークスペース', 'セッションごとに worktree（任意）', 'Worktree', 'エージェントごとに VM'],
+      triggers: {
+        criterion: '定期実行やイベントでの実行',
+        cells: ['あなたに割り当てられた Linear の課題。時刻での定期実行はなし', '定期実行。毎回の実行前にチェック', '定期実行。GitHub、Slack、Discord でのメンションはベータ', 'Pro で自動化', '', '', '定期タスク。Linear と Slack からクラウドのチャットを開始', '定期実行と、GitHub、Slack、Linear などからのイベント'],
+      },
+      concurrency: {
+        criterion: '同時に動くエージェント数の上限',
+        cells: ['実行ごとに設定', '', '', '', '', '', '', '好きなだけ並列に'],
+      },
+      spend: {
+        criterion: '費用の警告または上限',
+        cells: ['実行ごとの警告。実行は止めない', 'レート制限の警告、費用の見積もり', 'クォータと残高', '', '', '', 'プランの上限、追加クレジット', '支出上限'],
       },
       checks: {
         criterion: 'エージェントの主張とは別に、ツールが走らせるチェック',
-        cells: ['「何も実行されなかった」は合格にならない', 'セットアップと実行のスクリプト', 'CI とプルリクエストの状態を表示', '', 'セットアップスクリプト', 'エージェントが自分の仕事をテスト'],
+        cells: ['「何も実行されなかった」は合格にならない', 'CI の状態を表示。定期実行の前にチェック', '指定したスクリプトを実行。プルリクエストのチェックを表示', '', 'CI とプルリクエストのチェックを表示', '', '', 'エージェントが自分の仕事をテストし、動画を送る'],
       },
-      budget: {
-        criterion: '実行ごとの費用の警告と同時実行数',
-        cells: ['実行ごとの警告', '', '', '', 'プランの上限', '支出上限あり、同時実行数の上限なし'],
+      review: {
+        criterion: '1 行ずつのレビューと、エージェントへのコメント',
+        cells: ['コメントはその行を書いたエージェントに戻る', 'コメントはエージェントに戻る', '差分レビュー。行コメントは記載なし', 'コメント、編集、コミット', '差分ビューア', 'インラインの差分、プルリクエストのレビュー', '行コメント、ステージと取り消し', 'プルリクエストをレビュー'],
+      },
+      preview: {
+        criterion: 'アプリのプレビュー',
+        cells: ['空いているポートでアプリを起動', 'デザインモード付きの内蔵ブラウザ', '内蔵ブラウザ', 'ブラウザペイン', '', 'ブラウザペイン', 'ブラウザとコンピュータ操作', 'スクリーンショット、動画、リモートデスクトップ'],
+      },
+      editor: {
+        criterion: '内蔵のコードエディタ',
+        cells: ['自分のエディタをその行で開く', 'VS Code 風のエディタ', 'ファイル編集', '自分の IDE に引き渡す', '', 'コードエディタとビジュアルエディタ', '', 'Cursor エディタ'],
+      },
+      terminal: {
+        criterion: '内蔵のターミナル',
+        cells: ['エージェントの出力はログとして表示、シェルはなし', 'GPU アクセラレーションのターミナル', '分割ペインのターミナル', 'タブ、分割、セッションの保持', 'ワークスペースごとに 1 つ', '', '', 'VM のリモートデスクトップ'],
+      },
+      prs: {
+        criterion: 'プルリクエストの作成とマージ',
+        cells: ['許可したときに Auto だけがプッシュ。それ以外はローカルのブランチ', '作成、マージ、自動マージ', 'GitHub、GitLab、Gitea など', 'エージェントが gh で作成', '作成、マージ、アーカイブ', 'プルリクエストのレビュー', 'コミットとプッシュ', 'マージできる状態のプルリクエスト'],
+      },
+      trackers: {
+        criterion: '課題管理とチャット',
+        cells: ['Linear のみ、トリガーとして', 'GitHub、GitLab、Linear、Jira', 'GitHub の課題。Hub 経由で Slack と Discord', 'Pro で Linear と Slack', 'Linear と GitHub の課題', 'MCP サーバー経由', 'Linear、Slack、GitHub', 'Linear、GitHub、Slack、Bitbucket'],
       },
       boards: {
-        criterion: '共有タスクボードと課題管理',
-        cells: ['暗号化されたボード、Linear トリガー', 'Pro で Linear と Slack', 'Linear と GitHub の課題', 'セッションのカンバン', 'Linear と GitHub', 'Linear、GitHub、Slack'],
-      },
-      platforms: {
-        criterion: 'プラットフォーム',
-        cells: ['macOS 13 以降、Apple Silicon', 'macOS。Linux は試験提供', 'macOS', 'macOS、Windows、Linux', 'macOS、Windows、Linux', 'クラウド'],
+        criterion: '共有タスクボード',
+        cells: ['エンドツーエンド暗号化。アカウントが必要', 'アプリ内の Jira ボード', 'プラグイン経由', '', 'Pro でマルチプレイヤー', 'セッションのカンバン、タスクトラッカー、チーム wiki', '', ''],
       },
       price: {
         criterion: '価格',
-        cells: ['無料。Claude Code または Codex のプランを使用', '無料。Pro は 1 人あたり月 20 ドル', '無料。Pro は月 50 ドル', '無料、MIT ライセンス', 'ChatGPT のプランに含まれる', 'Cursor の有料プランと API 料金'],
+        cells: ['無料。自分のエージェントのプランを使用', '無料。Enterprise は要問い合わせ', '無料。Hub Pro は 1 席あたり月 15 ドル', '無料。Pro は 1 人あたり月 20 ドル、Team は月 60 ドル', '無料。Pro は月 50 ドル、Teams は 1 人あたり 60 ドル', '無料。チーム wiki は 1 人あたり 20 ドル、ベータ期間中は無料', 'Free を含むすべての ChatGPT プランに含まれる', 'Cursor のプラン。利用分はモデルの料金'],
       },
     },
-    footnoteHtml: '各製品の公開ドキュメントと価格をもとに、2026 年 10 月に確認しました。製品はすぐに変わります。「記載なし」は公開情報が見つからなかったことを意味します。誤りを見つけたら<a href="{issues}">お知らせください</a>。',
+    picks: {
+      title: 'どれを選ぶか',
+      lead: 'どれも良いツールです。私たちならそれぞれをこんなときに選びます。',
+      rigone: '作業が何度も実行する一連のステップで、ツール自身が走らせるチェックが必要で、Mac で使うなら RigOne を選んでください。',
+      website: 'Web サイト',
+    },
+    products: {
+      orca: { kind: 'デスクトップアプリ、MIT', pick: '最も幅広いエージェント対応、Windows と Linux、内蔵のエディタとターミナル、アプリからのプルリクエストのマージが欲しいなら Orca。' },
+      paseo: { kind: 'デスクトップ、スマートフォン、Web、Apache 2.0', pick: 'アカウントなしでネイティブのスマートフォンアプリや Web からエージェントを操作し、任意のマシンで動かし、すべてをオープンソースで保ちたいなら Paseo。' },
+      superset: { kind: 'デスクトップアプリ、ソース公開', pick: 'さまざまなコマンドラインエージェントを worktree で動かし、その周りに CLI、SDK、MCP サーバーを置きたいなら Superset。' },
+      conductor: { kind: 'Mac アプリ', pick: 'チェック、プルリクエスト、マージをひとつにまとめた完成度の高い Mac アプリと、Pro のマルチプレイヤーが欲しいなら Conductor。' },
+      nimbalyst: { kind: 'デスクトップアプリ、MIT', pick: 'エージェントのセッションの隣で Markdown、図、モックアップのビジュアルエディタを、どのデスクトップでも使いたいなら Nimbalyst。' },
+      chatgpt: { kind: 'ChatGPT デスクトップアプリの Codex', pick: 'すでに Codex を使っているなら ChatGPT アプリ。すべての ChatGPT プランに含まれ、コンピュータ操作とスマートフォンからの操作にも対応しています。' },
+      cursor: { kind: 'Cursor のクラウドエージェント', pick: 'GitHub、Slack、Linear のイベントで起動し、作業の動画を送り返すクラウド VM 上のエージェントが欲しいなら Cursor Cloud Agents。' },
+    },
+    footnoteHtml: '各製品の公開ドキュメント、README、価格をもとに、2026 年 10 月に確認しました。これらの製品は毎週更新されるため、古くなる行もあります。誤りを見つけたら<a href="{issues}">お知らせください</a>。',
   },
   faq: {
     eyebrow: 'よくある質問',

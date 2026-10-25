@@ -98,8 +98,8 @@ The interface speaks English, Polish, German, Spanish, French, Italian, Portugue
 Japanese, in a Surface, Minimalist, Studio or Linen look, light or dark.
 
 The full feature list is on the [website](https://rig-one.io/features/),
-and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex app and Cursor Cloud Agents is
-[here](https://rig-one.io/compare/).
+and where RigOne is ahead of and behind Orca, Paseo, Superset, Conductor, Nimbalyst, the ChatGPT app and
+Cursor Cloud Agents is [here](https://rig-one.io/compare/).
 
 ## Screens
 

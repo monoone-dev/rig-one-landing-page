@@ -4,13 +4,13 @@ import { site } from '~/data/site'
 
 // The first screen answers three questions before anything else: who RigOne is for (the
 // audience line), what problem it solves (the title and the three problem → answer pairs) and
-// what it is (the sub). The real Run screen follows, in the visitor's colour mode.
+// what it is (the sub). Two real projects side by side follow, in the visitor's colour mode.
 const c = useContent()
 const to = useLocalLink()
 const latest = notes[0]
 const release = computed(() => latest ? fill(c.value.hero.badgeRelease, { version: latest.version }) : '')
 const problemIcons = ['i-lucide-panels-top-left', 'i-lucide-git-branch', 'i-lucide-list-checks'] as const
-const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-check'] as const
+const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shield-check'] as const
 </script>
 
 <template>
@@ -58,7 +58,7 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-split', 'i-lucide-shield-c
       </ul>
 
       <div class="hero__stage">
-        <ScreenShot id="run" eager />
+        <ScreenShot id="projects" eager />
         <ul class="hero__chips" aria-hidden="true">
           <li v-for="(chip, i) in c.hero.chips" :key="chip" class="chip" :class="`chip--${i}`">
             <UIcon :name="chipIcons[i]!" class="chip__icon" />

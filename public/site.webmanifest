@@ -1,7 +1,7 @@
 {
   "name": "RigOne",
   "short_name": "RigOne",
-  "description": "A native macOS control room for coding agents.",
+  "description": "A native macOS IDE for coding agents.",
   "start_url": "./",
   "scope": "./",
   "display": "browser",

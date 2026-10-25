@@ -6,6 +6,8 @@ export type Support = 'yes' | 'partial' | 'no' | 'unknown' | 'info'
 export const trustIcons = ['i-lucide-laptop', 'i-lucide-git-compare-arrows', 'i-lucide-git-branch', 'i-lucide-badge-check'] as const
 
 export const differentiators: { id: DifferentiatorId, icon: string, to: string }[] = [
+  { id: 'ide', icon: 'i-lucide-file-diff', to: '/features#review' },
+  { id: 'projects', icon: 'i-lucide-columns-2', to: '/features#projects' },
   { id: 'graph', icon: 'i-lucide-workflow', to: '/features#canvas' },
   { id: 'peers', icon: 'i-lucide-users', to: '/features#agents' },
   { id: 'parallel', icon: 'i-lucide-split', to: '/features#parallel' },
@@ -19,6 +21,9 @@ export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
   { id: 'canvas', icon: 'i-lucide-workflow', shot: 'canvas' },
   { id: 'parallel', icon: 'i-lucide-split' },
   { id: 'run', icon: 'i-lucide-radio', shot: 'run' },
+  { id: 'review', icon: 'i-lucide-file-diff', shot: 'review' },
+  { id: 'preview', icon: 'i-lucide-app-window', shot: 'review-tools' },
+  { id: 'projects', icon: 'i-lucide-columns-2', shot: 'projects' },
   { id: 'auto', icon: 'i-lucide-sparkles' },
   { id: 'agents', icon: 'i-lucide-users', shot: 'agents' },
   { id: 'rig', icon: 'i-lucide-sliders-horizontal', shot: 'project' },
@@ -39,12 +44,21 @@ export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
  */
 export const screens: { id: ScreenId, icon: string, width: number, height: number }[] = [
   { id: 'run', icon: 'i-lucide-play', width: 1512, height: 1080 },
+  { id: 'review', icon: 'i-lucide-file-diff', width: 1512, height: 1080 },
+  { id: 'projects', icon: 'i-lucide-columns-2', width: 1512, height: 1080 },
+  { id: 'review-tools', icon: 'i-lucide-app-window', width: 1512, height: 1080 },
   { id: 'canvas', icon: 'i-lucide-git-fork', width: 1512, height: 950 },
   { id: 'project', icon: 'i-lucide-sliders-horizontal', width: 1512, height: 950 },
   { id: 'agents', icon: 'i-lucide-users', width: 1512, height: 950 },
   { id: 'knowledge', icon: 'i-lucide-book-open', width: 1512, height: 950 },
   { id: 'settings', icon: 'i-lucide-settings', width: 1512, height: 950 },
 ]
+
+/** The screens the home page offers as tabs; the rest appear beside their feature. */
+export const screenTabs: ScreenId[] = ['run', 'review', 'projects', 'canvas', 'project', 'agents', 'knowledge', 'settings']
+
+/** Icons of the four review cards in the IDE section, in the order of `ide.review`. */
+export const ideIcons = ['i-lucide-message-square-text', 'i-lucide-history', 'i-lucide-app-window', 'i-lucide-square-arrow-out-up-right'] as const
 
 export const honest: HonestId[] = ['scopes', 'cancel', 'timeouts', 'secrets', 'env', 'unknown', 'green', 'files']
 

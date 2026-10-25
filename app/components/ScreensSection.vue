@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { screens } from '~/data/shared'
+import { screens as allScreens, screenTabs } from '~/data/shared'
 
 const c = useContent()
+const screens = screenTabs.map(id => allScreens.find(s => s.id === id)!)
 const active = ref(0)
 const tabs = ref<HTMLButtonElement[]>([])
 

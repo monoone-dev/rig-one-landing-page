@@ -29,6 +29,7 @@ usePageSeo({
     <HeroSection />
     <TrustStrip />
     <UniqueSection />
+    <IdeSection />
     <HowItWorks />
     <ScreensSection />
     <HonestSection />

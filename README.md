@@ -4,9 +4,10 @@
 
 # RigOne
 
-**A native macOS control room for coding agents.** Define an agent once, place it on a canvas,
-connect the steps, and run the graph against a project on your Mac — Claude Code, Codex and
-OpenCode as first-class peers, in parallel, with checks RigOne runs itself.
+**A native macOS IDE for coding agents.** Define an agent once, place it on a canvas, connect the
+steps, and run the graph against a project on your Mac — Claude Code, Codex and OpenCode as
+first-class peers, in parallel, with checks RigOne runs itself. Then review every line a step
+changed, comment on it, preview the app, and keep several projects open side by side.
 
 [Download for macOS](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) ·
 [Website](https://rig-one.io/) ·
@@ -16,7 +17,7 @@ OpenCode as first-class peers, in parallel, with checks RigOne runs itself.
 
 macOS 13+ · Apple Silicon · signed and notarized · free · in nine languages
 
-![The Tasks screen while Ship a feature runs: what each agent said, three steps done in the plan, and Second opinion asking whether to ship the fix now](public/screenshots/run.webp)
+![Two projects side by side: client-website, where Ship a feature waits for an answer from Second opinion, and docs-site, with a new Auto task being written](public/screenshots/projects.webp)
 
 ## Contents
 
@@ -62,13 +63,22 @@ its own branch in your project: **nothing is pushed, and nothing reaches your ow
 take it.** When a step finishes, RigOne runs the checks itself instead of asking the agent whether
 it worked; a second opinion from the other vendor can raise concerns, but never approve.
 
+**Review a step like in an IDE.** Open a step and read what it changed as files, hunks and lines.
+Click a line to comment on it and send the comments to the agent — a finished step carries on in
+its own folder. RigOne keeps a version of the step's files after every turn, shows which functions
+changed and where they are used, starts the app from the step's folder for a preview, opens a file
+at its line in your editor, and says what the step cost.
+
+**Several projects at once.** Each project opens as a tab, and up to three sit side by side, each
+with its own tasks, runs and questions. Your tabs and panes come back after a restart.
+
 **Auto** goes one step further: hand the Lead a goal in a sentence, and it picks the roles and
 skills it needs, builds ordinary workflows for each part and keeps going until checks and reviews
 prove the work. Every decision that waits for you — a question, an approval, a design review of
 the tester's screenshots — sits in one list, **Needs you**, and macOS tells you when one arrives.
 **Pause Auto** and **Resume** hold a whole goal, and up to three goals work in one folder at a time.
 
-**Project rig** shows a project on one page — its agents, workflows, knowledge, triggers and Auto
+**Project rig** shows a project on one page — its repository, agents, workflows, knowledge, triggers and Auto
 rules — and **Generate project setup** drafts a rig from the repository for you to review.
 
 **Remote access** pairs your phone or tablet: answer what waits in Needs you, start an Auto goal,
@@ -85,7 +95,7 @@ cases from your own code to evaluate an agent, Linear triggers, model gateways a
 live plan limits for both vendors, a Health check, updates for the agent apps themselves, and run
 evidence — receipts, handoffs, full answers and a diagnostic bundle — that outlives the terminal.
 The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese, Chinese and
-Japanese, in an Airy, Surface, Minimalist or Studio look, light or dark.
+Japanese, in a Surface, Minimalist, Studio or Linen look, light or dark.
 
 The full feature list is on the [website](https://rig-one.io/features/),
 and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex app and Cursor Cloud Agents is
@@ -95,12 +105,14 @@ and how RigOne compares with Superset, Conductor, Nimbalyst, the OpenAI Codex ap
 
 | | |
 | --- | --- |
-| ![Project rig for client-website: four agents, three ready workflows, the knowledge cards and the Auto rules](public/screenshots/project.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas-light.webp) |
-| **Project rig** — the whole project on one page: agents, workflows, knowledge, triggers and Auto rules. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
+| ![The Fix step: the changed lines of validate.ts and its test, with a comment on line 15 waiting to be sent to the agent](public/screenshots/review.webp) | ![The Fix step: changed functions with their uses, the app running from the step with Open preview, and three saved versions](public/screenshots/review-tools-light.webp) |
+| **Review** — every changed line of a step; comment on a line and the agent picks it up. | **Preview and versions** — start the app from the step, go back to any version of its files. |
+| ![Project overview for client-website: the repository, then four agents with their file access and model](public/screenshots/project.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas-light.webp) |
+| **Project rig** — the whole project on one page: repository, agents, workflows, knowledge, triggers and Auto rules. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
 | ![The Agents screen: four roles beside Scout, which runs with Claude Code](public/screenshots/agents-light.webp) | ![The Knowledge screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
 | **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Knowledge** — notes an agent suggests wait for you; approved notes go into every prompt. |
-| ![Settings → Appearance: the Airy, Surface, Minimalist and Studio themes, and System, Light or Dark](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
-| **Settings** — Airy, Surface, Minimalist or Studio, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
+| ![Settings → Appearance: the Surface, Minimalist, Studio and Linen themes, and System, Light or Dark](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
+| **Settings** — Surface, Minimalist, Studio or Linen, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
 
 Every screen is in `public/screenshots/` in dark (`<screen>.webp`) and light (`<screen>-light.webp`).
 

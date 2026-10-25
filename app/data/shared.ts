@@ -82,6 +82,12 @@ export const competitors: { id: CompetitorId, name: string, url: string }[] = [
 
 export const comparisonCheckedOn = '2026-10'
 
+/** Screens beside RigOne's three strengths on the compare page, in the order of `compare.strengths.items`. */
+export const strengthShots: ScreenId[] = ['canvas', 'run', 'agents']
+
+/** Icons of the four smaller reasons on the compare page, in the order of `compare.extras.items`. */
+export const extraIcons = ['i-lucide-badge-check', 'i-lucide-git-branch', 'i-lucide-message-square-text', 'i-lucide-receipt-text'] as const
+
 type Values = [Support, Support, Support, Support, Support, Support, Support, Support]
 
 /**

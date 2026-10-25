@@ -18,7 +18,7 @@ export default {
     },
     compare: {
       title: 'RigOne vs. Orca, Paseo, Superset, Conductor und mehr',
-      description: 'Ein ehrlicher Vergleich von RigOne mit Orca, Paseo, Superset, Conductor, Nimbalyst, der ChatGPT-App und Cursor Cloud Agents: wo RigOne vorn liegt und wo es zurückliegt.',
+      description: 'Was RigOne kann und Orca, Paseo, Superset, Conductor, Nimbalyst, die ChatGPT-App und Cursor Cloud Agents nicht: gespeicherte Workflows, Prüfungen, die es selbst ausführt, und mehrere Anbieter in einem Lauf.',
       breadcrumb: 'Vergleich',
     },
     changelog: {
@@ -450,24 +450,45 @@ export default {
   },
   compare: {
     eyebrow: 'Vergleich',
-    title: 'Wo RigOne vorn liegt und wo es zurückliegt',
-    lead: 'RigOne neben Orca, Paseo, Superset, Conductor, Nimbalyst, der ChatGPT-App und Cursor Cloud Agents, Zeile für Zeile, nach dem, was jedes Produkt öffentlich dokumentiert. Mehrere davon können an mehr Stellen mehr als RigOne.',
-    tally: {
-      title: 'Gegen das stärkste der anderen sieben, in jeder Zeile',
-      note: 'Eine Zeile zählt nur dann als Vorsprung, wenn kein anderes Produkt dasselbe dokumentiert. „Nicht angegeben“ zählt nicht als Nein.',
-    },
-    verdicts: { ahead: 'RigOne vorn', level: 'Etwa gleich', behind: 'RigOne zurück' },
-    wins: {
-      title: 'Wo RigOne vorn liegt',
+    title: 'Gebaut für Agentenarbeit, die Sie erneut ausführen und prüfen können',
+    lead: 'Orca, Paseo, Superset und die anderen sind gut darin, viele Agenten nebeneinander laufen zu lassen. RigOne ist für den nächsten Schritt gebaut: einen gespeicherten Workflow, der Arbeit zwischen Anbietern weitergibt, und Prüfungen, die RigOne selbst ausführt, bevor etwas als erledigt gilt.',
+    actions: { table: 'Zeile für Zeile vergleichen' },
+    strengths: {
+      eyebrow: 'Nur in RigOne',
+      title: 'Was Sie bei den anderen sieben nicht finden',
+      lead: 'Abgeglichen mit der öffentlichen Dokumentation jedes Produkts auf dieser Seite.',
       items: [
-        { title: 'Gespeicherte mehrstufige Workflows', body: 'Ein visueller Graph mit Schleifen, Bedingungen und Wiederholungen, den Sie erneut ausführen. Orca hat Aufgabengraphen in einem experimentellen Kommandozeilenmodus; die anderen starten einen Agenten pro Aufgabe, mit Skripten drumherum.' },
-        { title: 'Prüfungen, die das Werkzeug selbst ausführt', body: 'Nach jedem Schritt führt RigOne die Prüfungen aus und hält sie getrennt von dem, was der Agent sagt. „Nichts lief“ ist nie ein Erfolg. Andere zeigen meist den CI-Status oder lassen den Agenten seine eigene Arbeit testen.' },
-        { title: 'Ein Limit für gleichzeitig arbeitende Agenten', body: 'Sie legen fest, wie viele Agenten in einem Lauf gleichzeitig arbeiten dürfen. Kein anderes Produkt hier nennt ein solches Limit.' },
-        { title: 'Anbieter, die sich Arbeit übergeben', body: 'Ein Schritt von Claude Code, der nächste von Codex geprüft, in einem Lauf. Paseo kann das auch; die übrigen stellen Agenten nebeneinander.' },
+        {
+          title: 'Workflows, die Sie einmal bauen und erneut ausführen',
+          body: 'Zeichnen Sie die Schritte auf einer Leinwand: Agenten, Prüfungen und Checkpoints, an denen Sie entscheiden. Schleifen, Bedingungen und Wiederholungen mit Limit sind Teil des Graphen, also nimmt der nächste Lauf denselben Weg.',
+          others: 'Anderswo: ein Agent pro Aufgabe, mit Skripten drumherum. Orca hat Aufgabengraphen nur in einem experimentellen Kommandozeilenmodus.',
+        },
+        {
+          title: 'Erledigt heißt geprüft, nicht behauptet',
+          body: 'Wenn ein Schritt fertig ist, führt RigOne die Prüfungen selbst aus. Was der Agent gesagt hat, was die Prüfungen ergeben haben und was Sie freigegeben haben, bleibt getrennt, und „Nichts lief“ ist nie ein Erfolg.',
+          others: 'Anderswo: der CI-Status im Nachhinein oder ein Agent, der seine eigene Arbeit testet.',
+        },
+        {
+          title: 'Mehrere Anbieter in einem Lauf, in Ihrem Tempo',
+          body: 'Lassen Sie Claude Code schreiben, Codex prüfen und OpenCode testen, wobei jeder seine Arbeit im selben Lauf an den nächsten übergibt. Legen Sie fest, wie viele Agenten gleichzeitig arbeiten, und erhalten Sie eine Warnung, wenn ein Lauf einen festgelegten Betrag erreicht.',
+          others: 'Anderswo: Agenten nebeneinander, einer pro Workspace. Nur Paseo gibt Arbeit ebenfalls zwischen Anbietern weiter, und kein anderes Produkt nennt ein Limit für gleichzeitig arbeitende Agenten.',
+        },
       ],
     },
+    extras: {
+      title: 'Außerdem dabei',
+      items: [
+        { title: 'Kostenlos, signiert und notarisiert', body: 'Kostenlos herunterzuladen und zu nutzen. Signiert mit Apple Developer ID und von Apple notarisiert. Läufe nutzen Ihre eigenen Agenten-Tarife.' },
+        { title: 'Nichts wird ohne Sie gepusht', body: 'Jeder Schritt arbeitet in einer eigenen Kopie des Codes. Das Ergebnis wartet auf einem Branch, bis Sie es übernehmen.' },
+        { title: 'Schritte wie in einer IDE prüfen', body: 'Kommentieren Sie eine geänderte Zeile, und der Kommentar geht an den Agenten zurück, der sie geschrieben hat.' },
+        { title: 'Belege nach jedem Lauf', body: 'Ein Ordner mit dem, was jeder Schritt übergeben hat, den vollständigen Antworten, Logs und einer Ergebnisdatei.' },
+      ],
+    },
+    verdicts: { ahead: 'RigOne vorn', level: 'Etwa gleich', behind: 'RigOne zurück' },
     losses: {
-      title: 'Wo RigOne zurückliegt',
+      eyebrow: 'Abwägungen',
+      title: 'Wann ein anderes Werkzeug besser zu Ihnen passen kann',
+      lead: 'RigOne ist enger gefasst als manche dieser Werkzeuge. Hier steht, was es heute nicht kann, damit Sie in Kenntnis dessen wählen.',
       items: [
         { title: 'Nur Mac, nur Apple Silicon', body: 'Orca, Paseo, Nimbalyst und die ChatGPT-App laufen auch unter Windows und Linux. Orca unterstützt auch Intel-Macs.' },
         { title: 'Der Quellcode ist nicht veröffentlicht', body: 'RigOne ist kostenlos nutzbar, aber Sie können seinen Code weder lesen noch forken. Orca und Nimbalyst stehen unter MIT, Paseo unter Apache 2.0.' },
@@ -487,6 +508,7 @@ export default {
       products: 'Produkte',
       rows: 'Zeilen',
       all: 'Alle',
+      note: 'Jede Zeile vergleicht RigOne mit dem stärksten der anderen sieben. Sie zählt nur dann als Vorsprung, wenn kein anderes Produkt dasselbe dokumentiert; „Nicht angegeben“ zählt nicht als Nein.',
     },
     labels: { yes: 'Ja', partial: 'Teilweise', no: 'Nein', unknown: 'Nicht angegeben' },
     notStated: 'Nicht öffentlich angegeben',

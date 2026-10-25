@@ -18,7 +18,7 @@ export default {
     },
     compare: {
       title: 'RigOne vs Orca, Paseo, Superset, Conductor and more',
-      description: 'An honest comparison of RigOne with Orca, Paseo, Superset, Conductor, Nimbalyst, the ChatGPT app and Cursor Cloud Agents: where RigOne is ahead and where it is behind.',
+      description: 'What RigOne does that Orca, Paseo, Superset, Conductor, Nimbalyst, the ChatGPT app and Cursor Cloud Agents do not: saved workflows, checks it runs itself and several vendors in one run.',
       breadcrumb: 'Compare',
     },
     changelog: {
@@ -450,24 +450,45 @@ export default {
   },
   compare: {
     eyebrow: 'Compare',
-    title: 'Where RigOne is ahead, and where it is behind',
-    lead: 'RigOne next to Orca, Paseo, Superset, Conductor, Nimbalyst, the ChatGPT app and Cursor Cloud Agents, row by row, from what each product documents publicly. Several of them do more than RigOne in more places.',
-    tally: {
-      title: 'Against the strongest of the other seven, on each row',
-      note: 'A row counts as ahead only when no other product documents the same thing. “Not stated” is not counted as a no.',
-    },
-    verdicts: { ahead: 'RigOne ahead', level: 'About level', behind: 'RigOne behind' },
-    wins: {
-      title: 'Where RigOne is ahead',
+    title: 'Built for agent work you run again, and can check',
+    lead: 'Orca, Paseo, Superset and the others are good at running many agents side by side. RigOne is built for what comes next: a saved workflow that passes work between vendors, and checks that RigOne runs itself before anything counts as done.',
+    actions: { table: 'Compare row by row' },
+    strengths: {
+      eyebrow: 'Only in RigOne',
+      title: 'What you will not find in the other seven',
+      lead: 'Checked against the public documentation of every product on this page.',
       items: [
-        { title: 'Saved multi-step workflows', body: 'A visual graph with loops, conditions and retries that you run again. Orca has task graphs in an experimental command-line mode; the others run one agent per task, with scripts around it.' },
-        { title: 'Checks the tool runs itself', body: 'After each step RigOne runs the checks and keeps them apart from what the agent says. “Nothing ran” is never a pass. Others mostly show CI status or let the agent test its own work.' },
-        { title: 'A limit on agents working at once', body: 'You choose how many agents may work at the same time in a run. No other product here states such a limit.' },
-        { title: 'Vendors that hand work to each other', body: 'One step by Claude Code, the next reviewed by Codex, in one run. Paseo can do this too; the rest put agents side by side.' },
+        {
+          title: 'Workflows you build once and run again',
+          body: 'Draw the steps on a canvas: agents, checks, and checkpoints where you decide. Loops, conditions and retries with a limit are part of the graph, so the next run follows the same path.',
+          others: 'Elsewhere: one agent per task, with scripts around it. Orca has task graphs only in an experimental command-line mode.',
+        },
+        {
+          title: 'Done means checked, not claimed',
+          body: 'When a step finishes, RigOne runs the checks itself. What the agent said, what the checks found and what you approved stay apart, and “nothing ran” is never a pass.',
+          others: 'Elsewhere: CI status after the fact, or the agent testing its own work.',
+        },
+        {
+          title: 'Several vendors in one run, at a pace you set',
+          body: 'Let Claude Code write, Codex review and OpenCode test, each handing its work to the next in one run. Choose how many agents work at once, and get a warning when a run reaches an amount you set.',
+          others: 'Elsewhere: agents side by side, one per workspace. Only Paseo also hands work across vendors, and no one else states a limit on agents at once.',
+        },
       ],
     },
+    extras: {
+      title: 'Also in the box',
+      items: [
+        { title: 'Free, signed and notarized', body: 'Free to download and use. Signed with Apple Developer ID and notarized by Apple. Runs use your own agent plans.' },
+        { title: 'Nothing is pushed without you', body: 'Each step works in its own copy of the code. The result waits on a branch until you take it.' },
+        { title: 'Review a step like in an IDE', body: 'Comment on a changed line and the comment goes back to the agent that wrote it.' },
+        { title: 'Evidence after every run', body: 'A folder with what each step handed over, the full answers, logs and a results file.' },
+      ],
+    },
+    verdicts: { ahead: 'RigOne ahead', level: 'About level', behind: 'RigOne behind' },
     losses: {
-      title: 'Where RigOne is behind',
+      eyebrow: 'Trade-offs',
+      title: 'When another tool may fit you better',
+      lead: 'RigOne is narrower than some of these tools. This is what it does not do today, so you can choose knowing it.',
       items: [
         { title: 'Mac only, Apple Silicon only', body: 'Orca, Paseo, Nimbalyst and the ChatGPT app also run on Windows and Linux. Orca supports Intel Macs too.' },
         { title: 'The source is not published', body: 'RigOne is free to use, but you cannot read or fork its code. Orca and Nimbalyst are MIT, Paseo is Apache 2.0.' },
@@ -487,6 +508,7 @@ export default {
       products: 'Products',
       rows: 'Rows',
       all: 'All',
+      note: 'Each row compares RigOne with the strongest of the other seven. It counts as ahead only when no other product documents the same thing; “Not stated” is not counted as a no.',
     },
     labels: { yes: 'Yes', partial: 'Partly', no: 'No', unknown: 'Not stated' },
     notStated: 'Not stated publicly',

@@ -18,7 +18,7 @@ export default {
     },
     compare: {
       title: 'RigOne frente a Orca, Paseo, Superset, Conductor y otros',
-      description: 'Una comparación honesta de RigOne con Orca, Paseo, Superset, Conductor, Nimbalyst, la app ChatGPT y Cursor Cloud Agents: dónde RigOne va por delante y dónde va por detrás.',
+      description: 'Lo que RigOne hace y Orca, Paseo, Superset, Conductor, Nimbalyst, la app ChatGPT y Cursor Cloud Agents no: flujos guardados, comprobaciones que ejecuta él mismo y varios proveedores en una sola ejecución.',
       breadcrumb: 'Comparar',
     },
     changelog: {
@@ -450,24 +450,45 @@ export default {
   },
   compare: {
     eyebrow: 'Comparar',
-    title: 'Dónde RigOne va por delante y dónde va por detrás',
-    lead: 'RigOne junto a Orca, Paseo, Superset, Conductor, Nimbalyst, la app ChatGPT y Cursor Cloud Agents, fila por fila, según lo que cada producto documenta públicamente. Varios de ellos hacen más que RigOne en más aspectos.',
-    tally: {
-      title: 'Frente al más fuerte de los otros siete, en cada fila',
-      note: 'Una fila cuenta como «por delante» solo cuando ningún otro producto documenta lo mismo. «No indicado» no cuenta como un no.',
-    },
-    verdicts: { ahead: 'RigOne por delante', level: 'Más o menos igual', behind: 'RigOne por detrás' },
-    wins: {
-      title: 'Dónde RigOne va por delante',
+    title: 'Hecho para el trabajo con agentes que vuelves a ejecutar y puedes comprobar',
+    lead: 'Orca, Paseo, Superset y los demás ejecutan bien muchos agentes uno al lado de otro. RigOne está hecho para lo que viene después: un flujo guardado que pasa el trabajo de un proveedor a otro, y comprobaciones que RigOne ejecuta él mismo antes de que nada cuente como terminado.',
+    actions: { table: 'Comparar fila por fila' },
+    strengths: {
+      eyebrow: 'Solo en RigOne',
+      title: 'Lo que no encontrarás en los otros siete',
+      lead: 'Comprobado con la documentación pública de cada producto de esta página.',
       items: [
-        { title: 'Flujos de varios pasos guardados', body: 'Un grafo visual con bucles, condiciones y reintentos que vuelves a ejecutar. Orca tiene grafos de tareas en un modo experimental de línea de comandos; los demás ejecutan un agente por tarea, con scripts alrededor.' },
-        { title: 'Comprobaciones que ejecuta la propia herramienta', body: 'Después de cada paso, RigOne ejecuta las comprobaciones y las mantiene separadas de lo que dice el agente. «No se ejecutó nada» nunca es un aprobado. Los demás muestran sobre todo el estado de CI o dejan que el agente pruebe su propio trabajo.' },
-        { title: 'Un límite de agentes trabajando a la vez', body: 'Eliges cuántos agentes pueden trabajar a la vez en una ejecución. Ningún otro producto de esta lista indica un límite así.' },
-        { title: 'Proveedores que se pasan el trabajo', body: 'Un paso hecho por Claude Code y el siguiente revisado por Codex, en una sola ejecución. Paseo también puede hacerlo; los demás ponen los agentes uno al lado de otro.' },
+        {
+          title: 'Flujos que creas una vez y vuelves a ejecutar',
+          body: 'Dibuja los pasos en un lienzo: agentes, comprobaciones y puntos de control donde decides tú. Los bucles, las condiciones y los reintentos con límite forman parte del grafo, así que la siguiente ejecución sigue el mismo camino.',
+          others: 'En otros: un agente por tarea, con scripts alrededor. Orca tiene grafos de tareas solo en un modo experimental de línea de comandos.',
+        },
+        {
+          title: 'Terminado significa comprobado, no solo afirmado',
+          body: 'Cuando un paso termina, RigOne ejecuta él mismo las comprobaciones. Lo que dijo el agente, lo que encontraron las comprobaciones y lo que aprobaste se mantienen separados, y «no se ejecutó nada» nunca es un aprobado.',
+          others: 'En otros: el estado de CI a posteriori, o el agente probando su propio trabajo.',
+        },
+        {
+          title: 'Varios proveedores en una ejecución, al ritmo que elijas',
+          body: 'Deja que Claude Code escriba, Codex revise y OpenCode pruebe, y que cada uno pase su trabajo al siguiente en una sola ejecución. Elige cuántos agentes trabajan a la vez y recibe un aviso cuando una ejecución alcance un importe que hayas fijado.',
+          others: 'En otros: agentes uno al lado de otro, uno por espacio de trabajo. Solo Paseo también pasa el trabajo entre proveedores, y ningún otro indica un límite de agentes a la vez.',
+        },
       ],
     },
+    extras: {
+      title: 'También incluido',
+      items: [
+        { title: 'Gratis, firmado y notarizado', body: 'Gratis para descargar y usar. Firmado con Apple Developer ID y notarizado por Apple. Las ejecuciones usan tus propios planes de agente.' },
+        { title: 'Nada se envía con push sin ti', body: 'Cada paso trabaja en su propia copia del código. El resultado espera en una rama hasta que lo tomes.' },
+        { title: 'Revisa un paso como en un IDE', body: 'Comenta una línea cambiada y el comentario vuelve al agente que la escribió.' },
+        { title: 'Pruebas después de cada ejecución', body: 'Una carpeta con lo que entregó cada paso, las respuestas completas, los registros y un archivo de resultados.' },
+      ],
+    },
+    verdicts: { ahead: 'RigOne por delante', level: 'Más o menos igual', behind: 'RigOne por detrás' },
     losses: {
-      title: 'Dónde RigOne va por detrás',
+      eyebrow: 'Contrapartidas',
+      title: 'Cuándo otra herramienta puede encajarte mejor',
+      lead: 'RigOne abarca menos que algunas de estas herramientas. Esto es lo que no hace hoy, para que elijas sabiéndolo.',
       items: [
         { title: 'Solo Mac, solo Apple Silicon', body: 'Orca, Paseo, Nimbalyst y la app ChatGPT también funcionan en Windows y Linux. Orca también admite Mac con Intel.' },
         { title: 'El código fuente no está publicado', body: 'RigOne es gratuito, pero no puedes leer ni hacer un fork de su código. Orca y Nimbalyst usan la licencia MIT; Paseo, Apache 2.0.' },
@@ -487,6 +508,7 @@ export default {
       products: 'Productos',
       rows: 'Filas',
       all: 'Todas',
+      note: 'Cada fila compara RigOne con el más fuerte de los otros siete. Solo cuenta como «por delante» cuando ningún otro producto documenta lo mismo; «No indicado» no cuenta como un no.',
     },
     labels: { yes: 'Sí', partial: 'En parte', no: 'No', unknown: 'No indicado' },
     notStated: 'No se indica públicamente',

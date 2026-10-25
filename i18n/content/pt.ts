@@ -18,7 +18,7 @@ export default {
     },
     compare: {
       title: 'RigOne comparado com Orca, Paseo, Superset, Conductor e outros',
-      description: 'Uma comparação honesta do RigOne com Orca, Paseo, Superset, Conductor, Nimbalyst, o app do ChatGPT e Cursor Cloud Agents: onde o RigOne está à frente e onde fica atrás.',
+      description: 'O que o RigOne faz e Orca, Paseo, Superset, Conductor, Nimbalyst, o app do ChatGPT e Cursor Cloud Agents não fazem: fluxos salvos, verificações que ele mesmo roda e vários fornecedores em uma só execução.',
       breadcrumb: 'Comparar',
     },
     changelog: {
@@ -450,24 +450,45 @@ export default {
   },
   compare: {
     eyebrow: 'Comparar',
-    title: 'Onde o RigOne está à frente, e onde fica atrás',
-    lead: 'O RigOne ao lado de Orca, Paseo, Superset, Conductor, Nimbalyst, o app do ChatGPT e Cursor Cloud Agents, linha por linha, com base no que cada produto documenta publicamente. Vários deles fazem mais que o RigOne em mais pontos.',
-    tally: {
-      title: 'Contra o mais forte dos outros sete, em cada linha',
-      note: 'Uma linha só conta como vantagem quando nenhum outro produto documenta a mesma coisa. “Não informado” não conta como não.',
-    },
-    verdicts: { ahead: 'RigOne à frente', level: 'Mais ou menos empatados', behind: 'RigOne atrás' },
-    wins: {
-      title: 'Onde o RigOne está à frente',
+    title: 'Feito para o trabalho com agentes que você roda de novo e pode verificar',
+    lead: 'Orca, Paseo, Superset e os outros são bons em rodar muitos agentes lado a lado. O RigOne é feito para o passo seguinte: um fluxo salvo que repassa o trabalho entre fornecedores, e verificações que o próprio RigOne roda antes que algo conte como pronto.',
+    actions: { table: 'Comparar linha por linha' },
+    strengths: {
+      eyebrow: 'Só no RigOne',
+      title: 'O que você não encontra nos outros sete',
+      lead: 'Conferido na documentação pública de cada produto desta página.',
       items: [
-        { title: 'Fluxos salvos de várias etapas', body: 'Um grafo visual com laços, condições e novas tentativas que você roda de novo. O Orca tem grafos de tarefas em um modo experimental de linha de comando; os outros rodam um agente por tarefa, com scripts em volta.' },
-        { title: 'Verificações que a própria ferramenta roda', body: 'Depois de cada etapa, o RigOne roda as verificações e as mantém separadas do que o agente diz. “Nada rodou” nunca é aprovação. Os outros em geral mostram o status de CI ou deixam o agente testar o próprio trabalho.' },
-        { title: 'Um limite de agentes trabalhando ao mesmo tempo', body: 'Você escolhe quantos agentes podem trabalhar ao mesmo tempo em uma execução. Nenhum outro produto aqui informa um limite assim.' },
-        { title: 'Fornecedores que repassam trabalho entre si', body: 'Uma etapa feita pelo Claude Code, a seguinte revisada pelo Codex, em uma só execução. O Paseo também faz isso; os demais colocam os agentes lado a lado.' },
+        {
+          title: 'Fluxos que você monta uma vez e roda de novo',
+          body: 'Desenhe as etapas em um canvas: agentes, verificações e checkpoints em que você decide. Laços, condições e novas tentativas com limite fazem parte do grafo, então a próxima execução segue o mesmo caminho.',
+          others: 'Nos outros: um agente por tarefa, com scripts em volta. O Orca tem grafos de tarefas só em um modo experimental de linha de comando.',
+        },
+        {
+          title: 'Pronto quer dizer verificado, não declarado',
+          body: 'Quando uma etapa termina, o próprio RigOne roda as verificações. O que o agente disse, o que as verificações encontraram e o que você aprovou ficam separados, e “nada rodou” nunca é aprovação.',
+          others: 'Nos outros: o status de CI depois do fato, ou o agente testando o próprio trabalho.',
+        },
+        {
+          title: 'Vários fornecedores em uma execução, no ritmo que você define',
+          body: 'Deixe o Claude Code escrever, o Codex revisar e o OpenCode testar, cada um repassando o trabalho ao seguinte em uma só execução. Escolha quantos agentes trabalham ao mesmo tempo e receba um aviso quando uma execução chegar a um valor que você definiu.',
+          others: 'Nos outros: agentes lado a lado, um por workspace. Só o Paseo também repassa trabalho entre fornecedores, e nenhum outro informa um limite de agentes ao mesmo tempo.',
+        },
       ],
     },
+    extras: {
+      title: 'Também incluído',
+      items: [
+        { title: 'Grátis, assinado e notarizado', body: 'Grátis para baixar e usar. Assinado com Apple Developer ID e notarizado pela Apple. As execuções usam os seus próprios planos de agente.' },
+        { title: 'Nada é enviado sem você', body: 'Cada etapa trabalha na sua própria cópia do código. O resultado espera em um branch até você pegá-lo.' },
+        { title: 'Revise uma etapa como em uma IDE', body: 'Comente uma linha alterada e o comentário volta para o agente que a escreveu.' },
+        { title: 'Evidências depois de cada execução', body: 'Uma pasta com o que cada etapa entregou, as respostas completas, os logs e um arquivo de resultados.' },
+      ],
+    },
+    verdicts: { ahead: 'RigOne à frente', level: 'Mais ou menos empatados', behind: 'RigOne atrás' },
     losses: {
-      title: 'Onde o RigOne fica atrás',
+      eyebrow: 'Concessões',
+      title: 'Quando outra ferramenta pode servir melhor para você',
+      lead: 'O RigOne faz menos que algumas dessas ferramentas. Isto é o que ele não faz hoje, para você escolher sabendo disso.',
       items: [
         { title: 'Só Mac, só Apple Silicon', body: 'Orca, Paseo, Nimbalyst e o app do ChatGPT também rodam no Windows e no Linux. O Orca também suporta Macs Intel.' },
         { title: 'O código-fonte não é publicado', body: 'O RigOne é gratuito, mas não dá para ler o código nem fazer um fork. Orca e Nimbalyst são MIT, o Paseo é Apache 2.0.' },
@@ -487,6 +508,7 @@ export default {
       products: 'Produtos',
       rows: 'Linhas',
       all: 'Todas',
+      note: 'Cada linha compara o RigOne com o mais forte dos outros sete. Só conta como vantagem quando nenhum outro produto documenta a mesma coisa; “Não informado” não conta como não.',
     },
     labels: { yes: 'Sim', partial: 'Em parte', no: 'Não', unknown: 'Não informado' },
     notStated: 'Não informado publicamente',

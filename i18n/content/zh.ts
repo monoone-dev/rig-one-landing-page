@@ -18,7 +18,7 @@ export default {
     },
     compare: {
       title: 'RigOne 与 Orca、Paseo、Superset、Conductor 等产品对比',
-      description: '如实对比 RigOne 与 Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT 应用和 Cursor Cloud Agents：RigOne 哪里领先，哪里落后。',
+      description: 'RigOne 能做而 Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT 应用和 Cursor Cloud Agents 做不到的事：保存的工作流、由它自己运行的检查，以及在一次运行中使用多家服务商。',
       breadcrumb: '对比',
     },
     changelog: {
@@ -450,24 +450,45 @@ export default {
   },
   compare: {
     eyebrow: '对比',
-    title: 'RigOne 在哪里领先，在哪里落后',
-    lead: '把 RigOne 和 Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT 应用以及 Cursor Cloud Agents 逐行对比，依据是各产品公开的资料。其中几款在更多方面做得比 RigOne 多。',
-    tally: {
-      title: '每一行与其他七款中最强的一款相比',
-      note: '只有在没有其他产品公开说明同样能力时，这一行才算领先。“未说明”不算作否。',
-    },
-    verdicts: { ahead: 'RigOne 领先', level: '大致持平', behind: 'RigOne 落后' },
-    wins: {
-      title: 'RigOne 领先的地方',
+    title: '为可以反复运行、可以核查的智能体工作而生',
+    lead: 'Orca、Paseo、Superset 等产品擅长并排运行许多智能体。RigOne 面向的是下一步：一个保存好的工作流，在不同服务商之间传递工作，并且在任何结果算作完成之前，由 RigOne 自己运行检查。',
+    actions: { table: '逐行对比' },
+    strengths: {
+      eyebrow: '只有 RigOne 有',
+      title: '其他七款产品里找不到的',
+      lead: '已对照本页每款产品的公开文档逐一核对。',
       items: [
-        { title: '可保存的多步骤工作流', body: '一张带循环、条件和重试的可视化图，可以反复运行。Orca 在实验性的命令行模式里有任务图；其他产品每个任务运行一个智能体，外面再套脚本。' },
-        { title: '由工具自己运行的检查', body: '每个步骤之后，RigOne 运行检查，并把结果与智能体的说法分开。“什么都没运行”绝不算通过。其他产品大多只显示 CI 状态，或让智能体测试自己的工作。' },
-        { title: '限制同时工作的智能体数量', body: '你可以设定一次运行中最多有多少个智能体同时工作。这里的其他产品都没有说明这样的限制。' },
-        { title: '不同服务商之间相互交接工作', body: '在一次运行中，一个步骤由 Claude Code 完成，下一个由 Codex 审查。Paseo 也能做到；其他产品只是把智能体并排摆放。' },
+        {
+          title: '搭建一次、反复运行的工作流',
+          body: '在画布上画出步骤：智能体、检查，以及由你做决定的检查点。循环、条件和有次数上限的重试都是图的一部分，所以下一次运行会走同样的路径。',
+          others: '其他产品：每个任务一个智能体，外面再套脚本。Orca 只在实验性的命令行模式里有任务图。',
+        },
+        {
+          title: '完成意味着已检查，而不是自称完成',
+          body: '一个步骤结束后，RigOne 自己运行检查。智能体说了什么、检查发现了什么、你批准了什么，三者分开记录；“什么都没运行”绝不算通过。',
+          others: '其他产品：事后看 CI 状态，或让智能体测试自己的工作。',
+        },
+        {
+          title: '一次运行中使用多家服务商，节奏由你定',
+          body: '让 Claude Code 写代码、Codex 审查、OpenCode 测试，在一次运行中依次把工作交给下一个。你可以选择同时有多少个智能体工作，并在运行达到你设定的金额时收到提醒。',
+          others: '其他产品：智能体并排摆放，每个工作区一个。只有 Paseo 也能在服务商之间交接工作，没有其他产品说明同时工作的智能体数量上限。',
+        },
       ],
     },
+    extras: {
+      title: '还包括',
+      items: [
+        { title: '免费、已签名并经过公证', body: '免费下载和使用。使用 Apple Developer ID 签名，并经 Apple 公证。运行使用你自己的智能体套餐。' },
+        { title: '没有你，什么都不会被推送', body: '每个步骤都在自己的一份代码副本里工作。结果留在一个分支上，直到你取用。' },
+        { title: '像在 IDE 里一样审查步骤', body: '在改动的行上留下评论，评论会回到写这段代码的智能体那里。' },
+        { title: '每次运行后都有证据', body: '一个文件夹，里面有每个步骤交接的内容、完整回答、日志和一个结果文件。' },
+      ],
+    },
+    verdicts: { ahead: 'RigOne 领先', level: '大致持平', behind: 'RigOne 落后' },
     losses: {
-      title: 'RigOne 落后的地方',
+      eyebrow: '取舍',
+      title: '什么时候另一款工具可能更适合你',
+      lead: 'RigOne 的范围比其中一些工具窄。下面是它目前做不到的事，让你知情后再选择。',
       items: [
         { title: '只支持 Mac，且只支持 Apple Silicon', body: 'Orca、Paseo、Nimbalyst 和 ChatGPT 应用也能在 Windows 和 Linux 上运行。Orca 还支持 Intel Mac。' },
         { title: '源代码未公开', body: 'RigOne 可以免费使用，但你无法阅读或 fork 它的代码。Orca 和 Nimbalyst 采用 MIT，Paseo 采用 Apache 2.0。' },
@@ -487,6 +508,7 @@ export default {
       products: '产品',
       rows: '行',
       all: '全部',
+      note: '每一行都把 RigOne 与其他七款中最强的一款相比。只有在没有其他产品公开说明同样能力时，才算领先；“未说明”不算作否。',
     },
     labels: { yes: '是', partial: '部分', no: '否', unknown: '未说明' },
     notStated: '未公开说明',

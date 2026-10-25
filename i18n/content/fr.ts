@@ -18,7 +18,7 @@ export default {
     },
     compare: {
       title: 'RigOne face à Orca, Paseo, Superset, Conductor et d’autres',
-      description: 'Une comparaison honnête de RigOne avec Orca, Paseo, Superset, Conductor, Nimbalyst, l’app ChatGPT et Cursor Cloud Agents : où RigOne est devant, et où il est derrière.',
+      description: 'Ce que RigOne fait et qu’Orca, Paseo, Superset, Conductor, Nimbalyst, l’app ChatGPT et Cursor Cloud Agents ne font pas : des flux enregistrés, des vérifications qu’il lance lui-même et plusieurs fournisseurs dans une même exécution.',
       breadcrumb: 'Comparer',
     },
     changelog: {
@@ -450,24 +450,45 @@ export default {
   },
   compare: {
     eyebrow: 'Comparer',
-    title: 'Où RigOne est devant, et où il est derrière',
-    lead: 'RigOne à côté d’Orca, Paseo, Superset, Conductor, Nimbalyst, l’app ChatGPT et Cursor Cloud Agents, ligne par ligne, d’après ce que chaque produit documente publiquement. Plusieurs d’entre eux en font plus que RigOne, et sur plus de points.',
-    tally: {
-      title: 'Face au plus fort des sept autres, sur chaque ligne',
-      note: 'Une ligne ne compte comme « devant » que si aucun autre produit ne documente la même chose. « Non précisé » ne compte pas comme un non.',
-    },
-    verdicts: { ahead: 'RigOne devant', level: 'À peu près à égalité', behind: 'RigOne derrière' },
-    wins: {
-      title: 'Où RigOne est devant',
+    title: 'Conçu pour le travail d’agents que vous relancez, et que vous pouvez vérifier',
+    lead: 'Orca, Paseo, Superset et les autres savent bien faire tourner de nombreux agents côte à côte. RigOne est conçu pour la suite : un flux enregistré qui fait passer le travail d’un fournisseur à l’autre, et des vérifications que RigOne lance lui-même avant que quoi que ce soit compte comme terminé.',
+    actions: { table: 'Comparer ligne par ligne' },
+    strengths: {
+      eyebrow: 'Seulement dans RigOne',
+      title: 'Ce que vous ne trouverez pas chez les sept autres',
+      lead: 'Vérifié d’après la documentation publique de chaque produit de cette page.',
       items: [
-        { title: 'Des flux en plusieurs étapes enregistrés', body: 'Un graphe visuel avec boucles, conditions et reprises, que vous relancez. Orca a des graphes de tâches dans un mode expérimental en ligne de commande ; les autres lancent un agent par tâche, avec des scripts autour.' },
-        { title: 'Des vérifications lancées par l’outil lui-même', body: 'Après chaque étape, RigOne lance les vérifications et les garde à part de ce que dit l’agent. « Rien n’a tourné » n’est jamais une réussite. Les autres montrent surtout l’état de la CI ou laissent l’agent tester son propre travail.' },
-        { title: 'Une limite d’agents au travail en même temps', body: 'Vous choisissez combien d’agents peuvent travailler à la fois dans une exécution. Aucun autre produit ici n’annonce une telle limite.' },
-        { title: 'Des fournisseurs qui se passent le travail', body: 'Une étape par Claude Code, la suivante relue par Codex, dans une seule exécution. Paseo le permet aussi ; les autres mettent les agents côte à côte.' },
+        {
+          title: 'Des flux que vous construisez une fois et relancez',
+          body: 'Dessinez les étapes sur une toile : agents, vérifications et points de contrôle où vous décidez. Boucles, conditions et reprises limitées font partie du graphe, donc l’exécution suivante suit le même chemin.',
+          others: 'Ailleurs : un agent par tâche, avec des scripts autour. Orca n’a des graphes de tâches que dans un mode expérimental en ligne de commande.',
+        },
+        {
+          title: 'Terminé veut dire vérifié, pas seulement annoncé',
+          body: 'Quand une étape se termine, RigOne lance lui-même les vérifications. Ce que l’agent a dit, ce que les vérifications ont trouvé et ce que vous avez approuvé restent séparés, et « rien n’a tourné » n’est jamais une réussite.',
+          others: 'Ailleurs : l’état de la CI après coup, ou l’agent qui teste son propre travail.',
+        },
+        {
+          title: 'Plusieurs fournisseurs dans une exécution, au rythme que vous fixez',
+          body: 'Laissez Claude Code écrire, Codex relire et OpenCode tester, chacun passant son travail au suivant dans une seule exécution. Choisissez combien d’agents travaillent à la fois, et recevez un avertissement quand une exécution atteint un montant que vous avez fixé.',
+          others: 'Ailleurs : des agents côte à côte, un par espace de travail. Seul Paseo fait aussi passer le travail d’un fournisseur à l’autre, et aucun autre n’annonce de limite d’agents en même temps.',
+        },
       ],
     },
+    extras: {
+      title: 'Aussi inclus',
+      items: [
+        { title: 'Gratuit, signé et notarisé', body: 'Gratuit à télécharger et à utiliser. Signé avec un Apple Developer ID et notarisé par Apple. Les exécutions utilisent vos propres abonnements d’agent.' },
+        { title: 'Rien n’est poussé sans vous', body: 'Chaque étape travaille dans sa propre copie du code. Le résultat attend sur une branche jusqu’à ce que vous le preniez.' },
+        { title: 'Relire une étape comme dans un IDE', body: 'Commentez une ligne modifiée et le commentaire revient à l’agent qui l’a écrite.' },
+        { title: 'Des preuves après chaque exécution', body: 'Un dossier avec ce que chaque étape a transmis, les réponses complètes, les journaux et un fichier de résultats.' },
+      ],
+    },
+    verdicts: { ahead: 'RigOne devant', level: 'À peu près à égalité', behind: 'RigOne derrière' },
     losses: {
-      title: 'Où RigOne est derrière',
+      eyebrow: 'Compromis',
+      title: 'Quand un autre outil peut mieux vous convenir',
+      lead: 'RigOne fait moins de choses que certains de ces outils. Voici ce qu’il ne fait pas aujourd’hui, pour que vous choisissiez en connaissance de cause.',
       items: [
         { title: 'Mac uniquement, Apple Silicon uniquement', body: 'Orca, Paseo, Nimbalyst et l’app ChatGPT tournent aussi sous Windows et Linux. Orca prend aussi en charge les Mac Intel.' },
         { title: 'Le code source n’est pas publié', body: 'RigOne est gratuit, mais vous ne pouvez ni lire ni forker son code. Orca et Nimbalyst sont sous licence MIT, Paseo sous Apache 2.0.' },
@@ -487,6 +508,7 @@ export default {
       products: 'Produits',
       rows: 'Lignes',
       all: 'Tout',
+      note: 'Chaque ligne compare RigOne au plus fort des sept autres. Elle ne compte comme « devant » que si aucun autre produit ne documente la même chose ; « Non précisé » ne compte pas comme un non.',
     },
     labels: { yes: 'Oui', partial: 'En partie', no: 'Non', unknown: 'Non précisé' },
     notStated: 'Non précisé publiquement',

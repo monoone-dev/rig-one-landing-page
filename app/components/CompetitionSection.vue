@@ -66,6 +66,7 @@ const groups = computed(() => comparison
             {{ c.compare.verdicts[v] }} · {{ counts[v] }}
           </button>
         </div>
+        <p class="filters__note">{{ c.compare.table.note }}</p>
       </div>
 
       <div v-reveal class="compare">
@@ -138,6 +139,12 @@ const groups = computed(() => comparison
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
+  }
+
+  &__note {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+    font-size: 13px;
   }
 
   &__label {

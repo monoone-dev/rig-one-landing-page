@@ -15,6 +15,12 @@ export interface Problem {
   answer: string
 }
 
+export interface Strength {
+  title: string
+  body: string
+  others: string
+}
+
 export interface Card {
   title: string
   body: string
@@ -150,11 +156,21 @@ export interface SiteContent {
     eyebrow: string
     title: string
     lead: string
-    /** The tally of verdicts above the two lists. */
-    tally: { title: string, note: string }
+    /** The two buttons under the page title: download, and a jump to the table. */
+    actions: { table: string }
+    /** What RigOne does that the others do not, each beside a screenshot. */
+    strengths: {
+      eyebrow: string
+      title: string
+      lead: string
+      /** `others` says what the other products offer instead. */
+      items: [Strength, Strength, Strength]
+    }
+    /** Smaller reasons, where RigOne is level with the best but still worth knowing. */
+    extras: { title: string, items: [Card, Card, Card, Card] }
     verdicts: Record<Verdict, string>
-    wins: { title: string, items: Card[] }
-    losses: { title: string, items: Card[] }
+    /** Where another product fits better: RigOne's gaps, then who should pick what. */
+    losses: { eyebrow: string, title: string, lead: string, items: Card[] }
     table: {
       title: string
       lead: string
@@ -163,6 +179,8 @@ export interface SiteContent {
       products: string
       rows: string
       all: string
+      /** How a row's verdict is decided, under the filters. */
+      note: string
     }
     labels: { yes: string, partial: string, no: string, unknown: string }
     notStated: string

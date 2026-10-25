@@ -35,13 +35,13 @@ const to = useLocalLink()
 
 .unique {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
 
-  @include below(lg) {
+  @include below(xl) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

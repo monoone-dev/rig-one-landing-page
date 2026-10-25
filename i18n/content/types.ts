@@ -20,14 +20,14 @@ export interface Card {
   body: string
 }
 
-export type DifferentiatorId = 'graph' | 'peers' | 'parallel' | 'checks' | 'branches' | 'evidence'
+export type DifferentiatorId = 'ide' | 'projects' | 'graph' | 'peers' | 'parallel' | 'checks' | 'branches' | 'evidence'
 
 export type FeatureId =
-  | 'canvas' | 'parallel' | 'run' | 'auto' | 'agents' | 'rig' | 'knowledge'
-  | 'checks' | 'branches' | 'boards' | 'remote' | 'triggers' | 'lab' | 'evidence'
+  | 'canvas' | 'parallel' | 'run' | 'review' | 'preview' | 'projects' | 'auto' | 'agents' | 'rig'
+  | 'knowledge' | 'checks' | 'branches' | 'boards' | 'remote' | 'triggers' | 'lab' | 'evidence'
 
 /** The app screenshots in public/screenshots/<id>.webp, in the order of `screens` in app/data/shared.ts. */
-export type ScreenId = 'run' | 'canvas' | 'project' | 'agents' | 'knowledge' | 'settings'
+export type ScreenId = 'run' | 'review' | 'review-tools' | 'projects' | 'canvas' | 'project' | 'agents' | 'knowledge' | 'settings'
 
 export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'unknown' | 'green' | 'files'
 
@@ -99,6 +99,15 @@ export interface SiteContent {
     lead: string
     items: Record<DifferentiatorId, Card & { link: string }>
     seeAll: string
+  }
+  /** The IDE section on the home page: a step's review, then several projects side by side. */
+  ide: {
+    eyebrow: string
+    title: string
+    lead: string
+    /** What the review screen does, beside its screenshot. */
+    review: [Card, Card, Card, Card]
+    projects: Card & { points: [string, string, string] }
   }
   how: {
     eyebrow: string

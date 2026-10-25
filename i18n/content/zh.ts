@@ -3,12 +3,12 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — 在 Mac 上并行运行 Claude Code 和 Codex 智能体',
-      description: '面向编程智能体的原生 macOS 控制室：在同一张画布上为 Claude Code 和 Codex 搭建工作流，在你的项目上并行运行。免费。',
+      title: 'RigOne — Mac 上面向 Claude Code、Codex 和 OpenCode 智能体的 IDE',
+      description: '面向编程智能体的免费 macOS IDE：让 Claude Code、Codex 和 OpenCode 组队并行运行，审查每一行改动，预览应用，同时打开多个项目。',
     },
     features: {
-      title: 'RigOne 功能：可视化工作流、并行智能体与检查',
-      description: '可视化工作流、并行运行、Auto 目标、可复用的智能体、由 RigOne 自己运行的检查、留在独立分支上的改动、共享看板和触发器。',
+      title: 'RigOne 功能：面向智能体的 IDE、可视化工作流与检查',
+      description: '像在 IDE 里一样审查并预览步骤，并排打开多个项目，还有可视化工作流、并行运行、Auto 目标、由 RigOne 自己运行的检查和共享看板。',
       breadcrumb: '功能',
     },
     docs: {
@@ -26,7 +26,7 @@ export default {
       description: 'RigOne 的每个版本：改了什么，更新时要做什么，以及已签名、已公证安装包的校验和。',
       breadcrumb: '更新日志',
     },
-    ogImageAlt: 'RigOne — 一张图掌管全部工作。面向编程智能体的 macOS 控制室。',
+    ogImageAlt: 'RigOne — 面向编码智能体的 IDE。让它们像团队一样协作，审查每一行。',
   },
   common: {
     skipToContent: '跳到正文',
@@ -57,19 +57,19 @@ export default {
     badgeAgents: 'Claude Code · Codex · OpenCode',
     badgeRelease: '{version} 已发布',
     audience: '为已经在用 Claude Code 或 Codex 的开发者打造',
-    titleStrong: '让你的编码智能体像团队一样协作，',
-    titleSoft: '而不是一个终端接一个终端。',
-    sub: 'RigOne 是一款免费的 Mac 应用，把 Claude Code、Codex 和 OpenCode 变成可以再次运行的工作流：步骤并行，每一步都在你代码的独立副本中进行，并且在任何改动进入你的分支之前，由 RigOne 自己运行检查。',
+    titleStrong: '面向编码智能体的 IDE。',
+    titleSoft: '让它们像团队一样协作，审查每一行。',
+    sub: 'RigOne 是一款免费的 Mac 应用，把 Claude Code、Codex 和 OpenCode 变成可以再次运行的团队：步骤并行，每一步都在你代码的独立副本中进行，由 RigOne 自己运行检查，并且在任何改动进入你的分支之前审查每一行改动——多个项目都在一个窗口里。',
     problemsLabel: 'RigOne 解决的问题',
     problems: [
-      { problem: '在多个终端间来回切换', answer: '一个窗口就能规划、运行并查看每个智能体。' },
+      { problem: '在多个终端间来回切换', answer: '一个窗口就能规划、运行并审查每个项目里的每个智能体。' },
       { problem: '智能体挤在同一个检出里', answer: '每一步都在自己的副本中工作，结果留在一个分支上。' },
       { problem: '无法相信的“完成”', answer: '检查由 RigOne 运行，而不是由智能体自己说了算。' },
     ],
     download: '下载 macOS 版',
     docsCta: '阅读文档',
     note: '免费 · macOS 13+ · 已签名并公证',
-    chips: ['由 RigOne 运行检查', '同时 3 个智能体', '不会推送任何内容'],
+    chips: ['由 RigOne 运行检查', '两个项目并排', '不会推送任何内容'],
   },
   trust: {
     aria: '你可以放心的几点',
@@ -85,6 +85,16 @@ export default {
     title: '由图决定，而不是由引擎决定',
     lead: '顺序、并行分支、重试和检查点都来自你保存的工作流。没有写死的阶段，也没有智能体给自己的工作打分。',
     items: {
+      ide: {
+        title: '像在 IDE 里一样审查',
+        body: '一个步骤改动的每个文件、每个代码块和每一行。在某一行写评论，智能体就会接着处理；也可以回到任何已保存的版本。',
+        link: '审查步骤',
+      },
+      projects: {
+        title: '同时打开多个项目',
+        body: '项目以标签页打开，最多三个并排显示，每个都有自己的运行、任务和问题。',
+        link: '项目并排',
+      },
       graph: {
         title: '看得见的工作流',
         body: '智能体步骤、检查和检查点都在同一张画布上。箭头只表示“在之后运行”，别无他意。',
@@ -118,6 +128,38 @@ export default {
     },
     seeAll: '查看全部功能',
   },
+  ide: {
+    eyebrow: '面向智能体工作的 IDE',
+    title: '读懂智能体改了什么，再告诉它要修什么',
+    lead: '在这里你不写代码，而是指挥它。每个步骤都以你在编辑器里熟悉的审查结束，你的项目在一个窗口里并排摆放。',
+    review: [
+      {
+        title: '改动的行，附带评论',
+        body: '步骤改动的文件、代码块和行。点一行，写下评论，然后 Send comments to the agent——已完成的步骤会在自己的文件夹里继续工作。',
+      },
+      {
+        title: '可以回退的版本',
+        body: 'RigOne 在每一轮之后保存一份步骤文件的版本。可以回到其中任何一个；当前的内容会另存为一个新版本。',
+      },
+      {
+        title: '从步骤中预览应用',
+        body: '在一个空闲端口上从步骤自己的文件夹启动应用，在预览窗口或浏览器中打开，然后再决定是否接收这项改动。',
+      },
+      {
+        title: '你的编辑器，一键即达',
+        body: '在编辑器中打开改动的文件并定位到那一行，查看哪些函数改了、在哪里被用到，以及这个步骤花了多少。',
+      },
+    ],
+    projects: {
+      title: '一个窗口，多个项目',
+      body: '每个项目以标签页打开，最多三个并排。一个项目里的运行继续进行时，你可以在另一个项目里开始任务。',
+      points: [
+        '每个标签页都会显示它的项目是在工作还是在等你',
+        '点一个窗格就在其中工作；⌘⌥\\ 会在旁边显示下一个项目',
+        '重启后你的标签页和窗格会回来',
+      ],
+    },
+  },
   how: {
     eyebrow: '工作方式',
     title: '三步，只有第三步才花钱',
@@ -140,7 +182,7 @@ export default {
   screens: {
     eyebrow: '界面',
     title: '下载之前先看看',
-    lead: '应用如今发布时的样子，使用默认的 Airy 外观。每个界面都支持浅色和深色。',
+    lead: '应用如今发布时的样子，使用默认的 Surface 外观。每个界面都支持浅色和深色。',
     label: '应用界面',
     items: {
       run: {
@@ -148,6 +190,24 @@ export default {
         title: '运行工作流，或先商量一下',
         body: '每个智能体说了什么，按顺序排列，旁边是计划和让运行停下来的问题。设定同时工作的智能体数量，然后按 Run workflow。',
         alt: 'Ship a feature 运行中的 Tasks 界面：信息流中是每个智能体说的话，右侧计划里三个步骤已完成，Second opinion 正在问是现在发布修复还是先清理。',
+      },
+      review: {
+        tab: 'Review',
+        title: '像拉取请求一样审查一个步骤',
+        body: '步骤改动的每个文件和每一行。点一行即可评论；评论会作为一条消息发给智能体，并注明每个文件和行。',
+        alt: 'Ship a feature 的 Fix 步骤：validate.ts 及其测试中改动的行，第 15 行上要求去掉零宽空格的评论，以及 Send comments to the agent。',
+      },
+      'review-tools': {
+        tab: 'Preview',
+        title: '预览、版本和它改到的函数',
+        body: '从步骤的文件夹启动应用并打开预览，回到它文件的早期版本，并查看每个改动的函数在哪里被用到。',
+        alt: 'Fix 步骤：两个改动的函数，各在两处被用到；应用从该步骤在本地地址上运行，带有 Open preview；以及文件的三个已保存版本。',
+      },
+      projects: {
+        tab: 'Projects',
+        title: '两个项目并排',
+        body: '项目以标签页打开，最多三个可以并排。这里一个项目中的运行在等待回答，另一个项目中正在写一个 Auto 目标。',
+        alt: '两个项目并排：client-website 中 Ship a feature 在等 Second opinion 的回答，docs-site 中正在写一个新的 Auto 任务。',
       },
       agents: {
         tab: 'Agents',
@@ -164,8 +224,8 @@ export default {
       project: {
         tab: 'Project rig',
         title: '整个项目，一页看完',
-        body: '它的智能体、工作流、知识、触发器和 Auto 规则，以及需要修复的地方。Generate project setup 会根据仓库起草一套配置。',
-        alt: 'client-website 的 Project rig：四个智能体及其文件访问和模型、三个就绪的工作流、知识卡片和 Auto 规则。',
+        body: '先是仓库——分支、改动、磁盘占用和工作区——然后是它的智能体、工作流、知识、触发器和 Auto 规则。',
+        alt: 'client-website 的项目概览：main 分支已是最新，没有要提交的内容，磁盘占用 432 MB，有一个工作区，以及四个智能体及其文件访问和模型。',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -176,8 +236,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: '独立窗口中的设置',
-        body: '按工作、账户和应用分类，还有告诉你什么正常的 Health check。选择 Airy、Surface、Minimalist 或 Studio 外观和强调色，浅色、深色或跟随 macOS。',
-        alt: 'Settings → Appearance：应用语言、Airy、Surface、Minimalist 和 Studio 四种主题、System、Light 或 Dark。',
+        body: '按工作、账户和应用分类，还有告诉你什么正常的 Health check。选择 Surface、Minimalist、Studio 或 Linen 外观，浅色、深色或跟随 macOS。',
+        alt: 'Settings → Appearance：应用语言、Surface、Minimalist、Studio 和 Linen 四种主题、System、Light 或 Dark。',
       },
     },
   },
@@ -198,8 +258,8 @@ export default {
   },
   features: {
     eyebrow: '功能',
-    title: '一次运行所需的一切，都在一个窗口里',
-    lead: 'RigOne 为编程智能体搭建、运行并记录工作流。下面是各部分目前能做的事。',
+    title: '面向编程智能体的 IDE，都在一个窗口里',
+    lead: 'RigOne 搭建、运行、审查并记录编程智能体的工作。下面是各部分目前能做的事。',
     items: {
       canvas: {
         eyebrow: '工作流',
@@ -230,7 +290,41 @@ export default {
           '问题、启动的命令、输出和花费都放在一起',
           '结果如实说明发生了什么：完成、失败、停止或未运行',
           '主导智能体可以先和你商量——只有 /run 才会开始工作',
+          '模型和 Auto 开关就在消息输入框下方',
           '重启后你的任务会回来，每个都带着自己的对话',
+        ],
+      },
+      review: {
+        eyebrow: '审查',
+        title: '像在 IDE 里一样审查步骤',
+        body: '打开一个步骤，按文件、代码块和行阅读它改了什么。某一行上的评论会发回写下这段代码的智能体，已完成的步骤会在自己的文件夹里继续工作。',
+        points: [
+          '点一行，写下评论，然后 Send comments to the agent',
+          '评论合成一条消息，注明每个文件和行',
+          '在编辑器中打开改动的文件并定位到那一行',
+          '两个步骤改了同样的行时，由你选择保留谁的',
+          '步骤花了多少，就显示在状态旁边',
+        ],
+      },
+      preview: {
+        eyebrow: '预览',
+        title: '先试用改动，再决定是否接收',
+        body: '从步骤自己的文件夹启动应用并查看，看哪些函数改了、在哪里被用到，还可以回到文件的任何版本。',
+        points: [
+          'RigOne 启动你的命令，并通过 PORT 提供一个空闲端口',
+          '用 Open preview 在独立窗口中打开，或在浏览器中打开',
+          '每一轮之后保存一个版本；回退时也会保留当前版本',
+          '改动的函数和类型，各自列出用到它的地方',
+        ],
+      },
+      projects: {
+        eyebrow: '项目',
+        title: '同时打开多个项目',
+        body: '每个项目以标签页打开，最多三个并排显示，每个都有自己的任务、运行和问题。每个项目里的工作都会继续进行。',
+        points: [
+          '标签页会显示它的项目是在工作还是在等你',
+          '⌘⌥\\ 会在当前项目旁边打开下一个项目',
+          '重启后标签页和窗格会回来',
         ],
       },
       auto: {
@@ -324,6 +418,8 @@ export default {
         title: '一页掌握整个项目',
         body: '这个项目里谁在工作、怎么工作、知道什么：智能体、工作流、知识、触发器和 Auto 规则并排展示。',
         points: [
+          '先列出仓库信息：当前分支、改动、分支列表、磁盘占用和工作区',
+          '从概览中用你的编辑器打开项目',
           'Generate project setup 根据仓库起草智能体和工作流；在你选择 Apply 之前什么都不会改变',
           '需要修改的工作流会说明原因，RigOne 能修的地方有 Fix 按钮',
           '运行中学到的新经验在这里等你选择 Keep 或 Discard',
@@ -419,6 +515,14 @@ export default {
         answer: 'RigOne 可免费下载和使用。运行使用你自己的 Claude Code、Codex 或 OpenCode 套餐，运行花费达到你设定的金额时 RigOne 可以提醒你。',
       },
       {
+        question: 'RigOne 是 IDE 吗？',
+        answer: '它是面向智能体工作的 IDE。你在这里规划、运行和审查：步骤改动的每一行、发回其智能体的评论、已保存的版本、应用预览，以及并排的多个项目。想自己写代码时，RigOne 会在你自己的编辑器中打开文件并定位到那一行。',
+      },
+      {
+        question: '可以同时处理多个项目吗？',
+        answer: '可以。每个项目以标签页打开，一个窗口里最多三个并排。运行和 Auto 目标在每个项目中都会继续工作，有项目在等你时，标签页会显示出来。',
+      },
+      {
         question: '智能体会推送到我的仓库吗？',
         answer: '不会。每个步骤都在自己的一份代码副本里工作，结果留在你项目里的一个分支上。不会推送任何东西，在你接收之前，什么都不会进入你自己的分支。',
       },
@@ -441,7 +545,7 @@ export default {
     ],
   },
   cta: {
-    title: '把你的智能体放到同一张画布上',
+    title: '你的智能体，一个 IDE',
     lead: '面向 Apple Silicon Mac，免费。使用 Apple Developer ID 签名，并经 Apple 公证。',
     download: '下载 macOS 版',
     docs: '阅读文档',
@@ -486,7 +590,7 @@ export default {
     helpHtml: '这里有不清楚或不对的地方？<a href="{issues}">提交一个问题</a>。',
   },
   footer: {
-    tagline: 'macOS 优先 · 本地优先 · 你自己的代码',
+    tagline: 'macOS 优先 · 本地优先 · 为你的智能体打造的 IDE',
     legalHtml: '© {year} <a href="{org}">MonoOne</a>。网站采用 <a href="{license}">AGPL-3.0</a> 许可。',
   },
 } satisfies SiteContent

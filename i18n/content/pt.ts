@@ -3,12 +3,12 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — agentes do Claude Code e Codex em paralelo no seu Mac',
-      description: 'Uma sala de controle nativa do macOS para agentes de código: monte um fluxo para Claude Code e Codex em um canvas e rode-o em paralelo no seu projeto. Grátis.',
+      title: 'RigOne — o IDE para agentes do Claude Code, Codex e OpenCode no seu Mac',
+      description: 'Um IDE gratuito para macOS para agentes de código: rode Claude Code, Codex e OpenCode como equipe em paralelo, revise cada linha alterada, veja o app e abra vários projetos.',
     },
     features: {
-      title: 'Recursos do RigOne: fluxos visuais, agentes em paralelo e verificações',
-      description: 'Fluxos visuais, execuções em paralelo, objetivos no Auto, agentes reutilizáveis, verificações do RigOne, mudanças em um branch próprio, quadros e gatilhos.',
+      title: 'Recursos do RigOne: um IDE para agentes, fluxos visuais e verificações',
+      description: 'Revise uma etapa como num IDE, veja a prévia, abra projetos lado a lado, fluxos visuais, execuções em paralelo, objetivos no Auto, verificações do RigOne e quadros.',
       breadcrumb: 'Recursos',
     },
     docs: {
@@ -26,7 +26,7 @@ export default {
       description: 'Cada versão do RigOne: o que mudou, o que fazer ao atualizar e o checksum do build assinado e notarizado.',
       breadcrumb: 'Novidades',
     },
-    ogImageAlt: 'RigOne — um grafo manda no trabalho. Uma sala de controle do macOS para agentes de código.',
+    ogImageAlt: 'RigOne — O IDE para agentes de código. Trabalhe com eles em equipe e revise cada linha.',
   },
   common: {
     skipToContent: 'Pular para o conteúdo',
@@ -57,19 +57,19 @@ export default {
     badgeAgents: 'Claude Code · Codex · OpenCode',
     badgeRelease: 'Versão {version} disponível',
     audience: 'Para desenvolvedores que já usam Claude Code ou Codex',
-    titleStrong: 'Trabalhe com seus agentes de código como uma equipe,',
-    titleSoft: 'não um terminal por vez.',
-    sub: 'O RigOne é um app gratuito para Mac que transforma Claude Code, Codex e OpenCode em um fluxo que você roda de novo: etapas em paralelo, cada uma na própria cópia do seu código, com verificações que o RigOne roda antes que qualquer coisa chegue ao seu branch.',
+    titleStrong: 'O IDE para agentes de código.',
+    titleSoft: 'Trabalhe com eles em equipe e revise cada linha.',
+    sub: 'O RigOne é um app gratuito para Mac que transforma Claude Code, Codex e OpenCode em uma equipe que você roda de novo: etapas em paralelo, cada uma na própria cópia do seu código, verificações que o próprio RigOne roda e a revisão de cada linha alterada antes que qualquer coisa chegue ao seu branch — para vários projetos em uma janela.',
     problemsLabel: 'O que o RigOne resolve',
     problems: [
-      { problem: 'Malabarismo com terminais', answer: 'Uma janela planeja, roda e mostra cada agente.' },
+      { problem: 'Malabarismo com terminais', answer: 'Uma janela planeja, roda e revisa cada agente, em cada projeto.' },
       { problem: 'Agentes no mesmo checkout', answer: 'Cada etapa trabalha na própria cópia; o resultado espera em um branch.' },
       { problem: 'Um “pronto” em que você não confia', answer: 'Quem roda as verificações é o RigOne, não o agente.' },
     ],
     download: 'Baixar para macOS',
     docsCta: 'Ler a documentação',
     note: 'Grátis · macOS 13+ · assinado e notarizado',
-    chips: ['Verificado pelo RigOne', '3 agentes ao mesmo tempo', 'Nada enviado'],
+    chips: ['Verificado pelo RigOne', '2 projetos lado a lado', 'Nada enviado'],
   },
   trust: {
     aria: 'Com o que você pode contar',
@@ -85,6 +85,16 @@ export default {
     title: 'Quem decide é o grafo, não o motor',
     lead: 'A ordem, os ramos em paralelo, as novas tentativas e os checkpoints vêm do fluxo que você salvou. Nenhuma etapa é fixa no código, e nenhum agente avalia o próprio trabalho.',
     items: {
+      ide: {
+        title: 'Revise como num IDE',
+        body: 'Cada arquivo, trecho e linha que uma etapa alterou. Comente uma linha e o agente a considera; volte a qualquer versão salva.',
+        link: 'Revisar uma etapa',
+      },
+      projects: {
+        title: 'Vários projetos ao mesmo tempo',
+        body: 'Abra projetos em abas e mostre até três lado a lado, cada um com suas execuções, tarefas e perguntas.',
+        link: 'Projetos lado a lado',
+      },
       graph: {
         title: 'Fluxos que se enxergam',
         body: 'Passos de agente, verificações e checkpoints em um só canvas. Uma seta significa “roda depois”, e nada mais.',
@@ -118,6 +128,38 @@ export default {
     },
     seeAll: 'Ver todos os recursos',
   },
+  ide: {
+    eyebrow: 'Um IDE para o trabalho dos agentes',
+    title: 'Leia o que um agente mudou e diga o que corrigir',
+    lead: 'Aqui você não escreve o código — você o dirige. Cada etapa termina em uma revisão que você já conhece do seu editor, e seus projetos ficam lado a lado em uma janela.',
+    review: [
+      {
+        title: 'Linhas alteradas, com comentários',
+        body: 'Arquivos, trechos e linhas que a etapa alterou. Clique numa linha, escreva um comentário e use Send comments to the agent — uma etapa concluída continua na própria pasta.',
+      },
+      {
+        title: 'Versões para onde voltar',
+        body: 'O RigOne guarda uma versão dos arquivos da etapa depois de cada rodada. Volte a qualquer uma delas; o que está lá agora é guardado como uma nova versão.',
+      },
+      {
+        title: 'Veja o app a partir da etapa',
+        body: 'Inicie o app a partir da pasta da própria etapa em uma porta livre e abra-o numa janela de prévia ou no navegador, antes de aceitar a mudança.',
+      },
+      {
+        title: 'Seu editor a um clique',
+        body: 'Abra um arquivo alterado na linha certa no seu editor, veja quais funções mudaram e onde são usadas, e quanto a etapa custou.',
+      },
+    ],
+    projects: {
+      title: 'Vários projetos em uma janela',
+      body: 'Abra cada projeto em uma aba e ponha até três lado a lado. Uma execução continua em um enquanto você começa uma tarefa em outro.',
+      points: [
+        'Cada aba mostra se o projeto está trabalhando ou esperando por você',
+        'Clique num painel para trabalhar nele; ⌘⌥\\ mostra o próximo projeto ao lado',
+        'Suas abas e painéis voltam depois de reiniciar',
+      ],
+    },
+  },
   how: {
     eyebrow: 'Como funciona',
     title: 'Três passos, e só o terceiro gasta dinheiro',
@@ -140,7 +182,7 @@ export default {
   screens: {
     eyebrow: 'Telas',
     title: 'Veja antes de baixar',
-    lead: 'O app como é lançado hoje, no visual padrão Airy. Toda tela funciona no claro e no escuro.',
+    lead: 'O app como é lançado hoje, no visual padrão Surface. Toda tela funciona no claro e no escuro.',
     label: 'Telas do app',
     items: {
       run: {
@@ -148,6 +190,24 @@ export default {
         title: 'Rode um fluxo, ou converse antes',
         body: 'O que cada agente disse, em ordem, ao lado do plano com a pergunta que parou a execução. Escolha quantos agentes podem trabalhar ao mesmo tempo e aperte Run workflow.',
         alt: 'A tela Tasks enquanto Ship a feature roda: o que cada agente disse no fluxo, três etapas concluídas no plano à direita e Second opinion perguntando se entrega a correção agora ou limpa antes.',
+      },
+      review: {
+        tab: 'Review',
+        title: 'Uma etapa que você revisa como um pull request',
+        body: 'Cada arquivo e linha que a etapa alterou. Clique numa linha para comentar; os comentários vão para o agente em uma só mensagem que cita cada arquivo e linha.',
+        alt: 'A etapa Fix de Ship a feature: as linhas alteradas de validate.ts e do seu teste, um comentário na linha 15 pedindo para remover espaços de largura zero e Send comments to the agent.',
+      },
+      'review-tools': {
+        tab: 'Preview',
+        title: 'Prévia, versões e as funções que ela tocou',
+        body: 'Inicie o app a partir da pasta da etapa e abra a prévia, volte a uma versão anterior dos arquivos e veja onde cada função alterada é usada.',
+        alt: 'A etapa Fix: duas funções alteradas usadas em dois lugares cada, o app rodando a partir da etapa em um endereço local com Open preview e três versões salvas dos arquivos.',
+      },
+      projects: {
+        tab: 'Projects',
+        title: 'Dois projetos lado a lado',
+        body: 'Projetos abrem em abas; ponha até três um ao lado do outro. Aqui uma execução espera uma resposta em um projeto enquanto um objetivo do Auto é escrito em outro.',
+        alt: 'Dois projetos lado a lado: client-website, onde Ship a feature espera uma resposta de Second opinion, e docs-site, com uma nova tarefa do Auto sendo escrita.',
       },
       agents: {
         tab: 'Agents',
@@ -164,8 +224,8 @@ export default {
       project: {
         tab: 'Project rig',
         title: 'O projeto inteiro numa página',
-        body: 'Seus agentes, fluxos, conhecimento, gatilhos e regras do Auto, com o que precisa de correção. Generate project setup monta um rig a partir do repositório.',
-        alt: 'Project rig de client-website: quatro agentes com acesso a arquivos e modelo, três fluxos prontos, os cartões de conhecimento e as regras do Auto.',
+        body: 'Primeiro o repositório — branch, mudanças, tamanho em disco e espaços de trabalho — depois seus agentes, fluxos, conhecimento, gatilhos e regras do Auto.',
+        alt: 'Visão geral do projeto client-website: o branch main atualizado, nada para commitar, 432 MB em disco com um espaço de trabalho e quatro agentes com acesso a arquivos e modelo.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -176,8 +236,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Ajustes em uma janela própria',
-        body: 'Categorias para o trabalho, a conta e o app, com um Health check que diz o que funciona. Escolha o visual Airy, Surface, Minimalist ou Studio e uma cor de destaque, claro, escuro ou seguindo o macOS.',
-        alt: 'Settings → Appearance: o idioma do app, os temas Airy, Surface, Minimalist e Studio, System, Light ou Dark.',
+        body: 'Categorias para o trabalho, a conta e o app, com um Health check que diz o que funciona. Escolha o visual Surface, Minimalist, Studio ou Linen, claro, escuro ou seguindo o macOS.',
+        alt: 'Settings → Appearance: o idioma do app, os temas Surface, Minimalist, Studio e Linen, System, Light ou Dark.',
       },
     },
   },
@@ -198,8 +258,8 @@ export default {
   },
   features: {
     eyebrow: 'Recursos',
-    title: 'Tudo o que uma execução precisa, em uma janela',
-    lead: 'O RigOne monta, roda e registra fluxos para agentes de código. Veja o que cada parte faz hoje.',
+    title: 'Um IDE para agentes de código, em uma janela',
+    lead: 'O RigOne monta, roda, revisa e registra o trabalho de agentes de código. Veja o que cada parte faz hoje.',
     items: {
       canvas: {
         eyebrow: 'Fluxos',
@@ -230,7 +290,41 @@ export default {
           'Perguntas, comandos iniciados, saída e gasto ficam juntos',
           'Os resultados dizem o que aconteceu: feito, falhou, parado ou não executado',
           'Um agente líder pode conversar com você — só /run inicia o trabalho',
+          'O modelo e uma chave do Auto ficam abaixo do campo de mensagem',
           'Suas tarefas voltam depois de reiniciar, cada uma com a própria conversa',
+        ],
+      },
+      review: {
+        eyebrow: 'Revisão',
+        title: 'Revise uma etapa como num IDE',
+        body: 'Abra uma etapa e leia o que ela mudou em arquivos, trechos e linhas. Um comentário numa linha volta para o agente que a escreveu, e uma etapa concluída continua na própria pasta.',
+        points: [
+          'Clique numa linha, escreva um comentário e use Send comments to the agent',
+          'Os comentários viram uma só mensagem que cita cada arquivo e linha',
+          'Abra um arquivo alterado na linha certa no seu editor',
+          'Duas etapas mudaram as mesmas linhas: escolha quais linhas ficam',
+          'Quanto a etapa custou, ao lado do status',
+        ],
+      },
+      preview: {
+        eyebrow: 'Prévia',
+        title: 'Teste a mudança antes de aceitá-la',
+        body: 'Inicie o app a partir da pasta da própria etapa e veja como ficou, descubra quais funções mudaram e onde são usadas, e volte a qualquer versão dos arquivos.',
+        points: [
+          'O RigOne inicia seu comando com uma porta livre em PORT',
+          'Open preview em uma janela própria ou no navegador',
+          'Uma versão salva depois de cada rodada; voltar também guarda a atual',
+          'Funções e tipos alterados, cada um com os lugares que o usam',
+        ],
+      },
+      projects: {
+        eyebrow: 'Projetos',
+        title: 'Vários projetos ao mesmo tempo',
+        body: 'Abra cada projeto em uma aba e mostre até três lado a lado, cada um com suas tarefas, execuções e perguntas. O trabalho continua em todos eles.',
+        points: [
+          'Uma aba mostra se o projeto está trabalhando ou esperando por você',
+          '⌘⌥\\ abre o próximo projeto ao lado do atual',
+          'Abas e painéis voltam depois de reiniciar',
         ],
       },
       auto: {
@@ -324,6 +418,8 @@ export default {
         title: 'Uma página para o projeto inteiro',
         body: 'Quem trabalha neste projeto, como e o que sabe: agentes, fluxos, conhecimento, gatilhos e regras do Auto lado a lado.',
         points: [
+          'Dados do repositório primeiro: branch, mudanças, branches, tamanho em disco e espaços de trabalho',
+          'Abra o projeto no seu editor a partir da visão geral',
           'Generate project setup monta agentes e fluxos a partir do repositório; nada muda até você escolher Apply',
           'Um fluxo que precisa de mudança avisa, com Fix quando o RigOne consegue resolver',
           'Novas lições das execuções esperam aqui seu Keep ou Discard',
@@ -419,6 +515,14 @@ export default {
         answer: 'O RigOne é gratuito para baixar e usar. As execuções usam seu próprio plano do Claude Code, do Codex ou do OpenCode, e o RigOne pode avisar quando uma execução chega a um valor que você definiu.',
       },
       {
+        question: 'O RigOne é um IDE?',
+        answer: 'É um IDE para o trabalho de agentes. Nele você planeja, roda e revisa: cada linha alterada de uma etapa, comentários que voltam ao agente dela, versões salvas, uma prévia do app e vários projetos lado a lado. Quando quiser digitar código você mesmo, o RigOne abre o arquivo na linha certa no seu próprio editor.',
+      },
+      {
+        question: 'Posso trabalhar em vários projetos ao mesmo tempo?',
+        answer: 'Sim. Cada projeto abre em uma aba, e até três podem ficar lado a lado em uma janela. Execuções e objetivos do Auto continuam trabalhando em todos os projetos, e cada aba mostra quando um deles está esperando por você.',
+      },
+      {
         question: 'Um agente vai dar push no meu repositório?',
         answer: 'Não. Cada passo trabalha na própria cópia do código, e o resultado espera em um branch do seu projeto. Nada recebe push, e nada chega ao seu próprio branch até você aceitar.',
       },
@@ -441,7 +545,7 @@ export default {
     ],
   },
   cta: {
-    title: 'Ponha seus agentes em um só canvas',
+    title: 'Seus agentes, um só IDE',
     lead: 'Grátis para Macs com Apple Silicon. Assinado com Apple Developer ID e notarizado pela Apple.',
     download: 'Baixar para macOS',
     docs: 'Ler a documentação',
@@ -486,7 +590,7 @@ export default {
     helpHtml: 'Algo confuso ou errado aqui? <a href="{issues}">Abra uma issue</a>.',
   },
   footer: {
-    tagline: 'macOS primeiro · local primeiro · o seu código',
+    tagline: 'macOS primeiro · local primeiro · um IDE para seus agentes',
     legalHtml: '© {year} <a href="{org}">MonoOne</a>. Site sob a licença <a href="{license}">AGPL-3.0</a>.',
   },
 } satisfies SiteContent

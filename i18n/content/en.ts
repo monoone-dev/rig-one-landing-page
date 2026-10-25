@@ -3,12 +3,12 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — run Claude Code and Codex agents in parallel on your Mac',
-      description: 'A native macOS control room for coding agents: build a workflow for Claude Code and Codex on one canvas and run it on your project, in parallel. Free.',
+      title: 'RigOne — the IDE for Claude Code, Codex and OpenCode agents on your Mac',
+      description: 'A free macOS IDE for coding agents: run Claude Code, Codex and OpenCode as a team in parallel, review every changed line, preview the app and open several projects at once.',
     },
     features: {
-      title: 'RigOne features: visual workflows, parallel agents and checks',
-      description: 'Visual workflows, parallel runs, Auto goals, reusable agents, checks RigOne runs itself, changes kept on their own branch, shared boards and Linear triggers.',
+      title: 'RigOne features: an IDE for agents, visual workflows and checks',
+      description: 'Review a step like in an IDE, preview it, open projects side by side, visual workflows, parallel runs, Auto goals, checks RigOne runs itself and shared boards.',
       breadcrumb: 'Features',
     },
     docs: {
@@ -26,7 +26,7 @@ export default {
       description: 'Every RigOne release: what changed, what to do when you update, and the checksum of the signed, notarized build.',
       breadcrumb: 'Changelog',
     },
-    ogImageAlt: 'RigOne — one graph owns the work. A macOS control room for coding agents.',
+    ogImageAlt: 'RigOne — The IDE for coding agents. Run them as a team, review every line.',
   },
   common: {
     skipToContent: 'Skip to content',
@@ -57,19 +57,19 @@ export default {
     badgeAgents: 'Claude Code · Codex · OpenCode',
     badgeRelease: 'Version {version} is out',
     audience: 'For developers who already use Claude Code or Codex',
-    titleStrong: 'Run your coding agents as a team,',
-    titleSoft: 'not one terminal at a time.',
-    sub: 'RigOne is a free Mac app that turns Claude Code, Codex and OpenCode into a workflow you can run again: steps in parallel, each in its own copy of your code, with checks RigOne runs itself before anything reaches your branch.',
+    titleStrong: 'The IDE for coding agents.',
+    titleSoft: 'Run them as a team, review every line.',
+    sub: 'RigOne is a free Mac app that turns Claude Code, Codex and OpenCode into a team you can run again: steps in parallel, each in its own copy of your code, checks RigOne runs itself, and a review of every changed line before anything reaches your branch — for several projects in one window.',
     problemsLabel: 'What RigOne fixes',
     problems: [
-      { problem: 'Juggling terminals', answer: 'One window plans, runs and shows every agent.' },
+      { problem: 'Juggling terminals', answer: 'One window plans, runs and reviews every agent, in every project.' },
       { problem: 'Agents in one checkout', answer: 'Each step works in its own copy; the result waits on a branch.' },
       { problem: '“Done” you can’t trust', answer: 'RigOne runs the checks, not the agent.' },
     ],
     download: 'Download for macOS',
     docsCta: 'Read the docs',
     note: 'Free · macOS 13+ · signed and notarized',
-    chips: ['Checks run by RigOne', '3 agents at once', 'Nothing pushed'],
+    chips: ['Checks run by RigOne', '2 projects side by side', 'Nothing pushed'],
   },
   trust: {
     aria: 'What you can count on',
@@ -85,6 +85,16 @@ export default {
     title: 'The graph decides, not the engine',
     lead: 'Order, parallel branches, retries and checkpoints come from the workflow you saved. No stage is hard-coded, and no agent grades its own work.',
     items: {
+      ide: {
+        title: 'Review like in an IDE',
+        body: 'Every changed file, hunk and line of a step. Comment on a line and the agent picks it up; go back to any saved version.',
+        link: 'Review a step',
+      },
+      projects: {
+        title: 'Several projects at once',
+        body: 'Open projects as tabs and show up to three side by side, each with its own runs, tasks and questions.',
+        link: 'Projects side by side',
+      },
       graph: {
         title: 'Workflows you can see',
         body: 'Agent steps, checks and checkpoints on one canvas. An arrow means “runs after”, and nothing else.',
@@ -118,6 +128,38 @@ export default {
     },
     seeAll: 'See every feature',
   },
+  ide: {
+    eyebrow: 'An IDE for agent work',
+    title: 'Read what an agent changed, then tell it what to fix',
+    lead: 'You do not write the code here — you direct it. Every step ends in a review you know from your editor, and your projects sit side by side in one window.',
+    review: [
+      {
+        title: 'Changed lines, with comments',
+        body: 'Files, hunks and lines the step changed. Click a line, write a comment, and Send comments to the agent — a finished step carries on in its own folder.',
+      },
+      {
+        title: 'Versions you can go back to',
+        body: 'RigOne keeps a version of the step’s files after each turn. Go back to any of them; what is there now is kept as a new version.',
+      },
+      {
+        title: 'Preview the app from the step',
+        body: 'Start the app from the step’s own folder on a free port and open it in a preview window or your browser, before you take the change.',
+      },
+      {
+        title: 'Your editor, one click away',
+        body: 'Open a changed file at its line in your editor, see which functions changed and where they are used, and what the step cost.',
+      },
+    ],
+    projects: {
+      title: 'Several projects in one window',
+      body: 'Open each project as a tab and put up to three side by side. A run keeps going in one while you start a task in another.',
+      points: [
+        'Each tab shows whether its project is working or waiting for you',
+        'Click a pane to work in it; ⌘⌥\\ shows the next project beside it',
+        'Your tabs and panes come back after a restart',
+      ],
+    },
+  },
   how: {
     eyebrow: 'How it works',
     title: 'Three steps, and only the third one spends money',
@@ -140,7 +182,7 @@ export default {
   screens: {
     eyebrow: 'Screens',
     title: 'See it before you download it',
-    lead: 'The app as it ships today, in the default Airy look. Every screen works in light and dark.',
+    lead: 'The app as it ships today, in the default Surface look. Every screen works in light and dark.',
     label: 'Screens of the app',
     items: {
       run: {
@@ -148,6 +190,24 @@ export default {
         title: 'Run a workflow, or talk it through first',
         body: 'What every agent said, in order, beside the plan with the question that stopped the run. Choose how many agents may work at once, then press Run workflow.',
         alt: 'The Tasks screen while Ship a feature runs: what each agent said in the stream, three steps done in the plan on the right, and Second opinion asking whether to ship the fix now or add the cleanup first.',
+      },
+      review: {
+        tab: 'Review',
+        title: 'A step you can review like a pull request',
+        body: 'Every file and line the step changed. Click a line to comment on it; the comments go to the agent as one message that names each file and line.',
+        alt: 'The Fix step of Ship a feature: the changed lines of validate.ts and its test, a comment on line 15 asking to strip zero-width spaces, and Send comments to the agent.',
+      },
+      'review-tools': {
+        tab: 'Preview',
+        title: 'Preview, versions and the functions it touched',
+        body: 'Start the app from the step’s folder and open the preview, go back to an earlier version of its files, and see where each changed function is used.',
+        alt: 'The Fix step: two changed functions used in two places each, the app running from the step at a local address with Open preview, and three saved versions of the files.',
+      },
+      projects: {
+        tab: 'Projects',
+        title: 'Two projects side by side',
+        body: 'Projects open as tabs; put up to three next to each other. Here a run waits for an answer in one project while an Auto goal is written in another.',
+        alt: 'Two projects side by side: client-website, where Ship a feature waits for an answer from Second opinion, and docs-site, with a new Auto task being written.',
       },
       agents: {
         tab: 'Agents',
@@ -164,8 +224,8 @@ export default {
       project: {
         tab: 'Project rig',
         title: 'The whole project on one page',
-        body: 'Its agents, workflows, knowledge, triggers and Auto rules, with what needs fixing. Generate project setup drafts a rig from the repository.',
-        alt: 'Project rig for client-website: four agents with their file access and model, three ready workflows, the knowledge cards and the Auto rules.',
+        body: 'The repository first — branch, changes, size on disk and workspaces — then its agents, workflows, knowledge, triggers and Auto rules.',
+        alt: 'Project overview for client-website: the main branch up to date, nothing to commit, 432 MB on disk with one workspace, and four agents with their file access and model.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -176,8 +236,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Settings in a window of its own',
-        body: 'Categories for work, your account and the app, with a Health check that says what works. Pick the Airy, Surface, Minimalist or Studio look and an accent colour, in light, dark or following macOS.',
-        alt: 'Settings → Appearance: the app language, the Airy, Surface, Minimalist and Studio themes, System, Light or Dark.',
+        body: 'Categories for work, your account and the app, with a Health check that says what works. Pick the Surface, Minimalist, Studio or Linen look, in light, dark or following macOS.',
+        alt: 'Settings → Appearance: the app language, the Surface, Minimalist, Studio and Linen themes, System, Light or Dark.',
       },
     },
   },
@@ -198,8 +258,8 @@ export default {
   },
   features: {
     eyebrow: 'Features',
-    title: 'Everything a run needs, in one window',
-    lead: 'RigOne builds, runs and records workflows for coding agents. Here is what each part does today.',
+    title: 'An IDE for coding agents, in one window',
+    lead: 'RigOne builds, runs, reviews and records the work of coding agents. Here is what each part does today.',
     items: {
       canvas: {
         eyebrow: 'Workflows',
@@ -230,7 +290,41 @@ export default {
           'Questions, spawned commands, output and spend stay together',
           'Outcomes say what happened: done, failed, stopped or not run',
           'A lead agent can talk things through with you — only /run starts work',
+          'The model and an Auto switch sit under the message field',
           'Your tasks come back after a restart, each with its own conversation',
+        ],
+      },
+      review: {
+        eyebrow: 'Review',
+        title: 'Review a step like in an IDE',
+        body: 'Open a step and read what it changed as files, hunks and lines. A comment on a line goes back to the agent that wrote it, and a finished step carries on in its own folder.',
+        points: [
+          'Click a line, write a comment, then Send comments to the agent',
+          'Comments become one message that names every file and line',
+          'Open a changed file at its line in your editor',
+          'Two steps that changed the same lines: choose whose lines win',
+          'What the step cost, next to its status',
+        ],
+      },
+      preview: {
+        eyebrow: 'Preview',
+        title: 'Try the change before you take it',
+        body: 'Start the app from the step’s own folder and look at it, see which functions changed and where they are used, and go back to any version of the files.',
+        points: [
+          'RigOne starts your command with a free port in PORT',
+          'Open preview in a window of its own, or in your browser',
+          'A saved version after every turn; going back keeps the current one too',
+          'Changed functions and types, each with the places that use it',
+        ],
+      },
+      projects: {
+        eyebrow: 'Projects',
+        title: 'Several projects at once',
+        body: 'Open each project as a tab and show up to three side by side, each with its own tasks, runs and questions. Work keeps going in every one of them.',
+        points: [
+          'A tab shows whether its project is working or waiting for you',
+          '⌘⌥\\ opens the next project beside the one you are in',
+          'Tabs and panes come back after a restart',
         ],
       },
       auto: {
@@ -324,6 +418,8 @@ export default {
         title: 'One page for the whole project',
         body: 'Who works in this project, how, and what they know: its agents, workflows, knowledge, triggers and Auto rules side by side.',
         points: [
+          'Repository facts first: branch, changes, branches, size on disk and workspaces',
+          'Open the project in your editor from the overview',
           'Generate project setup drafts agents and workflows from the repository; nothing changes until you choose Apply',
           'A workflow that needs a change says so, with Fix where RigOne can do it',
           'New lessons from runs wait here for Keep or Discard',
@@ -419,6 +515,14 @@ export default {
         answer: 'RigOne is free to download and use. Runs use your own plan with Claude Code, Codex or OpenCode, and RigOne can warn you when a run reaches an amount you set.',
       },
       {
+        question: 'Is RigOne an IDE?',
+        answer: 'It is an IDE for agent work. You plan, run and review there: every changed line of a step, comments that go back to its agent, saved versions, a preview of the app and several projects side by side. When you want to type code yourself, RigOne opens the file at its line in your own editor.',
+      },
+      {
+        question: 'Can I work on several projects at once?',
+        answer: 'Yes. Each project opens as a tab, and up to three can sit side by side in one window. Runs and Auto goals keep working in every project, and each tab shows when one is waiting for you.',
+      },
+      {
         question: 'Will an agent push to my repository?',
         answer: 'No. Each step works in its own copy of the code, and the result waits on a branch in your project. Nothing is pushed, and nothing reaches your own branch until you take it.',
       },
@@ -441,7 +545,7 @@ export default {
     ],
   },
   cta: {
-    title: 'Put your agents on one canvas',
+    title: 'Your agents, one IDE',
     lead: 'Free for Apple Silicon Macs. Signed with Apple Developer ID and notarized by Apple.',
     download: 'Download for macOS',
     docs: 'Read the docs',
@@ -486,7 +590,7 @@ export default {
     helpHtml: 'Something unclear or wrong here? <a href="{issues}">Open an issue</a>.',
   },
   footer: {
-    tagline: 'macOS-first · local-first · your own code',
+    tagline: 'macOS-first · local-first · an IDE for your agents',
     legalHtml: '© {year} <a href="{org}">MonoOne</a>. Website under <a href="{license}">AGPL-3.0</a>.',
   },
 } satisfies SiteContent

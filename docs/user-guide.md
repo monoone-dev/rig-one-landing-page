@@ -1,6 +1,6 @@
 # Using RigOne
 
-RigOne is a native macOS control room for coding agents. This guide covers installing it, a
+RigOne is a native macOS IDE for coding agents. This guide covers installing it, a
 step-by-step tutorial for your first run, every place in the sidebar, handing a whole goal to Auto,
 following your work from your phone and reading what happened. It describes RigOne 1.6.7. The
 website renders this file as its documentation pages.
@@ -254,6 +254,17 @@ The rail holds every place, top to bottom. Each icon names its place when you po
 - **Plan limits** at the bottom show how much of the Claude and Codex plans is used, as each agent
   app reports it.
 
+### Several projects side by side
+
+Each project you open becomes a tab at the top of the window, with a dot that says whether it is
+working or waiting for you. **＋** opens another project as a tab. **⌘⌥\\** shows the next project
+beside the one you are in, up to three side by side; click a pane to work in it, and its **×**
+closes the pane while the tab stays. Every project keeps its own tasks, runs and questions, so a
+run keeps going in one pane while you start a task in another. Your tabs and panes come back after
+you quit and reopen RigOne.
+
+![Two projects side by side: client-website, where Ship a feature waits for an answer from Second opinion, and docs-site, with a new Auto task being written.](../public/screenshots/projects.webp)
+
 ### The account menu
 
 The initials at the bottom of the rail open **Account and agent apps**:
@@ -351,6 +362,33 @@ Some work waits its turn on its own, whatever the limit: only one Rust build run
 Mac, whichever step or shell started it, while tests, running apps and reviews carry on beside it.
 When a provider is at capacity or a usage limit is reached, the step waits, says when it tries
 again, and continues the same conversation.
+
+### Reviewing a step
+
+Click a step in the plan to open it. Its screen shows what it was given, what it produced and what
+it said, with **Cost** beside its status and **Run this step again** in the header. Under **Changed
+lines** the step reads like a review in an IDE:
+
+![The Fix step of Ship a feature: the changed lines of validate.ts and its test, a comment on line 15 asking to strip zero-width spaces, and Send comments to the agent.](../public/screenshots/review.webp)
+
+- **Files, hunks and lines.** Each changed file says whether it is new, changed, deleted, renamed
+  or binary, with its added and removed lines. **Open in editor** opens the file at that line in
+  your editor.
+- **Comments on a line.** Click a line, write a comment and choose **Add comment**. **Send comments
+  to the agent** sends them as one message that names every file and line. A step that is still
+  working reads it after its current turn; a finished step carries on in its own folder.
+- **Functions and types changed** lists each one with the places that use it.
+- **Preview this step** starts your command — such as `npm run dev` — in the step's own folder
+  with a free port in `PORT`. **Open preview** shows the app in a window of its own; **Open in
+  browser** and **Stop** do what they say.
+- **Saved versions of these files.** RigOne keeps a version after each turn. **Go back to this
+  version** restores one; what is there now is kept as a new version, so you can always return.
+
+When the work of the steps is brought together and two of them changed the same lines, RigOne
+offers a choice instead of stopping: keep that step's lines where they overlap, or keep the other
+steps' lines.
+
+![The Fix step: two changed functions used in two places each, the app running from the step at a local address with Open preview, and three saved versions of the files.](../public/screenshots/review-tools.webp)
 
 ### The command bar
 
@@ -626,8 +664,12 @@ the project does.
 **Project rig** shows the open project on one page: who works, how, and what they know. Chips at
 the top jump to each part.
 
-![Project rig for client-website: four agents with their file access and model, three workflows marked ready, the knowledge cards and the Auto rules.](../public/screenshots/project.webp)
+![Project overview for client-website: the main branch up to date, nothing to commit, 432 MB on disk with one workspace, and four agents with their file access and model.](../public/screenshots/project.webp)
 
+- **Repository** — read from Git and from the folder on disk: the branch and whether it is up to
+  date, local and remote branches, what is left to commit with the last commit, the size on disk
+  with the largest folders, and each workspace with its branch. **Open in** opens the project in
+  your editor — Visual Studio Code, Cursor, Zed, WebStorm or IntelliJ IDEA, whichever you have.
 - **Agents** — every agent with its file access and model; **All agents** opens Agents.
 - **Workflows** — each with its chain of steps and **✓ ready**, **needs a change**, or a **Fix**
   button when steps use an agent the project no longer has.
@@ -736,7 +778,7 @@ add skills to your RigOne library instead, use **Used when they fit** in [Knowle
 
 **Settings** (⌘8) opens over the window, with categories under **Work**, **Account** and **App**.
 
-![Settings → Appearance: the app language, the Airy, Surface, Minimalist and Studio themes, and System, Light or Dark.](../public/screenshots/settings.webp)
+![Settings → Appearance: the app language, the Surface, Minimalist, Studio and Linen themes, and System, Light or Dark.](../public/screenshots/settings.webp)
 
 ### General
 
@@ -789,7 +831,7 @@ when idle** it looks at most every six hours.
 
 ### Appearance
 
-The **App language**; the theme — **Airy** (the default), **Surface**, **Minimalist** or **Studio** — each in
+The **App language**; the theme — **Surface** (the default), **Minimalist**, **Studio** or **Linen** — each in
 **System**, **Light** or **Dark**; an **Accent color**; and the **Conversation view**: **Terminal**
 or **Agent chat**.
 

@@ -26,7 +26,7 @@ export default {
       description: 'Every RigOne release: what changed, what to do when you update, and the checksum of the signed, notarized build.',
       breadcrumb: 'Changelog',
     },
-    ogImageAlt: 'RigOne — one graph owns the work. A macOS IDE for coding agents.',
+    ogImageAlt: 'RigOne — The IDE for coding agents. Run them as a team, review every line.',
   },
   common: {
     skipToContent: 'Skip to content',

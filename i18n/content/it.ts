@@ -26,7 +26,7 @@ export default {
       description: 'Ogni versione di RigOne: che cosa è cambiato, che cosa fare quando aggiorni e il checksum della build firmata e notarizzata.',
       breadcrumb: 'Novità delle versioni',
     },
-    ogImageAlt: 'RigOne — un grafo comanda il lavoro. Un IDE per macOS per agenti di codice.',
+    ogImageAlt: 'RigOne — L’IDE per agenti di programmazione. Falli lavorare in squadra, rivedi ogni riga.',
   },
   common: {
     skipToContent: 'Vai al contenuto',

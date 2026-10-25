@@ -26,7 +26,7 @@ export default {
       description: 'RigOne の全リリース：何が変わったか、アップデート時にすること、署名・公証済みビルドのチェックサム。',
       breadcrumb: '変更履歴',
     },
-    ogImageAlt: 'RigOne — ひとつのグラフが仕事を束ねる。コーディングエージェントのための macOS IDE。',
+    ogImageAlt: 'RigOne — コーディングエージェントのための IDE。チームとして動かし、すべての行をレビュー。',
   },
   common: {
     skipToContent: '本文へスキップ',

@@ -26,7 +26,7 @@ export default {
       description: 'RigOne 的每个版本：改了什么，更新时要做什么，以及已签名、已公证安装包的校验和。',
       breadcrumb: '更新日志',
     },
-    ogImageAlt: 'RigOne — 一张图掌管全部工作。面向编程智能体的 macOS IDE。',
+    ogImageAlt: 'RigOne — 面向编码智能体的 IDE。让它们像团队一样协作，审查每一行。',
   },
   common: {
     skipToContent: '跳到正文',

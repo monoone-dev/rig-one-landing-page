@@ -26,7 +26,7 @@ export default {
       description: 'Jede RigOne-Version: was sich geändert hat, was beim Aktualisieren zu tun ist, und die Prüfsumme des signierten, notarisierten Builds.',
       breadcrumb: 'Änderungsprotokoll',
     },
-    ogImageAlt: 'RigOne — ein Graph führt die Arbeit. Eine macOS-IDE für Coding-Agenten.',
+    ogImageAlt: 'RigOne — Die IDE für Coding-Agenten. Als Team ausführen, jede Zeile prüfen.',
   },
   common: {
     skipToContent: 'Zum Inhalt springen',

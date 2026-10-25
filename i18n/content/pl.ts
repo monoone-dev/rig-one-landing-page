@@ -26,7 +26,7 @@ export default {
       description: 'Każde wydanie RigOne: co się zmieniło, co zrobić przy aktualizacji i suma kontrolna podpisanej, notaryzowanej paczki.',
       breadcrumb: 'Lista zmian',
     },
-    ogImageAlt: 'RigOne — jeden graf trzyma całą pracę. IDE dla agentów kodujących na macOS.',
+    ogImageAlt: 'RigOne — IDE dla agentów kodujących. Prowadź je jak zespół, przeglądaj każdą linię.',
   },
   common: {
     skipToContent: 'Przejdź do treści',

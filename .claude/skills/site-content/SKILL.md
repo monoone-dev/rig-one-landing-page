@@ -40,6 +40,9 @@ description: Change what the RigOne website says or shows — page copy in any o
   they were checked (`comparisonCheckedOn` in `app/data/shared.ts` and the footnote). Compare named
   products (`competitors` in `app/data/shared.ts`, as IndexOne does), and mark what cannot be
   verified as "Not stated" instead of guessing.
+- **The comparison does not take sides.** Each row's `verdict` judges RigOne against the strongest
+  of the others: `ahead` only when no other product documents the same thing, otherwise `level` or
+  `behind`. The "behind" list on `/compare` is kept as complete as the "ahead" list.
 - Short sentences, no marketing superlatives. In-app labels (Run, Look only, `/run`) stay in English.
 - **No third-party requests.** No analytics, no CDN fonts or scripts, no runtime `fetch`.
 

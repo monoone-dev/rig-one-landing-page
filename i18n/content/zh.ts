@@ -17,8 +17,8 @@ export default {
       breadcrumb: '文档',
     },
     compare: {
-      title: 'RigOne 与 Superset、Conductor、Nimbalyst、Codex 和 Cursor 对比',
-      description: '与 Superset、Conductor、Nimbalyst、Codex 应用和 Cursor Cloud Agents 对比：本地运行、两家服务商、工作流、检查和花费。',
+      title: 'RigOne 与 Orca、Paseo、Superset、Conductor 等产品对比',
+      description: '如实对比 RigOne 与 Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT 应用和 Cursor Cloud Agents：RigOne 哪里领先，哪里落后。',
       breadcrumb: '对比',
     },
     changelog: {
@@ -450,52 +450,149 @@ export default {
   },
   compare: {
     eyebrow: '对比',
-    title: 'RigOne 与 Superset、Conductor、Nimbalyst、Codex 和 Cursor 对比',
-    lead: '有不少好工具可以并排运行编码智能体。RigOne 适合那些由一连串步骤组成、你想再次运行的工作，并由它自己运行检查。',
-    caption: 'RigOne 与 Superset、Conductor、Nimbalyst、OpenAI Codex 应用和 Cursor Cloud Agents 的对比',
-    capability: '能力',
-    examples: ['桌面应用，源码可见', 'Mac 应用', '桌面应用，MIT 许可', 'OpenAI 的桌面应用', 'Cursor 的云端智能体'],
+    title: 'RigOne 在哪里领先，在哪里落后',
+    lead: '把 RigOne 和 Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT 应用以及 Cursor Cloud Agents 逐行对比，依据是各产品公开的资料。其中几款在更多方面做得比 RigOne 多。',
+    tally: {
+      title: '每一行与其他七款中最强的一款相比',
+      note: '只有在没有其他产品公开说明同样能力时，这一行才算领先。“未说明”不算作否。',
+    },
+    verdicts: { ahead: 'RigOne 领先', level: '大致持平', behind: 'RigOne 落后' },
+    wins: {
+      title: 'RigOne 领先的地方',
+      items: [
+        { title: '可保存的多步骤工作流', body: '一张带循环、条件和重试的可视化图，可以反复运行。Orca 在实验性的命令行模式里有任务图；其他产品每个任务运行一个智能体，外面再套脚本。' },
+        { title: '由工具自己运行的检查', body: '每个步骤之后，RigOne 运行检查，并把结果与智能体的说法分开。“什么都没运行”绝不算通过。其他产品大多只显示 CI 状态，或让智能体测试自己的工作。' },
+        { title: '限制同时工作的智能体数量', body: '你可以设定一次运行中最多有多少个智能体同时工作。这里的其他产品都没有说明这样的限制。' },
+        { title: '不同服务商之间相互交接工作', body: '在一次运行中，一个步骤由 Claude Code 完成，下一个由 Codex 审查。Paseo 也能做到；其他产品只是把智能体并排摆放。' },
+      ],
+    },
+    losses: {
+      title: 'RigOne 落后的地方',
+      items: [
+        { title: '只支持 Mac，且只支持 Apple Silicon', body: 'Orca、Paseo、Nimbalyst 和 ChatGPT 应用也能在 Windows 和 Linux 上运行。Orca 还支持 Intel Mac。' },
+        { title: '源代码未公开', body: 'RigOne 可以免费使用，但你无法阅读或 fork 它的代码。Orca 和 Nimbalyst 采用 MIT，Paseo 采用 Apache 2.0。' },
+        { title: '三款智能体应用', body: 'Claude Code、Codex 和 OpenCode。Orca、Paseo 和 Superset 能运行任何命令行智能体，列出了 20 到 30 款甚至更多。' },
+        { title: '没有内置编辑器或终端', body: 'RigOne 在你自己的编辑器里打开文件。Orca、Paseo 和 Nimbalyst 两者都内置；其他大多数有终端。' },
+        { title: '不能在应用里提交拉取请求', body: '工作留在本地分支上；只有 Auto 在你允许时可以推送。Orca、Paseo、Superset、Conductor 和 Cursor 会创建拉取请求，其中几款还会合并。' },
+        { title: '集成少，没有定时运行', body: '只有分配给你的 Linear 问题能启动运行。其他产品可以定时运行，或由 GitHub、Slack 或 Jira 触发。' },
+        { title: '手机上通过网页访问', body: '需要 MonoOne 账户。Paseo 有无需账户的 iOS 和 Android 应用；Nimbalyst、ChatGPT 和 Cursor 也有应用。' },
+        { title: '只有花费提醒，没有上限', body: '运行达到某个金额时 RigOne 会提醒，但不会停止运行。Cursor 会在达到花费上限时停止。' },
+      ],
+    },
+    table: {
+      title: '逐行对比',
+      lead: '隐藏你不关心的产品，或只显示 RigOne 领先或落后的行。',
+      caption: 'RigOne 与 Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT 应用和 Cursor Cloud Agents 的对比',
+      capability: '能力',
+      products: '产品',
+      rows: '行',
+      all: '全部',
+    },
     labels: { yes: '是', partial: '部分', no: '否', unknown: '未说明' },
     notStated: '未公开说明',
+    groups: {
+      where: '运行环境',
+      agents: '智能体',
+      workflows: '工作流与运行',
+      verify: '验证',
+      review: '审查与工具',
+      team: '团队与集成',
+      cost: '费用',
+    },
     rows: {
+      platforms: {
+        criterion: '平台',
+        cells: ['macOS 13+，仅 Apple Silicon', 'macOS、Windows、Linux', 'macOS、Windows、Linux、网页', 'macOS；Linux 为实验性', 'macOS', 'macOS、Windows、Linux', 'macOS、Windows；Linux 为预览版', '云端；桌面、网页和手机'],
+      },
       local: {
-        criterion: '在你自己的 Mac 和文件夹上工作',
-        cells: ['', '默认在本地', 'Pro 提供云端工作区', '桌面应用；团队可同步', '另有 Codex Cloud', '仅云端虚拟机'],
+        criterion: '在你自己的机器和文件夹上工作',
+        cells: ['', '也可通过 SSH 和在云端虚拟机上', '或在任意机器上运行守护进程', 'Team 提供云端工作区', 'Pro 提供云端工作区', '', '另有云端对话', '云端虚拟机，或你自己的机器'],
+      },
+      remote: {
+        criterion: '在手机上跟进和操控',
+        cells: ['网页；需要账户', 'iOS 和 Android 配套应用，测试版', 'iOS、Android 和网页；无需账户', 'Pro 提供 iOS 应用', 'Pro 提供移动应用', 'iOS 应用', 'ChatGPT iOS 应用', '网页、iOS 和 Android'],
+      },
+      source: {
+        criterion: '开源',
+        cells: ['免费使用；源代码未公开', 'MIT', 'Apache 2.0', '源码可见，Elastic License 2.0', '', 'MIT', '', ''],
+      },
+      agents: {
+        criterion: '可运行的智能体',
+        cells: ['Claude Code、Codex、OpenCode；通过 Ollama 使用本地模型', '任何 CLI 智能体；列出约 30 款', '内置 7 款，通过 ACP 支持 30 款以上', '列出 21 款，另支持任何 CLI 智能体', 'Claude Code、Codex、Cursor、OpenCode', 'Claude Code、Codex；OpenCode 和 Copilot 为 alpha 版', '仅 Codex', 'Cursor 自己的智能体'],
       },
       mix: {
-        criterion: '在一个工作流里同时使用 Claude Code 和 Codex',
-        cells: ['', '并排运行，每个工作区一个智能体', '并排运行，每个工作区一个智能体', '并行会话，每个会话一个智能体', '仅 Codex', 'Cursor 自己的智能体'],
+        criterion: '不同服务商之间相互交接工作',
+        cells: ['一次运行中的步骤可来自不同服务商', '一个提示发给多个智能体；实验性编排中按工作者分配', '智能体可启动其他服务商的智能体并向其发消息', '在同一工作区并排运行', '每个工作区多个，每个对话标签页一个', '并行会话，每个会话一个智能体', '', ''],
       },
       graph: {
         criterion: '可保存并反复运行的多步骤工作流',
-        cells: ['可视化图', '预设和脚本；Pro 提供自动化', '准备和运行脚本', '斜杠命令', '定时自动化', ''],
+        cells: ['带循环、条件和重试的可视化图', '实验性 CLI 编排中的任务图', '由一个智能体根据提示编排；不保存', '预设和准备脚本', '准备、运行和归档脚本', '斜杠命令和技能', '定时任务和准备脚本', '一个自动化运行一个智能体'],
       },
-      isolated: {
-        criterion: '在隔离的代码副本中并行工作',
-        cells: ['每个步骤一个工作区', '每个工作区一个 worktree', '每个任务一个工作区', '每个会话可选一个 worktree', 'Worktree', '每个智能体一台虚拟机'],
+      triggers: {
+        criterion: '定时或由事件触发运行',
+        cells: ['分配给你的 Linear 问题；没有按时钟定时', '定时运行，每次运行前先检查', '定时运行；GitHub、Slack 和 Discord 提及为测试版', 'Pro 提供自动化', '', '', '定时任务；Linear 和 Slack 可启动云端对话', '定时运行，以及来自 GitHub、Slack、Linear 等的事件'],
+      },
+      concurrency: {
+        criterion: '限制同时工作的智能体数量',
+        cells: ['每次运行单独设定', '', '', '', '', '', '', '想并行多少就并行多少'],
+      },
+      spend: {
+        criterion: '花费提醒或上限',
+        cells: ['每次运行一个提醒；不会停止运行', '速率限制提醒，预估费用', '配额和余额', '', '', '', '套餐限额，额外额度', '花费上限'],
       },
       checks: {
         criterion: '由工具运行的检查，与智能体的说法分开',
-        cells: ['“什么都没运行”绝不算通过', '准备和运行脚本', '显示 CI 和拉取请求状态', '', '准备脚本', '由智能体测试自己的工作'],
+        cells: ['“什么都没运行”绝不算通过', '显示 CI 状态；定时运行前先检查', '运行指定脚本；显示拉取请求检查', '', '显示 CI 和拉取请求检查', '', '', '由智能体测试自己的工作并发送视频'],
       },
-      budget: {
-        criterion: '每次运行的花费提醒和并发数',
-        cells: ['每次运行一个提醒', '', '', '', '套餐限额', '有花费上限，无并发限制'],
+      review: {
+        criterion: '逐行审查，评论发回给智能体',
+        cells: ['评论发回给写下那一行的智能体', '评论发回给智能体', '差异审查；未说明行内评论', '评论、编辑和提交', '差异查看器', '行内差异，拉取请求审查', '行内评论，暂存和还原', '审查拉取请求'],
+      },
+      preview: {
+        criterion: '预览应用',
+        cells: ['在空闲端口上启动你的应用', '内置浏览器，带设计模式', '内置浏览器', '浏览器面板', '', '浏览器面板', '浏览器和电脑操作', '截图、视频、远程桌面'],
+      },
+      editor: {
+        criterion: '内置代码编辑器',
+        cells: ['在你自己的编辑器中打开并定位到那一行', 'VS Code 风格的编辑器', '文件编辑', '交给你的 IDE', '', '代码编辑器和可视化编辑器', '', 'Cursor 编辑器'],
+      },
+      terminal: {
+        criterion: '内置终端',
+        cells: ['智能体输出以日志显示，没有 shell', 'GPU 加速的终端', '分栏终端', '标签页、分栏、保留会话', '每个工作区一个', '', '', '虚拟机的远程桌面'],
+      },
+      prs: {
+        criterion: '创建和合并拉取请求',
+        cells: ['只有 Auto 在允许时推送；否则留在本地分支', '创建、合并、自动合并', 'GitHub、GitLab、Gitea 等', '智能体用 gh 创建', '创建、合并和归档', '拉取请求审查', '提交和推送', '可直接合并的拉取请求'],
+      },
+      trackers: {
+        criterion: '问题跟踪和聊天工具',
+        cells: ['仅 Linear，作为触发器', 'GitHub、GitLab、Linear、Jira', 'GitHub 问题；通过 Hub 支持 Slack 和 Discord', 'Pro 支持 Linear 和 Slack', 'Linear 和 GitHub 问题', '通过 MCP 服务器', 'Linear、Slack、GitHub', 'Linear、GitHub、Slack、Bitbucket'],
       },
       boards: {
-        criterion: '共享任务看板和问题跟踪',
-        cells: ['加密看板，Linear 触发器', 'Pro 支持 Linear 和 Slack', 'Linear 和 GitHub 问题', '会话看板', 'Linear 和 GitHub', 'Linear、GitHub 和 Slack'],
-      },
-      platforms: {
-        criterion: '平台',
-        cells: ['macOS 13+，Apple Silicon', 'macOS；Linux 为实验性', 'macOS', 'macOS、Windows、Linux', 'macOS、Windows、Linux', '云端'],
+        criterion: '共享任务看板',
+        cells: ['端到端加密；需要账户', '应用内的 Jira 看板', '通过插件', '', 'Pro 支持多人协作', '会话看板、任务跟踪、团队 wiki', '', ''],
       },
       price: {
         criterion: '价格',
-        cells: ['免费；使用你的 Claude Code 或 Codex 套餐', '免费；Pro 每人每月 20 美元', '免费；Pro 每月 50 美元', '免费，MIT 许可', '包含在 ChatGPT 套餐中', 'Cursor 付费套餐加 API 价格'],
+        cells: ['免费；使用你自己的智能体套餐', '免费；Enterprise 需咨询', '免费；Hub Pro 每席位每月 15 美元', '免费；Pro 每人每月 20 美元，Team 每人每月 60 美元', '免费；Pro 每月 50 美元，Teams 每人 60 美元', '免费；团队 wiki 每人 20 美元，测试期间免费', '包含在所有 ChatGPT 套餐中，包括 Free', 'Cursor 套餐；用量按模型价格计费'],
       },
     },
-    footnoteHtml: '依据各产品公开的文档和价格，于 2026 年 10 月核对。产品变化很快；“未说明”表示我们没有找到公开信息。发现错误？<a href="{issues}">告诉我们</a>。',
+    picks: {
+      title: '该选哪一款',
+      lead: '这些都是好工具。下面是我们会选择各自的场景。',
+      rigone: '如果工作是一连串需要反复运行的步骤，需要由工具自己运行检查，而且在 Mac 上，就选 RigOne。',
+      website: '网站',
+    },
+    products: {
+      orca: { kind: '桌面应用，MIT', pick: '想要最广泛的智能体支持、Windows 和 Linux、内置编辑器和终端，以及在应用里合并拉取请求，就选 Orca。' },
+      paseo: { kind: '桌面、手机和网页，Apache 2.0', pick: '想无需账户就用原生手机应用或网页操控智能体、在任意机器上运行它们，并且全部开源，就选 Paseo。' },
+      superset: { kind: '桌面应用，源码可见', pick: '想在 worktree 中运行多种不同的命令行智能体，并配有 CLI、SDK 和 MCP 服务器，就选 Superset。' },
+      conductor: { kind: 'Mac 应用', pick: '想要一款精致的 Mac 应用，把检查、拉取请求和合并放在一处，Pro 还支持多人协作，就选 Conductor。' },
+      nimbalyst: { kind: '桌面应用，MIT', pick: '想在智能体会话旁使用 Markdown、图表和原型的可视化编辑器，并在任何桌面系统上使用，就选 Nimbalyst。' },
+      chatgpt: { kind: 'ChatGPT 桌面应用中的 Codex', pick: '如果你已经在用 Codex，就选 ChatGPT 应用：所有 ChatGPT 套餐都包含它，还支持电脑操作和用手机控制。' },
+      cursor: { kind: 'Cursor 中的云端智能体', pick: '想让智能体在云端虚拟机中运行、由 GitHub、Slack 或 Linear 事件启动，并发回工作视频，就选 Cursor Cloud Agents。' },
+    },
+    footnoteHtml: '依据各产品公开的文档、README 和价格，于 2026 年 10 月核对。这些产品每周都在更新，有些行会过时。发现错误？<a href="{issues}">告诉我们</a>。',
   },
   faq: {
     eyebrow: '常见问题',

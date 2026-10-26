@@ -1,7 +1,7 @@
 # Using RigOne
 
 RigOne is a native macOS IDE for coding agents. This guide covers installing it, a
-step-by-step tutorial for your first run, every place in the sidebar, handing a whole goal to Auto,
+step-by-step tutorial for your first run, every screen of the app, handing a whole goal to Auto,
 following your work from your phone and reading what happened. It describes RigOne 1.11.0. The
 website renders this file as its documentation pages.
 
@@ -213,7 +213,7 @@ RigOne uses a small, fixed vocabulary. The same words appear on screen, in error
 | **Board** | A shared list of tasks with comments and members, encrypted on your Mac. |
 | **Remote access** | Following and steering your work from a paired phone or tablet. |
 
-## The window and the sidebar
+## The window
 
 The RigOne window has three columns: a narrow rail of icons on the far left, a side panel with your
 tasks and boards, and the screen you opened. Project tabs run along the title bar at the top.
@@ -258,7 +258,18 @@ The rail holds every place, top to bottom. Each icon names its place when you po
 - **Plan limits** at the bottom show how much of the Claude and Codex plans is used, as each agent
   app reports it.
 
-### Several projects side by side
+### The account menu
+
+The initials at the bottom of the rail open **Account and agent apps**:
+
+- **Agent apps** — Claude Code and Codex with their versions, or what is missing, with **Retry**.
+- **Plans** — how much of each plan is used.
+- **Model gateways** — the gateways you added in Settings.
+- **Models on this Mac** — the local models Ollama offers, if it runs.
+- **Connections** — the tool servers turned on in this project.
+- **GitHub account for this folder** — which GitHub login commits and pull requests go out as.
+
+## Projects side by side
 
 Each project you open becomes a tab at the top of the window. A colour tile tells projects apart,
 in the tabs, the project menu and the panes, and a dot says whether the project is **working**,
@@ -280,18 +291,7 @@ another. Your tabs and panes come back after you quit and reopen RigOne.
 
 ![Two projects side by side: client-website, where Ship a feature waits for an answer from Second opinion, and docs-site, with a new Auto task being written.](../public/screenshots/projects.webp)
 
-### The account menu
-
-The initials at the bottom of the rail open **Account and agent apps**:
-
-- **Agent apps** — Claude Code and Codex with their versions, or what is missing, with **Retry**.
-- **Plans** — how much of each plan is used.
-- **Model gateways** — the gateways you added in Settings.
-- **Models on this Mac** — the local models Ollama offers, if it runs.
-- **Connections** — the tool servers turned on in this project.
-- **GitHub account for this folder** — which GitHub login commits and pull requests go out as.
-
-### Search and keyboard shortcuts
+## Search and keyboard shortcuts
 
 **Search** (⌘K) opens **Go to anything**: type part of a name to jump to a section, start a new
 Claude Code, Codex or OpenCode conversation, break a goal into tasks, copy diagnostics, open a saved
@@ -382,33 +382,6 @@ Some work waits its turn on its own, whatever the limit: only one Rust build run
 Mac, whichever step or shell started it, while tests, running apps and reviews carry on beside it.
 When a provider is at capacity or a usage limit is reached, the step waits, says when it tries
 again, and continues the same conversation.
-
-### Reviewing a step
-
-Click a step in the plan to open it. Its screen shows what it was given, what it produced and what
-it said, with **Cost** beside its status and **Run this step again** in the header. Under **Changed
-lines** the step reads like a review in an IDE:
-
-![The Fix step of Ship a feature: the changed lines of validate.ts and its test, a comment on line 15 asking to strip zero-width spaces, and Send comments to the agent.](../public/screenshots/review.webp)
-
-- **Files, hunks and lines.** Each changed file says whether it is new, changed, deleted, renamed
-  or binary, with its added and removed lines. **Open in editor** opens the file at that line in
-  your editor.
-- **Comments on a line.** Click a line, write a comment and choose **Add comment**. **Send comments
-  to the agent** sends them as one message that names every file and line. A step that is still
-  working reads it after its current turn; a finished step carries on in its own folder.
-- **Functions and types changed** lists each one with the places that use it.
-- **Preview this step** starts your command — such as `npm run dev` — in the step's own folder
-  with a free port in `PORT`. **Open preview** shows the app in a window of its own; **Open in
-  browser** and **Stop** do what they say.
-- **Saved versions of these files.** RigOne keeps a version after each turn. **Go back to this
-  version** restores one; what is there now is kept as a new version, so you can always return.
-
-When the work of the steps is brought together and two of them changed the same lines, RigOne
-offers a choice instead of stopping: keep that step's lines where they overlap, or keep the other
-steps' lines.
-
-![The Fix step: two changed functions used in two places each, the app running from the step at a local address with Open preview, and three saved versions of the files.](../public/screenshots/review-tools.webp)
 
 ### The command bar
 
@@ -581,6 +554,93 @@ Each trigger in **Watching** shows what it last did and a switch to turn it on o
 
 Triggers run while RigOne is open; there is no background daemon.
 
+## Reviewing a step
+
+Click a step in the plan to open it. Its screen shows what it was given, what it produced and what
+it said, with **Cost** beside its status and **Run this step again** in the header. Under **Changed
+lines** the step reads like a review in an IDE:
+
+![The Fix step of Ship a feature: the changed lines of validate.ts and its test, a comment on line 15 asking to strip zero-width spaces, and Send comments to the agent.](../public/screenshots/review.webp)
+
+- **Files, hunks and lines.** Each changed file says whether it is new, changed, deleted, renamed
+  or binary, with its added and removed lines. **Open in editor** opens the file at that line in
+  your editor.
+- **Comments on a line.** Click a line, write a comment and choose **Add comment**. **Send comments
+  to the agent** sends them as one message that names every file and line. A step that is still
+  working reads it after its current turn; a finished step carries on in its own folder.
+- **Functions and types changed** lists each one with the places that use it.
+- **Preview this step** starts your command — such as `npm run dev` — in the step's own folder
+  with a free port in `PORT`. **Open preview** shows the app in a window of its own; **Open in
+  browser** and **Stop** do what they say.
+- **Saved versions of these files.** RigOne keeps a version after each turn. **Go back to this
+  version** restores one; what is there now is kept as a new version, so you can always return.
+
+When the work of the steps is brought together and two of them changed the same lines, RigOne
+offers a choice instead of stopping: keep that step's lines where they overlap, or keep the other
+steps' lines.
+
+![The Fix step: two changed functions used in two places each, the app running from the step at a local address with Open preview, and three saved versions of the files.](../public/screenshots/review-tools.webp)
+
+## Checks and second opinions
+
+When a step finishes, RigOne runs the checks itself; it does not ask the agent whether it worked.
+At the end you see three things that are never confused with each other:
+
+1. **what the agent said** it did,
+2. **what the checks actually found**,
+3. **what you approved**.
+
+"Nothing ran" is its own outcome and never counts as a pass: a green exit code without proof that
+tests ran is not accepted as a green check. Vitest results count individual tests, not test files,
+and a check shows live diagnostics while it runs. When required test evidence is missing, the work
+a step completed is kept. A check whose program could not be found says so
+instead of reporting a code failure. The same error twice stops the retries instead of burning more
+attempts.
+
+A **second opinion** is a review by another agent — often another vendor. It can raise concerns
+for you to read; it can never approve or block a run by itself.
+
+## Where the changes go
+
+Each step works in its own copy of your code, so agents cannot trip over each other. When the run
+ends, everything the agents changed waits on its own branch in your project. **Nothing is pushed,
+and nothing reaches your own branch until you take it.** If two branches really conflict when work
+is combined, the message names the branches where the work is kept. Files ignored by the project,
+such as build caches, are skipped, and step folders are removed when a run ends.
+
+Two steps that would write to overlapping places at the same time are refused before the first
+process starts.
+
+## Safety model
+
+RigOne treats orchestration failures as product failures, not terminal noise:
+
+- overlapping write scopes are refused before the first process starts;
+- cancellation ends the whole process group and verifies that it is dead;
+- timeouts go through the same supervised shutdown path;
+- prompts and secrets go through stdin, never command-line arguments;
+- child environments are rebuilt from an explicit allowlist;
+- unknown vendor events are recorded and ignored instead of crashing the run;
+- a green exit code without proof that tests ran is not accepted as a green check;
+- files are the source of truth, while the SQLite index can be deleted and rebuilt.
+
+Settings passed through to an agent app can never raise an agent's file permissions; the **Can it
+change files** control is the only way to do that. A project setting can never send an agent's
+traffic to another address; model gateways are set in your own settings.
+
+With **Full access for agents (YOLO)** on, Auto's agents skip their own permission prompts, as
+when you run them in YOLO mode in a terminal; each step still works in its own copy. Turn it off to
+let each agent app use its own safer permission mode.
+
+### What leaves your Mac
+
+RigOne runs on your Mac and works in your folders. The agents it starts are Claude Code, Codex or
+OpenCode, so what they read goes to their providers exactly as when you run them in a terminal, and
+their commands may reach the network. A model gateway receives the traffic of the agents you send
+through it. A trigger talks to Linear with the key you gave it. Boards talks to the MonoOne server,
+which only ever receives encrypted tasks, comments and activity. Remote access connects your paired
+devices to your Mac through the MonoOne relay.
+
 ## Agents
 
 An agent is a role you define once and reuse in any workflow. **Agents** (⌘1) lists them on the
@@ -722,6 +782,23 @@ conversation, so you can adjust the files by talking to it, and **Undo** brings 
 from before the conversation. When it is ready, **Review your project setup** shows every file it
 would write. Nothing is applied until you choose **Apply setup**.
 
+## Lab
+
+**Lab** (⌘7) lets you measure an agent, a skill or a workflow on cases from your own code.
+
+![The Lab with the set Scout on sign-up bugs open: two cases in two columns, Scout today and Scout with Opus, with passed and did-not-pass marks, and the columns below.](../public/screenshots/lab.webp)
+
+- **Write cases** — the agent reads this project and drafts cases; accept or discard each under
+  **Waiting for you**. While it writes, the same button stops it. **Evaluate** on an agent, a skill or a workflow starts a set for it.
+- **Columns** — every accepted case runs in every column. A column is the agent with one thing
+  changed, such as the model, so you can see whether the change made its work better. A skill set
+  compares the work with and without the skill; a workflow set compares whole workflows on the same
+  cases and starting files.
+- **Run** — measures every case in every column. A mark reads **passed**, **did not pass** or **not
+  measured**; click it for the details and the measured run.
+- **What did not pass** — **Propose a fix** suggests new instructions for the agent, which you
+  **Apply** or **Discard**.
+
 ## Knowledge
 
 **Knowledge** (⌘5) holds what agents take into their prompts.
@@ -789,23 +866,6 @@ the set again does not change what an existing run receives.
 The list on the left names each skill with its summary; the reader on the right shows its
 `SKILL.md`, rendered, and the folders it comes from. A skill is a folder with a `SKILL.md` file. To
 add skills to your RigOne library instead, use **Used when they fit** in [Knowledge](#knowledge).
-
-## Lab
-
-**Lab** (⌘7) lets you measure an agent, a skill or a workflow on cases from your own code.
-
-![The Lab with the set Scout on sign-up bugs open: two cases in two columns, Scout today and Scout with Opus, with passed and did-not-pass marks, and the columns below.](../public/screenshots/lab.webp)
-
-- **Write cases** — the agent reads this project and drafts cases; accept or discard each under
-  **Waiting for you**. While it writes, the same button stops it. **Evaluate** on an agent, a skill or a workflow starts a set for it.
-- **Columns** — every accepted case runs in every column. A column is the agent with one thing
-  changed, such as the model, so you can see whether the change made its work better. A skill set
-  compares the work with and without the skill; a workflow set compares whole workflows on the same
-  cases and starting files.
-- **Run** — measures every case in every column. A mark reads **passed**, **did not pass** or **not
-  measured**; click it for the details and the measured run.
-- **What did not pass** — **Propose a fix** suggests new instructions for the agent, which you
-  **Apply** or **Discard**.
 
 ## Settings
 
@@ -965,89 +1025,6 @@ and **Keep this Mac awake for remote access** keeps it reachable on power, or on
 is running. **Activity** lists every remote action. Turning Remote access off ends every device's
 access at once.
 
-## Checks and second opinions
-
-When a step finishes, RigOne runs the checks itself; it does not ask the agent whether it worked.
-At the end you see three things that are never confused with each other:
-
-1. **what the agent said** it did,
-2. **what the checks actually found**,
-3. **what you approved**.
-
-"Nothing ran" is its own outcome and never counts as a pass: a green exit code without proof that
-tests ran is not accepted as a green check. Vitest results count individual tests, not test files,
-and a check shows live diagnostics while it runs. When required test evidence is missing, the work
-a step completed is kept. A check whose program could not be found says so
-instead of reporting a code failure. The same error twice stops the retries instead of burning more
-attempts.
-
-A **second opinion** is a review by another agent — often another vendor. It can raise concerns
-for you to read; it can never approve or block a run by itself.
-
-## Where the changes go
-
-Each step works in its own copy of your code, so agents cannot trip over each other. When the run
-ends, everything the agents changed waits on its own branch in your project. **Nothing is pushed,
-and nothing reaches your own branch until you take it.** If two branches really conflict when work
-is combined, the message names the branches where the work is kept. Files ignored by the project,
-such as build caches, are skipped, and step folders are removed when a run ends.
-
-Two steps that would write to overlapping places at the same time are refused before the first
-process starts.
-
-## Safety model
-
-RigOne treats orchestration failures as product failures, not terminal noise:
-
-- overlapping write scopes are refused before the first process starts;
-- cancellation ends the whole process group and verifies that it is dead;
-- timeouts go through the same supervised shutdown path;
-- prompts and secrets go through stdin, never command-line arguments;
-- child environments are rebuilt from an explicit allowlist;
-- unknown vendor events are recorded and ignored instead of crashing the run;
-- a green exit code without proof that tests ran is not accepted as a green check;
-- files are the source of truth, while the SQLite index can be deleted and rebuilt.
-
-Settings passed through to an agent app can never raise an agent's file permissions; the **Can it
-change files** control is the only way to do that. A project setting can never send an agent's
-traffic to another address; model gateways are set in your own settings.
-
-With **Full access for agents (YOLO)** on, Auto's agents skip their own permission prompts, as
-when you run them in YOLO mode in a terminal; each step still works in its own copy. Turn it off to
-let each agent app use its own safer permission mode.
-
-### What leaves your Mac
-
-RigOne runs on your Mac and works in your folders. The agents it starts are Claude Code, Codex or
-OpenCode, so what they read goes to their providers exactly as when you run them in a terminal, and
-their commands may reach the network. A model gateway receives the traffic of the agents you send
-through it. A trigger talks to Linear with the key you gave it. Boards talks to the MonoOne server,
-which only ever receives encrypted tasks, comments and activity. Remote access connects your paired
-devices to your Mac through the MonoOne relay.
-
-## Files on disk
-
-| What | Where |
-| --- | --- |
-| Your library: agents, workflows, skills, notes, triggers, context sets, settings | `~/.rig-one/` |
-| Access keys for model gateways | `~/.rig-one/env` |
-| A project's own notes and its run history | `.rig-one/` inside the project folder |
-| One run: plan, status, handoffs, full answers, logs and results file | `.rig-one/runs/<time>__<id>/` |
-| The search index | `.rig-one/rig-one.db` — safe to delete; it is rebuilt from the files |
-
-A project's `.rig-one/` folder is plain files and safe to commit. Agents, workflows and notes are
-Markdown and JSON, so they diff cleanly in Git.
-
-Step copies, their installed packages and build files, and the evidence runs saved take disk space
-of their own. **Settings → Storage** shows how much each part uses and cleans what builds can make
-again. Steps share one Playwright browser folder, so one copy never deletes browsers another
-installed.
-
-Board keys are kept in the macOS Keychain.
-
-**Copy diagnostics** in **Settings → About** copies a diagnostic summary for a bug report. Read it
-before you share it.
-
 ## Updating
 
 RigOne does not install its own updates. **Settings → About** shows your version. To update,
@@ -1074,6 +1051,29 @@ Loadout is the earlier name of RigOne. Version 1.1.0 moves your data on first la
 macOS sees RigOne as a new application, so permissions start over and the old **Loadout.app**
 stays in Applications as a separate app. Delete it once your library has arrived. Releases before
 1.1.0 cannot update into it: install 1.1.0 from the DMG.
+
+## Files on disk
+
+| What | Where |
+| --- | --- |
+| Your library: agents, workflows, skills, notes, triggers, context sets, settings | `~/.rig-one/` |
+| Access keys for model gateways | `~/.rig-one/env` |
+| A project's own notes and its run history | `.rig-one/` inside the project folder |
+| One run: plan, status, handoffs, full answers, logs and results file | `.rig-one/runs/<time>__<id>/` |
+| The search index | `.rig-one/rig-one.db` — safe to delete; it is rebuilt from the files |
+
+A project's `.rig-one/` folder is plain files and safe to commit. Agents, workflows and notes are
+Markdown and JSON, so they diff cleanly in Git.
+
+Step copies, their installed packages and build files, and the evidence runs saved take disk space
+of their own. **Settings → Storage** shows how much each part uses and cleans what builds can make
+again. Steps share one Playwright browser folder, so one copy never deletes browsers another
+installed.
+
+Board keys are kept in the macOS Keychain.
+
+**Copy diagnostics** in **Settings → About** copies a diagnostic summary for a bug report. Read it
+before you share it.
 
 ## Uninstall
 

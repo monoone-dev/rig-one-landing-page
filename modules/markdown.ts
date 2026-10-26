@@ -56,13 +56,14 @@ export interface Docs {
 // How the left navigation groups the guide's "##" sections, in reading order. Every section of
 // docs/user-guide.md must be in exactly one group, or the build fails.
 const docsGroups: { title: string, pages: string[] }[] = [
-  { title: 'Start here', pages: ['getting-started', 'tutorial-your-first-run-step-by-step', 'concepts', 'the-window-and-the-sidebar'] },
-  { title: 'Sidebar: run the work', pages: ['tasks', 'auto', 'boards', 'triggers'] },
-  { title: 'Sidebar: build the rig', pages: ['agents', 'workflows', 'project-rig'] },
-  { title: 'Sidebar: what agents know', pages: ['knowledge', 'context', 'skills', 'lab'] },
+  { title: 'Start here', pages: ['getting-started', 'tutorial-your-first-run-step-by-step', 'concepts'] },
+  { title: 'Your workspace', pages: ['the-window', 'projects-side-by-side', 'search-and-keyboard-shortcuts'] },
+  { title: 'Run the work', pages: ['tasks', 'auto', 'boards', 'triggers'] },
+  { title: 'Review and trust', pages: ['reviewing-a-step', 'checks-and-second-opinions', 'where-the-changes-go', 'safety-model'] },
+  { title: 'Build your rig', pages: ['agents', 'workflows', 'project-rig', 'lab'] },
+  { title: 'What agents know', pages: ['knowledge', 'context', 'skills'] },
   { title: 'Settings and your phone', pages: ['settings', 'remote-access'] },
-  { title: 'Trust and data', pages: ['checks-and-second-opinions', 'where-the-changes-go', 'safety-model', 'files-on-disk'] },
-  { title: 'Maintain', pages: ['updating', 'uninstall', 'troubleshooting'] },
+  { title: 'Maintain', pages: ['updating', 'files-on-disk', 'uninstall', 'troubleshooting'] },
 ]
 
 const slug = (text: string) =>

@@ -147,7 +147,7 @@ const size = (id: ScreenId) => screens.find(s => s.id === id)!
     height: 220px;
     margin: 0 0 0 28px;
     overflow: hidden;
-    border-top-left-radius: 14px;
+    border-top-left-radius: 12px;
     box-shadow: 0 0 0 1px var(--border), var(--shadow-card);
 
     :deep(img) {

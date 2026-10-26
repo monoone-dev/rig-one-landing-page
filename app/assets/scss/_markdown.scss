@@ -142,9 +142,9 @@
     display: block;
     overflow: hidden;
     margin: 20px 0 28px;
-    border-radius: var(--round-xl);
+    border-radius: 12px;
     background: var(--surface-raised);
-    box-shadow: var(--shadow-card), 0 0 0 1px var(--border);
+    box-shadow: var(--shadow-card), 0 0 0 1px var(--border-strong);
 
     img {
       display: block;

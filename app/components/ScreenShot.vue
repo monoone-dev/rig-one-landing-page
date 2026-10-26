@@ -2,8 +2,10 @@
 import type { ScreenId } from '~~/i18n/content/types'
 import { screens } from '~/data/shared'
 
-// One screenshot of the shipped app in a window frame. As on IndexOne, every screen exists in the
-// app's dark and light mode (`<id>.webp`, `<id>-light.webp`) and follows the site's colour mode.
+// One screenshot of the shipped app as a macOS window. The picture already holds the window's own
+// title bar: the traffic lights and the Surface glass with the violet of the mark behind it. As on
+// IndexOne, every screen exists in the app's dark and light mode (`<id>.webp`, `<id>-light.webp`)
+// and follows the site's colour mode.
 const props = withDefaults(defineProps<{ id: ScreenId, eager?: boolean }>(), { eager: false })
 const c = useContent()
 const { asset } = useSiteUrl()
@@ -12,9 +14,6 @@ const shot = computed(() => screens.find(s => s.id === props.id)!)
 
 <template>
   <figure class="shot">
-    <div class="shot__chrome" aria-hidden="true">
-      <span /><span /><span />
-    </div>
     <ThemeImage
       :dark="asset(`screenshots/${id}.webp`)"
       :light="asset(`screenshots/${id}-light.webp`)"
@@ -29,39 +28,26 @@ const shot = computed(() => screens.find(s => s.id === props.id)!)
 <style lang="scss" scoped>
 @use '~/assets/scss/mixins' as *;
 
+// A macOS window: rounded corners, a hairline edge with a lit top, and a deep soft shadow
 .shot {
+  position: relative;
   overflow: hidden;
   margin: 0;
-  border-radius: var(--round-xl);
+  border-radius: 14px;
   background: var(--surface-raised);
-  box-shadow: var(--shadow-card), 0 0 0 1px var(--border);
+  box-shadow: var(--shadow-card), 0 0 0 1px var(--border-strong);
 
-  @include below(xs) {
-    border-radius: var(--round-md);
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0.5px 0 rgb(255 255 255 / 0.35), inset 0 0 0 0.5px rgb(255 255 255 / 0.08);
+    pointer-events: none;
   }
 
-  &__chrome {
-    display: flex;
-    gap: 7px;
-    padding: 11px 14px;
-    border-bottom: 1px solid var(--border);
-
-    span {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--surface-active);
-    }
-
-    @include below(xs) {
-      gap: 5px;
-      padding: 8px 10px;
-
-      span {
-        width: 8px;
-        height: 8px;
-      }
-    }
+  @include below(xs) {
+    border-radius: 8px;
   }
 }
 </style>

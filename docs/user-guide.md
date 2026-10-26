@@ -2,7 +2,7 @@
 
 RigOne is a native macOS IDE for coding agents. This guide covers installing it, a
 step-by-step tutorial for your first run, every place in the sidebar, handing a whole goal to Auto,
-following your work from your phone and reading what happened. It describes RigOne 1.6.7. The
+following your work from your phone and reading what happened. It describes RigOne 1.11.0. The
 website renders this file as its documentation pages.
 
 ## Getting started
@@ -152,16 +152,16 @@ keeping. An approved note goes into every future prompt in this project.
 ### Step 7: hand a whole goal to Auto
 
 Once a workflow has run, try Auto. Press **＋** next to **Tasks** in the side panel (⌘N), choose
-**Auto**, write the goal in a sentence and press **Run**. The line under the box says whether Auto
-has full access here; its **rules** link opens **Settings → Auto**.
+**Auto**, write the goal in a sentence and press **Run**. The line under the box says what Auto will
+do; its **rules** link opens **Settings → Auto**.
 
 ![The new task screen with Auto chosen: a goal asking RigOne to let people export their invoices as CSV from the billing page, with tests, and the line saying that with YOLO on, Auto agents have your access.](../public/screenshots/tutorial-auto.webp)
 
 The Lead picks the agents it needs, builds ordinary workflows for the parts of the goal, runs them
 and reads the results until every part is verified by checks and review. Decisions that wait for
 you collect in **Needs you**, and macOS tells you when one waits while RigOne is in the background.
-The goal is saved, so **Resume a goal** picks it up later. Read [Auto](#auto) before you give Auto
-full access to a project you care about.
+The goal is saved, so **Resume a goal** picks it up later. Read [Auto](#auto) before you turn on
+**Full access for agents (YOLO)** in a project you care about.
 
 ### Working efficiently
 
@@ -182,7 +182,7 @@ full access to a project you care about.
 - **Let RigOne draft the rig.** **Generate project setup** in **Project rig** proposes agents and
   workflows from your repository; nothing changes until you choose **Apply setup**.
 - **Move with the keyboard.** ⌘K finds any place, workflow or agent; ⌘N starts a task; ⌘1 to ⌘9
-  open the screens.
+  open the screens; ⌘⌥1 to ⌘⌥9 pick a project tab.
 
 ## Concepts
 
@@ -216,7 +216,11 @@ RigOne uses a small, fixed vocabulary. The same words appear on screen, in error
 ## The window and the sidebar
 
 The RigOne window has three columns: a narrow rail of icons on the far left, a side panel with your
-tasks and boards, and the screen you opened.
+tasks and boards, and the screen you opened. Project tabs run along the title bar at the top.
+
+In the default **Surface** theme the window is drawn as islands on glass: the rail and the title
+bar sit on the glass, the side panel and the screen are rounded islands, and your macOS wallpaper
+shows through around them.
 
 ![The Go to anything list opened with ⌘K over the window: every section with its G shortcut, and the rail and side panel behind it.](../public/screenshots/search.webp)
 
@@ -256,12 +260,23 @@ The rail holds every place, top to bottom. Each icon names its place when you po
 
 ### Several projects side by side
 
-Each project you open becomes a tab at the top of the window, with a dot that says whether it is
-working or waiting for you. **＋** opens another project as a tab. **⌘⌥\\** shows the next project
-beside the one you are in, up to three side by side; click a pane to work in it, and its **×**
-closes the pane while the tab stays. Every project keeps its own tasks, runs and questions, so a
-run keeps going in one pane while you start a task in another. Your tabs and panes come back after
-you quit and reopen RigOne.
+Each project you open becomes a tab at the top of the window. A colour tile tells projects apart,
+in the tabs, the project menu and the panes, and a dot says whether the project is **working**,
+**waiting on you** or has **nothing running**. **＋** opens another project as a tab.
+
+A plain tab holds one project. Projects shown together form one split tab, up to three side by
+side:
+
+- **Show another project beside this one (⌘⌥\\)** at the end of the tab strip splits the tab you
+  are in. A tab's menu offers **Open side by side with** the project you are in.
+- **Drag a tab** onto another tab to join them, onto the empty part of the strip to take it out of
+  a split tab, or onto the edge of a tab to reorder.
+- **Separate the projects** turns a split tab back into plain tabs.
+- **Drag the edge** between two panes to resize them; a double-click shares the width evenly.
+
+Click a pane to work in it; its **×** closes the pane while the project stays open. Every project
+keeps its own tasks, runs and questions, so a run keeps going in one pane while you start a task in
+another. Your tabs and panes come back after you quit and reopen RigOne.
 
 ![Two projects side by side: client-website, where Ship a feature waits for an answer from Second opinion, and docs-site, with a new Auto task being written.](../public/screenshots/projects.webp)
 
@@ -288,6 +303,10 @@ workflow or an agent. Press **?** or **Keyboard shortcuts** for the full list.
 | ⌘N | Start a new task |
 | ⌘1 … ⌘9 | Agents, Workflows, Tasks, Triggers, Knowledge, Context, Lab, Settings, Boards |
 | G, then a letter | Go to a place: A, W, R (Tasks), T, K, C, L, S, B, P (Project rig) |
+| ⌘⌥\\ | Show another project beside this one |
+| ⌘⌥← / ⌘⌥→ | Move to the pane on the left or right |
+| ⌘⌥1 … ⌘⌥9 | Pick a project tab |
+| ⌘⌥W | Close the pane you are in |
 | ? | Show the shortcuts |
 | Esc | Close |
 
@@ -323,7 +342,8 @@ and its state: **Ready to run**, **Running**, **Finished**, **Failed**, **Stoppe
 
 - **Connections** — which tool servers are connected for this task.
 - **Run goal…** — an optional sentence for what this run should build.
-- **Run workflow** — starts a new run of the whole workflow from the beginning.
+- **Run workflow** — starts a new run of the whole workflow from the beginning. While the run
+  works, the same button reads **Stop**.
 - **Agents** — how many steps may work at the same time. The limit is real: independent branches do
   run in parallel up to it. More agents finish sooner but use more memory.
 
@@ -333,7 +353,7 @@ before earlier agents spend time, and names the step that needs attention. These
 promise that the network or your quota stays available for the whole run.
 
 A spending warning is optional and off by default. Turn on **Warn about spending** in **Settings →
-General** to be told when a run reaches an amount; RigOne warns, it does not stop the run, and it
+Runs** to be told when a run reaches an amount; RigOne warns, it does not stop the run, and it
 cannot count a model whose price it does not know.
 
 ### Watching a run
@@ -393,7 +413,8 @@ steps' lines.
 ### The command bar
 
 The bar at the bottom talks to the Lead. The pill on its left chooses the agent app, model and
-effort for this conversation; **❯ Auto** turns Auto on for the task. The Lead can talk things
+effort for this conversation, and **YOLO mode** in it lets the agent skip its permission prompts;
+the **Auto** switch turns Auto on for the task. The Lead can talk things
 through and prepare, but only `/run` starts work.
 
 | Command | Does |
@@ -418,7 +439,7 @@ and lets it answer you.
 
 ## Auto
 
-Auto hands a whole goal to the Lead. Start a task in **Auto** mode, or turn on **❯ Auto** in the
+Auto hands a whole goal to the Lead. Start a task in **Auto** mode, or turn on the **Auto** switch in the
 command bar, and write what you want in a sentence. The Lead picks the roles and skills it needs,
 builds ordinary workflows for the parts of the goal, runs them, reads the results and chooses the
 next part, until every part is verified. You can keep talking to it while it works.
@@ -431,11 +452,18 @@ next part, until every part is verified. You can keep talking to it while it wor
   committed with a conventional message. Pushes and pull requests are checked against the GitHub
   account chosen for the project and show "Pushed as …". An Auto step uses that account only when
   its agent's **More settings** has **Allow GitHub writes in Auto** on.
-- **The plan shows the parts.** With Auto on, the plan column is **Agents & work**: each part of the
-  goal with its state — waiting, running, ready to verify, completed, needs repair — and where its
-  code was saved. The header counts how many parts are verified.
-- **Saved goals.** A goal is saved where it reached. **Resume a goal** lists the saved ones. Each
-  task runs its own goal; up to three goals work in one folder at a time, and more wait their turn.
+- **The plan shows the parts.** With Auto on, the plan column is **Agents & work**. Its **Work**
+  list groups each part of the goal under **Needs attention**, **In progress**, **Up next** and
+  **Finished**, with its state — waiting, running, ready to verify, completed, needs repair. Open a
+  part for its **Scope**, the **Full report** and **Technical details**, such as where its code was
+  saved. The header counts how many parts are verified.
+- **Saved goals.** A goal is saved where it reached, and a stopped goal offers **Resume goal** to
+  carry on with one click. **Resume a goal** lists the saved ones. Each task runs its own goal; up
+  to three goals work in one folder at a time, and more wait their turn.
+- **Waiting for something.** The Lead can set a condition to wait for: a command RigOne runs on an
+  interval until it succeeds or a deadline passes. The stream says what it waits for and until
+  when. When the condition is met, the Lead continues the goal, also after RigOne restarts. If time
+  runs out, RigOne asks you what the Lead should do now.
 - **When the Lead stops early.** A Lead that stops while its goal still has work and nothing is
   running starts again on its own, spaced out and at most three times without progress.
 
@@ -449,14 +477,15 @@ next part, until every part is verified. You can keep talking to it while it wor
 
 ### Full access
 
-The switch beside **❯ Auto** reads **Full access** or **In its own copy**, and **Settings → Auto**
-holds the same choice. With full access (the default), the Lead and every step run the way the agent
-app runs in your terminal: no fence around the step's copy, no approval prompts, and your normal
-environment, so a step can run the whole test suite, use your keychain, SSH agent and Git settings,
-and publish. The Lead also gets your own tool servers, and on Claude Code your signed-in Chrome.
-In its own copy, the steps stay fenced in their copy and writing outside it needs your approval.
-Either way the project's `deny` rules, the GitHub account check and keeping secrets out of command
-lines stay in force.
+**Full access for agents (YOLO)** in **Settings → Auto** is on by default. With it on, agents skip
+their own permission prompts, like an agent you run yourself in YOLO mode. With it off, each agent
+app uses its own safer permission mode and still works without asking. Either way every step works
+in its own copy, with your sign-ins, and the project's `deny` rules, the GitHub account check and
+keeping secrets out of command lines stay in force. Each step's screen says whether it ran with full
+access.
+
+For a conversation outside Auto, **YOLO mode** in the agent app, model and effort pill makes the
+same choice. It is set when the conversation starts; start a new conversation to change it.
 
 In Auto the Lead can give a step any Connection you have turned on. A Connection you turned off
 stays off, and a plan that names it is refused by name.
@@ -486,7 +515,9 @@ or stopped, and the Dock icon shows how many decisions wait.
 **Design review.** When an Auto result changes screens, RigOne shows you the tester's screenshots
 before the result is recorded. Press **I accept**, or **Mark changes**: click a spot on a
 screenshot, write what should change and **Send remarks**. The Lead turns each remark into the next
-repair. Turn the review off in **Settings → Auto**.
+repair. A change to interface files that only touches logic skips the review, once an independent
+check of the whole change confirms that nothing visible changed; if that cannot be shown, the
+review is asked for as usual. Turn the review off in **Settings → Auto**.
 
 ## Boards
 
@@ -565,7 +596,7 @@ left; the agent you open fills the right.
   models and effort levels offered are the ones your app reports; **Refresh models** updates the
   list, and your choice is never replaced for you. For OpenCode you type the model name, such as
   `zai/glm-4.6`.
-- **Model gateway** — send the agent through a gateway you added in **Settings → Project**, and type
+- **Model gateway** — send the agent through a gateway you added in **Settings → Agent apps**, and type
   the model name exactly as the gateway spells it. A Codex agent can also run a model from **Ollama
   on this Mac**.
 - **Can it change files** — **Look only**, **Ask first** or **Work freely**. A step that must save a
@@ -613,7 +644,8 @@ ended. The first one shows its chain of steps and a filled play button.
 ![The Workflows screen: Ship a feature with its four steps and last run, Fix a bug and Review a pull request below it, each with run, duplicate and delete buttons.](../public/screenshots/workflows.webp)
 
 Press **＋ Create** for an empty canvas, or open a workflow to change it. The play button opens it
-in Tasks, ready to run; duplicate and delete sit beside it. A workflow Auto will not use as a
+in Tasks, ready to run; duplicate and delete sit beside it. Row actions here and elsewhere are icon
+buttons that name themselves when you point at them. A workflow Auto will not use as a
 template says why, by step name, with a button that fixes it where that is possible.
 
 ### The canvas
@@ -677,17 +709,18 @@ the top jump to each part.
   `CLAUDE.md`, with their sizes), **Skills**, and **Lessons from runs** waiting for **Keep** or
   **Discard**.
 - **Triggers** — what starts on its own, and whether it is on.
-- **Auto rules** — **Full access: Auto pushes and opens pull requests itself** and **Learn from
-  runs by default**, as switches.
+- **Auto rules** — whether Auto agents have your access, the **Learn from runs by default** switch,
+  and **All Auto settings**.
 
 ### Generate project setup
 
-**Generate project setup** reads your repository and proposes a rig. Choose the projects to
-analyse, where to save the setup, the model and, optionally, what it should focus on, then press
-**Run**. RigOne checks the models, understands the projects, researches practices, composes the
-setup and validates it; you can close the window and keep working. When it is ready, **Review
-project setup** shows every file it would write. Nothing is applied until you choose **Apply
-setup**.
+**Generate project setup** reads your repository and proposes a rig. Its screen, **Give your agents
+a head start.**, shows how setup works in three stages: **Understand the project**, **Build the
+setup** and **Check and refine**. Choose the projects to analyse and, optionally, write your
+guidance for the lead agent; **More options** holds the model. Setup continues in a lead
+conversation, so you can adjust the files by talking to it, and **Undo** brings back the files
+from before the conversation. When it is ready, **Review your project setup** shows every file it
+would write. Nothing is applied until you choose **Apply setup**.
 
 ## Knowledge
 
@@ -737,7 +770,7 @@ Open a set to add material: paste text or a screenshot into **Material**, or **A
 images, PDFs and text files. A PDF or image may need **Prepare** first. **Options** set what the
 context is for, how the agent should organise it, rules to keep exactly, and whether Claude Code or
 Codex builds it. **Build context** reads the material and organises it into topics, findings,
-questions and conflicts. You can correct a finding, add a correction for the next build and save it
+questions and conflicts; while it builds, the same button stops it. You can correct a finding, add a correction for the next build and save it
 as a new version.
 
 ### Using a set
@@ -764,7 +797,7 @@ add skills to your RigOne library instead, use **Used when they fit** in [Knowle
 ![The Lab with the set Scout on sign-up bugs open: two cases in two columns, Scout today and Scout with Opus, with passed and did-not-pass marks, and the columns below.](../public/screenshots/lab.webp)
 
 - **Write cases** — the agent reads this project and drafts cases; accept or discard each under
-  **Waiting for you**. **Evaluate** on an agent, a skill or a workflow starts a set for it.
+  **Waiting for you**. While it writes, the same button stops it. **Evaluate** on an agent, a skill or a workflow starts a set for it.
 - **Columns** — every accepted case runs in every column. A column is the agent with one thing
   changed, such as the model, so you can see whether the change made its work better. A skill set
   compares the work with and without the skill; a workflow set compares whole workflows on the same
@@ -776,25 +809,46 @@ add skills to your RigOne library instead, use **Used when they fit** in [Knowle
 
 ## Settings
 
-**Settings** (⌘8) opens over the window, with categories under **Work**, **Account** and **App**.
+**Settings** (⌘8) opens over the window. Its pages come in five groups:
 
-![Settings → Appearance: the app language, the Surface, Minimalist, Studio and Linen themes, and System, Light or Dark.](../public/screenshots/settings.webp)
+| Group | Pages |
+| --- | --- |
+| **Work** | Runs, Auto, Limits |
+| **Project** | Project, Connections |
+| **Agents** | Agent apps, and one page each for Claude Code, Codex and OpenCode |
+| **Account** | Account, Remote access |
+| **App** | Appearance, Storage, Health check, About |
 
-### General
+![Settings → Appearance: the app language, the Surface, Minimalist, Studio, Linen and Feather themes, and System, Light or Dark.](../public/screenshots/settings.webp)
 
-Defaults every new run starts from: **Warn about spending** (off by default) and the **Default
-budget warning $**, **Past runs to keep per project** (zero keeps every run), **Learn from runs by
-default** and **Minutes for task planning**.
+### Runs
+
+Spending, history and planning defaults for every run:
+
+- **Spending** — **Warn about spending** (off by default) and the **Default budget warning $**.
+- **Planning** — **Minutes for task planning**.
+- **History** — **Past runs to keep per project** (zero keeps every run) and **Learn from runs by
+  default**.
 
 ### Auto
 
-**Full access (like running the agent yourself in a terminal)** and **Review the design before
-interface changes are recorded**, both on by default. **Computer limits** shows the CPU and free
-memory now, sets **How many agents at once?** — with a suggestion for this Mac — and keeps room for
-other apps. **Adjust limits** sets the CPU limit, the memory to keep free and how long to wait for
-the computer to recover.
+What Auto may do on this computer. **Full access for agents (YOLO)** and **Review the design before
+interface changes are recorded** are both on by default; see [Full access](#full-access) and
+[Needs you](#needs-you). **Credential file exceptions** lists credential files steps may read,
+one absolute file path per line, such as a private registry `.npmrc`. A step may send what it reads
+to the company running the model, so allow only a file you trust every step to read.
 
-![Settings → Auto: full access and design review switched on, and the computer limits with the number of agents at once.](../public/screenshots/settings-auto.webp)
+![Settings → Auto: Full access for agents (YOLO) and the design review switched on, and the list of allowed credential files.](../public/screenshots/settings-auto.webp)
+
+### Limits
+
+**Computer limits** shows the CPU in use now and sets how much work runs at once on this Mac, with
+a suggestion for this computer where there is one:
+
+- **How many agents at once?** — the same number as **Agents** in a run's header.
+- **How many runs at once on this computer?** — when this many runs are going, the next one waits
+  in line.
+- **Light checks at once** and **Builds at once**, or **No build limit**.
 
 ### Project
 
@@ -804,9 +858,30 @@ How conversations start in the open folder:
 - **Project instructions** — whether steps and the Lead read `AGENTS.md`, `CLAUDE.md` and similar
   files as text, with their sources and limits. Private `CLAUDE.local.md` files are left out unless
   you include them.
-- **Connections** — the tool servers enabled for new conversations, with **Import connections**.
-- **Model gateways** — your own address for an agent to go through, in Anthropic or OpenAI shape.
-  The access key is kept in `~/.rig-one/env`, never in the agent file.
+
+### Connections
+
+The tool servers enabled for new conversations in this project, each with its own switch.
+Changes in your Claude Code or Codex settings are not imported on their own: **Import connections**
+brings new ones in, and **Refresh list** reads the list again. A change applies to the next
+conversation you start; existing conversations keep their connections.
+
+### Agent apps
+
+**Updates** shows the installed and newest version of each app with **Update** and **Update all**.
+RigOne updates an app only when no run or conversation is using it, and with **Update automatically
+when idle** it looks at most every six hours. **Editor** picks the app that **Open in** on Project
+rig opens.
+
+**Model gateways** — your own address for an agent to go through, in Anthropic or OpenAI shape.
+The access key is kept in `~/.rig-one/env`, never in the agent file.
+
+Claude Code, Codex and OpenCode each have a page of their own, with a switch, the version it
+answered, how it is signed in, its default model, its tool servers — **Add to this project** copies
+one into the project — and the files RigOne read. OpenCode's page also edits its settings file and
+lists **OpenCode models**.
+
+![Settings → Agent apps: Claude Code, Codex and OpenCode with their versions and an Update button each, automatic updates when idle, the editor RigOne opens and model gateways.](../public/screenshots/settings-agent-apps.webp)
 
 ### Account
 
@@ -817,23 +892,21 @@ stays on this Mac either way.
 
 Pair a phone or tablet and choose what it may reach. See [Remote access](#remote-access).
 
-### Agent apps
-
-**Apps RigOne uses** lists Claude Code, Codex and OpenCode, each with a switch, the version it
-answered, how it is signed in, its default model, its tool servers — **Add to this project** copies
-one into the project — and the files RigOne read. OpenCode's settings file can be edited here.
-
-**Updates** shows the installed and newest version of each app with **Update** and **Update all**.
-RigOne updates an app only when no run or conversation is using it, and with **Update automatically
-when idle** it looks at most every six hours.
-
-![Settings → Agent apps: Claude Code, Codex and OpenCode switched on, each with its version, sign-in, default model and tool servers.](../public/screenshots/settings-agent-apps.webp)
-
 ### Appearance
 
-The **App language**; the theme — **Surface** (the default), **Minimalist**, **Studio** or **Linen** — each in
-**System**, **Light** or **Dark**; an **Accent color**; and the **Conversation view**: **Terminal**
-or **Agent chat**.
+The **App language**; the theme — **Surface** (the default), **Minimalist**, **Studio**, **Linen** or
+**Feather** — each in **System**, **Light** or **Dark**; an **Accent color**; and the **Conversation
+view**: **Terminal** or **Agent chat**. Surface draws the window as islands on glass, with your
+wallpaper showing through. Feather has light type, hairline edges and compact controls.
+
+### Storage
+
+How much disk space RigOne uses, and what it can clean up. Each part is listed with its size:
+step copies, installed packages and build files, evidence, Lead workspaces, what runs started from
+and shared dependencies, with the free space left on the disk. The page shows the last measurement
+at once and measures again in the background. It says how much can be cleaned now, and **Clean
+now** removes what builds can make again. RigOne also cleans up by itself after runs, and
+sooner when the disk runs low.
 
 ### Health check
 
@@ -870,11 +943,18 @@ While Remote access is on, a phone icon in the rail shows whether it is connecte
 
 ### What your phone can do
 
+The remote app opens on **Start** and moves between **Projects**, **Conversations**, **Work**,
+**Planner**, **Boards**, **Needs you**, **Limits**, **Computer** and **This device**:
+
 - Answer questions and approvals waiting in **Needs you**.
-- Start an Auto goal, message the Lead, or stop work.
+- Start a **New conversation** or a **New Auto goal**, message the Lead, or stop work.
+- Review a task list in **Planner** and press **Run selected tasks**; you confirm it with Face ID or
+  Touch ID.
+- Read your boards and comment on their tasks.
 - See usage limits and how busy this Mac is.
 
-Face ID or Touch ID is always on, and the unlock lasts 15 minutes from Face ID. Writing outside a
+A message you are writing is kept on the phone if the connection drops. Face ID or Touch ID is
+always on, and the unlock lasts 15 minutes from Face ID. Writing outside a
 copy and full Auto access are approved only on the Mac.
 
 ### Devices, projects and notifications
@@ -895,7 +975,9 @@ At the end you see three things that are never confused with each other:
 3. **what you approved**.
 
 "Nothing ran" is its own outcome and never counts as a pass: a green exit code without proof that
-tests ran is not accepted as a green check. A check whose program could not be found says so
+tests ran is not accepted as a green check. Vitest results count individual tests, not test files,
+and a check shows live diagnostics while it runs. When required test evidence is missing, the work
+a step completed is kept. A check whose program could not be found says so
 instead of reporting a code failure. The same error twice stops the retries instead of burning more
 attempts.
 
@@ -930,8 +1012,9 @@ Settings passed through to an agent app can never raise an agent's file permissi
 change files** control is the only way to do that. A project setting can never send an agent's
 traffic to another address; model gateways are set in your own settings.
 
-Auto with full access is the exception to the fence: its steps run with the same access as the
-agent app in your terminal. Turn it off when you want Auto's steps to stay in their copies.
+With **Full access for agents (YOLO)** on, Auto's agents skip their own permission prompts, as
+when you run them in YOLO mode in a terminal; each step still works in its own copy. Turn it off to
+let each agent app use its own safer permission mode.
 
 ### What leaves your Mac
 
@@ -954,6 +1037,11 @@ devices to your Mac through the MonoOne relay.
 
 A project's `.rig-one/` folder is plain files and safe to commit. Agents, workflows and notes are
 Markdown and JSON, so they diff cleanly in Git.
+
+Step copies, their installed packages and build files, and the evidence runs saved take disk space
+of their own. **Settings → Storage** shows how much each part uses and cleans what builds can make
+again. Steps share one Playwright browser folder, so one copy never deletes browsers another
+installed.
 
 Board keys are kept in the macOS Keychain.
 
@@ -1000,7 +1088,11 @@ stays in Applications as a separate app. Delete it once your library has arrived
 
 **An agent app is not ready.** Open **Settings → Health check**. Run `claude`, `codex` or
 `opencode` once in Terminal to check that it is installed and signed in, then press **Run again**.
-An app turned off in **Settings → Agent apps** stays off until you switch it on.
+An app turned off on its own page in **Settings**, under **Agents**, stays off until you switch it
+on. If you have more than one OpenCode install, RigOne runs the newest.
+
+**Couldn't access your sign-in in Keychain.** Sign in again, and allow access when macOS asks for
+it.
 
 **A run refuses to start and names a step.** Read the reason on screen: usually a model or effort
 level your agent app no longer offers, a connection that is turned off, or a step that must save a
@@ -1009,12 +1101,18 @@ plan but may only look. Fix the step and start again.
 **Nothing happened after I pressed Enter in the command bar.** The Lead talks and prepares; only
 `/run` starts work, or a goal in Auto.
 
-**Auto asks for approval at every step, or a step cannot reach a file outside its copy.** Auto
-works **In its own copy**. Switch it to **Full access** next to **❯ Auto** or in **Settings → Auto**.
+**A step cannot read a credential file outside its copy.** Every step works in its own copy. Add a
+file it really needs, such as a private registry `.npmrc`, to **Credential file exceptions** in
+**Settings → Auto**.
+
+**A step seems to wait for nothing.** An agent may be waiting for its own background work, such as
+a long build. RigOne does not stop the step early; it waits for the agent to finish that work, as
+the same agent would in a terminal.
 
 **Auto is waiting and nothing moves.** Open **Needs you**: a question or a design review may be
 waiting. A step that waits says what for — a free place, memory, a Rust build or a usage-limit
-reset. Up to three goals work in one folder at a time; a fourth waits its turn.
+reset. A goal may also wait for a condition the Lead set; the stream says what and until when. Up
+to three goals work in one folder at a time; a fourth waits its turn.
 
 **Boards or Remote access says sign-in is required.** They are the only parts that need an
 account. Sign in from **Settings → Account**; the rest of RigOne works without one.

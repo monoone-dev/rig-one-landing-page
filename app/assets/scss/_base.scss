@@ -8,6 +8,7 @@
   --round-xl: 20px;
   --round-pill: 999px;
   --maxw: 1120px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
@@ -112,10 +113,10 @@ code {
 
 .section {
   position: relative;
-  padding: 112px 0;
+  padding: 136px 0;
 
   @include below(sm) {
-    padding: 72px 0;
+    padding: 80px 0;
   }
 
   &--ruled {
@@ -125,48 +126,90 @@ code {
 }
 
 .section-head {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto 56px;
   text-align: center;
 
   h1,
   h2 {
-    font-size: clamp(28px, 4vw, 44px);
-    line-height: 1.1;
-    margin: 14px 0 16px;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.05;
+    margin: 14px 0 18px;
   }
 
   &--page h1 {
-    font-size: clamp(34px, 5vw, 56px);
+    font-size: clamp(36px, 6vw, 64px);
     letter-spacing: -0.03em;
   }
 
   h1,
   h2 {
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
   }
 
   p {
     color: var(--text-secondary);
-    font-size: clamp(16px, 1.8vw, 17px);
+    font-size: clamp(17px, 2vw, 20px);
+    line-height: 1.5;
   }
 }
 
+// Apple's entrance: a short rise out of a soft blur, on a long ease-out. `--reveal-delay` staggers
+// the items of a grid.
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform: translateY(24px) scale(0.985);
+  filter: blur(6px);
+  transition:
+    opacity 0.8s var(--ease-out) var(--reveal-delay, 0s),
+    transform 0.9s var(--ease-out) var(--reveal-delay, 0s),
+    filter 0.8s var(--ease-out) var(--reveal-delay, 0s);
 
   &.is-in {
     opacity: 1;
     transform: none;
+    filter: none;
   }
 
   @include reduced-motion {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
+}
+
+// A window that rises and leans back into place as it scrolls into view. Scroll-driven, so
+// browsers without view timelines simply show it flat.
+@supports (animation-timeline: view()) {
+  .scroll-lean {
+    transform-origin: 50% 100%;
+    animation: lean-in linear both;
+    animation-timeline: view();
+    animation-range: entry 10% entry 100%;
+
+    @include reduced-motion {
+      animation: none;
+    }
+  }
+}
+
+@keyframes lean-in {
+  from {
+    transform: perspective(1800px) rotateX(10deg) scale(0.94) translateY(24px);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+// The violet of the mark as a gradient over text, for the one soft line of a title.
+.text-gradient {
+  background: linear-gradient(100deg, var(--accent-text) 0%, color-mix(in oklch, var(--accent-text) 55%, var(--text-muted)) 55%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .sr-only {

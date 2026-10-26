@@ -3,8 +3,8 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — die IDE für Claude Code, Codex und OpenCode auf Ihrem Mac',
-      description: 'Eine kostenlose macOS-IDE für Coding-Agenten: Claude Code, Codex und OpenCode parallel als Team, jede geänderte Zeile prüfen, die App ansehen, mehrere Projekte zugleich.',
+      title: 'RigOne — IDE für Claude Code, Codex und OpenCode auf dem Mac',
+      description: 'Kostenlose macOS-IDE für Coding-Agenten. Claude Code, Codex und OpenCode als Team, jede geänderte Zeile prüfen, mehrere Projekte nebeneinander.',
     },
     features: {
       title: 'RigOne-Funktionen: eine IDE für Agenten, visuelle Workflows, Prüfungen',
@@ -236,8 +236,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Einstellungen in einem eigenen Fenster',
-        body: 'Kategorien für Arbeit, Konto und App, mit einem Health check, der sagt, was funktioniert. Wählen Sie den Look Surface, Minimalist, Studio oder Linen, hell, dunkel oder wie macOS.',
-        alt: 'Settings → Appearance: die Sprache der App, die Themes Surface, Minimalist, Studio und Linen, System, Light oder Dark.',
+        body: 'Kategorien für Arbeit, Projekte, Agenten, Konto und App, mit einem Health check, der sagt, was funktioniert, und einer Storage-Seite, die zeigt, wie viel Platz RigOne belegt. Wählen Sie den Look Surface, Minimalist, Studio, Linen oder Feather, hell, dunkel oder wie macOS.',
+        alt: 'Settings → Appearance: die Sprache der App, die Themes Surface, Minimalist, Studio, Linen und Feather, System, Light oder Dark.',
       },
     },
   },

@@ -15,11 +15,11 @@ const to = useLocalLink()
       </SectionHead>
 
       <div v-reveal class="ide ide--stacked">
-        <div class="ide__shot">
+        <div class="ide__shot scroll-lean">
           <ScreenShot id="review" />
         </div>
         <ul class="ide__cards">
-          <li v-for="(card, i) in c.ide.review" :key="card.title" class="ide__card">
+          <li v-for="(card, i) in c.ide.review" :key="card.title" v-reveal class="ide__card" :style="{ '--reveal-delay': `${i * 70}ms` }">
             <span class="icon-tile"><UIcon :name="ideIcons[i]!" /></span>
             <span>
               <h3>{{ card.title }}</h3>
@@ -110,6 +110,13 @@ const to = useLocalLink()
 
   &__card {
     @include card;
+
+    transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
 
     display: flex;
     flex-direction: column;

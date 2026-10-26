@@ -30,6 +30,7 @@ function onKey(event: KeyboardEvent) {
       </SectionHead>
 
       <div v-reveal class="screens">
+        <div class="screens__halo" aria-hidden="true" />
         <div class="screens__tabs" role="tablist" :aria-label="c.screens.label" @keydown="onKey">
           <button
             v-for="(s, i) in screens"
@@ -58,7 +59,7 @@ function onKey(event: KeyboardEvent) {
           role="tabpanel"
           :aria-labelledby="`screen-tab-${s.id}`"
         >
-          <ScreenShot :id="s.id" :eager="i === 0" />
+          <ScreenShot :id="s.id" :eager="i === 0" class="screens__shot" />
           <div class="screens__caption">
             <h3>{{ c.screens.items[s.id].title }}</h3>
             <p>{{ c.screens.items[s.id].body }}</p>
@@ -73,10 +74,13 @@ function onKey(event: KeyboardEvent) {
 @use '~/assets/scss/mixins' as *;
 
 .screens {
+  position: relative;
   display: grid;
   gap: 24px;
 
   &__tabs {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-self: center;
     gap: 4px;
@@ -125,9 +129,28 @@ function onKey(event: KeyboardEvent) {
     }
   }
 
+  &__halo {
+    position: absolute;
+    inset: 15% 10% 20%;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, color-mix(in oklch, var(--accent) 16%, transparent), transparent);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
   &__panel {
+    position: relative;
     display: grid;
     gap: 20px;
+    animation: panel-in 0.6s var(--ease-out);
+
+    @include reduced-motion {
+      animation: none;
+    }
+  }
+
+  &__shot {
+    box-shadow: var(--shadow-lg);
   }
 
   &__caption {
@@ -144,6 +167,19 @@ function onKey(event: KeyboardEvent) {
       color: var(--text-secondary);
       font-size: 15px;
     }
+  }
+}
+
+// A new tab's screen settles in rather than snapping
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>

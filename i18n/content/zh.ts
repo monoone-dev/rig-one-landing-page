@@ -236,8 +236,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: '独立窗口中的设置',
-        body: '按工作、账户和应用分类，还有告诉你什么正常的 Health check。选择 Surface、Minimalist、Studio 或 Linen 外观，浅色、深色或跟随 macOS。',
-        alt: 'Settings → Appearance：应用语言、Surface、Minimalist、Studio 和 Linen 四种主题、System、Light 或 Dark。',
+        body: '按工作、项目、智能体、账户和应用分类，还有告诉你什么正常的 Health check，以及显示 RigOne 占用多少磁盘空间的 Storage 页面。选择 Surface、Minimalist、Studio、Linen 或 Feather 外观，浅色、深色或跟随 macOS。',
+        alt: 'Settings → Appearance：应用语言、Surface、Minimalist、Studio、Linen 和 Feather 五种主题、System、Light 或 Dark。',
       },
     },
   },

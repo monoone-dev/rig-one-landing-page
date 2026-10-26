@@ -11,7 +11,8 @@ const c = useContent()
         {{ c.how.lead }}
       </SectionHead>
       <ol class="steps">
-        <li v-for="(step, i) in c.how.steps" :key="step.title" v-reveal class="steps__item">
+        <li v-for="(step, i) in c.how.steps" :key="step.title" v-reveal class="steps__item" :style="{ '--reveal-delay': `${i * 110}ms` }">
+          <span class="steps__big" aria-hidden="true">{{ i + 1 }}</span>
           <span class="steps__n">
             <UIcon :name="howIcons[i]!" class="size-4" />
             {{ String(i + 1).padStart(2, '0') }}
@@ -42,7 +43,20 @@ const c = useContent()
   &__item {
     @include card;
 
+    position: relative;
+    overflow: hidden;
     padding: 28px;
+    border-radius: 24px;
+    transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    > :not(.steps__big) {
+      position: relative;
+    }
 
     &:last-child .steps__n {
       background: var(--accent-soft);
@@ -58,6 +72,25 @@ const c = useContent()
       color: var(--text-secondary);
       font-size: 15px;
     }
+  }
+
+  // A large, faint numeral in the corner, as on Apple's step-by-step pages
+  &__big {
+    position: absolute;
+    top: -28px;
+    right: 8px;
+    color: transparent;
+    font-size: 160px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    -webkit-text-stroke: 1px var(--border-strong);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__item:last-child &__big {
+    -webkit-text-stroke-color: var(--accent-ring);
   }
 
   &__n {

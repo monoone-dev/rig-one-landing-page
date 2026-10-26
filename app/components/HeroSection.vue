@@ -15,10 +15,12 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
 
 <template>
   <section id="product" class="hero" aria-labelledby="hero-title">
-    <div class="hero__glow" aria-hidden="true" />
+    <div class="hero__aurora" aria-hidden="true">
+      <span /><span /><span />
+    </div>
     <div class="wrap">
       <div class="hero__intro">
-        <div class="hero__badges">
+        <div class="hero__badges rise" style="--rise: 0">
           <NuxtLink v-if="latest" :to="to(`/changelog#${latest.tag}`)" class="pill pill--link">
             <span class="pill__dot" /> {{ release }}
           </NuxtLink>
@@ -26,29 +28,29 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
           <span class="pill pill--wide"><UIcon name="i-lucide-git-compare-arrows" /> {{ c.hero.badgeAgents }}</span>
         </div>
 
-        <p class="hero__audience">
-          <UIcon name="i-lucide-terminal" class="size-4 shrink-0" />
+        <p class="hero__audience rise" style="--rise: 1">
+          <UIcon name="i-lucide-terminal" class="hero__audience-icon size-4 shrink-0" />
           {{ c.hero.audience }}
         </p>
-        <h1 id="hero-title" class="hero__title">
-          {{ c.hero.titleStrong }} <span class="hero__title-soft">{{ c.hero.titleSoft }}</span>
+        <h1 id="hero-title" class="hero__title rise" style="--rise: 2">
+          {{ c.hero.titleStrong }} <span class="hero__title-soft text-gradient">{{ c.hero.titleSoft }}</span>
         </h1>
-        <p class="hero__sub">
+        <p class="hero__sub rise" style="--rise: 3">
           {{ c.hero.sub }}
         </p>
 
-        <div class="hero__actions">
+        <div class="hero__actions rise" style="--rise: 4">
           <UButton :to="site.links.download" external target="_blank" size="xl" icon="i-lucide-arrow-down-to-line" :label="c.hero.download" />
           <UButton :to="to('/docs')" size="xl" color="neutral" variant="outline" icon="i-lucide-book-open" :label="c.hero.docsCta" />
         </div>
-        <p class="hero__note">
+        <p class="hero__note rise" style="--rise: 5">
           <UIcon name="i-lucide-check" class="hero__note-icon" />
           {{ c.hero.note }}
         </p>
       </div>
 
       <ul class="hero__problems" :aria-label="c.hero.problemsLabel">
-        <li v-for="(p, i) in c.hero.problems" :key="p.problem" class="problem">
+        <li v-for="(p, i) in c.hero.problems" :key="p.problem" class="problem rise" :style="{ '--rise': 6 + i }">
           <span class="problem__icon"><UIcon :name="problemIcons[i]!" /></span>
           <span class="problem__text">
             <s class="problem__pain">{{ p.problem }}</s>
@@ -57,8 +59,11 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
         </li>
       </ul>
 
-      <div class="hero__stage">
-        <ScreenShot id="projects" eager />
+      <div class="hero__stage rise" style="--rise: 8">
+        <div class="hero__halo" aria-hidden="true" />
+        <div class="scroll-lean">
+          <ScreenShot id="projects" eager />
+        </div>
         <ul class="hero__chips" aria-hidden="true">
           <li v-for="(chip, i) in c.hero.chips" :key="chip" class="chip" :class="`chip--${i}`">
             <UIcon :name="chipIcons[i]!" class="chip__icon" />
@@ -82,17 +87,66 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
     padding-top: 44px;
   }
 
-  // Airy keeps the canvas calm: only a faint lift of light behind the title.
-  &__glow {
+  // Three soft blooms of the mark's violet drift slowly behind the title, as on an Apple
+  // product page: felt more than seen, and still when motion is reduced.
+  &__aurora {
     position: absolute;
-    inset: -10% -10% auto;
-    height: 720px;
-    background: radial-gradient(46% 50% at 50% 0%, color-mix(in srgb, var(--surface-raised) 70%, transparent), transparent 72%);
+    inset: -240px 0 auto;
+    height: 900px;
+    overflow: hidden;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, #000 40%, transparent);
+
+    span {
+      position: absolute;
+      width: 640px;
+      height: 640px;
+      border-radius: 50%;
+      background: radial-gradient(closest-side, color-mix(in oklch, var(--accent) 22%, transparent), transparent);
+      filter: blur(30px);
+      animation: drift 22s ease-in-out infinite alternate;
+
+      &:nth-child(1) {
+        top: 60px;
+        left: calc(50% - 720px);
+      }
+
+      &:nth-child(2) {
+        top: -40px;
+        left: calc(50% + 40px);
+        background: radial-gradient(closest-side, color-mix(in oklch, oklch(70% 0.16 250) 20%, transparent), transparent);
+        animation-delay: -7s;
+      }
+
+      &:nth-child(3) {
+        top: 260px;
+        left: calc(50% - 260px);
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(closest-side, color-mix(in oklch, oklch(72% 0.15 330) 14%, transparent), transparent);
+        animation-delay: -14s;
+      }
+    }
+
+    @include reduced-motion {
+      span {
+        animation: none;
+      }
+    }
+  }
+
+  &__halo {
+    position: absolute;
+    inset: 8% 6% -4%;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, color-mix(in oklch, var(--accent) 26%, transparent), transparent);
+    filter: blur(50px);
+    opacity: 0.8;
     pointer-events: none;
   }
 
   &__intro {
-    max-width: 860px;
+    max-width: 980px;
     margin: 0 auto;
     text-align: center;
   }
@@ -122,22 +176,29 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
     letter-spacing: 0.01em;
   }
 
+  &__audience-icon {
+    @include below(sm) {
+      display: none;
+    }
+  }
+
   &__title {
-    margin-bottom: 22px;
-    font-size: clamp(36px, 6vw, 68px);
-    line-height: 1.04;
-    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 650;
+    line-height: 1.02;
+    letter-spacing: -0.045em;
     text-wrap: balance;
     overflow-wrap: break-word;
   }
 
   &__title-soft {
     display: block;
-    color: var(--text-muted);
+    padding-bottom: 0.06em;
   }
 
   &__sub {
-    max-width: 44em;
+    max-width: 40em;
     margin: 0 auto 30px;
     color: var(--text-secondary);
     font-size: clamp(16.5px, 2vw, 19px);
@@ -185,19 +246,23 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
   &__stage {
     position: relative;
     max-width: 1080px;
-    margin: 56px auto 0;
+    margin: 72px auto 0;
 
     @include below(sm) {
-      margin-top: 32px;
+      margin-top: 36px;
     }
 
     :deep(.shot) {
-      box-shadow: var(--shadow-lg), 0 40px 80px -40px rgb(20 30 25 / 0.18);
+      position: relative;
+      box-shadow: var(--shadow-lg), 0 60px 120px -50px color-mix(in oklch, var(--accent) 45%, transparent);
     }
   }
 
   &__chips {
+    position: absolute;
+    inset: 0;
     margin: 0;
+    pointer-events: none;
     padding: 0;
     list-style: none;
 
@@ -210,6 +275,13 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
 .problem {
   display: flex;
   @include card;
+
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
 
   gap: 14px;
   align-items: flex-start;
@@ -254,8 +326,10 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
   gap: 8px;
   padding: 10px 16px;
   border-radius: var(--round-pill);
-  background: var(--surface-raised);
-  box-shadow: var(--shadow-lg);
+  background: color-mix(in srgb, var(--surface-raised) 78%, transparent);
+  box-shadow: var(--shadow-lg), inset 0 0 0 1px var(--border);
+  backdrop-filter: saturate(1.6) blur(16px);
+  -webkit-backdrop-filter: saturate(1.6) blur(16px);
   color: var(--text-primary);
   font-size: 13.5px;
   font-weight: 600;
@@ -289,6 +363,40 @@ const chipIcons = ['i-lucide-circle-check', 'i-lucide-columns-2', 'i-lucide-shie
 
   @include reduced-motion {
     animation: none;
+  }
+}
+
+// The first screen arrives in order: badges, title, words, buttons, then the window.
+.rise {
+  animation: rise 1s var(--ease-out) backwards;
+  animation-delay: calc(var(--rise, 0) * 70ms + 80ms);
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(60px, 40px, 0) scale(1.12);
   }
 }
 

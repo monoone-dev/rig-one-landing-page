@@ -1,7 +1,7 @@
-// The RigOne skin: SurfaceOne's Airy — a cool stone canvas, white cards that float on it without
-// a border and pill controls (values from @surface-one/tokens, src/definitions/airy.mjs) — with
-// the violet of the RigOne mark as its one accent in place of Airy's sage. The token names stay
-// the site's own, and Nuxt UI is bridged onto them below.
+// The RigOne skin: SurfaceOne's Airy shapes — white cards that float without a border, pill
+// controls — on Apple's product-page neutrals (a pale grey canvas in light, near-black in dark),
+// with the violet of the RigOne mark as the one accent. The token names stay the site's own, and
+// Nuxt UI is bridged onto them below.
 @use 'sass:map';
 @use 'sass:meta';
 
@@ -19,46 +19,46 @@ $violet: (
 @function violet($n) { @return map.get($violet, $n); }
 
 $light: (
-  surface-base: #f3f4f2,
+  surface-base: #f5f5f7,
   surface-raised: #ffffff,
-  surface-sunken: #ebedea,
-  surface-hover: #eceeeb,
-  surface-active: #e3e6e2,
-  text-primary: #1a1d1b,
-  text-soft: #363a37,
-  text-secondary: #5a605c,
-  text-muted: #5a605c,
+  surface-sunken: #ececf0,
+  surface-hover: #ededf0,
+  surface-active: #e3e3e8,
+  text-primary: #1d1d1f,
+  text-soft: #333336,
+  text-secondary: #5f5f65,
+  text-muted: #5f5f65,
   accent: violet(600),
   accent-hover: violet(700),
   accent-text: violet(700),
   text-on-accent: #ffffff,
   accent-soft: color-mix(in oklch, #{violet(500)} 9%, transparent),
   accent-ring: color-mix(in oklch, #{violet(500)} 35%, transparent),
-  border: rgb(26 29 27 / 0.08),
-  border-subtle: rgb(26 29 27 / 0.08),
-  border-strong: rgb(26 29 27 / 0.14),
+  border: rgb(0 0 0 / 0.08),
+  border-subtle: rgb(0 0 0 / 0.07),
+  border-strong: rgb(0 0 0 / 0.14),
   safe-text: #22663a,
   warn-text: #87540c,
   live-text: #a32d24,
-  shadow-sm: 0 1px 2px 0 rgb(26 29 27 / 0.04),
-  shadow-card: (0 1px 2px rgb(20 30 25 / 0.05), 0 8px 24px -8px rgb(20 30 25 / 0.12)),
-  shadow-lg: (0 12px 32px -8px rgb(26 29 27 / 0.12), 0 2px 6px -2px rgb(26 29 27 / 0.06)),
+  shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04),
+  shadow-card: (0 1px 2px rgb(0 0 0 / 0.04), 0 10px 30px -12px rgb(0 0 0 / 0.12)),
+  shadow-lg: (0 24px 60px -20px rgb(0 0 0 / 0.22), 0 2px 6px -2px rgb(0 0 0 / 0.06)),
 );
 
 $dark: (
-  surface-base: #1b1d1c,
-  surface-raised: #242725,
-  surface-sunken: #151716,
-  surface-hover: #2b2f2c,
-  surface-active: #313532,
-  text-primary: #eef0ee,
-  text-soft: #d6dad7,
-  text-secondary: #a3aaa5,
-  text-muted: #a3aaa5,
+  surface-base: #0b0b0c,
+  surface-raised: #1c1c1e,
+  surface-sunken: #121214,
+  surface-hover: #232326,
+  surface-active: #2c2c2e,
+  text-primary: #f5f5f7,
+  text-soft: #d2d2d7,
+  text-secondary: #a1a1a6,
+  text-muted: #a1a1a6,
   accent: violet(400),
   accent-hover: color-mix(in oklch, #{violet(400)} 85%, white),
   accent-text: violet(300),
-  text-on-accent: #1b1d1c,
+  text-on-accent: #0b0b0c,
   accent-soft: color-mix(in oklch, #{violet(400)} 14%, transparent),
   accent-ring: color-mix(in oklch, #{violet(400)} 45%, transparent),
   border: rgb(255 255 255 / 0.08),
@@ -68,8 +68,8 @@ $dark: (
   warn-text: #e3b05a,
   live-text: #f08a80,
   shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3),
-  shadow-card: (0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -8px rgb(0 0 0 / 0.45)),
-  shadow-lg: (0 12px 32px -8px rgb(0 0 0 / 0.5), 0 2px 6px -2px rgb(0 0 0 / 0.3)),
+  shadow-card: (0 0 0 1px rgb(255 255 255 / 0.06), 0 10px 30px -12px rgb(0 0 0 / 0.6)),
+  shadow-lg: (0 0 0 1px rgb(255 255 255 / 0.08), 0 30px 70px -24px rgb(0 0 0 / 0.8)),
 );
 
 @mixin tokens($map) {

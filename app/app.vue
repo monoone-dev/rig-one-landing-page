@@ -24,8 +24,8 @@ useHead(() => ({
   ],
   meta: [
     ...(localeHead.value.meta ?? []),
-    { name: 'theme-color', content: '#fcfcfd', media: '(prefers-color-scheme: light)' },
-    { name: 'theme-color', content: '#09090b', media: '(prefers-color-scheme: dark)' },
+    { name: 'theme-color', content: '#f5f5f7', media: '(prefers-color-scheme: light)' },
+    { name: 'theme-color', content: '#0b0b0c', media: '(prefers-color-scheme: dark)' },
     { name: 'msapplication-TileColor', content: site.themeColor },
   ],
 }))

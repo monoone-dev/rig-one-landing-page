@@ -115,6 +115,8 @@ export function useSoftwareApplicationSchema() {
     'processorRequirements': 'Apple Silicon (arm64)',
     'downloadUrl': site.links.download,
     'releaseNotes': absolute('/changelog/'),
+    'softwareHelp': { '@type': 'CreativeWork', 'url': absolute('/docs/') },
+    'sameAs': [site.links.repo],
     ...(latest ? { softwareVersion: latest.version, datePublished: latest.date } : {}),
     'isAccessibleForFree': true,
     'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'USD' },

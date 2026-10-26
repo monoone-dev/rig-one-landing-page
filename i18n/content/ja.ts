@@ -236,8 +236,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: '独立したウィンドウの設定',
-        body: '作業、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check。Surface、Minimalist、Studio、Linen の外観を、ライト、ダーク、または macOS に合わせて選べます。',
-        alt: 'Settings → Appearance：アプリの言語、Surface・Minimalist・Studio・Linen のテーマ、System・Light・Dark。',
+        body: '作業、プロジェクト、エージェント、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check と、RigOne が使うディスク容量を示す Storage ページ。Surface、Minimalist、Studio、Linen、Feather の外観を、ライト、ダーク、または macOS に合わせて選べます。',
+        alt: 'Settings → Appearance：アプリの言語、Surface・Minimalist・Studio・Linen・Feather のテーマ、System・Light・Dark。',
       },
     },
   },

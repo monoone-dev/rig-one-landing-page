@@ -63,16 +63,17 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
   top: 0;
   z-index: 40;
   border-bottom: 1px solid var(--border-subtle);
-  background: color-mix(in srgb, var(--surface-base) 80%, transparent);
-  backdrop-filter: saturate(1.4) blur(14px);
-  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  // Apple's frosted bar: mostly see-through, the page blurring and brightening behind it
+  background: color-mix(in srgb, var(--surface-base) 72%, transparent);
+  backdrop-filter: saturate(1.8) blur(20px);
+  -webkit-backdrop-filter: saturate(1.8) blur(20px);
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    height: 64px;
+    height: 58px;
 
     @include below(xs) {
       height: 56px;
@@ -97,7 +98,7 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
     padding: 7px 14px;
     border-radius: var(--round-pill);
     color: var(--text-secondary);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
     transition: color 0.15s, background-color 0.15s;

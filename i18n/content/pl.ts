@@ -222,10 +222,10 @@ export default {
         alt: 'Kanwa Ship a feature: Reproduce, potem Fix, potem obok siebie Tests pass i Second opinion.',
       },
       project: {
-        tab: 'Project rig',
+        tab: 'Project overview',
         title: 'Cały projekt na jednej stronie',
-        body: 'Najpierw repozytorium — gałąź, zmiany, rozmiar na dysku i przestrzenie robocze — potem jego agenci, workflowy, wiedza, wyzwalacze i zasady Auto.',
-        alt: 'Przegląd projektu client-website: gałąź main aktualna, nic do zatwierdzenia, 432 MB na dysku z jedną przestrzenią roboczą i czterech agentów z dostępem do plików i modelem.',
+        body: 'Najpierw Score — jak łatwo agenci poruszają się po projekcie — potem repozytorium: gałąź, zmiany, rozmiar na dysku i przestrzenie robocze, a dalej agenci, workflowy, wiedza, wyzwalacze i zasady Auto.',
+        alt: 'Przegląd projektu client-website: wynik 78 na 100 z podsumowaniem, a pod nim repozytorium z aktualną gałęzią main, niczym do zatwierdzenia i 432 MB na dysku.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -414,10 +414,11 @@ export default {
         ],
       },
       rig: {
-        eyebrow: 'Project rig',
+        eyebrow: 'Project overview',
         title: 'Jedna strona dla całego projektu',
-        body: 'Kto pracuje w tym projekcie, jak i co wie: agenci, workflowy, wiedza, wyzwalacze i zasady Auto obok siebie.',
+        body: 'Kto pracuje w tym projekcie, jak, co wie i jak łatwo agenci się w nim odnajdują: Score, agenci, workflowy, wiedza, wyzwalacze i zasady Auto obok siebie.',
         points: [
+          'Score: agent czyta projekt i ocenia go w skali do 100, najpierw najsłabsze obszary, każdy z rekomendacjami i przyciskiem, który uruchamia poprawkę',
           'Najpierw fakty o repozytorium: gałąź, zmiany, gałęzie, rozmiar na dysku i przestrzenie robocze',
           'Otwórz projekt w swoim edytorze prosto z przeglądu',
           'Generate project setup przygotowuje agentów i workflowy z repozytorium; nic się nie zmienia, dopóki nie wybierzesz Apply',

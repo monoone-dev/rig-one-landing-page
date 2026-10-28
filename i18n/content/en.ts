@@ -222,10 +222,10 @@ export default {
         alt: 'The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side.',
       },
       project: {
-        tab: 'Project rig',
+        tab: 'Project overview',
         title: 'The whole project on one page',
-        body: 'The repository first — branch, changes, size on disk and workspaces — then its agents, workflows, knowledge, triggers and Auto rules.',
-        alt: 'Project overview for client-website: the main branch up to date, nothing to commit, 432 MB on disk with one workspace, and four agents with their file access and model.',
+        body: 'Score first — how easily agents move through it — then the repository: branch, changes, size on disk and workspaces, and its agents, workflows, knowledge, triggers and Auto rules.',
+        alt: 'Project overview for client-website: a score of 78 out of 100 with a summary, then the repository with the main branch up to date, nothing to commit and 432 MB on disk.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -414,10 +414,11 @@ export default {
         ],
       },
       rig: {
-        eyebrow: 'Project rig',
+        eyebrow: 'Project overview',
         title: 'One page for the whole project',
-        body: 'Who works in this project, how, and what they know: its agents, workflows, knowledge, triggers and Auto rules side by side.',
+        body: 'Who works in this project, how, what they know and how easily agents find their way: Score, agents, workflows, knowledge, triggers and Auto rules side by side.',
         points: [
+          'Score: an agent reads the project and rates it out of 100, weakest areas first, each with recommendations and a button that starts a fix',
           'Repository facts first: branch, changes, branches, size on disk and workspaces',
           'Open the project in your editor from the overview',
           'Generate project setup drafts agents and workflows from the repository; nothing changes until you choose Apply',

@@ -222,10 +222,10 @@ export default {
         alt: 'Die Leinwand von Ship a feature: Reproduce, dann Fix, dann Tests pass und Second opinion nebeneinander.',
       },
       project: {
-        tab: 'Project rig',
+        tab: 'Project overview',
         title: 'Das ganze Projekt auf einer Seite',
-        body: 'Zuerst das Repository — Branch, Änderungen, Größe auf der Festplatte und Arbeitsbereiche —, dann seine Agenten, Workflows, das Wissen, Trigger und Auto-Regeln.',
-        alt: 'Projektübersicht für client-website: der Branch main ist aktuell, nichts zu committen, 432 MB auf der Festplatte mit einem Arbeitsbereich und vier Agenten mit Dateizugriff und Modell.',
+        body: 'Zuerst Score — wie leicht sich Agenten darin zurechtfinden —, dann das Repository: Branch, Änderungen, Größe auf der Festplatte und Arbeitsbereiche, und seine Agenten, Workflows, das Wissen, Trigger und Auto-Regeln.',
+        alt: 'Projektübersicht für client-website: eine Bewertung von 78 von 100 mit Zusammenfassung, darunter das Repository mit aktuellem Branch main, nichts zu committen und 432 MB auf der Festplatte.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -414,10 +414,11 @@ export default {
         ],
       },
       rig: {
-        eyebrow: 'Project rig',
+        eyebrow: 'Project overview',
         title: 'Eine Seite für das ganze Projekt',
-        body: 'Wer in diesem Projekt arbeitet, wie und was er weiß: Agenten, Workflows, Wissen, Trigger und Auto-Regeln nebeneinander.',
+        body: 'Wer in diesem Projekt arbeitet, wie, mit welchem Wissen und wie leicht sich Agenten zurechtfinden: Score, Agenten, Workflows, Wissen, Trigger und Auto-Regeln nebeneinander.',
         points: [
+          'Score: Ein Agent liest das Projekt und bewertet es mit bis zu 100 Punkten, die schwächsten Bereiche zuerst, jeder mit Empfehlungen und einer Schaltfläche, die eine Korrektur startet',
           'Zuerst die Fakten zum Repository: Branch, Änderungen, Branches, Größe auf der Festplatte und Arbeitsbereiche',
           'Das Projekt aus der Übersicht im eigenen Editor öffnen',
           'Generate project setup entwirft Agenten und Workflows aus dem Repository; nichts ändert sich, bis Sie Apply wählen',

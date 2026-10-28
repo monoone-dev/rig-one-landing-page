@@ -222,10 +222,10 @@ export default {
         alt: 'Le canevas de Ship a feature : Reproduce, puis Fix, puis Tests pass et Second opinion côte à côte.',
       },
       project: {
-        tab: 'Project rig',
+        tab: 'Project overview',
         title: 'Tout le projet sur une page',
-        body: 'D’abord le dépôt — branche, changements, taille sur le disque et espaces de travail — puis ses agents, flux, connaissances, déclencheurs et règles Auto.',
-        alt: 'Vue d’ensemble du projet client-website : la branche main à jour, rien à committer, 432 Mo sur le disque avec un espace de travail, et quatre agents avec leur accès aux fichiers et leur modèle.',
+        body: 'D’abord Score — la facilité avec laquelle les agents s’y retrouvent — puis le dépôt : branche, changements, taille sur le disque et espaces de travail, et ses agents, flux, connaissances, déclencheurs et règles Auto.',
+        alt: 'Vue d’ensemble du projet client-website : un score de 78 sur 100 avec un résumé, puis le dépôt avec la branche main à jour, rien à committer et 432 Mo sur le disque.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -414,10 +414,11 @@ export default {
         ],
       },
       rig: {
-        eyebrow: 'Project rig',
+        eyebrow: 'Project overview',
         title: 'Une page pour tout le projet',
-        body: 'Qui travaille dans ce projet, comment et avec quelles connaissances : agents, flux, connaissances, déclencheurs et règles Auto côte à côte.',
+        body: 'Qui travaille dans ce projet, comment, avec quelles connaissances et avec quelle facilité les agents s’y retrouvent : Score, agents, flux, connaissances, déclencheurs et règles Auto côte à côte.',
         points: [
+          'Score : un agent lit le projet et le note sur 100, les points faibles d’abord, chacun avec des recommandations et un bouton qui lance une correction',
           'D’abord les infos du dépôt : branche, changements, branches, taille sur le disque et espaces de travail',
           'Ouvrez le projet dans votre éditeur depuis la vue d’ensemble',
           'Generate project setup prépare agents et flux à partir du dépôt ; rien ne change tant que vous ne choisissez pas Apply',

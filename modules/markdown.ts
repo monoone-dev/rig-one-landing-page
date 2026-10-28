@@ -60,7 +60,7 @@ const docsGroups: { title: string, pages: string[] }[] = [
   { title: 'Your workspace', pages: ['the-window', 'projects-side-by-side', 'search-and-keyboard-shortcuts'] },
   { title: 'Run the work', pages: ['tasks', 'auto', 'boards', 'triggers'] },
   { title: 'Review and trust', pages: ['reviewing-a-step', 'checks-and-second-opinions', 'where-the-changes-go', 'safety-model'] },
-  { title: 'Build your rig', pages: ['agents', 'workflows', 'project-rig', 'lab'] },
+  { title: 'Build your rig', pages: ['agents', 'workflows', 'project-overview', 'lab'] },
   { title: 'What agents know', pages: ['knowledge', 'context', 'skills'] },
   { title: 'Settings and your phone', pages: ['settings', 'remote-access'] },
   { title: 'Maintain', pages: ['updating', 'files-on-disk', 'uninstall', 'troubleshooting'] },

@@ -222,10 +222,10 @@ export default {
         alt: 'El lienzo de Ship a feature: Reproduce, luego Fix, y después Tests pass y Second opinion en paralelo.',
       },
       project: {
-        tab: 'Project rig',
+        tab: 'Project overview',
         title: 'Todo el proyecto en una página',
-        body: 'Primero el repositorio — rama, cambios, tamaño en disco y espacios de trabajo — y después sus agentes, flujos, conocimiento, disparadores y reglas de Auto.',
-        alt: 'Resumen del proyecto client-website: la rama main al día, nada que confirmar, 432 MB en disco con un espacio de trabajo, y cuatro agentes con su acceso a archivos y su modelo.',
+        body: 'Primero Score — lo fácil que es para los agentes moverse por él — y después el repositorio: rama, cambios, tamaño en disco y espacios de trabajo, y sus agentes, flujos, conocimiento, disparadores y reglas de Auto.',
+        alt: 'Resumen del proyecto client-website: una puntuación de 78 sobre 100 con un resumen, y debajo el repositorio con la rama main al día, nada que confirmar y 432 MB en disco.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -414,10 +414,11 @@ export default {
         ],
       },
       rig: {
-        eyebrow: 'Project rig',
+        eyebrow: 'Project overview',
         title: 'Una página para todo el proyecto',
-        body: 'Quién trabaja en este proyecto, cómo y qué sabe: agentes, flujos, conocimiento, disparadores y reglas de Auto, uno al lado del otro.',
+        body: 'Quién trabaja en este proyecto, cómo, qué sabe y con qué facilidad se orientan los agentes: Score, agentes, flujos, conocimiento, disparadores y reglas de Auto, uno al lado del otro.',
         points: [
+          'Score: un agente lee el proyecto y lo puntúa sobre 100, primero las áreas más débiles, cada una con recomendaciones y un botón que inicia la corrección',
           'Primero los datos del repositorio: rama, cambios, ramas, tamaño en disco y espacios de trabajo',
           'Abre el proyecto en tu editor desde el resumen',
           'Generate project setup prepara agentes y flujos a partir del repositorio; nada cambia hasta que eliges Apply',

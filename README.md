@@ -212,6 +212,7 @@ so the MonoOne sites stay one family.
 ```bash
 pnpm install
 pnpm dev          # http://localhost:3000
+pnpm test         # every language file matches en.ts (keys, placeholders, plurals)
 pnpm typecheck
 pnpm generate     # static output in .output/public
 ```
@@ -229,7 +230,7 @@ pnpm generate     # static output in .output/public
 | `public/` | Static files served as they are: favicon, app icons, Open Graph image, web manifest, `screenshots/` |
 
 The site makes no third-party requests: fonts and icons are bundled, and there is no analytics.
-CI ([`ci.yml`](.github/workflows/ci.yml)) typechecks and builds the site and checks branch names,
+CI ([`ci.yml`](.github/workflows/ci.yml)) tests, typechecks and builds the site and checks branch names,
 commits and PR titles; [`pages.yml`](.github/workflows/pages.yml) deploys `main` to GitHub Pages
 and serves it at `rig-one.io` (the Pages custom domain; `NUXT_APP_BASE_URL` follows the Pages
 base path, so the site also builds under a sub-path). `pnpm install` also

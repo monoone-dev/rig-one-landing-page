@@ -5,10 +5,12 @@ description: Run, understand, debug and extend this repo's CI gate — `pnpm typ
 
 # /ci-maintenance — run, debug and extend the gate
 
-"Green" means these three commands pass, in this order, on a clean checkout:
+"Green" means these commands pass, in this order, on a clean checkout:
 
 ```bash
 pnpm install --frozen-lockfile   # also runs `nuxt prepare` (postinstall) → generates .nuxt types
+pnpm lint:skills                 # .claude/skills is an identical copy of .agents/skills
+pnpm test                        # node --test over i18n/*.test.ts (Node 24 strips the types)
 pnpm typecheck                   # nuxt typecheck → vue-tsc over the app
 pnpm build                       # nuxt build → .output/
 ```
@@ -39,10 +41,21 @@ before every push and before `gh pr create`; never claim green from a run you di
 - **Static only.** The site is prerendered for GitHub Pages; there is no `server/` directory and
   nothing may need a server at request time.
 
+## Tests
+
+- `i18n/*.test.ts` run on Node's built-in runner (`node:test`, `node:assert/strict`); Node 24
+  strips the TypeScript types, so there is no test framework to install.
+- `i18n/content.test.ts` loads every `i18n/content/<code>.ts` and fails when a language misses or
+  adds a key, empties a text that `en.ts` fills, changes a `{placeholder}`, or lacks a plural form
+  the language needs (`Intl.PluralRules`). The list of languages comes from `nuxt.config.ts`.
+- Import modules by relative path with their `.ts` extension. Only files without Nuxt auto-imports
+  or aliases load this way. They sit in `i18n/`, inside the Nuxt app tsconfig, so
+  `pnpm typecheck` checks them like the site code.
+
 ## Add a check
 
 1. Add it as a `package.json` script first (e.g. `"lint": "eslint ."`) so it runs the same locally.
 2. Add one `- run: pnpm <script>` step to `ci.yml`, ordered cheap-before-expensive
-   (lint → typecheck → build).
+   (lint → test → typecheck → build).
 3. Prove it RED before GREEN: introduce a temporary violation, see the step fail, remove it.
 4. New dev dependency or new action → ask the user first. Follow `/github-actions` for the workflow.

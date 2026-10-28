@@ -65,12 +65,16 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - run: pnpm lint:skills
+
+      - run: pnpm test
+
       - run: pnpm typecheck
 
       - run: pnpm build
 
-      # Same static build the Pages deploy runs, so a prerender failure shows up before merge
       - run: pnpm generate
         env:
           NITRO_PRESET: github_pages
           NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
+          NUXT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

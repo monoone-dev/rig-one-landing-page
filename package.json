@@ -9,9 +9,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "typecheck": "nuxt typecheck",
+    "test": "node --test \"i18n/*.test.ts\"",
     "postinstall": "git config core.hooksPath .githooks 2>/dev/null || true; nuxt prepare",
     "lint:commits": "commitlint --from origin/main --to HEAD",
-    "lint:branch": "validate-branch-name"
+    "lint:branch": "validate-branch-name",
+    "lint:skills": "diff -r .agents/skills .claude/skills"
   },
   "dependencies": {
     "@iconify-json/circle-flags": "^1.2.12",

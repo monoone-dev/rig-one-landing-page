@@ -222,10 +222,10 @@ export default {
         alt: 'Ship a feature 的画布：Reproduce，然后 Fix，接着 Tests pass 和 Second opinion 并排运行。',
       },
       project: {
-        tab: 'Project rig',
+        tab: 'Project overview',
         title: '整个项目，一页看完',
-        body: '先是仓库——分支、改动、磁盘占用和工作区——然后是它的智能体、工作流、知识、触发器和 Auto 规则。',
-        alt: 'client-website 的项目概览：main 分支已是最新，没有要提交的内容，磁盘占用 432 MB，有一个工作区，以及四个智能体及其文件访问和模型。',
+        body: '先是 Score——智能体在项目里行动有多顺畅——然后是仓库：分支、改动、磁盘占用和工作区，以及它的智能体、工作流、知识、触发器和 Auto 规则。',
+        alt: 'client-website 的项目概览：78/100 的评分和总结，下面是仓库：main 分支已是最新，没有要提交的内容，磁盘占用 432 MB。',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -414,10 +414,11 @@ export default {
         ],
       },
       rig: {
-        eyebrow: 'Project rig',
+        eyebrow: 'Project overview',
         title: '一页掌握整个项目',
-        body: '这个项目里谁在工作、怎么工作、知道什么：智能体、工作流、知识、触发器和 Auto 规则并排展示。',
+        body: '这个项目里谁在工作、怎么工作、知道什么，以及智能体在其中行动有多顺畅：Score、智能体、工作流、知识、触发器和 Auto 规则并排展示。',
         points: [
+          'Score：智能体阅读项目并给出 100 分制评分，最弱的方面排在最前，每项都有建议和一个启动修复的按钮',
           '先列出仓库信息：当前分支、改动、分支列表、磁盘占用和工作区',
           '从概览中用你的编辑器打开项目',
           'Generate project setup 根据仓库起草智能体和工作流；在你选择 Apply 之前什么都不会改变',

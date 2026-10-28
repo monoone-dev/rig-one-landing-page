@@ -222,10 +222,10 @@ export default {
         alt: 'La tela di Ship a feature: Reproduce, poi Fix, poi Tests pass e Second opinion affiancati.',
       },
       project: {
-        tab: 'Project rig',
+        tab: 'Project overview',
         title: 'Tutto il progetto in una pagina',
-        body: 'Prima il repository — ramo, modifiche, spazio su disco e spazi di lavoro — poi i suoi agenti, flussi, conoscenze, trigger e regole di Auto.',
-        alt: 'Panoramica del progetto client-website: il ramo main aggiornato, niente da committare, 432 MB su disco con uno spazio di lavoro, e quattro agenti con accesso ai file e modello.',
+        body: 'Prima Score — quanto è facile per gli agenti muoversi nel progetto — poi il repository: ramo, modifiche, spazio su disco e spazi di lavoro, e i suoi agenti, flussi, conoscenze, trigger e regole di Auto.',
+        alt: 'Panoramica del progetto client-website: un punteggio di 78 su 100 con un riepilogo, poi il repository con il ramo main aggiornato, niente da committare e 432 MB su disco.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -414,10 +414,11 @@ export default {
         ],
       },
       rig: {
-        eyebrow: 'Project rig',
+        eyebrow: 'Project overview',
         title: 'Una pagina per tutto il progetto',
-        body: 'Chi lavora in questo progetto, come e che cosa sa: agenti, flussi, conoscenze, trigger e regole di Auto fianco a fianco.',
+        body: 'Chi lavora in questo progetto, come, che cosa sa e quanto facilmente gli agenti si orientano: Score, agenti, flussi, conoscenze, trigger e regole di Auto fianco a fianco.',
         points: [
+          'Score: un agente legge il progetto e gli dà un voto su 100, prima le aree più deboli, ognuna con consigli e un pulsante che avvia la correzione',
           'Prima i dati del repository: ramo, modifiche, rami, spazio su disco e spazi di lavoro',
           'Apri il progetto nel tuo editor dalla panoramica',
           'Generate project setup prepara agenti e flussi dal repository; nulla cambia finché non scegli Apply',

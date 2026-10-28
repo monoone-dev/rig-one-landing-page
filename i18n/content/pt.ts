@@ -222,10 +222,10 @@ export default {
         alt: 'A tela de Ship a feature: Reproduce, depois Fix, depois Tests pass e Second opinion lado a lado.',
       },
       project: {
-        tab: 'Project rig',
+        tab: 'Project overview',
         title: 'O projeto inteiro numa página',
-        body: 'Primeiro o repositório — branch, mudanças, tamanho em disco e espaços de trabalho — depois seus agentes, fluxos, conhecimento, gatilhos e regras do Auto.',
-        alt: 'Visão geral do projeto client-website: o branch main atualizado, nada para commitar, 432 MB em disco com um espaço de trabalho e quatro agentes com acesso a arquivos e modelo.',
+        body: 'Primeiro o Score — a facilidade com que os agentes se movem nele — depois o repositório: branch, mudanças, tamanho em disco e espaços de trabalho, e seus agentes, fluxos, conhecimento, gatilhos e regras do Auto.',
+        alt: 'Visão geral do projeto client-website: uma nota de 78 de 100 com um resumo e, abaixo, o repositório com o branch main atualizado, nada para commitar e 432 MB em disco.',
       },
       knowledge: {
         tab: 'Knowledge',
@@ -414,10 +414,11 @@ export default {
         ],
       },
       rig: {
-        eyebrow: 'Project rig',
+        eyebrow: 'Project overview',
         title: 'Uma página para o projeto inteiro',
-        body: 'Quem trabalha neste projeto, como e o que sabe: agentes, fluxos, conhecimento, gatilhos e regras do Auto lado a lado.',
+        body: 'Quem trabalha neste projeto, como, o que sabe e com que facilidade os agentes se orientam: Score, agentes, fluxos, conhecimento, gatilhos e regras do Auto lado a lado.',
         points: [
+          'Score: um agente lê o projeto e dá uma nota de 0 a 100, primeiro as áreas mais fracas, cada uma com recomendações e um botão que inicia a correção',
           'Dados do repositório primeiro: branch, mudanças, branches, tamanho em disco e espaços de trabalho',
           'Abra o projeto no seu editor a partir da visão geral',
           'Generate project setup monta agentes e fluxos a partir do repositório; nada muda até você escolher Apply',

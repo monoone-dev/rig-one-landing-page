@@ -179,7 +179,7 @@ The goal is saved, so **Resume a goal** picks it up later. Read [Auto](#auto) be
   to the steps that need it, instead of pasting them into instructions.
 - **Break a big goal down first.** **Plan first** (or `/tasks`) turns a goal into a list you review
   before anything runs.
-- **Let RigOne draft the rig.** **Generate project setup** in **Project rig** proposes agents and
+- **Let RigOne draft the rig.** **Generate project setup** in **Project overview** proposes agents and
   workflows from your repository; nothing changes until you choose **Apply setup**.
 - **Move with the keyboard.** ⌘K finds any place, workflow or agent; ⌘N starts a task; ⌘1 to ⌘9
   open the screens; ⌘⌥1 to ⌘⌥9 pick a project tab.
@@ -209,7 +209,8 @@ RigOne uses a small, fixed vocabulary. The same words appear on screen, in error
 | **Auto** | A mode in which the Lead plans, runs and verifies a whole goal across several workflows. |
 | **Goal** | What you hand to Auto, in a sentence. It is saved, so you can resume it later. |
 | **Needs you** | The one list of every decision that waits for you. |
-| **Project rig** | One page with everything a project has: agents, workflows, knowledge, triggers, Auto rules. |
+| **Project overview** | One page with everything a project has: score, repository, agents, workflows, knowledge, triggers, Auto rules. |
+| **Score** | How easily agents move through a project, out of 100, with what to fix first. |
 | **Board** | A shared list of tasks with comments and members, encrypted on your Mac. |
 | **Remote access** | Following and steering your work from a paired phone or tablet. |
 
@@ -237,7 +238,7 @@ The rail holds every place, top to bottom. Each icon names its place when you po
 | Page | [Context](#context) | ⌘6, G C | Material prepared for steps |
 | Clock | [Triggers](#triggers) | ⌘4, G T | Runs that start on their own |
 | Bar chart | [Lab](#lab) | ⌘7, G L | Test agents on your own cases |
-| Sliders | [Project rig](#project-rig) | G P | The whole project on one page |
+| Sliders | [Project overview](#project-overview) | G P | The whole project on one page |
 | Book | [Skills](#skills) | — | The skills the project's files give its agents |
 | Phone | [Remote access](#remote-access) | — | Shown only while Remote access is on |
 | Gear | [Settings](#settings) | ⌘8, G S | What RigOne does by default |
@@ -302,7 +303,7 @@ workflow or an agent. Press **?** or **Keyboard shortcuts** for the full list.
 | ⌘K | Open Go to anything |
 | ⌘N | Start a new task |
 | ⌘1 … ⌘9 | Agents, Workflows, Tasks, Triggers, Knowledge, Context, Lab, Settings, Boards |
-| G, then a letter | Go to a place: A, W, R (Tasks), T, K, C, L, S, B, P (Project rig) |
+| G, then a letter | Go to a place: A, W, R (Tasks), T, K, C, L, S, B, P (Project overview) |
 | ⌘⌥\\ | Show another project beside this one |
 | ⌘⌥← / ⌘⌥→ | Move to the pane on the left or right |
 | ⌘⌥1 … ⌘⌥9 | Pick a project tab |
@@ -331,7 +332,7 @@ task on a board. **Run** (Enter) starts it; Shift+Enter adds a line.
 
 The badge in the corner says **rig ready** or **no agents yet** and opens Agents. At the bottom,
 **rig** counts this project's agents, workflows and skills, **run a saved workflow** opens the plan
-of a workflow, and **open rig →** opens [Project rig](#project-rig). Saved Auto goals and board tasks
+of a workflow, and **open rig →** opens [Project overview](#project-overview). Saved Auto goals and board tasks
 appear under **Pick up where things are**.
 
 ### Run a saved workflow
@@ -751,13 +752,14 @@ work to the same recorded acceptance contract. In a Rust project, a step copy br
 only — the sibling repositories the project reaches through a Cargo path dependency, so it builds as
 the project does.
 
-## Project rig
+## Project overview
 
-**Project rig** shows the open project on one page: who works, how, and what they know. Chips at
-the top jump to each part.
+**Project overview** shows the open project on one page: how easily agents find their way in it,
+who works, how, and what they know. Chips at the top jump to each part.
 
-![Project overview for client-website: the main branch up to date, nothing to commit, 432 MB on disk with one workspace, and four agents with their file access and model.](../public/screenshots/project.webp)
+![Project overview for client-website: a score of 78 out of 100 with a summary, then the repository with the main branch up to date, nothing to commit and 432 MB on disk.](../public/screenshots/project.webp)
 
+- **Score** — how easily agents move through this project; see [Score](#score).
 - **Repository** — read from Git and from the folder on disk: the branch and whether it is up to
   date, local and remote branches, what is left to commit with the last commit, the size on disk
   with the largest folders, and each workspace with its branch. **Open in** opens the project in
@@ -771,6 +773,38 @@ the top jump to each part.
 - **Triggers** — what starts on its own, and whether it is on.
 - **Auto rules** — whether Auto agents have your access, the **Learn from runs by default** switch,
   and **All Auto settings**.
+
+### Score
+
+**Score** reads the project and rates, out of 100, how easily agents move through it: whether they
+find where things live, check their work quickly and understand what went wrong. The criteria are
+made for this project, between four and ten of them, so a web app and a command-line tool are not
+judged by the same list.
+
+![Score for client-website: 78 out of 100, Agents find their way, with a few rough spots, and six criteria with the weakest, Fast test feedback at 58, open on its finding and two recommendations.](../public/screenshots/score.webp)
+
+Until a project has been analysed, Score says **No score yet**. **Analyse project** starts the
+first analysis; **Analyse now** runs it again later.
+
+- **Who analyses** — on **Auto**, RigOne picks the strongest agent app, model and effort you have;
+  [Settings → Score](#score-settings) can choose Claude Code or Codex instead. The analysis runs in
+  the app language.
+- **It only reads** — the agent may only read and search files. Nothing in the project is changed.
+- **While it works** — a timer, which app, model and effort it uses, how many files it has read and
+  **What the agent is doing**. It can take a few minutes. **Stop analysis** stops it, and after 20
+  minutes it stops on its own; either way nothing is saved and the last score stays.
+- **The score** — the number out of 100 with a verdict, from **Agents move through this project
+  without friction** (90 and up) through **Agents find their way, with a few rough spots** (75 and
+  up) and **Agents get stuck in several places** (50 and up) to **Agents struggle to find their way
+  here**. Below it are a summary, **Last analysed** with when it happened, and the app, model and
+  effort that did it.
+- **Criteria** — weakest first, each with its own score: green from 75, amber from 50, red below.
+  Open one for what the agent found and its **Recommendations**.
+- **Run a fix** — the ▷ button beside a criterion opens a new task, **Fix: <criterion>**, and hands
+  the Lead the finding and recommendations to fix in this project and then check.
+
+The last analysis is kept in `.rig-one/score.json` inside the project. **Score settings** opens
+[Settings → Score](#score-settings).
 
 ### Generate project setup
 
@@ -874,7 +908,7 @@ add skills to your RigOne library instead, use **Used when they fit** in [Knowle
 | Group | Pages |
 | --- | --- |
 | **Work** | Runs, Auto, Limits |
-| **Project** | Project, Connections |
+| **Project** | Project, Score, Connections |
 | **Agents** | Agent apps, and one page each for Claude Code, Codex and OpenCode |
 | **Account** | Account, Remote access |
 | **App** | Appearance, Storage, Health check, About |
@@ -918,6 +952,21 @@ How conversations start in the open folder:
 - **Project instructions** — whether steps and the Lead read `AGENTS.md`, `CLAUDE.md` and similar
   files as text, with their sources and limits. Private `CLAUDE.local.md` files are left out unless
   you include them.
+
+### Score settings
+
+**Score** in Settings sets how projects are scored; see [Score](#score) for what the analysis does.
+
+![Settings → Score: Score projects switched on, the last analysis of client-website with Analyse now, Analyse again every week, and Analyse with Auto, Claude Code or Codex.](../public/screenshots/settings-score.webp)
+
+- **Analysis** — **Score projects** is on by default. When it is off, Score is hidden in Project
+  overview and never runs. **Last analysis of** the open project says when it was analysed, with
+  **Analyse now**.
+- **Schedule** — **Analyse again**: **Only when I ask** (the default), **Every day**, **Every week**
+  or **Every month**. Projects analysed at least once are analysed again on this schedule while
+  RigOne is open.
+- **Agent** — **Analyse with**: **Auto**, Claude Code or Codex, with the model and effort when you
+  choose an app. If the chosen app is no longer available, Score goes back to Auto and says so.
 
 ### Connections
 
@@ -1058,7 +1107,7 @@ stays in Applications as a separate app. Delete it once your library has arrived
 | --- | --- |
 | Your library: agents, workflows, skills, notes, triggers, context sets, settings | `~/.rig-one/` |
 | Access keys for model gateways | `~/.rig-one/env` |
-| A project's own notes and its run history | `.rig-one/` inside the project folder |
+| A project's own notes, its run history and its last score | `.rig-one/` inside the project folder |
 | One run: plan, status, handoffs, full answers, logs and results file | `.rig-one/runs/<time>__<id>/` |
 | The search index | `.rig-one/rig-one.db` — safe to delete; it is rebuilt from the files |
 

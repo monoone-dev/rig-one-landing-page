@@ -78,8 +78,10 @@ prove the work. Every decision that waits for you — a question, an approval, a
 the tester's screenshots — sits in one list, **Needs you**, and macOS tells you when one arrives.
 **Pause Auto** and **Resume** hold a whole goal, and up to three goals work in one folder at a time.
 
-**Project rig** shows a project on one page — its repository, agents, workflows, knowledge, triggers and Auto
-rules — and **Generate project setup** drafts a rig from the repository for you to review.
+**Project overview** shows a project on one page — its score, repository, agents, workflows, knowledge, triggers
+and Auto rules — and **Generate project setup** drafts a rig from the repository for you to review. **Score** has
+an agent read the project and rate out of 100 how easily agents move through it, weakest areas first, each with
+recommendations and a button that starts a fix.
 
 **Remote access** pairs your phone or tablet: answer what waits in Needs you, start an Auto goal,
 message the Lead or stop work from anywhere, with Face ID or Touch ID on every session.
@@ -107,8 +109,8 @@ Cursor Cloud Agents is [here](https://rig-one.io/compare/).
 | --- | --- |
 | ![The Fix step: the changed lines of validate.ts and its test, with a comment on line 15 waiting to be sent to the agent](public/screenshots/review.webp) | ![The Fix step: changed functions with their uses, the app running from the step with Open preview, and three saved versions](public/screenshots/review-tools-light.webp) |
 | **Review** — every changed line of a step; comment on a line and the agent picks it up. | **Preview and versions** — start the app from the step, go back to any version of its files. |
-| ![Project overview for client-website: the repository, then four agents with their file access and model](public/screenshots/project.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas-light.webp) |
-| **Project rig** — the whole project on one page: repository, agents, workflows, knowledge, triggers and Auto rules. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
+| ![Project overview for client-website: a score of 78 out of 100 with a summary, then the repository](public/screenshots/project.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas-light.webp) |
+| **Project overview** — the whole project on one page: score, repository, agents, workflows, knowledge, triggers and Auto rules. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
 | ![The Agents screen: four roles beside Scout, which runs with Claude Code](public/screenshots/agents-light.webp) | ![The Knowledge screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
 | **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Knowledge** — notes an agent suggests wait for you; approved notes go into every prompt. |
 | ![Settings → Appearance: the Surface, Minimalist, Studio and Linen themes, and System, Light or Dark](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |

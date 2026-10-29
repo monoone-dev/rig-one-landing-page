@@ -225,9 +225,9 @@ export default {
         alt: 'A tela de Ship a feature: Reproduce, depois Fix, depois Tests pass e Second opinion lado a lado.',
       },
       project: {
-        tab: 'Project overview',
+        tab: 'Overview',
         title: 'O projeto inteiro numa página',
-        body: 'Primeiro o Score — a facilidade com que os agentes se movem nele — depois o repositório: branch, mudanças, tamanho em disco e espaços de trabalho, e seus agentes, fluxos, conhecimento, gatilhos e regras do Auto.',
+        body: 'Primeiro um resumo — os números e o que precisa da sua atenção — depois uma aba para Score, Repository, Agents, Workflows, Knowledge e Automation.',
         alt: 'Visão geral do projeto client-website: uma nota de 78 de 100 com um resumo e, abaixo, o repositório com o branch main atualizado, nada para commitar e 432 MB em disco.',
       },
       knowledge: {
@@ -249,11 +249,11 @@ export default {
     title: 'Falhas são falhas de produto, não ruído de terminal',
     lead: 'O que o RigOne se recusa a fazer em silêncio.',
     items: {
-      scopes: { title: 'Escopos de escrita sobrepostos', body: 'são recusados antes de o primeiro processo começar.' },
+      scopes: { title: 'Dois passos que mudaram um arquivo de forma diferente', body: 'param o passo seguinte, e as duas cópias são mantidas.' },
       cancel: { title: 'O cancelamento', body: 'encerra o grupo de processos inteiro e depois verifica que ele morreu.' },
       timeouts: { title: 'Os tempos limite', body: 'passam pelo mesmo encerramento supervisionado que o cancelamento.' },
       secrets: { title: 'Prompts e segredos', body: 'vão pelo stdin, nunca por argumentos de linha de comando.' },
-      env: { title: 'Os ambientes dos processos filhos', body: 'são remontados a partir de uma lista explícita de permissões.' },
+      env: { title: 'Os ambientes dos processos filhos', body: 'são reconstruídos a partir de uma lista explícita de permitidos, a menos que YOLO mode dê acesso total aos agentes.' },
       unknown: { title: 'Eventos desconhecidos do fornecedor', body: 'são registrados e ignorados em vez de derrubar a execução.' },
       green: { title: 'Um código de saída verde', body: 'sem prova de que os testes rodaram não é aceito como verificação verde.' },
       files: { title: 'Os arquivos são a fonte da verdade;', body: 'o índice SQLite pode ser apagado e reconstruído.' },
@@ -283,6 +283,7 @@ export default {
           'Escolha quantos agentes podem trabalhar ao mesmo tempo',
           'Um aviso opcional quando uma execução chega a um valor que você definiu',
           'Modelos e níveis de esforço são conferidos com o app de agente instalado antes de qualquer etapa começar',
+          'Os limites do plano de cada app de agente conectado, no rodapé do painel lateral',
         ],
       },
       run: {
@@ -293,8 +294,9 @@ export default {
           'Perguntas, comandos iniciados, saída e gasto ficam juntos',
           'Os resultados dizem o que aconteceu: feito, falhou, parado ou não executado',
           'Um agente líder pode conversar com você — só /run inicia o trabalho',
-          'O modelo e uma chave do Auto ficam abaixo do campo de mensagem',
+          'O modelo e a escolha entre Auto, Plan first ou One agent ficam sob o campo da mensagem',
           'Suas tarefas voltam depois de reiniciar, cada uma com a própria conversa',
+          'Solte imagens, arquivos ou pastas numa conversa para enviá-los com a sua mensagem',
         ],
       },
       review: {
@@ -305,7 +307,7 @@ export default {
           'Clique numa linha, escreva um comentário e use Send comments to the agent',
           'Os comentários viram uma só mensagem que cita cada arquivo e linha',
           'Abra um arquivo alterado na linha certa no seu editor',
-          'Duas etapas mudaram as mesmas linhas: escolha quais linhas ficam',
+          'Passos em conflito: o resultado diz qual passo ficou de fora e em quais arquivos',
           'Quanto a etapa custou, ao lado do status',
         ],
       },
@@ -328,6 +330,7 @@ export default {
           'Uma aba mostra se o projeto está trabalhando ou esperando por você',
           '⌘⌥\\ abre o próximo projeto ao lado do atual',
           'Abas e painéis voltam depois de reiniciar',
+          'Arraste uma aba sobre outra para ver as duas numa aba dividida; um quadrado colorido distingue os projetos',
         ],
       },
       auto: {
@@ -339,7 +342,8 @@ export default {
           'Revisão de design: aceite as capturas do testador, ou clique num ponto e diga o que deve mudar',
           'Espera um provedor ocupado ou um limite de uso e depois continua',
           'Pause Auto e Resume; até três objetivos trabalham ao mesmo tempo numa pasta',
-          'Skip permissions liga ou desliga o acesso total para toda a execução do Auto',
+          'YOLO mode dá aos agentes acesso total durante toda a conversa; Settings → Auto define o padrão',
+          'Os objetivos retomam sozinhos quando o RigOne reabre, e sair pergunta antes e depois para todos os agentes',
         ],
       },
       agents: {
@@ -363,6 +367,7 @@ export default {
           'Skills mostra o que .claude/skills e .agents/skills do projeto dão aos agentes',
           'Conjuntos de contexto com nome a partir de texto, Markdown, imagens e PDFs',
           'Veja qual contexto uma execução usou de verdade',
+          'Health mostra quanto cada prompt carrega e aponta o conhecimento grande demais, desatualizado ou sem uso',
         ],
       },
       checks: {
@@ -373,6 +378,9 @@ export default {
           '“Nada rodou” é um resultado à parte, nunca uma aprovação',
           'Uma segunda opinião de outro fornecedor pode levantar dúvidas, mas nunca aprovar',
           'O mesmo erro duas vezes interrompe as novas tentativas',
+          'Uma verificação vermelha roda de novo no código sem a mudança, para separar falhas antigas das novas',
+          'Testes instáveis fora da mudança passam com um aviso que os nomeia',
+          'Um critério de aceitação pode indicar o teste que o comprova',
         ],
       },
       branches: {
@@ -380,7 +388,7 @@ export default {
         title: 'As mudanças esperam em um branch próprio',
         body: 'Cada passo trabalha na própria cópia do seu código, então os agentes não atrapalham uns aos outros. Quando a execução termina, o trabalho espera em um branch do seu projeto.',
         points: [
-          'Nada recebe push',
+          'Nada é enviado, a menos que você deixe o Auto fazer push e abrir um pull request',
           'Nada chega ao seu próprio branch até você aceitar',
           'Um conflito real indica os branches onde o trabalho está guardado',
         ],
@@ -410,21 +418,22 @@ export default {
       lab: {
         eyebrow: 'Laboratório',
         title: 'Teste um agente no seu próprio código',
-        body: 'Escolha um agente e o RigOne esboça casos de teste a partir do seu projeto, para você ver se uma mudança nesse agente melhorou o trabalho.',
+        body: 'Escolha um agente, um workflow ou um skill e o RigOne escreve casos de teste a partir do seu projeto, para ver se uma mudança melhorou o trabalho.',
         points: [
           'Os casos vêm do seu código, não de um benchmark genérico',
           'Compare um agente antes e depois de editá-lo',
+          'Conjuntos para agentes, workflows e skills, em abas, cada um na sua própria página',
         ],
       },
       rig: {
-        eyebrow: 'Project overview',
+        eyebrow: 'Overview',
         title: 'Uma página para o projeto inteiro',
-        body: 'Quem trabalha neste projeto, como, o que sabe e com que facilidade os agentes se orientam: Score, agentes, fluxos, conhecimento, gatilhos e regras do Auto lado a lado.',
+        body: 'Quem trabalha neste projeto, como, o que sabe e com que facilidade os agentes se orientam. O resumo diz o que precisa da sua atenção; as abas trazem Score, Repository, Agents, Workflows, Knowledge e Automation.',
         points: [
           'Score: um agente lê o projeto e dá uma nota de 0 a 100, primeiro as áreas mais fracas, cada uma com recomendações e um botão que inicia a correção',
           'Dados do repositório primeiro: branch, mudanças, branches, tamanho em disco e espaços de trabalho',
           'Abra o projeto no seu editor a partir da visão geral',
-          'Generate project setup monta agentes e fluxos a partir do repositório; nada muda até você escolher Apply',
+          'Generate project setup monta agentes e fluxos a partir do repositório; nada muda até você escolher Apply setup',
           'Um fluxo que precisa de mudança avisa, com Fix quando o RigOne consegue resolver',
           'Novas lições das execuções esperam aqui seu Keep ou Discard',
         ],
@@ -498,7 +507,7 @@ export default {
         { title: 'O código-fonte não é publicado', body: 'O RigOne é gratuito, mas não dá para ler o código nem fazer um fork. Orca e Nimbalyst são MIT, o Paseo é Apache 2.0.' },
         { title: 'Três apps de agente', body: 'Claude Code, Codex e OpenCode. Orca, Paseo e Superset rodam qualquer agente de linha de comando e listam de 20 a 30 ou mais.' },
         { title: 'Sem editor nem terminal embutidos', body: 'O RigOne abre o arquivo no seu próprio editor. Orca, Paseo e Nimbalyst têm os dois embutidos; a maioria dos outros tem um terminal.' },
-        { title: 'Sem pull requests pelo app', body: 'O trabalho espera em um branch local; só o Auto pode fazer push, quando você permite. Orca, Paseo, Superset, Conductor e Cursor abrem pull requests, e vários fazem o merge.' },
+        { title: 'Pull requests só pelo Auto', body: 'O trabalho espera em um branch local; só o Auto faz push e abre um pull request, quando você permite. Orca, Paseo, Superset, Conductor e Cursor abrem pull requests a partir de qualquer tarefa, e vários fazem o merge.' },
         { title: 'Poucas integrações, sem agendamentos', body: 'Só uma issue do Linear atribuída a você pode iniciar uma execução. Outros rodam por agendamento ou começam a partir do GitHub, do Slack ou do Jira.' },
         { title: 'Acesso pelo celular por uma página web', body: 'Exige uma conta MonoOne. O Paseo tem apps para iOS e Android sem conta; Nimbalyst, ChatGPT e Cursor também têm apps.' },
         { title: 'Um aviso de gasto, não um limite', body: 'O RigOne avisa quando uma execução chega a um valor e não a interrompe. O Cursor para em um limite de gasto.' },
@@ -588,7 +597,7 @@ export default {
       },
       prs: {
         criterion: 'Abrir pull requests e fazer o merge',
-        cells: ['Só o Auto faz push, quando permitido; senão, um branch local', 'Abre, faz merge, merge automático', 'GitHub, GitLab, Gitea e outros', 'Os agentes abrem com gh', 'Abre, faz merge e arquiva', 'Revisão de pull request', 'Commit e push', 'Pull requests prontos para merge'],
+        cells: ['Só o Auto faz push e abre, se permitido; senão um branch local', 'Abre, faz merge, merge automático', 'GitHub, GitLab, Gitea e outros', 'Os agentes abrem com gh', 'Abre, faz merge e arquiva', 'Revisão de pull request', 'Commit e push', 'Pull requests prontos para merge'],
       },
       trackers: {
         criterion: 'Rastreadores de issues e chat',
@@ -647,7 +656,7 @@ export default {
       },
       {
         question: 'Um agente vai dar push no meu repositório?',
-        answer: 'Não. Cada passo trabalha na própria cópia do código, e o resultado espera em um branch do seu projeto. Nada recebe push, e nada chega ao seu próprio branch até você aceitar.',
+        answer: 'Não por conta própria. Cada passo trabalha na sua própria cópia do código, e o resultado espera em um branch do seu projeto. Só o Auto pode fazer push e abrir um pull request, e só quando você permite; nada chega ao seu branch até você aceitar.',
       },
       {
         question: 'Posso usar só o Claude Code, ou só o Codex?',

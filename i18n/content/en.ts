@@ -225,9 +225,9 @@ export default {
         alt: 'The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side.',
       },
       project: {
-        tab: 'Project overview',
+        tab: 'Overview',
         title: 'The whole project on one page',
-        body: 'Score first — how easily agents move through it — then the repository: branch, changes, size on disk and workspaces, and its agents, workflows, knowledge, triggers and Auto rules.',
+        body: 'A summary first — the figures and what needs your attention — then a tab each for Score, Repository, Agents, Workflows, Knowledge and Automation.',
         alt: 'Project overview for client-website: a score of 78 out of 100 with a summary, then the repository with the main branch up to date, nothing to commit and 432 MB on disk.',
       },
       knowledge: {
@@ -249,11 +249,11 @@ export default {
     title: 'Failures are product failures, not terminal noise',
     lead: 'What RigOne refuses to do quietly.',
     items: {
-      scopes: { title: 'Overlapping write scopes', body: 'are refused before the first process starts.' },
+      scopes: { title: 'Two steps that changed one file differently', body: 'stop the step after them, and both copies are kept.' },
       cancel: { title: 'Cancellation', body: 'ends the whole process group and then verifies that it is dead.' },
       timeouts: { title: 'Timeouts', body: 'go through the same supervised shutdown as cancellation.' },
       secrets: { title: 'Prompts and secrets', body: 'go through stdin, never command-line arguments.' },
-      env: { title: 'Child environments', body: 'are rebuilt from an explicit allowlist.' },
+      env: { title: 'Child environments', body: 'are rebuilt from an explicit allowlist, unless YOLO mode gives agents your full access.' },
       unknown: { title: 'Unknown vendor events', body: 'are recorded and ignored instead of crashing the run.' },
       green: { title: 'A green exit code', body: 'without proof that tests ran is not accepted as a green check.' },
       files: { title: 'Files are the source of truth;', body: 'the SQLite index can be deleted and rebuilt.' },
@@ -283,6 +283,7 @@ export default {
           'Choose how many agents may work at once',
           'An optional warning when a run reaches an amount you set',
           'Models and effort levels are checked against your installed agent app before any step starts',
+          'Plan limits of each signed-in agent app at the bottom of the side panel',
         ],
       },
       run: {
@@ -293,8 +294,9 @@ export default {
           'Questions, spawned commands, output and spend stay together',
           'Outcomes say what happened: done, failed, stopped or not run',
           'A lead agent can talk things through with you — only /run starts work',
-          'The model and an Auto switch sit under the message field',
+          'The model, and a choice of Auto, Plan first or One agent, sit under the message field',
           'Your tasks come back after a restart, each with its own conversation',
+          'Drop images, files or folders onto a conversation to send them with your message',
         ],
       },
       review: {
@@ -305,7 +307,7 @@ export default {
           'Click a line, write a comment, then Send comments to the agent',
           'Comments become one message that names every file and line',
           'Open a changed file at its line in your editor',
-          'Two steps that changed the same lines: choose whose lines win',
+          'Steps that clash: the result names the step left out and the files it clashed on',
           'What the step cost, next to its status',
         ],
       },
@@ -328,6 +330,7 @@ export default {
           'A tab shows whether its project is working or waiting for you',
           '⌘⌥\\ opens the next project beside the one you are in',
           'Tabs and panes come back after a restart',
+          'Drag a tab onto another to show both in one split tab; a colour tile tells projects apart',
         ],
       },
       auto: {
@@ -339,7 +342,8 @@ export default {
           'Design review: accept the tester’s screenshots, or click a spot and say what should change',
           'Waits out a busy provider or a usage limit, then carries on',
           'Pause Auto and Resume; up to three goals work in one folder at a time',
-          'Skip permissions turns full access on or off for the whole Auto run',
+          'YOLO mode gives agents full access for the whole conversation; Settings → Auto sets the default',
+          'Goals resume on their own after RigOne restarts, and quitting asks first, then stops every agent',
         ],
       },
       agents: {
@@ -363,6 +367,7 @@ export default {
           'Skills lists what the project’s .claude/skills and .agents/skills give its agents',
           'Named context sets from text, Markdown, images and PDFs',
           'See which context a run actually used',
+          'Health says how much every prompt carries and flags knowledge that is too big, out of date or unused',
         ],
       },
       checks: {
@@ -373,6 +378,9 @@ export default {
           '“Nothing ran” is its own outcome, never a pass',
           'A second opinion from another vendor can raise concerns, but never approve',
           'The same error twice stops the retries',
+          'A red check runs again on the code without the change, to tell old failures from new ones',
+          'Flaky tests outside the change pass with a warning that names them',
+          'An acceptance criterion can name the test that proves it',
         ],
       },
       branches: {
@@ -380,7 +388,7 @@ export default {
         title: 'Changes wait on their own branch',
         body: 'Each step works in its own copy of your code, so agents cannot trip over each other. When the run ends, the work waits on a branch in your project.',
         points: [
-          'Nothing is pushed',
+          'Nothing is pushed unless you let Auto push and open a pull request',
           'Nothing reaches your own branch until you take it',
           'A real conflict names the branches where the work is kept',
         ],
@@ -410,21 +418,22 @@ export default {
       lab: {
         eyebrow: 'Lab',
         title: 'Try an agent on your own code',
-        body: 'Pick an agent and RigOne drafts test cases from your project, so you can see whether a change to that agent made the work better.',
+        body: 'Pick an agent, a workflow or a skill and RigOne drafts test cases from your project, so you can see whether a change made the work better.',
         points: [
           'Cases come from your code, not a generic benchmark',
           'Compare an agent before and after you edit it',
+          'Sets for agents, workflows and skills, in tabs, each open on its own page',
         ],
       },
       rig: {
-        eyebrow: 'Project overview',
+        eyebrow: 'Overview',
         title: 'One page for the whole project',
-        body: 'Who works in this project, how, what they know and how easily agents find their way: Score, agents, workflows, knowledge, triggers and Auto rules side by side.',
+        body: 'Who works in this project, how, what they know and how easily agents find their way. The summary says what needs your attention; tabs hold Score, Repository, Agents, Workflows, Knowledge and Automation.',
         points: [
           'Score: an agent reads the project and rates it out of 100, weakest areas first, each with recommendations and a button that starts a fix',
           'Repository facts first: branch, changes, branches, size on disk and workspaces',
           'Open the project in your editor from the overview',
-          'Generate project setup drafts agents and workflows from the repository; nothing changes until you choose Apply',
+          'Generate project setup drafts agents and workflows from the repository; nothing changes until you choose Apply setup',
           'A workflow that needs a change says so, with Fix where RigOne can do it',
           'New lessons from runs wait here for Keep or Discard',
         ],
@@ -498,7 +507,7 @@ export default {
         { title: 'The source is not published', body: 'RigOne is free to use, but you cannot read or fork its code. Orca and Nimbalyst are MIT, Paseo is Apache 2.0.' },
         { title: 'Three agent apps', body: 'Claude Code, Codex and OpenCode. Orca, Paseo and Superset run any command-line agent and list 20 to 30 or more.' },
         { title: 'No editor or terminal inside', body: 'RigOne opens the file in your own editor. Orca, Paseo and Nimbalyst have both built in; most others have a terminal.' },
-        { title: 'No pull requests from the app', body: 'Work waits on a local branch; only Auto may push, when you allow it. Orca, Paseo, Superset, Conductor and Cursor open pull requests, and several merge them.' },
+        { title: 'Pull requests only through Auto', body: 'Work waits on a local branch; only Auto pushes and opens a pull request, when you allow it. Orca, Paseo, Superset, Conductor and Cursor open pull requests from any task, and several merge them.' },
         { title: 'Few integrations, no schedules', body: 'Only a Linear issue assigned to you can start a run. Others run on a schedule or start from GitHub, Slack or Jira.' },
         { title: 'Phone access through a web page', body: 'It needs a MonoOne account. Paseo has iOS and Android apps without an account; Nimbalyst, ChatGPT and Cursor have apps too.' },
         { title: 'A spend warning, not a limit', body: 'RigOne warns when a run reaches an amount and does not stop it. Cursor stops at a spend limit.' },
@@ -588,7 +597,7 @@ export default {
       },
       prs: {
         criterion: 'Open and merge pull requests',
-        cells: ['Only Auto pushes, when allowed; otherwise a local branch', 'Open, merge, auto-merge', 'GitHub, GitLab, Gitea and more', 'Agents open them with gh', 'Open, merge and archive', 'Pull-request review', 'Commit and push', 'Merge-ready pull requests'],
+        cells: ['Only Auto pushes and opens one, when allowed; otherwise a local branch', 'Open, merge, auto-merge', 'GitHub, GitLab, Gitea and more', 'Agents open them with gh', 'Open, merge and archive', 'Pull-request review', 'Commit and push', 'Merge-ready pull requests'],
       },
       trackers: {
         criterion: 'Issue trackers and chat',
@@ -647,7 +656,7 @@ export default {
       },
       {
         question: 'Will an agent push to my repository?',
-        answer: 'No. Each step works in its own copy of the code, and the result waits on a branch in your project. Nothing is pushed, and nothing reaches your own branch until you take it.',
+        answer: 'Not on its own. Each step works in its own copy of the code, and the result waits on a branch in your project. Only Auto can push and open a pull request, and only when you allow it; nothing reaches your own branch until you take it.',
       },
       {
         question: 'Can I use only Claude Code, or only Codex?',

@@ -10,18 +10,26 @@ const props = withDefaults(defineProps<{ id: ScreenId, eager?: boolean }>(), { e
 const c = useContent()
 const { asset } = useSiteUrl()
 const shot = computed(() => screens.find(s => s.id === props.id)!)
+const preview = useImagePreview()
+const sources = computed(() => ({ dark: asset(`screenshots/${props.id}.webp`), light: asset(`screenshots/${props.id}-light.webp`) }))
+
+function enlarge() {
+  preview.open({ ...sources.value, width: shot.value.width, height: shot.value.height, alt: c.value.screens.items[props.id].alt })
+}
 </script>
 
 <template>
   <figure class="shot">
-    <ThemeImage
-      :dark="asset(`screenshots/${id}.webp`)"
-      :light="asset(`screenshots/${id}-light.webp`)"
-      :width="shot.width"
-      :height="shot.height"
-      :alt="c.screens.items[id].alt"
-      :eager="eager"
-    />
+    <button type="button" class="shot__open" aria-haspopup="dialog" :title="c.common.enlarge" @click="enlarge">
+      <ThemeImage
+        :dark="sources.dark"
+        :light="sources.light"
+        :width="shot.width"
+        :height="shot.height"
+        :alt="c.screens.items[id].alt"
+        :eager="eager"
+      />
+    </button>
   </figure>
 </template>
 
@@ -48,6 +56,22 @@ const shot = computed(() => screens.find(s => s.id === props.id)!)
 
   @include below(xs) {
     border-radius: 8px;
+  }
+
+  // The whole picture opens it full size (ImagePreview.vue)
+  &__open {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+
+    &:focus-visible {
+      outline: 2px solid var(--ui-primary);
+      outline-offset: -2px;
+      border-radius: inherit;
+    }
   }
 }
 </style>

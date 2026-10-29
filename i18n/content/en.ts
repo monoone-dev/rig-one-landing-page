@@ -35,6 +35,9 @@ export default {
     footerNav: 'Footer',
     language: 'Language',
     englishOnly: 'This page is written in English.',
+    enlarge: 'Open full size',
+    actualSize: 'Actual size',
+    fitToScreen: 'Fit to window',
   },
   nav: {
     features: 'Features',

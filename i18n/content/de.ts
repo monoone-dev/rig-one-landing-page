@@ -35,6 +35,9 @@ export default {
     footerNav: 'Fußzeile',
     language: 'Sprache',
     englishOnly: 'Diese Seite ist auf Englisch verfasst.',
+    enlarge: 'In voller Größe öffnen',
+    actualSize: 'Originalgröße',
+    fitToScreen: 'An Fenster anpassen',
   },
   nav: {
     features: 'Funktionen',

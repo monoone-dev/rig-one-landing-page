@@ -35,6 +35,9 @@ export default {
     footerNav: 'Stopka',
     language: 'Język',
     englishOnly: 'Ta strona jest napisana po angielsku.',
+    enlarge: 'Otwórz w pełnym rozmiarze',
+    actualSize: 'Rzeczywisty rozmiar',
+    fitToScreen: 'Dopasuj do okna',
   },
   nav: {
     features: 'Możliwości',

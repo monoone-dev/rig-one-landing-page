@@ -68,6 +68,10 @@ export interface SiteContent {
     footerNav: string
     language: string
     englishOnly: string
+    /** Opens a screenshot in the full-size preview. */
+    enlarge: string
+    actualSize: string
+    fitToScreen: string
   }
   nav: {
     features: string

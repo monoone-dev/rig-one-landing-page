@@ -28,6 +28,20 @@ const html = computed(() => page.value.html
     if (!target || target === page.value) return link
     return `href="${router.resolve(localePath(`/docs/${target.id}`)).href}${target.id === id ? '' : `#${id}`}"`
   }))
+// A screenshot in the guide is a button (modules/markdown.ts): it opens full size
+const preview = useImagePreview()
+function enlarge(event: MouseEvent) {
+  const shot = (event.target as HTMLElement).closest<HTMLElement>('.md-shot')
+  const img = shot?.querySelector('img')
+  if (!shot?.dataset.shot || !img) return
+  preview.open({
+    dark: asset(`screenshots/${shot.dataset.shot}.webp`),
+    light: asset(`screenshots/${shot.dataset.shot}-light.webp`),
+    width: Number(img.getAttribute('width')),
+    height: Number(img.getAttribute('height')),
+    alt: img.alt,
+  })
+}
 const isTutorial = computed(() => page.value.title.startsWith('Tutorial'))
 const help = computed(() => fill(c.value.docs.helpHtml, { issues: site.links.newIssue }))
 
@@ -93,7 +107,7 @@ usePageSeo({
       </p>
 
       <!-- eslint-disable-next-line vue/no-v-html -- built from this repository's docs/user-guide.md -->
-      <div class="md article__body" lang="en" v-html="html" />
+      <div class="md article__body" lang="en" @click="enlarge" v-html="html" />
 
       <!-- eslint-disable-next-line vue/no-v-html -- our own copy, see i18n/content -->
       <p class="help" v-html="help" />

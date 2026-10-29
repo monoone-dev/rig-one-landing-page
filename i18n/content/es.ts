@@ -35,6 +35,9 @@ export default {
     footerNav: 'Pie de página',
     language: 'Idioma',
     englishOnly: 'Esta página está escrita en inglés.',
+    enlarge: 'Abrir a tamaño completo',
+    actualSize: 'Tamaño real',
+    fitToScreen: 'Ajustar a la ventana',
   },
   nav: {
     features: 'Funciones',

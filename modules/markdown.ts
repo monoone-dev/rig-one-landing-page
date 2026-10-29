@@ -71,7 +71,8 @@ const slug = (text: string) =>
 
 // `![alt](../public/screenshots/<id>.webp)` reads on GitHub as it is. On the site it becomes a
 // framed figure holding the dark `<id>.webp` and the light `<id>-light.webp`, shown by colour
-// mode, at half their pixel size; `__BASE__/` is replaced with the app base path by the page.
+// mode, at half their pixel size, in a button that opens it full size; `__BASE__/` is replaced with
+// the app base path by the page.
 function createMarked(withIds: boolean, publicDir?: string) {
   return new Marked({
     gfm: true,
@@ -87,7 +88,8 @@ function createMarked(withIds: boolean, publicDir?: string) {
         const { width, height } = webpSize(`${publicDir}/screenshots/${id}.webp`)
         const img = (file: string, mode: string) =>
           `<img src="__BASE__/screenshots/${file}.webp" data-mode="${mode}" width="${width / 2}" height="${height / 2}" alt="${text.replace(/"/g, '&quot;')}" loading="lazy" decoding="async">`
-        return `<span class="md-shot">${img(id, 'dark')}${img(`${id}-light`, 'light')}</span>`
+        // A button: the docs page opens it full size (ImagePreview.vue)
+        return `<button type="button" class="md-shot" aria-haspopup="dialog" data-shot="${id}">${img(id, 'dark')}${img(`${id}-light`, 'light')}</button>`
       },
       heading({ tokens, depth }) {
         const text = this.parser.parseInline(tokens)

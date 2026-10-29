@@ -35,6 +35,9 @@ export default {
     footerNav: 'Rodapé',
     language: 'Idioma',
     englishOnly: 'Esta página está escrita em inglês.',
+    enlarge: 'Abrir em tamanho completo',
+    actualSize: 'Tamanho real',
+    fitToScreen: 'Ajustar à janela',
   },
   nav: {
     features: 'Recursos',

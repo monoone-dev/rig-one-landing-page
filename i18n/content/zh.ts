@@ -35,6 +35,9 @@ export default {
     footerNav: '页脚',
     language: '语言',
     englishOnly: '本页内容为英文。',
+    enlarge: '查看大图',
+    actualSize: '实际大小',
+    fitToScreen: '适应窗口',
   },
   nav: {
     features: '功能',

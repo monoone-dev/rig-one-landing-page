@@ -35,6 +35,9 @@ export default {
     footerNav: 'フッター',
     language: '言語',
     englishOnly: 'このページは英語で書かれています。',
+    enlarge: 'フルサイズで開く',
+    actualSize: '実際のサイズ',
+    fitToScreen: 'ウインドウに合わせる',
   },
   nav: {
     features: '機能',

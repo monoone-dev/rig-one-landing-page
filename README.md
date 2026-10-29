@@ -59,9 +59,11 @@ RigOne's public home. The app's source code is not public and is not here.
    stopped the run is pinned where you will answer it.
 
 Each step works in its own copy of your code. When the run ends, what the agents changed waits on
-its own branch in your project: **nothing is pushed, and nothing reaches your own branch until you
-take it.** When a step finishes, RigOne runs the checks itself instead of asking the agent whether
-it worked; a second opinion from the other vendor can raise concerns, but never approve.
+its own branch in your project: **a workflow pushes nothing, and nothing reaches your own branch
+until you take it** — only Auto pushes and opens a pull request, when you allow it. When a step
+finishes, RigOne runs the checks itself instead of asking the agent whether it worked, re-runs a red
+check without the change to tell old failures from new ones, and lets a review by the other vendor
+send the work back.
 
 **Review a step like in an IDE.** Open a step and read what it changed as files, hunks and lines.
 Click a line to comment on it and send the comments to the agent — a finished step carries on in
@@ -78,8 +80,9 @@ prove the work. Every decision that waits for you — a question, an approval, a
 the tester's screenshots — sits in one list, **Needs you**, and macOS tells you when one arrives.
 **Pause Auto** and **Resume** hold a whole goal, and up to three goals work in one folder at a time.
 
-**Project overview** shows a project on one page — its score, repository, agents, workflows, knowledge, triggers
-and Auto rules — and **Generate project setup** drafts a rig from the repository for you to review. **Score** has
+**Overview** shows a project on one page — a summary of what needs your attention, then tabs for its score,
+repository, agents, workflows, knowledge and automation — and **Generate project setup** drafts a rig from the
+repository for you to review. **Score** has
 an agent read the project and rate out of 100 how easily agents move through it, weakest areas first, each with
 recommendations and a button that starts a fix.
 
@@ -97,7 +100,7 @@ cases from your own code to evaluate an agent, Linear triggers, model gateways a
 live plan limits for both vendors, a Health check, updates for the agent apps themselves, and run
 evidence — receipts, handoffs, full answers and a diagnostic bundle — that outlives the terminal.
 The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese, Chinese and
-Japanese, in a Surface, Minimalist, Studio or Linen look, light or dark.
+Japanese, in a Surface, Minimalist, Studio, Linen or Feather look, light or dark.
 
 The full feature list is on the [website](https://rig-one.io/features/),
 and where RigOne is ahead of and behind Orca, Paseo, Superset, Conductor, Nimbalyst, the ChatGPT app and
@@ -109,12 +112,12 @@ Cursor Cloud Agents is [here](https://rig-one.io/compare/).
 | --- | --- |
 | ![The Fix step: the changed lines of validate.ts and its test, with a comment on line 15 waiting to be sent to the agent](public/screenshots/review.webp) | ![The Fix step: changed functions with their uses, the app running from the step with Open preview, and three saved versions](public/screenshots/review-tools-light.webp) |
 | **Review** — every changed line of a step; comment on a line and the agent picks it up. | **Preview and versions** — start the app from the step, go back to any version of its files. |
-| ![Project overview for client-website: a score of 78 out of 100 with a summary, then the repository](public/screenshots/project.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas-light.webp) |
-| **Project overview** — the whole project on one page: score, repository, agents, workflows, knowledge, triggers and Auto rules. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
-| ![The Agents screen: four roles beside Scout, which runs with Claude Code](public/screenshots/agents-light.webp) | ![The Knowledge screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
+| ![Overview of client-website: the Summary tab with six tiles and Needs your attention](public/screenshots/project.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas-light.webp) |
+| **Overview** — the whole project on one page: a summary, then score, repository, agents, workflows, knowledge and automation. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
+| ![The Agents screen: Scout, Builder, Needle and Second opinion, each with its access, model and effort](public/screenshots/agents-light.webp) | ![The Knowledge screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
 | **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Knowledge** — notes an agent suggests wait for you; approved notes go into every prompt. |
-| ![Settings → Appearance: the Surface, Minimalist, Studio and Linen themes, and System, Light or Dark](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
-| **Settings** — Surface, Minimalist, Studio or Linen, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
+| ![Settings → Appearance: the Surface, Minimalist, Studio, Linen and Feather themes, and Light & dark](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
+| **Settings** — Surface, Minimalist, Studio, Linen or Feather, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
 
 Every screen is in `public/screenshots/` in dark (`<screen>.webp`) and light (`<screen>-light.webp`).
 
@@ -158,9 +161,9 @@ RigOne treats orchestration failures as product failures, not terminal noise:
 
 | RigOne refuses to… | Instead |
 | --- | --- |
-| Start two steps that write to overlapping places | Refuses before the first process starts |
+| Combine two steps that changed one file differently | Does not start the next step, and keeps both copies |
 | Leave processes behind after Stop or a timeout | Ends the whole process group, then verifies it is dead |
-| Put prompts or secrets on a command line | Sends them through stdin; child environments are rebuilt from an allowlist |
+| Put prompts or secrets on a command line | Sends them through stdin; child environments are rebuilt from an allowlist unless YOLO gives full access |
 | Crash on a vendor event it does not know | Records it and carries on |
 | Count a green exit code as a pass when no tests ran | Shows "nothing ran" as its own outcome |
 | Treat its database as the truth | Keeps files as the truth; the SQLite index can be deleted and rebuilt |

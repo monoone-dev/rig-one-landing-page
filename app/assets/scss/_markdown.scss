@@ -140,6 +140,10 @@
   // A screenshot of the app (modules/markdown.ts): both colour modes, the site's one shown
   .md-shot {
     display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    cursor: zoom-in;
     overflow: hidden;
     margin: 20px 0 28px;
     border-radius: 12px;
@@ -154,6 +158,11 @@
 
     img[data-mode='light'] {
       display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--ui-primary);
+      outline-offset: 2px;
     }
   }
 

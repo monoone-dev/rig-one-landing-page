@@ -26,14 +26,18 @@ export interface DocsPage {
   id: string
   title: string
   group: string
-  /** The first sentence of the page, for the overview and the meta description. */
+  /** The first sentence of the page, for the overview. */
   summary: string
+  /** The opening of the page, whole sentences up to about 160 characters, for the meta description. */
+  description: string
   /** Rounded up, at 220 words a minute. */
   minutes: number
   html: string
   /** The page's "###" headings, rendered as <h2>, with their first paragraph and first screenshot
    *  (for structured data). */
   toc: { id: string, title: string, summary?: string, image?: string }[]
+  /** Every screenshot on the page, in order (sitemap images and structured data). */
+  images: string[]
 }
 
 // Width and height of a WebP file at its natural size, so the page reserves the space.
@@ -59,8 +63,8 @@ const docsGroups: { title: string, pages: string[] }[] = [
   { title: 'Start here', pages: ['getting-started', 'tutorial-your-first-run-step-by-step', 'concepts'] },
   { title: 'Your workspace', pages: ['the-window', 'projects-side-by-side', 'search-and-keyboard-shortcuts'] },
   { title: 'Run the work', pages: ['tasks', 'auto', 'boards', 'triggers'] },
-  { title: 'Review and trust', pages: ['reviewing-a-step', 'checks-and-second-opinions', 'where-the-changes-go', 'safety-model'] },
-  { title: 'Build your rig', pages: ['agents', 'workflows', 'project-overview', 'lab'] },
+  { title: 'Review and trust', pages: ['reviewing-a-step', 'checks-and-reviews', 'where-the-changes-go', 'safety-model'] },
+  { title: 'Build your rig', pages: ['agents', 'workflows', 'overview', 'lab'] },
   { title: 'What agents know', pages: ['knowledge', 'context', 'skills'] },
   { title: 'Settings and your phone', pages: ['settings', 'remote-access'] },
   { title: 'Maintain', pages: ['updating', 'files-on-disk', 'uninstall', 'troubleshooting'] },
@@ -71,7 +75,8 @@ const slug = (text: string) =>
 
 // `![alt](../public/screenshots/<id>.webp)` reads on GitHub as it is. On the site it becomes a
 // framed figure holding the dark `<id>.webp` and the light `<id>-light.webp`, shown by colour
-// mode, at half their pixel size; `__BASE__/` is replaced with the app base path by the page.
+// mode, at half their pixel size, in a button that opens it full size; `__BASE__/` is replaced with
+// the app base path by the page.
 function createMarked(withIds: boolean, publicDir?: string) {
   return new Marked({
     gfm: true,
@@ -87,7 +92,8 @@ function createMarked(withIds: boolean, publicDir?: string) {
         const { width, height } = webpSize(`${publicDir}/screenshots/${id}.webp`)
         const img = (file: string, mode: string) =>
           `<img src="__BASE__/screenshots/${file}.webp" data-mode="${mode}" width="${width / 2}" height="${height / 2}" alt="${text.replace(/"/g, '&quot;')}" loading="lazy" decoding="async">`
-        return `<span class="md-shot">${img(id, 'dark')}${img(`${id}-light`, 'light')}</span>`
+        // A button: the docs page opens it full size (ImagePreview.vue)
+        return `<button type="button" class="md-shot" aria-haspopup="dialog" data-shot="${id}">${img(id, 'dark')}${img(`${id}-light`, 'light')}</button>`
       },
       heading({ tokens, depth }) {
         const text = this.parser.parseInline(tokens)
@@ -202,8 +208,21 @@ function readDocs(file: string, publicDir: string): Docs {
     const first = lead?.type === 'list' ? (lead as Tokens.List).items[0]?.text : (lead as Tokens.Paragraph | undefined)?.text
     const text = first ? plain(marked.parseInline(first) as string) : `${toc.map(h => h.title).join(', ')}.`
     const summary = text.match(/^.*?[.:](?=\s|$)/s)?.[0].replace(/\s+/g, ' ').replace(/:$/, '.') ?? text
+    // Search results show about 160 characters: whole sentences of the opening while they fit, or,
+    // when that is still short, the opening cut at a word.
+    const opener = lead?.type === 'paragraph' ? plain(marked.parseInline((lead as Tokens.Paragraph).text) as string).replace(/\s+/g, ' ').trim() : summary
+    let description = ''
+    for (const sentence of opener.split(/(?<=[.!?:])\s+/)) {
+      if (`${description} ${sentence}`.trim().length > 160) break
+      description = `${description} ${sentence}`.trim()
+    }
+    if (description.trim().length < 90 && opener.length > description.trim().length) {
+      description = opener.length <= 160 ? opener : `${opener.slice(0, 157).replace(/[\s,;:—-]+\S*$/, '')}…`
+    }
     const words = plain(html).split(/\s+/).filter(Boolean).length
-    return { id, title: title.replace(/`/g, ''), group, summary, minutes: Math.max(1, Math.ceil(words / 220)), html, toc }
+    const images = [...new Set([...html.matchAll(/screenshots\/([a-z0-9-]+)\.webp/g)].map(m => `screenshots/${m[1]}.webp`))]
+      .filter(file => !file.endsWith('-light.webp'))
+    return { id, title: title.replace(/`/g, ''), group, summary, description: (description.replace(/:$/, '.') || summary), minutes: Math.max(1, Math.ceil(words / 220)), html, toc, images }
   })
 
   const ids = new Set(pages.map(p => p.id))
@@ -256,9 +275,11 @@ declare module '#docs' {
       title: string
       group: string
       summary: string
+      description: string
       minutes: number
       html: string
       toc: { id: string, title: string, summary?: string, image?: string }[]
+      images: string[]
     }[]
   }
   export default docs

@@ -43,5 +43,6 @@ const uiLocale = computed(() => {
     <AppHeader />
     <NuxtPage />
     <AppFooter />
+    <ImagePreview />
   </UApp>
 </template>

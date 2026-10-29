@@ -1,12 +1,13 @@
 import docs from '#docs'
 import notes from '#release-notes'
+import { features, screenTabs } from '../../app/data/shared'
 
 // Screenshots shown on a page, for Google Images (dark versions; the light ones are the same screens)
-const homeShots = ['projects', 'review', 'run', 'canvas', 'project', 'agents', 'knowledge', 'settings']
+const files = (ids: string[]) => [...new Set(ids)].map(id => `screenshots/${id}.webp`)
 const pageImages: Record<string, string[]> = {
-  '/': homeShots.map(id => `screenshots/${id}.webp`),
-  '/features/': ['canvas', 'run', 'agents', 'project', 'knowledge'].map(id => `screenshots/${id}.webp`),
-  ...Object.fromEntries(docs.pages.map(p => [`/docs/${p.id}/`, [...new Set(p.toc.flatMap(h => h.image ?? []))]])),
+  '/': files(['projects', ...screenTabs]),
+  '/features/': files(features.flatMap(f => f.shot ?? [])),
+  ...Object.fromEntries(docs.pages.map(p => [`/docs/${p.id}/`, p.images])),
 }
 
 export default defineEventHandler((event) => {

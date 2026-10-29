@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — Mac で Claude Code、Codex、OpenCode のエージェントを動かす IDE',
-      description: 'コーディングエージェントの無料 macOS IDE。Claude Code、Codex、OpenCode をチームとして並列に動かし、変更を 1 行ずつレビューし、アプリをプレビューし、複数のプロジェクトを同時に開けます。',
+      description: 'コーディングエージェントの無料 macOS IDE。Claude Code、Codex、OpenCode をチームとして動かすか目標を Auto に任せ、変更を 1 行ずつレビューし、プロジェクトを並べて開けます。',
     },
     features: {
       title: 'RigOne の機能：エージェントの IDE、ワークフロー、チェック',
-      description: 'IDE のようにステップをレビューしてプレビュー、プロジェクトを並べて開く、目に見えるワークフロー、並列実行、Auto のゴール、RigOne 自身のチェック、共有ボード。',
+      description: 'IDE のようにステップをレビューしてプレビュー、部分に分かれた Auto の目標、目に見えるワークフロー、並列実行、公正なチェック、プロジェクトの Score、Knowledge Health、共有ボード。',
       breadcrumb: '機能',
     },
     docs: {
       title: 'RigOne ドキュメントとステップごとのチュートリアル',
-      description: 'RigOne をインストールし、チュートリアルに沿ってエージェントを作り、ワークフローを組み、Mac で実行し、ゴールを Auto に任せます。完全なリファレンス付き。',
+      description: 'RigOne をインストールし、チュートリアルに沿ってエージェントを作り、ワークフローを組み、Mac で実行し、目標を Auto に任せます。すべての画面をスクリーンショット付きで。',
       breadcrumb: 'ドキュメント',
     },
     compare: {
@@ -35,6 +35,9 @@ export default {
     footerNav: 'フッター',
     language: '言語',
     englishOnly: 'このページは英語で書かれています。',
+    enlarge: 'フルサイズで開く',
+    actualSize: '実際のサイズ',
+    fitToScreen: 'ウインドウに合わせる',
   },
   nav: {
     features: '機能',
@@ -209,11 +212,11 @@ export default {
         body: 'プロジェクトはタブで開き、最大 3 つを横に並べられます。ここでは一方のプロジェクトで実行が回答を待ち、もう一方で Auto のゴールを書いています。',
         alt: '2 つのプロジェクトを並べた画面：Ship a feature が Second opinion の回答を待つ client-website と、新しい Auto タスクを書いている docs-site。',
       },
-      agents: {
+      'agent-detail': {
         tab: 'Agents',
         title: '役割のすべてがひとつの画面に',
         body: '指示、使うエージェントアプリ（Claude Code、Codex または OpenCode）とそのモデルと思考の深さ、ファイルの変更やウェブへのアクセスの可否、あきらめるタイミング。',
-        alt: 'Agents 画面：4 つの役割の一覧と、Claude Code で動き、誰かが変更する前にコードを読む Scout。',
+        alt: '読み取り専用で開いたエージェント Builder：指示、Claude Code とモデル・エフォート、変更・アクセスできる範囲、スキルと接続、Evaluate・Duplicate・Delete・Edit。',
       },
       canvas: {
         tab: 'Canvas',
@@ -222,22 +225,52 @@ export default {
         alt: 'Ship a feature のキャンバス：Reproduce、次に Fix、そして Tests pass と Second opinion が並んで実行。',
       },
       project: {
-        tab: 'Project overview',
+        tab: 'Overview',
         title: 'プロジェクト全体を 1 ページに',
-        body: 'まず Score（エージェントがどれだけ迷わず動けるか）、次にリポジトリ（ブランチ、変更、ディスク上のサイズ、ワークスペース）、そしてエージェント、ワークフロー、ナレッジ、トリガー、Auto のルール。',
-        alt: 'client-website のプロジェクト概要：100 点中 78 点のスコアと要約、その下にリポジトリ。main ブランチは最新、コミットするものはなし、ディスク上 432 MB。',
+        body: 'まず概要——数値と対応が必要な項目——、その後に Score、Repository、Agents、Workflows、Knowledge、Automation のタブが並びます。',
+        alt: 'Summary タブの client-website の Overview：Score 78、エージェント 4、ワークフロー 3、ナレッジ 9、変更なし、トリガー 2、Needs your attention に新しい学び 2 件。',
       },
       knowledge: {
         tab: 'Knowledge',
         title: 'エージェントが知っていることは、あなたが承認',
         body: 'エージェントが提案したメモは Keep か Discard を待ちます。承認したメモはすべてのプロンプトに入り、スキルは作業に合うときに使われます。',
-        alt: 'Knowledge 画面：あなたを待つ 2 つの提案メモ、常にコンテキストに入る 2 つのメモ、合うときに使われる 3 つのスキル。',
+        alt: 'Knowledge 画面：Health は良好、ナレッジの種類ごとのタブ、Keep か Discard を待つ提案ノート 3 件。',
       },
       settings: {
         tab: 'Settings',
         title: '独立したウィンドウの設定',
         body: '作業、プロジェクト、エージェント、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check と、RigOne が使うディスク容量を示す Storage ページ。Surface、Minimalist、Studio、Linen、Feather の外観を、ライト、ダーク、または macOS に合わせて選べます。',
         alt: 'Settings → Appearance：アプリの言語、Surface・Minimalist・Studio・Linen・Feather のテーマ、System・Light・Dark。',
+      },
+      'run-panel': {
+        tab: 'Auto',
+        title: '目標を、追える単位に分けて',
+        body: 'Lead は必要なことだけを尋ね、Agents & work は目標の各部分を Needs attention・In progress・Up next・Finished に分けて、今の作業と残り時間を示します。',
+        alt: 'Auto の目標 Export invoices as CSV：Lead が CSV の日付形式を尋ね、右側の Agents & work には 5 つの部分があり、進行中の 1 つがスコープと Open workflow 付きで開いています。',
+      },
+      'boards': {
+        tab: 'Boards',
+        title: 'チームで共有するボード',
+        body: 'カンバンでもスプリントでも、Mac 上で暗号化。カードをワークフローや Auto の目標として実行すると、進捗が全員に見えます。',
+        alt: 'Board ビューの Product work ボード：Backlog、To do、In progress、Needs attention、Done の各列にタスクカード。',
+      },
+      'trigger-form': {
+        tab: 'Triggers',
+        title: 'Linear の課題で実行を開始',
+        body: 'ワークフロー、ワークスペース、確認間隔を選びます。1 つの課題は再起動後も 1 回だけ実行を開始します。',
+        alt: 'Triggers › Edit Linear trigger：Linear コネクター、Test connection 付きの環境変数、自分に割り当てられた課題、ワークスペース、Check every、ワークフロー。',
+      },
+      'lab': {
+        tab: 'Lab',
+        title: '自分のケースで変更を測る',
+        body: 'モデルなど 1 点だけ違う列で同じケースを実行し、何が合格したかを確かめます。',
+        alt: 'Lab のセット Scout on sign-up bugs：Scout today と Scout with Opus の 2 列にケース、passed と did not pass の印、Propose a fix 付きの What did not pass。',
+      },
+      'settings-remote': {
+        tab: 'Remote access',
+        title: 'スマートフォンから Mac へ',
+        body: 'コードでスマートフォンやタブレットをペアリングし、View and control か View only、アクセスできるプロジェクトを選びます。',
+        alt: 'Settings → Remote access：Allow remote access がオンで接続済み、View and control と Revoke のあるペアリング済みの電話、Add a phone or tablet、リモートで使えるプロジェクト。',
       },
     },
   },
@@ -246,11 +279,11 @@ export default {
     title: '失敗はターミナルの雑音ではなく、製品の失敗として扱う',
     lead: 'RigOne が黙ってはやらないこと。',
     items: {
-      scopes: { title: '書き込み範囲の重なりは', body: '最初のプロセスが始まる前に拒否されます。' },
+      scopes: { title: '2 つのステップが同じファイルを別々に変更すると、', body: '次のステップは始まらず、両方のコピーが残ります。' },
       cancel: { title: '取り消しは', body: 'プロセスグループ全体を終了させ、そのうえで確かに終わったことを確認します。' },
       timeouts: { title: 'タイムアウトは', body: '取り消しと同じ、監視つきの終了処理を通ります。' },
       secrets: { title: 'プロンプトと秘密情報は', body: '標準入力を通り、コマンドライン引数には決して乗りません。' },
-      env: { title: '子プロセスの環境は', body: '明示した許可リストから組み直されます。' },
+      env: { title: '子プロセスの環境は', body: '明示的な許可リストから作り直されます。YOLO mode でエージェントにフルアクセスを与えた場合を除きます。' },
       unknown: { title: '未知のベンダーイベントは', body: '実行を落とさず、記録したうえで無視されます。' },
       green: { title: '緑の終了コードは', body: 'テストが本当に走った証拠がなければ、合格のチェックとは認めません。' },
       files: { title: '正となるのはファイルです。', body: 'SQLite のインデックスは削除して作り直せます。' },
@@ -280,6 +313,7 @@ export default {
           '同時に働けるエージェントの数を選べる',
           '実行が設定した金額に達したときの警告（任意）',
           'どのステップも始まる前に、モデルと思考の深さをインストール済みのエージェントアプリと照合',
+          'サインイン済みの各エージェントアプリのプラン上限を、サイドパネルの下部に表示',
         ],
       },
       run: {
@@ -290,8 +324,9 @@ export default {
           '質問、起動したコマンド、出力、費用がひとまとまりに',
           '結果は何が起きたかをそのまま示す：完了、失敗、停止、未実行',
           'リードエージェントと相談できる — 作業を始めるのは /run だけ',
-          'メッセージ欄の下にモデルと Auto のスイッチ',
+          'モデルと、Auto・Plan first・One agent の切り替えはメッセージ欄の下にあります',
           '再起動してもタスクが戻り、それぞれの会話も残る',
+          '画像・ファイル・フォルダーを会話にドロップすると、メッセージと一緒に送れます',
         ],
       },
       review: {
@@ -302,7 +337,7 @@ export default {
           '行をクリックしてコメントを書き、Send comments to the agent',
           'コメントは、すべてのファイルと行を明記したひとつのメッセージに',
           '変更されたファイルをその行でエディタに開く',
-          '2 つのステップが同じ行を変えたら、どちらの行を残すかを選ぶ',
+          'ステップが衝突したとき：結果に外されたステップと衝突したファイルが示されます',
           'ステップの費用をステータスの横に表示',
         ],
       },
@@ -325,6 +360,7 @@ export default {
           'タブに、そのプロジェクトが作業中かあなたを待っているかを表示',
           '⌘⌥\\ で今のプロジェクトの隣に次のプロジェクトを開く',
           '再起動してもタブとペインが戻る',
+          'タブを別のタブにドラッグすると 1 つの分割タブに並びます。色のタイルでプロジェクトを見分けられます',
         ],
       },
       auto: {
@@ -336,7 +372,8 @@ export default {
           'デザインレビュー：テスターのスクリーンショットを承認するか、場所をクリックして変えたい点を書く',
           '混雑したプロバイダーや利用上限を待ってから続行',
           'Pause Auto と Resume、ひとつのフォルダで同時に最大 3 つのゴール',
-          'Skip permissions で Auto の実行全体のフルアクセスをオン・オフ',
+          'YOLO mode は会話全体でエージェントにフルアクセスを与えます。既定値は Settings → Auto で設定します',
+          'RigOne を再起動すると目標は自動で再開し、終了時はまず確認してからすべてのエージェントを止めます',
         ],
       },
       agents: {
@@ -360,6 +397,7 @@ export default {
           'Skills では、プロジェクトの .claude/skills と .agents/skills がエージェントに渡す内容を確認',
           'テキスト、Markdown、画像、PDF から名前付きのコンテキストセット',
           '実行が実際に使ったコンテキストを確認',
+          'Health は各プロンプトが運ぶ量を示し、大きすぎる・古い・使われていないナレッジを指摘します',
         ],
       },
       checks: {
@@ -368,8 +406,11 @@ export default {
         body: 'ステップが終わると、RigOne はうまくいったかをエージェントに尋ねるのではなく、チェックを走らせます。エージェントの発言、チェックの結果、あなたの承認が混ざることはありません。',
         points: [
           '「何も実行されなかった」は独立した結果で、合格にはなりません',
-          '別ベンダーのセカンドオピニオンは懸念を示せますが、承認はできません',
+          '別ベンダーのエージェントがレビューし、Auto ではレビューに落ちた作業が修正に戻されます',
           '同じエラーが二度出たらリトライを止めます',
+          '赤になったチェックは変更を除いたコードで再実行され、以前からの失敗と新しい失敗を見分けます',
+          '変更の外にある不安定なテストは、名前を挙げた警告付きで合格になります',
+          '受け入れ基準ごとに、それを証明するテストを指定できます',
         ],
       },
       branches: {
@@ -377,7 +418,7 @@ export default {
         title: '変更は専用のブランチで待つ',
         body: '各ステップはコードの専用コピーで作業するので、エージェント同士がぶつかりません。実行が終わると、成果はプロジェクト内のブランチで待っています。',
         points: [
-          '何もプッシュされません',
+          'Auto にプッシュとプルリクエスト作成を許可しない限り、何もプッシュされません',
           'あなたが取り込むまで、あなたのブランチには何も入りません',
           '本当に衝突したときは、成果が残っているブランチを示します',
         ],
@@ -407,21 +448,22 @@ export default {
       lab: {
         eyebrow: 'ラボ',
         title: '自分のコードでエージェントを試す',
-        body: 'エージェントを選ぶと、RigOne がプロジェクトからテストケースを下書きします。そのエージェントへの変更で仕事が良くなったかを確かめられます。',
+        body: 'エージェント、ワークフロー、スキルのいずれかを選ぶと、RigOne がプロジェクトからテストケースを起こし、変更で仕事が良くなったかを確かめられます。',
         points: [
           'ケースは汎用のベンチマークではなく、あなたのコードから作られます',
           '編集の前後でエージェントを比べられます',
+          'エージェント・ワークフロー・スキルのセットをタブで分け、各セットは専用ページで開きます',
         ],
       },
       rig: {
-        eyebrow: 'Project overview',
+        eyebrow: 'Overview',
         title: 'プロジェクト全体を 1 ページで',
-        body: 'このプロジェクトで誰が、どのように働き、何を知っていて、エージェントがどれだけ迷わず動けるか。Score、エージェント、ワークフロー、ナレッジ、トリガー、Auto のルールを並べて表示します。',
+        body: 'このプロジェクトで誰がどう働き、何を知っていて、エージェントがどれだけ迷わず動けるか。概要は対応が必要な項目を示し、タブには Score、Repository、Agents、Workflows、Knowledge、Automation があります。',
         points: [
           'Score：エージェントがプロジェクトを読み 100 点満点で採点。弱い項目から順に、推奨事項と修正を始めるボタン付き',
           'まずリポジトリの情報：ブランチ、変更、ブランチ一覧、ディスク上のサイズ、ワークスペース',
           '概要からプロジェクトをエディタで開く',
-          'Generate project setup がリポジトリからエージェントとワークフローを下書きし、Apply を選ぶまで何も変わりません',
+          'Generate project setup がリポジトリからエージェントとワークフローを下書きし、Apply setup を選ぶまで何も変わりません',
           '変更が必要なワークフローは理由を示し、RigOne が直せる場合は Fix を表示',
           '実行から得た新しい学びはここで Keep か Discard を待ちます',
         ],
@@ -495,7 +537,7 @@ export default {
         { title: 'ソースコードは非公開', body: 'RigOne は無料で使えますが、コードを読んだりフォークしたりはできません。Orca と Nimbalyst は MIT、Paseo は Apache 2.0 です。' },
         { title: 'エージェントアプリは 3 つ', body: 'Claude Code、Codex、OpenCode です。Orca、Paseo、Superset はどのコマンドラインエージェントでも動かせ、20〜30 以上を挙げています。' },
         { title: 'エディタもターミナルも内蔵していない', body: 'RigOne はファイルをあなた自身のエディタで開きます。Orca、Paseo、Nimbalyst は両方を内蔵し、ほかの多くもターミナルを備えています。' },
-        { title: 'アプリからプルリクエストを出せない', body: '作業はローカルのブランチに残ります。プッシュできるのは、あなたが許可したときの Auto だけです。Orca、Paseo、Superset、Conductor、Cursor はプルリクエストを作成し、いくつかはマージもします。' },
+        { title: 'プルリクエストは Auto 経由のみ', body: '作業結果はローカルブランチで待ちます。許可した場合に限り、Auto だけがプッシュしてプルリクエストを開きます。Orca、Paseo、Superset、Conductor、Cursor はどのタスクからでもプルリクエストを開き、いくつかはマージもします。' },
         { title: '連携が少なく、定期実行がない', body: '実行を開始できるのは、あなたに割り当てられた Linear の課題だけです。ほかの製品は定期実行や、GitHub、Slack、Jira からの開始に対応しています。' },
         { title: 'スマートフォンからは Web ページ経由', body: 'MonoOne アカウントが必要です。Paseo にはアカウント不要の iOS・Android アプリがあり、Nimbalyst、ChatGPT、Cursor にもアプリがあります。' },
         { title: '費用は警告のみで、上限はない', body: 'RigOne は実行が一定の金額に達すると警告しますが、実行は止めません。Cursor は支出上限で止まります。' },
@@ -585,7 +627,7 @@ export default {
       },
       prs: {
         criterion: 'プルリクエストの作成とマージ',
-        cells: ['許可したときに Auto だけがプッシュ。それ以外はローカルのブランチ', '作成、マージ、自動マージ', 'GitHub、GitLab、Gitea など', 'エージェントが gh で作成', '作成、マージ、アーカイブ', 'プルリクエストのレビュー', 'コミットとプッシュ', 'マージできる状態のプルリクエスト'],
+        cells: ['許可すれば Auto だけがプッシュして作成。それ以外はローカルブランチ', '作成、マージ、自動マージ', 'GitHub、GitLab、Gitea など', 'エージェントが gh で作成', '作成、マージ、アーカイブ', 'プルリクエストのレビュー', 'コミットとプッシュ', 'マージできる状態のプルリクエスト'],
       },
       trackers: {
         criterion: '課題管理とチャット',
@@ -644,7 +686,7 @@ export default {
       },
       {
         question: 'エージェントがリポジトリにプッシュすることはありますか？',
-        answer: 'ありません。各ステップはコードの専用コピーで作業し、結果はプロジェクト内のブランチで待ちます。何もプッシュされず、あなたが取り込むまで、あなたのブランチには何も入りません。',
+        answer: '勝手にはしません。各ステップは自分専用のコードのコピーで作業し、結果はプロジェクトのブランチで待ちます。プッシュとプルリクエストの作成ができるのは Auto だけで、それも許可した場合のみです。取り込むまで、あなたのブランチには何も入りません。',
       },
       {
         question: 'Claude Code だけ、または Codex だけでも使えますか？',

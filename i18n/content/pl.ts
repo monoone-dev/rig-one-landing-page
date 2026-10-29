@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — IDE dla Claude Code, Codex i OpenCode na Maca',
-      description: 'Darmowe IDE dla agentów kodujących na macOS. Claude Code, Codex i OpenCode jako zespół, przegląd każdej zmienionej linii i kilka projektów obok siebie.',
+      description: 'Darmowe IDE dla agentów kodujących na macOS. Claude Code, Codex i OpenCode jako zespół albo cel dla Auto, przegląd każdej zmienionej linii i projekty obok siebie.',
     },
     features: {
       title: 'Możliwości RigOne: IDE dla agentów, wizualne workflow, sprawdzenia',
-      description: 'Przegląd kroku jak w IDE, podgląd, projekty obok siebie, wizualne workflow, równoległe biegi, cele Auto, sprawdzenia RigOne i wspólne tablice.',
+      description: 'Przegląd i podgląd kroku jak w IDE, cele Auto podzielone na części, wizualne workflow, równoległe biegi, uczciwe sprawdzenia, Score projektu, Knowledge Health i tablice.',
       breadcrumb: 'Możliwości',
     },
     docs: {
       title: 'Dokumentacja RigOne i samouczek krok po kroku',
-      description: 'Zainstaluj RigOne i przejdź samouczek krok po kroku: stwórz agenta, zbuduj workflow, uruchom go na Macu i przekaż cel do Auto. Plus pełna dokumentacja.',
+      description: 'Zainstaluj RigOne i przejdź samouczek krok po kroku: stwórz agenta, zbuduj workflow, uruchom go na Macu i przekaż cel do Auto. Każdy ekran ze zrzutami.',
       breadcrumb: 'Dokumentacja',
     },
     compare: {
@@ -35,6 +35,9 @@ export default {
     footerNav: 'Stopka',
     language: 'Język',
     englishOnly: 'Ta strona jest napisana po angielsku.',
+    enlarge: 'Otwórz w pełnym rozmiarze',
+    actualSize: 'Rzeczywisty rozmiar',
+    fitToScreen: 'Dopasuj do okna',
   },
   nav: {
     features: 'Możliwości',
@@ -209,11 +212,11 @@ export default {
         body: 'Projekty otwierają się jako karty; ustaw do trzech obok siebie. Tu bieg w jednym projekcie czeka na odpowiedź, a w drugim powstaje cel Auto.',
         alt: 'Dwa projekty obok siebie: client-website, gdzie Ship a feature czeka na odpowiedź od Second opinion, oraz docs-site z nowym zadaniem Auto w trakcie pisania.',
       },
-      agents: {
+      'agent-detail': {
         tab: 'Agents',
         title: 'Cała rola na jednym ekranie',
         body: 'Jej instrukcje, aplikacja agenta — Claude Code, Codex lub OpenCode — z modelem i wysiłkiem, czy może zmieniać pliki i sięgać do sieci, oraz kiedy się poddaje.',
-        alt: 'Ekran Agents: lista czterech ról obok roli Scout, która działa z Claude Code i czyta kod, zanim ktokolwiek go zmieni.',
+        alt: 'Agent Builder otwarty do odczytu: instrukcje, Claude Code z modelem i wysiłkiem, co może zmieniać i do czego sięgać oraz skille i połączenia, z Evaluate, Duplicate, Delete i Edit.',
       },
       canvas: {
         tab: 'Canvas',
@@ -222,22 +225,52 @@ export default {
         alt: 'Kanwa Ship a feature: Reproduce, potem Fix, potem obok siebie Tests pass i Second opinion.',
       },
       project: {
-        tab: 'Project overview',
+        tab: 'Overview',
         title: 'Cały projekt na jednej stronie',
-        body: 'Najpierw Score — jak łatwo agenci poruszają się po projekcie — potem repozytorium: gałąź, zmiany, rozmiar na dysku i przestrzenie robocze, a dalej agenci, workflowy, wiedza, wyzwalacze i zasady Auto.',
-        alt: 'Przegląd projektu client-website: wynik 78 na 100 z podsumowaniem, a pod nim repozytorium z aktualną gałęzią main, niczym do zatwierdzenia i 432 MB na dysku.',
+        body: 'Najpierw podsumowanie — liczby i to, co wymaga twojej uwagi — a potem osobne zakładki: Score, Repository, Agents, Workflows, Knowledge i Automation.',
+        alt: 'Overview projektu client-website na zakładce Summary: Score 78, czterech agentów, trzy workflowy, dziewięć elementów wiedzy, brak zmian i dwa wyzwalacze, a pod Needs your attention dwie nowe lekcje.',
       },
       knowledge: {
         tab: 'Knowledge',
         title: 'Co wiedzą twoi agenci — za twoją zgodą',
         body: 'Notatki zaproponowane przez agenta czekają na Keep albo Discard. Zatwierdzone trafiają do każdego promptu; umiejętności są używane, gdy pasują do pracy.',
-        alt: 'Ekran Knowledge: dwie proponowane notatki czekają na ciebie, dwie są zawsze w kontekście, a trzy umiejętności są używane, gdy pasują.',
+        alt: 'Ekran Knowledge: Health w dobrym stanie, zakładka dla każdego rodzaju wiedzy i trzy proponowane notatki czekające na Keep albo Discard.',
       },
       settings: {
         tab: 'Settings',
         title: 'Ustawienia we własnym oknie',
         body: 'Kategorie dla pracy, projektów, agentów, konta i aplikacji oraz Health check, który mówi, co działa, i strona Storage, która pokazuje, ile miejsca zajmuje RigOne. Wybierz wygląd Surface, Minimalist, Studio, Linen albo Feather, w trybie jasnym, ciemnym lub zgodnym z macOS.',
         alt: 'Settings → Appearance: język aplikacji, motywy Surface, Minimalist, Studio, Linen i Feather, System, Light albo Dark.',
+      },
+      'run-panel': {
+        tab: 'Auto',
+        title: 'Cel podzielony na części, które widać',
+        body: 'Lead pyta tylko o to, co musi; Agents & work pokazuje każdą część celu w grupach Needs attention, In progress, Up next i Finished, z tym, co robi teraz i ile jeszcze zostało.',
+        alt: 'Cel Auto „Export invoices as CSV”: Lead pyta, jakiego formatu daty ma użyć CSV, a po prawej Agents & work z pięcioma częściami, jedna w toku rozwinięta z zakresem i Open workflow.',
+      },
+      'boards': {
+        tab: 'Boards',
+        title: 'Tablice wspólne dla zespołu',
+        body: 'Kanban albo sprinty, szyfrowane na twoim Macu. Uruchom kartę jako workflow albo cel Auto, a postęp zobaczą wszyscy.',
+        alt: 'Tablica Product work w widoku Board: kolumny Backlog, To do, In progress, Needs attention i Done z kartami zadań.',
+      },
+      'trigger-form': {
+        tab: 'Triggers',
+        title: 'Zgłoszenie z Linear uruchamia bieg',
+        body: 'Wybierz workflow, przestrzeń roboczą i jak często sprawdzać. Jedno zgłoszenie uruchamia jeden bieg, także po restarcie.',
+        alt: 'Triggers › Edit Linear trigger: konektor Linear, zmienna środowiskowa z Test connection, zgłoszenie przypisane do ciebie, przestrzeń robocza, Check every i workflow.',
+      },
+      'lab': {
+        tab: 'Lab',
+        title: 'Zmierz zmianę na własnych przypadkach',
+        body: 'Uruchom te same przypadki w kolumnach, które różnią się jedną rzeczą, np. modelem, i zobacz, co przeszło.',
+        alt: 'Zestaw Lab „Scout on sign-up bugs”: przypadki w dwóch kolumnach, Scout today i Scout with Opus, ze znacznikami passed i did not pass oraz What did not pass z Propose a fix.',
+      },
+      'settings-remote': {
+        tab: 'Remote access',
+        title: 'Twój Mac na telefonie',
+        body: 'Sparuj telefon albo tablet kodem, wybierz View and control albo View only i zdecyduj, do których projektów ma dostęp.',
+        alt: 'Settings → Remote access: Allow remote access włączone i połączone, sparowany telefon z View and control i Revoke, Add a phone or tablet oraz projekty dostępne zdalnie.',
       },
     },
   },
@@ -246,11 +279,11 @@ export default {
     title: 'Awarie to awarie produktu, nie szum w terminalu',
     lead: 'Czego RigOne nie robi po cichu.',
     items: {
-      scopes: { title: 'Nachodzące zakresy zapisu', body: 'są odrzucane, zanim ruszy pierwszy proces.' },
+      scopes: { title: 'Dwa kroki, które zmieniły ten sam plik inaczej,', body: 'zatrzymują krok po nich, a obie wersje zostają zachowane.' },
       cancel: { title: 'Anulowanie', body: 'kończy całą grupę procesów, a potem sprawdza, że nie żyje.' },
       timeouts: { title: 'Przekroczenia czasu', body: 'przechodzą przez to samo nadzorowane zamykanie co anulowanie.' },
       secrets: { title: 'Prompty i sekrety', body: 'jadą przez stdin, nigdy przez argumenty wiersza poleceń.' },
-      env: { title: 'Środowiska procesów potomnych', body: 'są budowane od nowa z jawnej listy dozwolonych zmiennych.' },
+      env: { title: 'Środowiska procesów potomnych', body: 'są budowane od nowa z jawnej listy dozwolonych zmiennych, chyba że YOLO mode daje agentom pełny dostęp.' },
       unknown: { title: 'Nieznane zdarzenia od dostawcy', body: 'są zapisywane i pomijane, zamiast wywracać bieg.' },
       green: { title: 'Zielony kod wyjścia', body: 'bez dowodu, że testy się wykonały, nie jest uznawany za zielone sprawdzenie.' },
       files: { title: 'Pliki są źródłem prawdy;', body: 'indeks SQLite można usunąć i zbudować od nowa.' },
@@ -280,6 +313,7 @@ export default {
           'Wybierz, ilu agentów może pracować naraz',
           'Opcjonalne ostrzeżenie, gdy bieg dojdzie do ustawionej kwoty',
           'Modele i poziomy wysiłku są sprawdzane z zainstalowaną aplikacją agenta, zanim ruszy jakikolwiek krok',
+          'Limity planu każdej zalogowanej aplikacji agenta na dole panelu bocznego',
         ],
       },
       run: {
@@ -290,8 +324,9 @@ export default {
           'Pytania, uruchomione komendy, wyjście i koszty są w jednym miejscu',
           'Wyniki mówią, co się stało: gotowe, nieudane, zatrzymane lub nieuruchomione',
           'Agent prowadzący może coś z tobą omówić — pracę rozpoczyna tylko /run',
-          'Model i przełącznik Auto są pod polem wiadomości',
+          'Model i wybór Auto, Plan first albo One agent są pod polem wiadomości',
           'Zadania wracają po ponownym uruchomieniu, każde z własną rozmową',
+          'Upuść obrazy, pliki albo foldery na rozmowę, żeby wysłać je z wiadomością',
         ],
       },
       review: {
@@ -302,7 +337,7 @@ export default {
           'Kliknij linię, napisz komentarz, potem Send comments to the agent',
           'Komentarze stają się jedną wiadomością, która podaje każdy plik i linię',
           'Otwórz zmieniony plik na jego linii w swoim edytorze',
-          'Dwa kroki zmieniły te same linie: wybierz, czyje linie zostają',
+          'Kroki w konflikcie: wynik podaje pominięty krok i pliki, na których doszło do konfliktu',
           'Koszt kroku obok jego statusu',
         ],
       },
@@ -325,6 +360,7 @@ export default {
           'Karta pokazuje, czy jej projekt pracuje, czy czeka na ciebie',
           '⌘⌥\\ otwiera następny projekt obok bieżącego',
           'Karty i panele wracają po ponownym uruchomieniu',
+          'Przeciągnij kartę na inną, żeby pokazać oba projekty w jednej dzielonej karcie; kolorowy kafelek odróżnia projekty',
         ],
       },
       auto: {
@@ -336,7 +372,8 @@ export default {
           'Przegląd wyglądu: zaakceptuj zrzuty ekranu testera albo kliknij miejsce i napisz, co zmienić',
           'Przeczekuje przeciążonego dostawcę albo limit użycia i pracuje dalej',
           'Pause Auto i Resume; w jednym folderze mogą pracować naraz do trzech celów',
-          'Skip permissions włącza albo wyłącza pełny dostęp dla całego biegu Auto',
+          'YOLO mode daje agentom pełny dostęp na całą rozmowę; domyślne ustawienie jest w Settings → Auto',
+          'Cele wznawiają się same po ponownym uruchomieniu RigOne, a zamknięcie aplikacji najpierw pyta, potem zatrzymuje każdego agenta',
         ],
       },
       agents: {
@@ -360,6 +397,7 @@ export default {
           'Skills pokazuje, co dają agentom .claude/skills i .agents/skills projektu',
           'Nazwane zestawy kontekstu z tekstu, Markdown, obrazów i PDF',
           'Zobacz, z jakiego kontekstu bieg naprawdę skorzystał',
+          'Health pokazuje, ile niesie każdy prompt, i wskazuje wiedzę zbyt dużą, nieaktualną albo nieużywaną',
         ],
       },
       checks: {
@@ -368,8 +406,11 @@ export default {
         body: 'Gdy krok się kończy, RigOne uruchamia sprawdzenia — nie pyta agenta, czy się udało. To, co powiedział agent, co wykazały sprawdzenia i co zostało zatwierdzone, nigdy się nie miesza.',
         points: [
           '„Nic się nie wykonało” to osobny wynik, nigdy zaliczenie',
-          'Druga opinia od innego dostawcy może zgłosić zastrzeżenia, ale nigdy nie zatwierdza',
+          'Przegląd przez agenta innego dostawcy czyta pracę; w Auto nieudany przegląd odsyła ją do poprawki',
           'Ten sam błąd dwa razy zatrzymuje ponowienia',
+          'Czerwona kontrola jest powtarzana na kodzie bez zmiany, żeby odróżnić stare błędy od nowych',
+          'Niestabilne testy poza zmianą przechodzą z ostrzeżeniem, które je wymienia',
+          'Kryterium akceptacji może wskazać test, który go dowodzi',
         ],
       },
       branches: {
@@ -377,7 +418,7 @@ export default {
         title: 'Zmiany czekają na własnej gałęzi',
         body: 'Każdy krok pracuje na własnej kopii kodu, więc agenci nie wchodzą sobie w drogę. Gdy bieg się kończy, praca czeka na gałęzi w projekcie.',
         points: [
-          'Nic nie jest wypychane',
+          'Nic nie jest wypychane, chyba że pozwolisz Auto wypchnąć zmiany i otworzyć pull request',
           'Nic nie trafia na twoją gałąź, dopóki tego nie weźmiesz',
           'Prawdziwy konflikt podaje gałęzie, na których zachowano pracę',
         ],
@@ -407,28 +448,29 @@ export default {
       lab: {
         eyebrow: 'Laboratorium',
         title: 'Wypróbuj agenta na własnym kodzie',
-        body: 'Wybierz agenta, a RigOne przygotuje przypadki testowe z twojego projektu, żeby było widać, czy zmiana w tym agencie poprawiła pracę.',
+        body: 'Wybierz agenta, workflow albo skill, a RigOne napisze przypadki testowe z twojego projektu, żeby było widać, czy zmiana poprawiła pracę.',
         points: [
           'Przypadki pochodzą z twojego kodu, nie z ogólnego benchmarku',
           'Porównaj agenta przed edycją i po niej',
+          'Zestawy dla agentów, workflowów i skilli w zakładkach, każdy otwiera się na osobnej stronie',
         ],
       },
       rig: {
-        eyebrow: 'Project overview',
+        eyebrow: 'Overview',
         title: 'Jedna strona dla całego projektu',
-        body: 'Kto pracuje w tym projekcie, jak, co wie i jak łatwo agenci się w nim odnajdują: Score, agenci, workflowy, wiedza, wyzwalacze i zasady Auto obok siebie.',
+        body: 'Kto pracuje w tym projekcie, jak, co wie i jak łatwo agenci się w nim odnajdują. Podsumowanie mówi, co wymaga twojej uwagi; zakładki mieszczą Score, Repository, Agents, Workflows, Knowledge i Automation.',
         points: [
           'Score: agent czyta projekt i ocenia go w skali do 100, najpierw najsłabsze obszary, każdy z rekomendacjami i przyciskiem, który uruchamia poprawkę',
           'Najpierw fakty o repozytorium: gałąź, zmiany, gałęzie, rozmiar na dysku i przestrzenie robocze',
           'Otwórz projekt w swoim edytorze prosto z przeglądu',
-          'Generate project setup przygotowuje agentów i workflowy z repozytorium; nic się nie zmienia, dopóki nie wybierzesz Apply',
+          'Generate project setup przygotowuje agentów i workflowy z repozytorium; nic się nie zmienia, dopóki nie wybierzesz Apply setup',
           'Workflow, który wymaga zmiany, mówi o tym, z przyciskiem Fix tam, gdzie RigOne może to zrobić',
           'Nowe lekcje z biegów czekają tu na Keep albo Discard',
         ],
       },
       remote: {
         eyebrow: 'Remote access',
-        title: 'Twoje biegi w telefonie',
+        title: 'twoje biegi w telefonie',
         body: 'Sparuj telefon lub tablet kodem i śledź pracę z dowolnego miejsca: odpowiadaj na to, co czeka w Needs you, uruchom cel Auto, napisz do Leada albo zatrzymaj pracę.',
         points: [
           'Face ID lub Touch ID jest zawsze włączone',
@@ -495,7 +537,7 @@ export default {
         { title: 'Kod źródłowy nie jest opublikowany', body: 'RigOne jest darmowe, ale nie można czytać ani forkować jego kodu. Orca i Nimbalyst mają licencję MIT, Paseo — Apache 2.0.' },
         { title: 'Trzy aplikacje agentów', body: 'Claude Code, Codex i OpenCode. Orca, Paseo i Superset uruchamiają dowolnego agenta wiersza poleceń i wymieniają od 20 do 30 lub więcej.' },
         { title: 'Brak wbudowanego edytora i terminala', body: 'RigOne otwiera plik w twoim własnym edytorze. Orca, Paseo i Nimbalyst mają wbudowane jedno i drugie; większość pozostałych ma terminal.' },
-        { title: 'Brak pull requestów z aplikacji', body: 'Praca czeka na lokalnej gałęzi; wypychać może tylko Auto, gdy na to pozwolisz. Orca, Paseo, Superset, Conductor i Cursor otwierają pull requesty, a kilka z nich je scala.' },
+        { title: 'Pull requesty tylko przez Auto', body: 'Praca czeka na lokalnej gałęzi; tylko Auto wypycha zmiany i otwiera pull request, gdy na to pozwolisz. Orca, Paseo, Superset, Conductor i Cursor otwierają pull requesty z każdego zadania, a kilka z nich je scala.' },
         { title: 'Mało integracji, brak harmonogramów', body: 'Bieg może uruchomić tylko zgłoszenie Linear przypisane do ciebie. Inne działają według harmonogramu albo startują z GitHuba, Slacka lub Jiry.' },
         { title: 'Dostęp z telefonu przez stronę WWW', body: 'Wymaga konta MonoOne. Paseo ma aplikacje na iOS i Androida bez konta; Nimbalyst, ChatGPT i Cursor też mają aplikacje.' },
         { title: 'Ostrzeżenie o kosztach, nie limit', body: 'RigOne ostrzega, gdy bieg osiągnie daną kwotę, i go nie zatrzymuje. Cursor zatrzymuje się na limicie wydatków.' },
@@ -585,7 +627,7 @@ export default {
       },
       prs: {
         criterion: 'Otwieranie i scalanie pull requestów',
-        cells: ['Wypycha tylko Auto, gdy pozwolisz; poza tym lokalna gałąź', 'Otwieranie, scalanie, automatyczne scalanie', 'GitHub, GitLab, Gitea i inne', 'Agenci otwierają je przez gh', 'Otwieranie, scalanie i archiwizacja', 'Przegląd pull requestów', 'Commit i push', 'Pull requesty gotowe do scalenia'],
+        cells: ['Tylko Auto wypycha i otwiera, gdy pozwolisz; poza tym lokalna gałąź', 'Otwieranie, scalanie, automatyczne scalanie', 'GitHub, GitLab, Gitea i inne', 'Agenci otwierają je przez gh', 'Otwieranie, scalanie i archiwizacja', 'Przegląd pull requestów', 'Commit i push', 'Pull requesty gotowe do scalenia'],
       },
       trackers: {
         criterion: 'Trackery zgłoszeń i czat',
@@ -644,7 +686,7 @@ export default {
       },
       {
         question: 'Czy agent wypchnie coś do mojego repozytorium?',
-        answer: 'Nie. Każdy krok pracuje na własnej kopii kodu, a wynik czeka na gałęzi w projekcie. Nic nie jest wypychane i nic nie trafia na twoją gałąź, dopóki tego nie weźmiesz.',
+        answer: 'Nie sam z siebie. Każdy krok pracuje we własnej kopii kodu, a wynik czeka na gałęzi w twoim projekcie. Tylko Auto może wypchnąć zmiany i otworzyć pull request, i tylko gdy na to pozwolisz; nic nie trafia na twoją gałąź, dopóki tego nie przyjmiesz.',
       },
       {
         question: 'Czy można używać tylko Claude Code albo tylko Codex?',

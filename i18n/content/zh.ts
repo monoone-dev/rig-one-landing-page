@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — Mac 上面向 Claude Code、Codex 和 OpenCode 智能体的 IDE',
-      description: '面向编程智能体的免费 macOS IDE：让 Claude Code、Codex 和 OpenCode 组队并行运行，审查每一行改动，预览应用，同时打开多个项目。',
+      description: '面向编程智能体的免费 macOS IDE：让 Claude Code、Codex 和 OpenCode 组队运行，或把目标交给 Auto，审查每一行改动，并排打开多个项目。',
     },
     features: {
       title: 'RigOne 功能：面向智能体的 IDE、可视化工作流与检查',
-      description: '像在 IDE 里一样审查并预览步骤，并排打开多个项目，还有可视化工作流、并行运行、Auto 目标、由 RigOne 自己运行的检查和共享看板。',
+      description: '像在 IDE 里一样审查并预览步骤，Auto 目标拆分为多个部分，可视化工作流、并行运行、公正的检查、项目 Score、Knowledge Health 和共享看板。',
       breadcrumb: '功能',
     },
     docs: {
       title: 'RigOne 文档与分步教程',
-      description: '安装 RigOne 并跟着分步教程操作：创建智能体、搭建工作流、在 Mac 上运行，再把目标交给 Auto。附完整参考文档。',
+      description: '安装 RigOne 并跟着分步教程操作：创建智能体、搭建工作流、在 Mac 上运行，再把目标交给 Auto。每个界面都配有截图。',
       breadcrumb: '文档',
     },
     compare: {
@@ -35,6 +35,9 @@ export default {
     footerNav: '页脚',
     language: '语言',
     englishOnly: '本页内容为英文。',
+    enlarge: '查看大图',
+    actualSize: '实际大小',
+    fitToScreen: '适应窗口',
   },
   nav: {
     features: '功能',
@@ -209,11 +212,11 @@ export default {
         body: '项目以标签页打开，最多三个可以并排。这里一个项目中的运行在等待回答，另一个项目中正在写一个 Auto 目标。',
         alt: '两个项目并排：client-website 中 Ship a feature 在等 Second opinion 的回答，docs-site 中正在写一个新的 Auto 任务。',
       },
-      agents: {
+      'agent-detail': {
         tab: 'Agents',
         title: '整个角色都在一个界面上',
         body: '它的指令、所用的智能体应用（Claude Code、Codex 或 OpenCode）及模型和思考深度、能否修改文件或访问网络，以及何时放弃。',
-        alt: 'Agents 界面：四个角色的列表，旁边是使用 Claude Code 运行、在任何人改代码之前先读代码的 Scout。',
+        alt: '以只读方式打开的智能体 Builder：它的指令、Claude Code 及其模型和思考强度、可修改和可访问的范围、技能与连接，以及 Evaluate、Duplicate、Delete 和 Edit。',
       },
       canvas: {
         tab: 'Canvas',
@@ -222,22 +225,52 @@ export default {
         alt: 'Ship a feature 的画布：Reproduce，然后 Fix，接着 Tests pass 和 Second opinion 并排运行。',
       },
       project: {
-        tab: 'Project overview',
+        tab: 'Overview',
         title: '整个项目，一页看完',
-        body: '先是 Score——智能体在项目里行动有多顺畅——然后是仓库：分支、改动、磁盘占用和工作区，以及它的智能体、工作流、知识、触发器和 Auto 规则。',
-        alt: 'client-website 的项目概览：78/100 的评分和总结，下面是仓库：main 分支已是最新，没有要提交的内容，磁盘占用 432 MB。',
+        body: '先是摘要——各项数字和需要你处理的事项——然后是 Score、Repository、Agents、Workflows、Knowledge 和 Automation 各自的标签页。',
+        alt: 'client-website 的 Overview（Summary 标签页）：Score 78、四个智能体、三个工作流、九项知识、没有改动、两个触发器，Needs your attention 下有两条新经验。',
       },
       knowledge: {
         tab: 'Knowledge',
         title: '智能体知道什么，由你批准',
         body: '智能体建议的笔记等你选择 Keep 或 Discard。批准的笔记进入每一条提示词；技能在适合当前工作时使用。',
-        alt: 'Knowledge 界面：两条建议的笔记在等你，两条笔记始终在上下文中，三项技能在合适时使用。',
+        alt: 'Knowledge 界面：Health 状态良好，每类知识各有一个标签页，三条建议笔记等待 Keep 或 Discard。',
       },
       settings: {
         tab: 'Settings',
         title: '独立窗口中的设置',
         body: '按工作、项目、智能体、账户和应用分类，还有告诉你什么正常的 Health check，以及显示 RigOne 占用多少磁盘空间的 Storage 页面。选择 Surface、Minimalist、Studio、Linen 或 Feather 外观，浅色、深色或跟随 macOS。',
         alt: 'Settings → Appearance：应用语言、Surface、Minimalist、Studio、Linen 和 Feather 五种主题、System、Light 或 Dark。',
+      },
+      'run-panel': {
+        tab: 'Auto',
+        title: '把目标拆成可以跟进的部分',
+        body: 'Lead 只问必须问的；Agents & work 把目标的每个部分归入 Needs attention、In progress、Up next 和 Finished，并显示它正在做什么、还需要多久。',
+        alt: '一个 Auto 目标 Export invoices as CSV：Lead 询问 CSV 应使用哪种日期格式，右侧 Agents & work 列出五个部分，其中一个进行中的部分展开显示范围和 Open workflow。',
+      },
+      'boards': {
+        tab: 'Boards',
+        title: '团队共享的看板',
+        body: '看板或冲刺，在你的 Mac 上加密。把卡片作为工作流或 Auto 目标运行，所有人都能看到进度。',
+        alt: '名为 Product work 的看板（Board 视图）：Backlog、To do、In progress、Needs attention 和 Done 列中的任务卡片。',
+      },
+      'trigger-form': {
+        tab: 'Triggers',
+        title: 'Linear 问题触发一次运行',
+        body: '选择工作流、工作区和检查频率。一个问题只触发一次运行，重启后也一样。',
+        alt: 'Triggers › Edit Linear trigger：Linear 连接器、带 Test connection 的环境变量、分配给你的问题、工作区、Check every 和工作流。',
+      },
+      'lab': {
+        tab: 'Lab',
+        title: '用自己的用例衡量改动',
+        body: '在只差一处（例如模型）的几列中运行相同用例，看看哪些通过了。',
+        alt: 'Lab 测试集 Scout on sign-up bugs：Scout today 和 Scout with Opus 两列中的用例，带有 passed 和 did not pass 标记，以及带 Propose a fix 的 What did not pass。',
+      },
+      'settings-remote': {
+        tab: 'Remote access',
+        title: '用手机连接你的 Mac',
+        body: '用代码配对手机或平板，选择 View and control 或 View only，并决定它能访问哪些项目。',
+        alt: 'Settings → Remote access：Allow remote access 已开启并已连接，一部带 View and control 和 Revoke 的已配对手机，Add a phone or tablet，以及可远程访问的项目。',
       },
     },
   },
@@ -246,11 +279,11 @@ export default {
     title: '故障是产品故障，而不是终端里的噪音',
     lead: 'RigOne 拒绝悄悄做的事。',
     items: {
-      scopes: { title: '互相重叠的写入范围', body: '在第一个进程启动之前就会被拒绝。' },
+      scopes: { title: '两个步骤以不同方式修改同一文件时，', body: '后续步骤不会启动，两份副本都会保留。' },
       cancel: { title: '取消', body: '会终止整个进程组，然后核实它确实已经结束。' },
       timeouts: { title: '超时', body: '与取消走同一套受监管的关闭流程。' },
       secrets: { title: '提示词与密钥', body: '走 stdin，绝不走命令行参数。' },
-      env: { title: '子进程的环境', body: '按一份明确的白名单重建。' },
+      env: { title: '子进程的环境', body: '按明确的允许列表重新构建，除非 YOLO mode 给予智能体完全访问权限。' },
       unknown: { title: '未知的供应商事件', body: '会被记录并忽略，而不会让运行崩溃。' },
       green: { title: '绿色的退出码', body: '若拿不出测试确实跑过的证据，就不算一次通过的检查。' },
       files: { title: '文件才是事实来源；', body: 'SQLite 索引可以删除后重建。' },
@@ -280,6 +313,7 @@ export default {
           '选择同时可以工作的智能体数量',
           '可选：运行花费达到你设定的金额时发出提醒',
           '任何步骤开始之前，都会按你已安装的智能体应用核对模型和思考深度',
+          '每个已登录的智能体应用的套餐限额，显示在侧边栏底部',
         ],
       },
       run: {
@@ -290,8 +324,9 @@ export default {
           '问题、启动的命令、输出和花费都放在一起',
           '结果如实说明发生了什么：完成、失败、停止或未运行',
           '主导智能体可以先和你商量——只有 /run 才会开始工作',
-          '模型和 Auto 开关就在消息输入框下方',
+          '模型以及 Auto、Plan first 或 One agent 的选择都在消息框下方',
           '重启后你的任务会回来，每个都带着自己的对话',
+          '把图片、文件或文件夹拖到对话中，随消息一起发送',
         ],
       },
       review: {
@@ -302,7 +337,7 @@ export default {
           '点一行，写下评论，然后 Send comments to the agent',
           '评论合成一条消息，注明每个文件和行',
           '在编辑器中打开改动的文件并定位到那一行',
-          '两个步骤改了同样的行时，由你选择保留谁的',
+          '步骤冲突时：结果会写明被排除的步骤和发生冲突的文件',
           '步骤花了多少，就显示在状态旁边',
         ],
       },
@@ -325,6 +360,7 @@ export default {
           '标签页会显示它的项目是在工作还是在等你',
           '⌘⌥\\ 会在当前项目旁边打开下一个项目',
           '重启后标签页和窗格会回来',
+          '把一个标签页拖到另一个上，即可在同一个分屏标签页中并排显示；彩色方块区分各个项目',
         ],
       },
       auto: {
@@ -336,7 +372,8 @@ export default {
           '设计评审：接受测试者的截图，或点一下某处并说明要改什么',
           '等待繁忙的提供方或用量限制恢复，然后继续',
           'Pause Auto 与 Resume；同一个文件夹最多同时进行三个目标',
-          'Skip permissions 为整个 Auto 运行打开或关闭完全访问',
+          'YOLO mode 让智能体在整个对话中拥有完全访问权限；默认值在 Settings → Auto 中设置',
+          'RigOne 重启后目标会自动继续；退出前会先确认，再停止所有智能体',
         ],
       },
       agents: {
@@ -360,6 +397,7 @@ export default {
           'Skills 显示项目的 .claude/skills 和 .agents/skills 给了智能体什么',
           '用文本、Markdown、图片和 PDF 建立有名称的上下文集',
           '查看一次运行实际用了哪些上下文',
+          'Health 显示每个提示词携带多少内容，并标出过大、过时或未被使用的知识',
         ],
       },
       checks: {
@@ -368,8 +406,11 @@ export default {
         body: '步骤结束后，RigOne 会运行检查，而不是去问智能体有没有成功。智能体说了什么、检查发现了什么、你批准了什么，三者绝不混淆。',
         points: [
           '“什么都没运行”是单独的结果，绝不算通过',
-          '来自另一家供应商的第二意见可以提出疑虑，但永远不能批准',
+          '由另一家厂商的智能体审阅工作；在 Auto 中，审阅未通过的工作会被退回修复',
           '同一个错误出现两次，就停止重试',
+          '检查失败时，会在不含改动的代码上重跑一次，以区分旧问题和新问题',
+          '改动范围之外的不稳定测试会带警告通过，警告会写明是哪些测试',
+          '验收标准可以指明证明它的测试',
         ],
       },
       branches: {
@@ -377,7 +418,7 @@ export default {
         title: '改动留在自己的分支上',
         body: '每个步骤都在自己的一份代码副本里工作，所以智能体之间不会互相干扰。运行结束后，成果留在你项目里的一个分支上。',
         points: [
-          '不会推送任何东西',
+          '不会推送任何内容，除非你允许 Auto 推送并创建拉取请求',
           '在你接收之前，什么都不会进入你自己的分支',
           '真正发生冲突时，会写明保存成果的分支',
         ],
@@ -407,21 +448,22 @@ export default {
       lab: {
         eyebrow: '实验室',
         title: '在你自己的代码上试用智能体',
-        body: '选一个智能体，RigOne 会根据你的项目起草测试用例，让你看出对这个智能体的修改是否让工作变得更好。',
+        body: '选择一个智能体、工作流或技能，RigOne 会根据你的项目起草测试用例，让你看出改动是否让工作变好。',
         points: [
           '用例来自你的代码，而不是通用基准测试',
           '对比智能体在你修改前后的表现',
+          '智能体、工作流和技能的测试集分标签页列出，每个测试集都有自己的页面',
         ],
       },
       rig: {
-        eyebrow: 'Project overview',
+        eyebrow: 'Overview',
         title: '一页掌握整个项目',
-        body: '这个项目里谁在工作、怎么工作、知道什么，以及智能体在其中行动有多顺畅：Score、智能体、工作流、知识、触发器和 Auto 规则并排展示。',
+        body: '谁在这个项目里工作、如何工作、掌握哪些知识，以及智能体能否轻松上手。摘要列出需要你处理的事项；标签页包括 Score、Repository、Agents、Workflows、Knowledge 和 Automation。',
         points: [
           'Score：智能体阅读项目并给出 100 分制评分，最弱的方面排在最前，每项都有建议和一个启动修复的按钮',
           '先列出仓库信息：当前分支、改动、分支列表、磁盘占用和工作区',
           '从概览中用你的编辑器打开项目',
-          'Generate project setup 根据仓库起草智能体和工作流；在你选择 Apply 之前什么都不会改变',
+          'Generate project setup 根据仓库起草智能体和工作流；在你选择 Apply setup 之前什么都不会改变',
           '需要修改的工作流会说明原因，RigOne 能修的地方有 Fix 按钮',
           '运行中学到的新经验在这里等你选择 Keep 或 Discard',
         ],
@@ -495,7 +537,7 @@ export default {
         { title: '源代码未公开', body: 'RigOne 可以免费使用，但你无法阅读或 fork 它的代码。Orca 和 Nimbalyst 采用 MIT，Paseo 采用 Apache 2.0。' },
         { title: '三款智能体应用', body: 'Claude Code、Codex 和 OpenCode。Orca、Paseo 和 Superset 能运行任何命令行智能体，列出了 20 到 30 款甚至更多。' },
         { title: '没有内置编辑器或终端', body: 'RigOne 在你自己的编辑器里打开文件。Orca、Paseo 和 Nimbalyst 两者都内置；其他大多数有终端。' },
-        { title: '不能在应用里提交拉取请求', body: '工作留在本地分支上；只有 Auto 在你允许时可以推送。Orca、Paseo、Superset、Conductor 和 Cursor 会创建拉取请求，其中几款还会合并。' },
+        { title: '只有 Auto 能创建拉取请求', body: '工作结果留在本地分支上；只有在你允许时，Auto 才会推送并创建拉取请求。Orca、Paseo、Superset、Conductor 和 Cursor 可以从任何任务创建拉取请求，其中几款还能合并。' },
         { title: '集成少，没有定时运行', body: '只有分配给你的 Linear 问题能启动运行。其他产品可以定时运行，或由 GitHub、Slack 或 Jira 触发。' },
         { title: '手机上通过网页访问', body: '需要 MonoOne 账户。Paseo 有无需账户的 iOS 和 Android 应用；Nimbalyst、ChatGPT 和 Cursor 也有应用。' },
         { title: '只有花费提醒，没有上限', body: '运行达到某个金额时 RigOne 会提醒，但不会停止运行。Cursor 会在达到花费上限时停止。' },
@@ -585,7 +627,7 @@ export default {
       },
       prs: {
         criterion: '创建和合并拉取请求',
-        cells: ['只有 Auto 在允许时推送；否则留在本地分支', '创建、合并、自动合并', 'GitHub、GitLab、Gitea 等', '智能体用 gh 创建', '创建、合并和归档', '拉取请求审查', '提交和推送', '可直接合并的拉取请求'],
+        cells: ['仅 Auto 在获准后推送并创建；否则留在本地分支', '创建、合并、自动合并', 'GitHub、GitLab、Gitea 等', '智能体用 gh 创建', '创建、合并和归档', '拉取请求审查', '提交和推送', '可直接合并的拉取请求'],
       },
       trackers: {
         criterion: '问题跟踪和聊天工具',
@@ -644,7 +686,7 @@ export default {
       },
       {
         question: '智能体会推送到我的仓库吗？',
-        answer: '不会。每个步骤都在自己的一份代码副本里工作，结果留在你项目里的一个分支上。不会推送任何东西，在你接收之前，什么都不会进入你自己的分支。',
+        answer: '不会自行推送。每个步骤都在自己的代码副本中工作，结果留在你项目的一个分支上。只有 Auto 能推送并创建拉取请求，而且必须经你允许；在你采纳之前，没有任何内容会进入你自己的分支。',
       },
       {
         question: '可以只用 Claude Code，或只用 Codex 吗？',

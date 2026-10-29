@@ -701,8 +701,8 @@ export default {
         answer: 'Not today. RigOne is built for macOS 13 or later on Apple Silicon.',
       },
       {
-        question: 'I used Loadout. What happens to my data?',
-        answer: 'Loadout is the earlier name of RigOne. Version 1.1.0 moves your library from ~/.loadout to ~/.rig-one on first launch, and each project folder’s .loadout/ to .rig-one/ when you open it. macOS sees RigOne as a new app, so it asks for permissions again.',
+        question: 'How do I update RigOne?',
+        answer: 'Download the new DMG from the latest release and replace the app in Applications; your library and project folders stay where they are. Settings → About shows your version and the newest one. RigOne can also update Claude Code, Codex and OpenCode for you in Settings → Agent apps.',
       },
     ],
   },
@@ -717,7 +717,7 @@ export default {
   changelog: {
     eyebrow: 'Changelog',
     title: 'What changed, release by release',
-    lead: 'Each release says what changed, what to do when you update, and the checksum of the signed build. Builds before 1.1.0 were released under the name Loadout.',
+    lead: 'Each release says what changed, what to do when you update, and the checksum of the signed build.',
     download: 'Download the latest',
     github: 'Releases on GitHub',
     latest: 'Latest',

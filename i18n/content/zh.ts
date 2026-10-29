@@ -701,8 +701,8 @@ export default {
         answer: '目前没有。RigOne 是为运行 macOS 13 或更高版本的 Apple Silicon Mac 打造的。',
       },
       {
-        question: '我用过 Loadout。我的数据会怎样？',
-        answer: 'Loadout 是 RigOne 以前的名字。1.1.0 版会在首次启动时把你的资料库从 ~/.loadout 移到 ~/.rig-one，并在你打开每个项目文件夹时把其中的 .loadout/ 移到 .rig-one/。macOS 会把 RigOne 视为一个新应用，所以会再次请求权限。',
+        question: '如何更新 RigOne？',
+        answer: '从最新版本下载新的 DMG，替换“应用程序”中的应用即可；你的资料库和项目文件夹保持不动。Settings → About 会显示你的版本和最新版本。RigOne 还可以在 Settings → Agent apps 中为你更新 Claude Code、Codex 和 OpenCode。',
       },
     ],
   },
@@ -717,7 +717,7 @@ export default {
   changelog: {
     eyebrow: '更新日志',
     title: '每个版本改了什么',
-    lead: '每个版本都会说明改了什么、更新时要做什么，以及已签名安装包的校验和。1.1.0 之前的版本以 Loadout 的名称发布。',
+    lead: '每个版本都会说明改了什么、更新时要做什么，以及已签名安装包的校验和。',
     download: '下载最新版',
     github: 'GitHub 上的发布',
     latest: '最新',

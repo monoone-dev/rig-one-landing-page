@@ -1291,19 +1291,6 @@ Agent apps**, only when nothing is using them.
 After an update that changes Remote access, the release notes say so; remove the old phone in
 **Settings → Remote access** and pair it again.
 
-### Coming from Loadout
-
-Loadout is the earlier name of RigOne. Version 1.1.0 moves your data on first launch:
-
-- `~/.loadout` becomes `~/.rig-one`, with agents, workflows, context sets, settings, prices and the
-  whole run history.
-- Each project folder's `.loadout/` becomes `.rig-one/` the first time you open it.
-- If both names already exist, nothing is touched and the log says so.
-
-macOS sees RigOne as a new application, so permissions start over and the old **Loadout.app**
-stays in Applications as a separate app. Delete it once your library has arrived. Releases before
-1.1.0 cannot update into it: install 1.1.0 from the DMG.
-
 ## Files on disk
 
 | What | Where |

@@ -27,7 +27,7 @@ macOS 13+ · Apple Silicon · signed and notarized · free · in nine languages
 - [Install](#install)
 - [Built to fail honestly](#built-to-fail-honestly)
 - [Where your data lives](#where-your-data-lives)
-- [Updating, and coming from Loadout](#updating-and-coming-from-loadout)
+- [Updating](#updating)
 - [Uninstall](#uninstall)
 - [Working on the website](#working-on-the-website)
 - [Support](#support)
@@ -185,16 +185,12 @@ switch it to **In its own copy** to keep them fenced in their copies. More:
 | Access keys for model gateways | `~/.rig-one/env` |
 | Board keys | The macOS Keychain |
 
-## Updating, and coming from Loadout
+## Updating
 
-RigOne does not install updates by itself: download the new DMG from the
+RigOne does not install updates by itself: **Settings → About** shows your version and the newest
+one. Download the new DMG from the
 [latest release](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) and replace
 the app. Your library and project folders stay put.
-
-Loadout is the earlier name of RigOne. Version 1.1.0 moves `~/.loadout` to `~/.rig-one` on first
-launch, and each project's `.loadout/` to `.rig-one/` when you open it. macOS sees RigOne as a new
-app, so permissions start over; delete the old **Loadout.app** once your library has arrived.
-Details: [1.1.0 release notes](release-notes/v1.1.0.md).
 
 ## Uninstall
 

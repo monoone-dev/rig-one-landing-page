@@ -28,7 +28,7 @@ description: Change what the RigOne website says or shows — page copy in any o
 ## Content rules
 
 - **Brand names.** `RigOne`, `IndexOne` and `MonoOne` — one word, never translated, never split.
-  Loadout is RigOne's earlier name; mention it only where people need it (updating, the FAQ).
+  Loadout is RigOne's earlier name; it stays only in the 1.1.0 release notes, nowhere else.
 - **No personal names.** No people, authors, founders or team members — on the page, in alt text or
   in metadata. Authorship is MonoOne.
 - **Nothing private.** The app's source repository is private: never link it. Downloads, release

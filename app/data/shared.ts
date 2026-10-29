@@ -24,16 +24,16 @@ export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
   { id: 'review', icon: 'i-lucide-file-diff', shot: 'review' },
   { id: 'preview', icon: 'i-lucide-app-window', shot: 'review-tools' },
   { id: 'projects', icon: 'i-lucide-columns-2', shot: 'projects' },
-  { id: 'auto', icon: 'i-lucide-sparkles' },
-  { id: 'agents', icon: 'i-lucide-users', shot: 'agents' },
+  { id: 'auto', icon: 'i-lucide-sparkles', shot: 'run-panel' },
+  { id: 'agents', icon: 'i-lucide-users', shot: 'agent-detail' },
   { id: 'rig', icon: 'i-lucide-sliders-horizontal', shot: 'project' },
   { id: 'knowledge', icon: 'i-lucide-book-open', shot: 'knowledge' },
   { id: 'checks', icon: 'i-lucide-list-checks' },
   { id: 'branches', icon: 'i-lucide-git-branch' },
-  { id: 'boards', icon: 'i-lucide-square-kanban' },
-  { id: 'remote', icon: 'i-lucide-smartphone' },
-  { id: 'triggers', icon: 'i-lucide-alarm-clock' },
-  { id: 'lab', icon: 'i-lucide-flask-conical' },
+  { id: 'boards', icon: 'i-lucide-square-kanban', shot: 'boards' },
+  { id: 'remote', icon: 'i-lucide-smartphone', shot: 'settings-remote' },
+  { id: 'triggers', icon: 'i-lucide-alarm-clock', shot: 'trigger-form' },
+  { id: 'lab', icon: 'i-lucide-flask-conical', shot: 'lab' },
   { id: 'evidence', icon: 'i-lucide-receipt-text' },
 ]
 
@@ -49,13 +49,18 @@ export const screens: { id: ScreenId, icon: string, width: number, height: numbe
   { id: 'review-tools', icon: 'i-lucide-app-window', width: 1512, height: 1080 },
   { id: 'canvas', icon: 'i-lucide-git-fork', width: 1512, height: 950 },
   { id: 'project', icon: 'i-lucide-sliders-horizontal', width: 1512, height: 950 },
-  { id: 'agents', icon: 'i-lucide-users', width: 1512, height: 950 },
+  { id: 'run-panel', icon: 'i-lucide-sparkles', width: 1512, height: 950 },
+  { id: 'agent-detail', icon: 'i-lucide-users', width: 1512, height: 950 },
   { id: 'knowledge', icon: 'i-lucide-book-open', width: 1512, height: 950 },
   { id: 'settings', icon: 'i-lucide-settings', width: 1512, height: 950 },
+  { id: 'boards', icon: 'i-lucide-square-kanban', width: 1512, height: 950 },
+  { id: 'trigger-form', icon: 'i-lucide-alarm-clock', width: 1512, height: 950 },
+  { id: 'lab', icon: 'i-lucide-flask-conical', width: 1512, height: 950 },
+  { id: 'settings-remote', icon: 'i-lucide-smartphone', width: 1512, height: 950 },
 ]
 
 /** The screens the home page offers as tabs; the rest appear beside their feature. */
-export const screenTabs: ScreenId[] = ['run', 'review', 'projects', 'canvas', 'project', 'agents', 'knowledge', 'settings']
+export const screenTabs: ScreenId[] = ['run', 'run-panel', 'review', 'projects', 'canvas', 'project', 'agent-detail', 'knowledge', 'settings']
 
 /** Icons of the four review cards in the IDE section, in the order of `ide.review`. */
 export const ideIcons = ['i-lucide-message-square-text', 'i-lucide-history', 'i-lucide-app-window', 'i-lucide-square-arrow-out-up-right'] as const
@@ -83,7 +88,7 @@ export const competitors: { id: CompetitorId, name: string, url: string }[] = [
 export const comparisonCheckedOn = '2026-10'
 
 /** Screens beside RigOne's three strengths on the compare page, in the order of `compare.strengths.items`. */
-export const strengthShots: ScreenId[] = ['canvas', 'run', 'agents']
+export const strengthShots: ScreenId[] = ['canvas', 'run', 'agent-detail']
 
 /** Icons of the four smaller reasons on the compare page, in the order of `compare.extras.items`. */
 export const extraIcons = ['i-lucide-badge-check', 'i-lucide-git-branch', 'i-lucide-message-square-text', 'i-lucide-receipt-text'] as const

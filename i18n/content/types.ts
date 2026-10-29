@@ -33,7 +33,8 @@ export type FeatureId =
   | 'knowledge' | 'checks' | 'branches' | 'boards' | 'remote' | 'triggers' | 'lab' | 'evidence'
 
 /** The app screenshots in public/screenshots/<id>.webp, in the order of `screens` in app/data/shared.ts. */
-export type ScreenId = 'run' | 'review' | 'review-tools' | 'projects' | 'canvas' | 'project' | 'agents' | 'knowledge' | 'settings'
+export type ScreenId = 'run' | 'run-panel' | 'review' | 'review-tools' | 'projects' | 'canvas' | 'project' | 'agent-detail' | 'knowledge' | 'settings'
+  | 'boards' | 'trigger-form' | 'lab' | 'settings-remote'
 
 export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'unknown' | 'green' | 'files'
 

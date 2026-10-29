@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — IDE per Claude Code, Codex e OpenCode su Mac',
-      description: 'IDE gratuito per macOS per agenti di codice. Claude Code, Codex e OpenCode in squadra, ogni riga cambiata da rivedere e più progetti affiancati.',
+      description: 'IDE gratuito per macOS per agenti di codice. Claude Code, Codex e OpenCode in squadra o un obiettivo ad Auto, ogni riga cambiata da rivedere e progetti affiancati.',
     },
     features: {
       title: 'Funzioni di RigOne: un IDE per agenti, flussi visivi e controlli',
-      description: 'Rivedi un passo come in un IDE, guardane l’anteprima, apri progetti affiancati, flussi visivi, esecuzioni in parallelo, obiettivi Auto, controlli di RigOne e bacheche.',
+      description: 'Rivedi e prova un passo come in un IDE, obiettivi Auto divisi in parti, flussi visivi, esecuzioni in parallelo, controlli equi, Score, Knowledge Health e bacheche.',
       breadcrumb: 'Funzioni',
     },
     docs: {
       title: 'Documentazione di RigOne e tutorial passo passo',
-      description: 'Installa RigOne e segui il tutorial passo passo: crea un agente, componi un flusso, eseguilo sul tuo Mac e affida un obiettivo ad Auto. Con il riferimento completo.',
+      description: 'Installa RigOne e segui il tutorial passo passo: crea un agente, componi un flusso, eseguilo sul tuo Mac e affida un obiettivo ad Auto. Ogni schermata, con immagini.',
       breadcrumb: 'Documentazione',
     },
     compare: {

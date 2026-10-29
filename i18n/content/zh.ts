@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — Mac 上面向 Claude Code、Codex 和 OpenCode 智能体的 IDE',
-      description: '面向编程智能体的免费 macOS IDE：让 Claude Code、Codex 和 OpenCode 组队并行运行，审查每一行改动，预览应用，同时打开多个项目。',
+      description: '面向编程智能体的免费 macOS IDE：让 Claude Code、Codex 和 OpenCode 组队运行，或把目标交给 Auto，审查每一行改动，并排打开多个项目。',
     },
     features: {
       title: 'RigOne 功能：面向智能体的 IDE、可视化工作流与检查',
-      description: '像在 IDE 里一样审查并预览步骤，并排打开多个项目，还有可视化工作流、并行运行、Auto 目标、由 RigOne 自己运行的检查和共享看板。',
+      description: '像在 IDE 里一样审查并预览步骤，Auto 目标拆分为多个部分，可视化工作流、并行运行、公正的检查、项目 Score、Knowledge Health 和共享看板。',
       breadcrumb: '功能',
     },
     docs: {
       title: 'RigOne 文档与分步教程',
-      description: '安装 RigOne 并跟着分步教程操作：创建智能体、搭建工作流、在 Mac 上运行，再把目标交给 Auto。附完整参考文档。',
+      description: '安装 RigOne 并跟着分步教程操作：创建智能体、搭建工作流、在 Mac 上运行，再把目标交给 Auto。每个界面都配有截图。',
       breadcrumb: '文档',
     },
     compare: {

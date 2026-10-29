@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — Mac で Claude Code、Codex、OpenCode のエージェントを動かす IDE',
-      description: 'コーディングエージェントの無料 macOS IDE。Claude Code、Codex、OpenCode をチームとして並列に動かし、変更を 1 行ずつレビューし、アプリをプレビューし、複数のプロジェクトを同時に開けます。',
+      description: 'コーディングエージェントの無料 macOS IDE。Claude Code、Codex、OpenCode をチームとして動かすか目標を Auto に任せ、変更を 1 行ずつレビューし、プロジェクトを並べて開けます。',
     },
     features: {
       title: 'RigOne の機能：エージェントの IDE、ワークフロー、チェック',
-      description: 'IDE のようにステップをレビューしてプレビュー、プロジェクトを並べて開く、目に見えるワークフロー、並列実行、Auto のゴール、RigOne 自身のチェック、共有ボード。',
+      description: 'IDE のようにステップをレビューしてプレビュー、部分に分かれた Auto の目標、目に見えるワークフロー、並列実行、公正なチェック、プロジェクトの Score、Knowledge Health、共有ボード。',
       breadcrumb: '機能',
     },
     docs: {
       title: 'RigOne ドキュメントとステップごとのチュートリアル',
-      description: 'RigOne をインストールし、チュートリアルに沿ってエージェントを作り、ワークフローを組み、Mac で実行し、ゴールを Auto に任せます。完全なリファレンス付き。',
+      description: 'RigOne をインストールし、チュートリアルに沿ってエージェントを作り、ワークフローを組み、Mac で実行し、目標を Auto に任せます。すべての画面をスクリーンショット付きで。',
       breadcrumb: 'ドキュメント',
     },
     compare: {

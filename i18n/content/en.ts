@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — IDE for Claude Code, Codex and OpenCode on Mac',
-      description: 'Free macOS IDE for coding agents. Run Claude Code, Codex and OpenCode as a team, review every changed line and keep several projects side by side.',
+      description: 'Free macOS IDE for coding agents. Run Claude Code, Codex and OpenCode as a team or hand a goal to Auto, review every changed line, keep projects side by side.',
     },
     features: {
       title: 'RigOne features: an IDE for agents, visual workflows and checks',
-      description: 'Review a step like in an IDE, preview it, open projects side by side, visual workflows, parallel runs, Auto goals, checks RigOne runs itself and shared boards.',
+      description: 'Review and preview a step like in an IDE, Auto goals split into parts, visual workflows, parallel runs, fair checks, project Score, Knowledge health and shared boards.',
       breadcrumb: 'Features',
     },
     docs: {
       title: 'RigOne documentation and step-by-step tutorial',
-      description: 'Install RigOne and follow a step-by-step tutorial: make an agent, build a workflow, run it on your Mac and hand a goal to Auto. Full reference included.',
+      description: 'Install RigOne and follow a step-by-step tutorial: make an agent, build a workflow, run it on your Mac and hand a goal to Auto. Every screen, with screenshots.',
       breadcrumb: 'Documentation',
     },
     compare: {

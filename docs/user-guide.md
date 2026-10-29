@@ -703,7 +703,8 @@ more than three days ago are removed when the disk runs low (see [Storage](#stor
 
 ## Safety model
 
-RigOne treats orchestration failures as product failures, not terminal noise:
+RigOne treats orchestration failures as product failures, not terminal noise. What it refuses to do
+quietly:
 
 - two steps that changed one file differently stop the step after them, and both copies are kept;
 - cancellation ends the whole process group and verifies that it is dead;
@@ -1071,7 +1072,8 @@ add a skill to this project, use **Add a skill** in [Knowledge](#knowledge).
 
 ## Settings
 
-**Settings** (⌘8) opens over the window. Its pages come in five groups:
+**Settings** (⌘8) opens over the window and sets what RigOne does by default, for runs, Auto,
+projects, agent apps, your accounts and the app itself. Its pages come in five groups:
 
 | Group | Pages |
 | --- | --- |
@@ -1326,6 +1328,8 @@ Board keys are kept in the macOS Keychain.
 before you share it.
 
 ## Uninstall
+
+Removing RigOne takes the app away; removing your data is a separate, deliberate step.
 
 1. Quit RigOne and move `/Applications/RigOne.app` to the Trash. Your library stays.
 2. To remove your data too, delete `~/.rig-one/` and the `.rig-one/` folders inside your projects.

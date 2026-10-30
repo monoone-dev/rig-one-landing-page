@@ -59,7 +59,7 @@ export default {
     badgePlatform: 'macOS · Apple Silicon',
     badgeAgents: 'Claude Code · Codex · OpenCode',
     badgeRelease: '{version} 已发布',
-    audience: '为已经在用 Claude Code 或 Codex 的开发者打造',
+    audience: '为已经在用 Claude Code、Codex 或 OpenCode 的开发者打造',
     titleStrong: '面向编码智能体的 IDE。',
     titleSoft: '让它们像团队一样协作，审查每一行。',
     sub: 'RigOne 是一款免费的 Mac 应用，把 Claude Code、Codex 和 OpenCode 变成可以再次运行的团队：步骤并行，每一步都在你代码的独立副本中进行，由 RigOne 自己运行检查，并且在任何改动进入你的分支之前审查每一行改动——多个项目都在一个窗口里。',
@@ -104,8 +104,8 @@ export default {
         link: '可视化工作流',
       },
       peers: {
-        title: '两家供应商，一次运行',
-        body: '在同一个工作流里混用 Claude Code 和 Codex——一个负责写，另一个提供第二意见。',
+        title: '多家供应商，一次运行',
+        body: '在同一个工作流里混用 Claude Code、Codex 和 OpenCode——一个负责写，另一个提供第二意见。',
         link: '可复用的智能体',
       },
       parallel: {

@@ -105,7 +105,7 @@ It is worked out on your Mac from your own runs.
 Also included: project-scoped knowledge (notes you approve and skills), named context sets from
 text, Markdown, images and PDFs, a shared versioned plan across steps, a Lab that drafts test
 cases from your own code to evaluate an agent, Linear triggers, model gateways and local models,
-live plan limits for both vendors, a Health check, updates for the agent apps themselves, and run
+live plan limits for Claude Code and Codex, a Health check, updates for the agent apps themselves, and run
 evidence — receipts, handoffs, full answers and a diagnostic bundle — that outlives the terminal.
 The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese, Chinese and
 Japanese, in a Surface, Minimalist, Studio, Linen or Feather look, light or dark.

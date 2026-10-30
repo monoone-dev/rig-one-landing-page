@@ -59,7 +59,7 @@ export default {
     badgePlatform: 'macOS · Apple Silicon',
     badgeAgents: 'Claude Code · Codex · OpenCode',
     badgeRelease: 'Version {version} ist da',
-    audience: 'Für Entwickler, die schon Claude Code oder Codex nutzen',
+    audience: 'Für Entwickler, die schon Claude Code, Codex oder OpenCode nutzen',
     titleStrong: 'Die IDE für Coding-Agenten.',
     titleSoft: 'Als Team ausführen, jede Zeile prüfen.',
     sub: 'RigOne ist eine kostenlose Mac-App, die Claude Code, Codex und OpenCode zu einem Team macht, das Sie wieder starten können: Schritte parallel, jeder in einer eigenen Kopie Ihres Codes, Prüfungen, die RigOne selbst ausführt, und ein Review jeder geänderten Zeile, bevor etwas Ihren Branch erreicht — für mehrere Projekte in einem Fenster.',
@@ -104,8 +104,8 @@ export default {
         link: 'Visuelle Workflows',
       },
       peers: {
-        title: 'Zwei Anbieter, ein Lauf',
-        body: 'Kombinieren Sie Claude Code und Codex im selben Workflow — einer schreibt, der andere gibt eine zweite Meinung ab.',
+        title: 'Mehrere Anbieter, ein Lauf',
+        body: 'Kombinieren Sie Claude Code, Codex und OpenCode im selben Workflow — einer schreibt, ein anderer gibt eine zweite Meinung ab.',
         link: 'Wiederverwendbare Agenten',
       },
       parallel: {

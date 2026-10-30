@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — IDE per Claude Code, Codex e OpenCode su Mac',
-      description: 'IDE gratuito per macOS per agenti di codice. Claude Code, Codex e OpenCode in squadra o un obiettivo ad Auto, ogni riga cambiata da rivedere e progetti affiancati.',
+      description: 'IDE gratuito per Mac per agenti di codice. Esegui Claude Code, Codex e OpenCode in squadra, rivedi ogni riga cambiata e vedi quanto costa ogni attività e scheda.',
     },
     features: {
       title: 'Funzioni di RigOne: un IDE per agenti, flussi visivi e controlli',
-      description: 'Rivedi e prova un passo come in un IDE, obiettivi Auto divisi in parti, flussi visivi, esecuzioni in parallelo, controlli equi, Score, Knowledge Health e bacheche.',
+      description: 'Flussi visivi, obiettivi Auto, esecuzioni in parallelo, controlli equi, revisione come in un IDE, costi per attività e modello, e bacheche con epic, storie e bug.',
       breadcrumb: 'Funzioni',
     },
     docs: {
       title: 'Documentazione di RigOne e tutorial passo passo',
-      description: 'Installa RigOne e segui il tutorial passo passo: crea un agente, componi un flusso, eseguilo sul tuo Mac e affida un obiettivo ad Auto. Ogni schermata, con immagini.',
+      description: 'Installa RigOne e segui un breve tutorial: crea un agente, componi un flusso, eseguilo e affida un obiettivo ad Auto. Poi bacheche, costi e ogni schermata.',
       breadcrumb: 'Documentazione',
     },
     compare: {
@@ -72,7 +72,7 @@ export default {
     download: 'Scarica per macOS',
     docsCta: 'Leggi la documentazione',
     note: 'Gratis · macOS 13+ · firmato e notarizzato',
-    chips: ['Controlli di RigOne', '2 progetti affiancati', 'Niente pubblicato'],
+    chips: ['Controlli di RigOne', 'Spesa di ogni attività', 'Niente pubblicato'],
   },
   trust: {
     aria: 'Su che cosa puoi contare',
@@ -166,7 +166,7 @@ export default {
   how: {
     eyebrow: 'Come funziona',
     title: 'Tre passi, e solo il terzo spende soldi',
-    lead: 'Decidi tu che cosa viene eseguito, quanti alla volta e quando essere avvisato della spesa.',
+    lead: 'Decidi tu che cosa viene eseguito, quanti alla volta e quanto costa — ogni attività mostra la sua spesa.',
     steps: [
       {
         title: 'Scrivi un agente',
@@ -250,9 +250,15 @@ export default {
       },
       'boards': {
         tab: 'Boards',
-        title: 'Board condivise dal team',
-        body: 'Kanban o sprint, cifrate sul tuo Mac. Avvia una scheda come workflow o obiettivo Auto e tutti ne vedono l’avanzamento.',
-        alt: 'Una board chiamata Product work nella vista Board: colonne Backlog, To do, In progress, Needs attention e Done con le schede.',
+        title: 'Pianifica il lavoro, poi affidalo agli agenti',
+        body: 'Epic, funzionalità, user story, attività e bug su una board condivisa dal team. Ogni scheda mostra quanto è costato il suo lavoro, e una funzionalità somma tutto ciò che contiene.',
+        alt: 'Una board condivisa nella vista Board: colonne di epic, funzionalità, storie, attività e bug, ogni scheda con il tipo, l’ID e quanto è costata.',
+      },
+      'analytics': {
+        tab: 'Analytics',
+        title: 'Guarda dove vanno soldi e token',
+        body: 'Spesa, token, attività e tempo degli agenti su 7, 30 o 90 giorni, giorno per giorno, e divisi per app, modello, impegno, persona e progetto, con le attività più costose in cima.',
+        alt: 'La schermata Analytics su 30 giorni: Spent, Tokens, Tasks e Agent time, spesa al giorno, uso per app, modello, impegno, persona e progetto, e attività per spesa.',
       },
       'trigger-form': {
         tab: 'Triggers',
@@ -325,8 +331,9 @@ export default {
           'Gli esiti dicono che cosa è successo: fatto, fallito, fermato o non eseguito',
           'Un agente principale può parlarne con te — solo /run avvia il lavoro',
           'Il modello e la scelta tra Auto, Plan first o One agent stanno sotto il campo del messaggio',
-          'Le tue attività tornano dopo un riavvio, ognuna con la propria conversazione',
-          'Trascina immagini, file o cartelle su una conversazione per inviarli con il messaggio',
+          'Quanto ha speso finora l’attività, accanto al modello; un clic mostra i token e la divisione per agente',
+          'Ogni risposta mostra il modello e l’impegno con cui è stata scritta',
+          'Aggiungi file, foto o cartelle con il pulsante più, o trascinali sulla conversazione',
         ],
       },
       review: {
@@ -425,14 +432,27 @@ export default {
       },
       boards: {
         eyebrow: 'Boards',
-        title: 'Bacheche condivise, cifrate sul tuo Mac',
-        body: 'Attività, commenti e membri su una bacheca Kanban o a sprint. Avvia un’attività come flusso o come obiettivo Auto in una cartella di questo Mac, e il suo avanzamento compare sulla bacheca per tutti.',
+        title: 'Bacheche condivise per persone e agenti',
+        body: 'Pianifica epic, funzionalità, user story, attività e bug su una bacheca Kanban o a sprint. Avvia un elemento come flusso o come obiettivo Auto su questo Mac; il suo avanzamento, le risposte degli agenti e il costo compaiono per tutti.',
         points: [
+          'Gli elementi si annidano: le epic contengono funzionalità, le funzionalità storie, le storie attività e bug',
+          'Ogni scheda mostra costo e token, e una storia, funzionalità o epic somma tutto ciò che contiene',
+          'Sprint con backlog, colonne tue e un modello per ogni tipo',
+          'Filtra per persona o tipo; una conversazione può mettere da sola il suo lavoro su una bacheca',
           'Cifrato e firmato sul tuo Mac; il server inoltra solo testo cifrato',
-          'Invita membri come Editor o Viewer e approva ogni nuovo dispositivo',
-          'Numeri brevi delle attività, cronologia dell’attività e Run with Auto su ogni scheda',
-          'Funziona offline e invia le modifiche quando torna la connessione',
           'Richiede un account MonoOne, come Remote access',
+        ],
+      },
+      analytics: {
+        eyebrow: 'Analytics',
+        title: 'Sai quanto è costata ogni attività',
+        body: 'RigOne conta quanto spendono i tuoi agenti mentre lavorano. Ogni attività mostra la sua spesa accanto al modello, e Analytics la somma sul periodo che scegli.',
+        points: [
+          'Spesa, token, attività e tempo degli agenti su 7, 30 o 90 giorni, da sempre o nelle date che scegli',
+          'Spesa al giorno e turni degli agenti per app, modello, impegno, persona e progetto',
+          'Ogni attività per spesa, la più costosa in cima',
+          'Quanto è stato letto dalla cache e che cosa hanno scritto gli agenti',
+          'Calcolato sul tuo Mac dalle tue esecuzioni; nulla viene inviato altrove',
         ],
       },
       triggers: {
@@ -540,7 +560,7 @@ export default {
         { title: 'Pull request solo tramite Auto', body: 'Il lavoro aspetta su un branch locale; solo Auto fa push e apre una pull request, quando lo permetti. Orca, Paseo, Superset, Conductor e Cursor aprono pull request da qualsiasi attività, e diversi le uniscono.' },
         { title: 'Poche integrazioni, nessuna pianificazione', body: 'Solo una issue di Linear assegnata a te può avviare un’esecuzione. Gli altri girano secondo una pianificazione o partono da GitHub, Slack o Jira.' },
         { title: 'Accesso da telefono tramite una pagina web', body: 'Richiede un account MonoOne. Paseo ha app per iOS e Android senza account; anche Nimbalyst, ChatGPT e Cursor hanno app.' },
-        { title: 'Un avviso di spesa, non un limite', body: 'RigOne avvisa quando un’esecuzione raggiunge un importo e non la ferma. Cursor si ferma a un limite di spesa.' },
+        { title: 'Un avviso di spesa, non un limite', body: 'RigOne mostra quanto è costata ogni attività e avvisa quando un’esecuzione raggiunge un importo, ma non la ferma. Cursor si ferma a un limite di spesa.' },
       ],
     },
     table: {
@@ -603,7 +623,7 @@ export default {
       },
       spend: {
         criterion: 'Avviso o limite di spesa',
-        cells: ['Un avviso per esecuzione; non la ferma', 'Avvisi sui limiti di utilizzo, costo stimato', 'Quote e saldi', '', '', '', 'Limiti del piano, crediti extra', 'Un limite di spesa'],
+        cells: ['Spesa per attività ed elemento della bacheca, Analytics, un avviso per esecuzione; nessun limite', 'Avvisi sui limiti di utilizzo, costo stimato', 'Quote e saldi', '', '', '', 'Limiti del piano, crediti extra', 'Un limite di spesa'],
       },
       checks: {
         criterion: 'Controlli eseguiti dallo strumento, separati da ciò che afferma l’agente',
@@ -635,7 +655,7 @@ export default {
       },
       boards: {
         criterion: 'Bacheca attività condivisa',
-        cells: ['Cifrata end-to-end; richiede un account', 'Bacheche Jira dentro l’app', 'Tramite plugin', '', 'Multiplayer con Pro', 'Kanban delle sessioni, tracker delle attività, wiki del team', '', ''],
+        cells: ['Cifrata; da epic a bug, sprint, costo per elemento; richiede un account', 'Bacheche Jira dentro l’app', 'Tramite plugin', '', 'Multiplayer con Pro', 'Kanban delle sessioni, tracker delle attività, wiki del team', '', ''],
       },
       price: {
         criterion: 'Prezzo',
@@ -674,11 +694,15 @@ export default {
       },
       {
         question: 'Quanto costa?',
-        answer: 'RigOne è gratuito da scaricare e usare. Le esecuzioni usano il tuo piano di Claude Code, Codex o OpenCode, e RigOne può avvisarti quando un’esecuzione raggiunge un importo che scegli.',
+        answer: 'RigOne è gratuito da scaricare e usare. Le esecuzioni usano il tuo piano di Claude Code, Codex o OpenCode. RigOne mostra quanto ha speso ogni attività e può avvisarti quando un’esecuzione raggiunge un importo che scegli.',
       },
       {
         question: 'RigOne è un IDE?',
         answer: 'È un IDE per il lavoro degli agenti. Lì pianifichi, esegui e rivedi: ogni riga cambiata di un passo, commenti che tornano al suo agente, versioni salvate, un’anteprima dell’app e più progetti affiancati. Quando vuoi scrivere codice tu, RigOne apre il file alla sua riga nel tuo editor.',
+      },
+      {
+        question: 'Come vedo quanto costano i miei agenti?',
+        answer: 'Ogni attività mostra quanto ha speso accanto al modello; un clic mostra token, uso della cache, tempo degli agenti e la divisione per agente. Analytics somma tutto per giorno, app, modello, impegno, persona e progetto, e ogni scheda della bacheca mostra quanto è costato il suo lavoro, sommato attraverso storie, funzionalità ed epic.',
       },
       {
         question: 'Posso lavorare su più progetti insieme?',
@@ -702,7 +726,7 @@ export default {
       },
       {
         question: 'Come aggiorno RigOne?',
-        answer: 'Scarica il nuovo DMG dall’ultima versione e sostituisci l’app in Applicazioni; la tua libreria e le cartelle dei progetti restano dove sono. Settings → About mostra la tua versione e la più recente. RigOne può anche aggiornare Claude Code, Codex e OpenCode per te in Settings → Agent apps.',
+        answer: 'RigOne si aggiorna da solo: Settings → About cerca, scarica e installa aggiornamenti firmati, e aspetta che il lavoro in corso finisca. Da una versione precedente alla 1.13.3, scarica il nuovo DMG una volta e sostituisci l’app in Applicazioni. RigOne può anche aggiornare Claude Code, Codex e OpenCode in Settings → Agent apps.',
       },
     ],
   },

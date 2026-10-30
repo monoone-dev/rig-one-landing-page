@@ -62,7 +62,7 @@ export interface Docs {
 const docsGroups: { title: string, pages: string[] }[] = [
   { title: 'Start here', pages: ['getting-started', 'tutorial-your-first-run-step-by-step', 'concepts'] },
   { title: 'Your workspace', pages: ['the-window', 'projects-side-by-side', 'search-and-keyboard-shortcuts'] },
-  { title: 'Run the work', pages: ['tasks', 'auto', 'boards', 'triggers'] },
+  { title: 'Run the work', pages: ['tasks', 'auto', 'boards', 'analytics-and-costs', 'triggers'] },
   { title: 'Review and trust', pages: ['reviewing-a-step', 'checks-and-reviews', 'where-the-changes-go', 'safety-model'] },
   { title: 'Build your rig', pages: ['agents', 'workflows', 'overview', 'lab'] },
   { title: 'What agents know', pages: ['knowledge', 'context', 'skills'] },

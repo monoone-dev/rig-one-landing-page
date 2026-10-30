@@ -9,7 +9,7 @@ export const site = {
   organization: 'MonoOne',
   organizationUrl: 'https://monoone.dev',
   organizationGithub: 'https://github.com/monoone-dev',
-  description: 'A native macOS IDE for coding agents: run Claude Code, Codex and OpenCode as a workflow on your Mac, then review every line they changed.',
+  description: 'A native macOS IDE for coding agents: run Claude Code, Codex and OpenCode as a workflow on your Mac, review every line they changed, and see what each task cost.',
   ogImage: 'og-image.png',
   themeColor: '#5c29ff',
   minMacOS: '13',

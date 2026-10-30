@@ -31,6 +31,7 @@ export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
   { id: 'checks', icon: 'i-lucide-list-checks' },
   { id: 'branches', icon: 'i-lucide-git-branch' },
   { id: 'boards', icon: 'i-lucide-square-kanban', shot: 'boards' },
+  { id: 'analytics', icon: 'i-lucide-chart-column', shot: 'analytics' },
   { id: 'remote', icon: 'i-lucide-smartphone', shot: 'settings-remote' },
   { id: 'triggers', icon: 'i-lucide-alarm-clock', shot: 'trigger-form' },
   { id: 'lab', icon: 'i-lucide-flask-conical', shot: 'lab' },
@@ -54,13 +55,14 @@ export const screens: { id: ScreenId, icon: string, width: number, height: numbe
   { id: 'knowledge', icon: 'i-lucide-book-open', width: 1512, height: 950 },
   { id: 'settings', icon: 'i-lucide-settings', width: 1512, height: 950 },
   { id: 'boards', icon: 'i-lucide-square-kanban', width: 1512, height: 950 },
+  { id: 'analytics', icon: 'i-lucide-chart-column', width: 1512, height: 950 },
   { id: 'trigger-form', icon: 'i-lucide-alarm-clock', width: 1512, height: 950 },
   { id: 'lab', icon: 'i-lucide-flask-conical', width: 1512, height: 950 },
   { id: 'settings-remote', icon: 'i-lucide-smartphone', width: 1512, height: 950 },
 ]
 
 /** The screens the home page offers as tabs; the rest appear beside their feature. */
-export const screenTabs: ScreenId[] = ['run', 'run-panel', 'review', 'projects', 'canvas', 'project', 'agent-detail', 'knowledge', 'settings']
+export const screenTabs: ScreenId[] = ['run', 'run-panel', 'review', 'projects', 'canvas', 'boards', 'analytics', 'project', 'agent-detail', 'knowledge', 'settings']
 
 /** Icons of the four review cards in the IDE section, in the order of `ide.review`. */
 export const ideIcons = ['i-lucide-message-square-text', 'i-lucide-history', 'i-lucide-app-window', 'i-lucide-square-arrow-out-up-right'] as const

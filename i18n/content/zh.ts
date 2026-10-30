@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — Mac 上面向 Claude Code、Codex 和 OpenCode 智能体的 IDE',
-      description: '面向编程智能体的免费 macOS IDE：让 Claude Code、Codex 和 OpenCode 组队运行，或把目标交给 Auto，审查每一行改动，并排打开多个项目。',
+      description: '面向编程智能体的免费 Mac IDE：让 Claude Code、Codex 和 OpenCode 组队运行，审查每一行改动，并查看每个任务和看板条目的花费。',
     },
     features: {
       title: 'RigOne 功能：面向智能体的 IDE、可视化工作流与检查',
-      description: '像在 IDE 里一样审查并预览步骤，Auto 目标拆分为多个部分，可视化工作流、并行运行、公正的检查、项目 Score、Knowledge Health 和共享看板。',
+      description: '可视化工作流、Auto 目标、并行运行、公正的检查、IDE 式审查、按任务和模型的花费分析，以及包含史诗、故事和缺陷的共享看板。',
       breadcrumb: '功能',
     },
     docs: {
       title: 'RigOne 文档与分步教程',
-      description: '安装 RigOne 并跟着分步教程操作：创建智能体、搭建工作流、在 Mac 上运行，再把目标交给 Auto。每个界面都配有截图。',
+      description: '安装 RigOne 并跟着简短教程操作：创建智能体、搭建工作流、运行它，再把目标交给 Auto。另有看板、花费分析和每个界面的说明。',
       breadcrumb: '文档',
     },
     compare: {
@@ -72,7 +72,7 @@ export default {
     download: '下载 macOS 版',
     docsCta: '阅读文档',
     note: '免费 · macOS 13+ · 已签名并公证',
-    chips: ['由 RigOne 运行检查', '两个项目并排', '不会推送任何内容'],
+    chips: ['由 RigOne 运行检查', '每个任务的花费', '不会推送任何内容'],
   },
   trust: {
     aria: '你可以放心的几点',
@@ -166,7 +166,7 @@ export default {
   how: {
     eyebrow: '工作方式',
     title: '三步，只有第三步才花钱',
-    lead: '运行什么、同时运行几个、花到多少时提醒你，都由你决定。',
+    lead: '运行什么、同时运行几个、花了多少，都由你掌握——每个任务都显示自己的花费。',
     steps: [
       {
         title: '写一个智能体',
@@ -250,9 +250,15 @@ export default {
       },
       'boards': {
         tab: 'Boards',
-        title: '团队共享的看板',
-        body: '看板或冲刺，在你的 Mac 上加密。把卡片作为工作流或 Auto 目标运行，所有人都能看到进度。',
-        alt: '名为 Product work 的看板（Board 视图）：Backlog、To do、In progress、Needs attention 和 Done 列中的任务卡片。',
+        title: '先规划工作，再交给智能体',
+        body: '史诗、功能、用户故事、任务和缺陷，放在团队共享的看板上。每张卡片显示其工作的花费，功能会汇总其下所有内容。',
+        alt: '共享看板（Board 视图）：史诗、功能、故事、任务和缺陷各列，每张卡片标有类型、ID 和花费。',
+      },
+      'analytics': {
+        tab: 'Analytics',
+        title: '看清钱和 token 花在哪里',
+        body: '7、30 或 90 天内的花费、token、任务和智能体时长，按天显示，并按应用、模型、思考深度、人员和项目拆分，最贵的任务排在最前。',
+        alt: '30 天的 Analytics 界面：Spent、Tokens、Tasks 和 Agent time，每日花费，按应用、模型、思考深度、人员和项目的用量，以及按花费排序的任务。',
       },
       'trigger-form': {
         tab: 'Triggers',
@@ -325,8 +331,9 @@ export default {
           '结果如实说明发生了什么：完成、失败、停止或未运行',
           '主导智能体可以先和你商量——只有 /run 才会开始工作',
           '模型以及 Auto、Plan first 或 One agent 的选择都在消息框下方',
-          '重启后你的任务会回来，每个都带着自己的对话',
-          '把图片、文件或文件夹拖到对话中，随消息一起发送',
+          '任务目前的花费显示在模型旁边；点击可查看 token 和每个智能体的拆分',
+          '每条回复都显示写出它的模型和思考深度',
+          '用加号按钮添加文件、照片或文件夹，或直接拖到对话中',
         ],
       },
       review: {
@@ -425,14 +432,27 @@ export default {
       },
       boards: {
         eyebrow: 'Boards',
-        title: '共享看板，在你的 Mac 上加密',
-        body: '在 Kanban 或冲刺看板上管理任务、评论和成员。在这台 Mac 的某个文件夹里把任务作为工作流或 Auto 目标启动，进度会显示在看板上，所有成员都能看到。',
+        title: '人和智能体共用的看板',
+        body: '在 Kanban 或冲刺看板上规划史诗、功能、用户故事、任务和缺陷。在这台 Mac 上把条目作为工作流或 Auto 目标启动；进度、智能体的回复和花费所有人都能看到。',
         points: [
+          '条目可以嵌套：史诗包含功能，功能包含故事，故事包含任务和缺陷',
+          '每张卡片显示花费和 token，故事、功能或史诗会汇总其下所有内容',
+          '带待办列表的冲刺、自定义列，以及每种类型的模板',
+          '按人员或类型筛选；对话可以自己把工作放到看板上',
           '在你的 Mac 上加密并签名；服务器只转发密文',
-          '以 Editor 或 Viewer 身份邀请成员，并批准每一台新设备',
-          '简短的任务编号、任务历史，以及每张卡片上的 Run with Auto',
-          '离线也能用，联网后再发送更改',
           '需要 MonoOne 账户，Remote access 也一样',
+        ],
+      },
+      analytics: {
+        eyebrow: 'Analytics',
+        title: '清楚每个任务花了多少',
+        body: 'RigOne 在智能体工作时统计其花费。每个任务在模型旁边显示花费，Analytics 按你选择的时间段汇总。',
+        points: [
+          '7、30 或 90 天、全部时间或自定日期内的花费、token、任务和智能体时长',
+          '每日花费，以及按应用、模型、思考深度、人员和项目统计的智能体轮次',
+          '所有任务按花费排序，最贵的在前',
+          '从缓存读取了多少，以及智能体写了多少',
+          '在你的 Mac 上根据你自己的运行计算；不会发送到任何地方',
         ],
       },
       triggers: {
@@ -540,7 +560,7 @@ export default {
         { title: '只有 Auto 能创建拉取请求', body: '工作结果留在本地分支上；只有在你允许时，Auto 才会推送并创建拉取请求。Orca、Paseo、Superset、Conductor 和 Cursor 可以从任何任务创建拉取请求，其中几款还能合并。' },
         { title: '集成少，没有定时运行', body: '只有分配给你的 Linear 问题能启动运行。其他产品可以定时运行，或由 GitHub、Slack 或 Jira 触发。' },
         { title: '手机上通过网页访问', body: '需要 MonoOne 账户。Paseo 有无需账户的 iOS 和 Android 应用；Nimbalyst、ChatGPT 和 Cursor 也有应用。' },
-        { title: '只有花费提醒，没有上限', body: '运行达到某个金额时 RigOne 会提醒，但不会停止运行。Cursor 会在达到花费上限时停止。' },
+        { title: '只有花费提醒，没有上限', body: 'RigOne 显示每个任务的花费，运行达到某个金额时会提醒，但不会停止运行。Cursor 会在达到花费上限时停止。' },
       ],
     },
     table: {
@@ -603,7 +623,7 @@ export default {
       },
       spend: {
         criterion: '花费提醒或上限',
-        cells: ['每次运行一个提醒；不会停止运行', '速率限制提醒，预估费用', '配额和余额', '', '', '', '套餐限额，额外额度', '花费上限'],
+        cells: ['每个任务和看板条目的花费、Analytics、每次运行一个提醒；没有上限', '速率限制提醒，预估费用', '配额和余额', '', '', '', '套餐限额，额外额度', '花费上限'],
       },
       checks: {
         criterion: '由工具运行的检查，与智能体的说法分开',
@@ -635,7 +655,7 @@ export default {
       },
       boards: {
         criterion: '共享任务看板',
-        cells: ['端到端加密；需要账户', '应用内的 Jira 看板', '通过插件', '', 'Pro 支持多人协作', '会话看板、任务跟踪、团队 wiki', '', ''],
+        cells: ['加密；从史诗到缺陷、冲刺、每个条目的花费；需要账户', '应用内的 Jira 看板', '通过插件', '', 'Pro 支持多人协作', '会话看板、任务跟踪、团队 wiki', '', ''],
       },
       price: {
         criterion: '价格',
@@ -674,11 +694,15 @@ export default {
       },
       {
         question: '要花多少钱？',
-        answer: 'RigOne 可免费下载和使用。运行使用你自己的 Claude Code、Codex 或 OpenCode 套餐，运行花费达到你设定的金额时 RigOne 可以提醒你。',
+        answer: 'RigOne 可免费下载和使用。运行使用你自己的 Claude Code、Codex 或 OpenCode 套餐。RigOne 会显示每个任务的花费，并可在运行花费达到你设定的金额时提醒你。',
       },
       {
         question: 'RigOne 是 IDE 吗？',
         answer: '它是面向智能体工作的 IDE。你在这里规划、运行和审查：步骤改动的每一行、发回其智能体的评论、已保存的版本、应用预览，以及并排的多个项目。想自己写代码时，RigOne 会在你自己的编辑器中打开文件并定位到那一行。',
+      },
+      {
+        question: '怎样查看智能体花了多少？',
+        answer: '每个任务都在模型旁边显示已花费的金额；点击可查看 token、缓存使用、智能体时长和每个智能体的拆分。Analytics 按天、应用、模型、思考深度、人员和项目汇总，每张看板卡片显示其工作的花费，并逐级汇总到故事、功能和史诗。',
       },
       {
         question: '可以同时处理多个项目吗？',
@@ -702,7 +726,7 @@ export default {
       },
       {
         question: '如何更新 RigOne？',
-        answer: '从最新版本下载新的 DMG，替换“应用程序”中的应用即可；你的资料库和项目文件夹保持不动。Settings → About 会显示你的版本和最新版本。RigOne 还可以在 Settings → Agent apps 中为你更新 Claude Code、Codex 和 OpenCode。',
+        answer: 'RigOne 会自动更新：Settings → About 会检查、下载并安装已签名的更新，并等正在进行的工作完成。如果你的版本早于 1.13.3，请下载一次新的 DMG，替换“应用程序”中的应用。RigOne 还可以在 Settings → Agent apps 中更新 Claude Code、Codex 和 OpenCode。',
       },
     ],
   },

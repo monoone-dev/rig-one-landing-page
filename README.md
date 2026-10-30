@@ -7,7 +7,8 @@
 **A native macOS IDE for coding agents.** Define an agent once, place it on a canvas, connect the
 steps, and run the graph against a project on your Mac — Claude Code, Codex and OpenCode as
 first-class peers, in parallel, with checks RigOne runs itself. Then review every line a step
-changed, comment on it, preview the app, and keep several projects open side by side.
+changed, comment on it, preview the app, see what every task cost, and keep several projects open
+side by side.
 
 [Download for macOS](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) ·
 [Website](https://rig-one.io/) ·
@@ -89,10 +90,17 @@ recommendations and a button that starts a fix.
 **Remote access** pairs your phone or tablet: answer what waits in Needs you, start an Auto goal,
 message the Lead or stop work from anywhere, with Face ID or Touch ID on every session.
 
-**Boards** are shared task boards — Kanban or sprints — encrypted and signed on your Mac before
-anything leaves it. Start a task as a workflow or an Auto goal, and its progress shows on the board
-for every member. Boards and Remote access are the only parts of RigOne that need an account
-(MonoOne).
+**Boards** are shared boards for people and agents — Kanban or sprints with a backlog — encrypted
+and signed on your Mac before anything leaves it. Plan epics, features, user stories, tasks and
+bugs that nest inside each other; every card shows what its work cost and the tokens it used, and a
+feature or epic adds up everything under it. Start an item as a workflow or an Auto goal, and its
+progress and the agents' replies show on the board for every member. Boards and Remote access are
+the only parts of RigOne that need an account (MonoOne).
+
+**Analytics** shows what your agents spent: every task carries its spend beside the model, and the
+Analytics screen adds up spend, tokens, tasks and agent time over 7, 30 or 90 days or your own
+dates — per day, per app, model, effort, person and project, with the most expensive tasks first.
+It is worked out on your Mac from your own runs.
 
 Also included: project-scoped knowledge (notes you approve and skills), named context sets from
 text, Markdown, images and PDFs, a shared versioned plan across steps, a Lab that drafts test
@@ -118,6 +126,8 @@ Cursor Cloud Agents is [here](https://rig-one.io/compare/).
 | **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Knowledge** — notes an agent suggests wait for you; approved notes go into every prompt. |
 | ![Settings → Appearance: the Surface, Minimalist, Studio, Linen and Feather themes, and Light & dark](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
 | **Settings** — Surface, Minimalist, Studio, Linen or Feather, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
+| ![A shared board: epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost](public/screenshots/boards.webp) | ![The Analytics screen: spend, tokens, tasks and agent time, spend per day and usage per app, model and project](public/screenshots/analytics-light.webp) |
+| **Boards** — epics down to bugs, sprints, and the cost of every card. | **Analytics** — where the money and tokens go, by day, app, model, person and project. |
 
 Every screen is in `public/screenshots/` in dark (`<screen>.webp`) and light (`<screen>-light.webp`).
 
@@ -187,8 +197,9 @@ switch it to **In its own copy** to keep them fenced in their copies. More:
 
 ## Updating
 
-RigOne does not install updates by itself: **Settings → About** shows your version and the newest
-one. Download the new DMG from the
+RigOne updates itself: **Settings → About** checks for, downloads and installs new versions, each
+verified against RigOne's signing key, and waits for running work to finish. From a version before
+1.13.3, download the new DMG once from the
 [latest release](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) and replace
 the app. Your library and project folders stay put.
 

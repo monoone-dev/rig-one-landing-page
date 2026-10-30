@@ -4,16 +4,16 @@ export default {
   meta: {
     home: {
       title: 'RigOne — IDE for Claude Code, Codex and OpenCode on Mac',
-      description: 'Free macOS IDE for coding agents. Run Claude Code, Codex and OpenCode as a team or hand a goal to Auto, review every changed line, keep projects side by side.',
+      description: 'Free Mac IDE for coding agents. Run Claude Code, Codex and OpenCode as a team, review every changed line, and see what each task and board item cost.',
     },
     features: {
       title: 'RigOne features: an IDE for agents, visual workflows and checks',
-      description: 'Review and preview a step like in an IDE, Auto goals split into parts, visual workflows, parallel runs, fair checks, project Score, Knowledge health and shared boards.',
+      description: 'Visual workflows, Auto goals, parallel runs, fair checks, IDE-style review, cost analytics per task and model, and shared boards with epics, stories and bugs.',
       breadcrumb: 'Features',
     },
     docs: {
       title: 'RigOne documentation and step-by-step tutorial',
-      description: 'Install RigOne and follow a step-by-step tutorial: make an agent, build a workflow, run it on your Mac and hand a goal to Auto. Every screen, with screenshots.',
+      description: 'Install RigOne and follow a short tutorial: make an agent, build a workflow, run it and hand a goal to Auto. Plus boards, cost analytics and every screen.',
       breadcrumb: 'Documentation',
     },
     compare: {
@@ -72,7 +72,7 @@ export default {
     download: 'Download for macOS',
     docsCta: 'Read the docs',
     note: 'Free · macOS 13+ · signed and notarized',
-    chips: ['Checks run by RigOne', '2 projects side by side', 'Nothing pushed'],
+    chips: ['Checks run by RigOne', 'Spend on every task', 'Nothing pushed'],
   },
   trust: {
     aria: 'What you can count on',
@@ -166,7 +166,7 @@ export default {
   how: {
     eyebrow: 'How it works',
     title: 'Three steps, and only the third one spends money',
-    lead: 'You stay in charge of what runs, how many at once and when to be warned about cost.',
+    lead: 'You stay in charge of what runs, how many at once and what it costs — every task shows its spend.',
     steps: [
       {
         title: 'Write an agent',
@@ -250,9 +250,15 @@ export default {
       },
       'boards': {
         tab: 'Boards',
-        title: 'Boards your team shares',
-        body: 'Kanban or sprints, encrypted on your Mac. Run a card as a workflow or an Auto goal and its progress shows for everyone.',
-        alt: 'A board called Product work in the Board view: Backlog, To do, In progress, Needs attention and Done columns with task cards.',
+        title: 'Plan the work, then hand it to agents',
+        body: 'Epics, features, user stories, tasks and bugs on a board your team shares. Every card shows what its work cost, and a feature adds up everything under it.',
+        alt: 'A shared board in the Board view: columns of epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost.',
+      },
+      'analytics': {
+        tab: 'Analytics',
+        title: 'See where the money and tokens go',
+        body: 'Spend, tokens, tasks and agent time for 7, 30 or 90 days, per day, and split by app, model, effort, person and project, with the most expensive tasks first.',
+        alt: 'The Analytics screen over 30 days: Spent, Tokens, Tasks and Agent time, spend per day, usage per app, model, effort, person and project, and tasks by spend.',
       },
       'trigger-form': {
         tab: 'Triggers',
@@ -325,8 +331,9 @@ export default {
           'Outcomes say what happened: done, failed, stopped or not run',
           'A lead agent can talk things through with you — only /run starts work',
           'The model, and a choice of Auto, Plan first or One agent, sit under the message field',
-          'Your tasks come back after a restart, each with its own conversation',
-          'Drop images, files or folders onto a conversation to send them with your message',
+          'What the task has spent so far, beside the model; click it for tokens and a split per agent',
+          'Each reply shows the model and effort that wrote it',
+          'Add files, photos or folders with the plus button, or drop them onto the conversation',
         ],
       },
       review: {
@@ -425,14 +432,27 @@ export default {
       },
       boards: {
         eyebrow: 'Boards',
-        title: 'Shared boards, encrypted on your Mac',
-        body: 'Tasks, comments and members on a Kanban or sprint board. Start a task as a workflow or an Auto goal in a folder on this Mac, and its progress shows on the board for everyone.',
+        title: 'Shared boards for people and agents',
+        body: 'Plan epics, features, user stories, tasks and bugs on a Kanban or sprint board. Start an item as a workflow or an Auto goal on this Mac; its progress, the agents’ replies and its cost show for everyone.',
         points: [
+          'Items nest: epics hold features, features hold stories, stories hold tasks and bugs',
+          'Every card shows its cost and tokens, and a story, feature or epic adds up everything under it',
+          'Sprints with a backlog, your own columns and a template for each kind',
+          'Filter by person or kind; a conversation can put its work on a board itself',
           'Encrypted and signed on your Mac; the server only relays ciphertext',
-          'Invite members as Editor or Viewer, and approve every new device',
-          'Short task numbers, a task history and Run with Auto on each card',
-          'Works offline and sends changes when the connection returns',
           'Needs a MonoOne account, as Remote access does',
+        ],
+      },
+      analytics: {
+        eyebrow: 'Analytics',
+        title: 'Know what every task cost',
+        body: 'RigOne counts what your agents spend as they work. Each task shows its spend beside the model, and Analytics adds it up over the period you choose.',
+        points: [
+          'Spent, tokens, tasks and agent time for 7, 30 or 90 days, all time or your own dates',
+          'Spend per day, and agent turns per app, model, effort, person and project',
+          'Every task by spend, most expensive first',
+          'How much was read from cache, and what agents wrote',
+          'Worked out on your Mac from your own runs; nothing is sent anywhere',
         ],
       },
       triggers: {
@@ -540,7 +560,7 @@ export default {
         { title: 'Pull requests only through Auto', body: 'Work waits on a local branch; only Auto pushes and opens a pull request, when you allow it. Orca, Paseo, Superset, Conductor and Cursor open pull requests from any task, and several merge them.' },
         { title: 'Few integrations, no schedules', body: 'Only a Linear issue assigned to you can start a run. Others run on a schedule or start from GitHub, Slack or Jira.' },
         { title: 'Phone access through a web page', body: 'It needs a MonoOne account. Paseo has iOS and Android apps without an account; Nimbalyst, ChatGPT and Cursor have apps too.' },
-        { title: 'A spend warning, not a limit', body: 'RigOne warns when a run reaches an amount and does not stop it. Cursor stops at a spend limit.' },
+        { title: 'A spend warning, not a limit', body: 'RigOne shows what every task cost and warns when a run reaches an amount, but does not stop it. Cursor stops at a spend limit.' },
       ],
     },
     table: {
@@ -603,7 +623,7 @@ export default {
       },
       spend: {
         criterion: 'Spend warning or limit',
-        cells: ['A warning per run; does not stop it', 'Rate-limit warnings, estimated cost', 'Quotas and balances', '', '', '', 'Plan limits, extra credits', 'A spend limit'],
+        cells: ['Spend per task and board item, Analytics, a warning per run; no limit', 'Rate-limit warnings, estimated cost', 'Quotas and balances', '', '', '', 'Plan limits, extra credits', 'A spend limit'],
       },
       checks: {
         criterion: 'Checks run by the tool, apart from the agent’s claim',
@@ -635,7 +655,7 @@ export default {
       },
       boards: {
         criterion: 'Shared task board',
-        cells: ['End-to-end encrypted; needs an account', 'Jira boards inside the app', 'Through plugins', '', 'Multiplayer on Pro', 'Session kanban, task tracker, team wiki', '', ''],
+        cells: ['Encrypted; epics to bugs, sprints, cost per item; needs an account', 'Jira boards inside the app', 'Through plugins', '', 'Multiplayer on Pro', 'Session kanban, task tracker, team wiki', '', ''],
       },
       price: {
         criterion: 'Price',
@@ -674,11 +694,15 @@ export default {
       },
       {
         question: 'How much does it cost?',
-        answer: 'RigOne is free to download and use. Runs use your own plan with Claude Code, Codex or OpenCode, and RigOne can warn you when a run reaches an amount you set.',
+        answer: 'RigOne is free to download and use. Runs use your own plan with Claude Code, Codex or OpenCode. RigOne shows what each task spent and can warn you when a run reaches an amount you set.',
       },
       {
         question: 'Is RigOne an IDE?',
         answer: 'It is an IDE for agent work. You plan, run and review there: every changed line of a step, comments that go back to its agent, saved versions, a preview of the app and several projects side by side. When you want to type code yourself, RigOne opens the file at its line in your own editor.',
+      },
+      {
+        question: 'How do I see what my agents cost?',
+        answer: 'Every task shows what it has spent beside the model; click it for tokens, cache use, agent time and a split per agent. Analytics adds it up by day, app, model, effort, person and project, and each board card shows what its work cost, summed up through stories, features and epics.',
       },
       {
         question: 'Can I work on several projects at once?',
@@ -702,7 +726,7 @@ export default {
       },
       {
         question: 'How do I update RigOne?',
-        answer: 'Download the new DMG from the latest release and replace the app in Applications; your library and project folders stay where they are. Settings → About shows your version and the newest one. RigOne can also update Claude Code, Codex and OpenCode for you in Settings → Agent apps.',
+        answer: 'RigOne updates itself: Settings → About checks for, downloads and installs signed updates, and waits for running work to finish. From a version before 1.13.3, download the new DMG once and replace the app in Applications. RigOne can also update Claude Code, Codex and OpenCode in Settings → Agent apps.',
       },
     ],
   },

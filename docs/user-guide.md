@@ -96,10 +96,11 @@ work, such as `npm test`. RigOne runs it itself; the agent does not get to say i
 ### Step 4: start the run
 
 Open a task in **Tasks** (⌘3) and type `/run` with the workflow's name, or press **Show workflow**.
-The plan on the right lists every step and what it waits for. **Run options** (⋯) sets how many
-**Agents** may work at once. Press **Run workflow**.
+The plan on the right lists every step and what it waits for. **Run controls** (▷) at the bottom of
+the rail on the right holds **Run workflow** and **Agents**, how many may work at once. Press **Run
+workflow**.
 
-![Ship a feature ready to run in its task: Run options open in the header with Connections, Run workflow and Agents 3, and the plan on the right with four waiting steps, each naming the step it runs after.](../public/screenshots/tutorial-ready.webp)
+![Ship a feature ready to run in its task: the plan on the right with four waiting steps, each naming the step it runs after, and Run controls open from the rail with Run workflow and Agents 3.](../public/screenshots/tutorial-ready.webp)
 
 Before the first step starts, RigOne checks the whole graph and tells you if a step's model,
 effort or permissions will not work — so no time or money is spent on a run that cannot finish.
@@ -265,8 +266,10 @@ Under the field:
 ### Talking to the Lead
 
 The field at the bottom talks to the Lead. It can explain, plan and prepare; real work starts with
-`/run` or in Auto. A message sent while it works joins its current turn. Each reply shows the model
-and effort that wrote it. While an agent works, **Stop** takes the place of **Send**.
+`/run` or in Auto. Enter always takes your message: it leaves the field at once, and while the Lead
+is busy it waits in the conversation as **Not delivered yet**, with later messages behind it in
+order. If sending fails, your text comes back with the reason. Each reply shows the model and effort
+that wrote it. While an agent works, **Stop** takes the place of **Send**.
 
 | Command | Does |
 | --- | --- |
@@ -280,13 +283,23 @@ Type `/` for every command and skill, and **@** to point at a place in the proje
 
 ### Running a workflow
 
-Type `/run` or press **Show workflow** in a task's header. **Run options** (⋯) sets how many
-**Agents** may work at once — independent steps really do run in parallel up to that number. Press
+Type `/run` or press **Show workflow** in a task's header. **Run controls** in the task's rail sets
+how many **Agents** may work at once — independent steps really do run in parallel up to that number. Press
 **Run workflow**.
 
 Before any step starts, RigOne checks every step's model, effort and permissions, and names the step
 that will not work. If you want a heads-up about cost, turn on **Warn about spending** in
 [Settings → Runs](#runs). RigOne warns; it does not stop the run.
+
+### The task rail
+
+A task has a narrow rail of icons on its right edge.
+
+- At the top: **Show plan** / **Hide plan**, then **All sections** and one icon per section of the
+  sidebar — **Needs attention**, **In progress**, **Up next**, **Finished**, **Checks**, **Changed
+  files**. An icon shows only its section; click the current one again to hide the sidebar.
+- At the bottom: **Conversations**, **Sidebar sections** (which sections to show), **Connections**,
+  **Open in** your editor, and **Run controls**.
 
 ### Watching a run
 
@@ -351,9 +364,31 @@ each answer. macOS tells you when a decision waits while RigOne is in the backgr
 | **Usage limit** | Wait for the reset, or use another agent app? |
 | **Recorded gap** | Accept a part with a known gap? |
 
-**Design review.** When Auto changes how a screen looks, you see the tester's screenshots first.
-Press **I accept**, or **Mark changes**: click a spot, write what should change and **Send
-remarks**.
+### Designing screens
+
+When a goal adds or changes a screen, Auto works from a short brief of that one screen, builds it in
+the real app, and a look-only agent from another vendor critiques it before you see it.
+
+- **Choose a sketch.** For a brand-new screen Auto can make three versions at once. The card **Choose
+  a sketch** shows them; press **Choose this one** under the one to build. The phone offers the same
+  choice.
+- **Review the look.** The design review card shows the tester's screenshots. Press **I accept**, or
+  **Mark changes**: click a spot, write what should change and **Send remarks**. **Review later**
+  keeps the card for later.
+- **Open live.** When the screen runs on your Mac, **Open live** opens it full size. **Pick an
+  element**, click it on the page and write a note; numbered notes go together with **Send notes**.
+- Remarks and notes go to the agent that made the screen, in the same session, without a new run.
+  Checks run once, after you accept.
+- Turn the review off with **Review the design before interface changes are recorded** in
+  **Settings → Auto**.
+
+### When a part keeps failing
+
+After three failed tries of one part, a card asks what next: **Try once more**, **Accept with a
+recorded gap**, **Carry it to the next stage** or **Exclude this part**. Tries stopped by a usage
+limit or by the computer do not count. A test that already passed on the same code is not run
+again, and before delivery one final check per repository verifies the whole goal; delivery is
+refused if it failed or the code moved since.
 
 ## Boards
 
@@ -420,6 +455,48 @@ owner changes these settings, and every member of a shared board sees the same o
 - **From a conversation.** Ask the Lead to put the work on a board, and it creates the item itself.
 - **Agent replies** appear in the item as a thread, apart from what people wrote.
 - A question from the agent appears in the item; any editor can answer it there.
+- On a board of a [team project](#team-projects), **Run with Auto** asks where it runs (**This
+  computer** or **Another member's computer**), the **Responsible person**, the folder of each
+  repository on that computer and the **Agent role**. **Show setup** lists the exact configuration
+  the task starts with; it does not change while the task runs.
+
+## Team projects
+
+A folder can stay private, or belong to a project of an organization so a team shares one setup.
+Both need a MonoOne account; a private folder works without one.
+
+### Organizations
+
+**Settings → Organizations** lists **Your organizations**. **Create organization** makes one; open
+it to **Invite person** by email, see **Members** and **Invitations**, and **Revoke invitation**.
+People are **Owner**, **Admin** or **Member**; an invitation joins as a Member.
+
+### Connect a folder
+
+Open the project menu at the top of the side panel and choose **Connect to organization**. Pick the
+**Organization** and a **Project**, or **Create project**, then **Connect**. The project list then
+shows the organization under the folder, or **Private**. **Disconnect folder** removes only the link
+on this Mac. Where the folder lives is kept on each computer and never shared.
+
+### Share skills, agents and workflows
+
+**Share** on Skills, Agents, Context, Workflows and Settings → Connections offers a skill, an agent
+role, a context, a workflow or a connection definition to others.
+
+- **Who can see it:** **Private**, **Project**, **Organization** or **Selected people**.
+- **What they may do:** **Use**, **Use · Edit**, **Use · Edit · Share** or **Use · Edit · Share ·
+  Publish**.
+- **Review files** shows exactly what leaves your Mac. Nothing is sent until you **Confirm sharing**.
+
+Shared items are versioned. A change is a draft first: **Send for approval**, and the owner can
+**Approve** or **Reject** it; **Publish** is a separate step. **Compare latest** shows what changed.
+
+### Boards in a team project
+
+A new board is a **Private board** or belongs to an **Organization** and **Project**, and follows
+that project's access. **Access and project** on the board adds guests as **Viewer** or **Editor**;
+viewers cannot start runs. Board content and shared items are encrypted on your Mac; the server
+keeps who belongs to which organization, their roles and invitations.
 
 ## Analytics and costs
 
@@ -618,7 +695,7 @@ attention**, a short list of what to look at. Tabs hold the details.
 
 ![Overview of client-website on the Summary tab: six tiles — Score, Agents, Workflows, Knowledge, Changes and Triggers — and Needs your attention below them.](../public/screenshots/project.webp)
 
-- **Score** — how easily agents work in this project; see [Score](#score).
+- **Score** — how easily agents find their way in this project; see [Score](#score).
 - **Repository** — branch, changes, branches, size on disk and largest folders.
 - **Agents** and **Workflows** — with a **Fix** button where something needs a change.
 - **Knowledge** — instruction files, skills and new lessons to review.
@@ -628,19 +705,6 @@ attention**, a short list of what to look at. Tabs hold the details.
 
 ![The Repository tab of the Overview: the branch main up to date, nothing to commit and the last commit, local and remote branches with the step copies, the size on disk and the largest folders.](../public/screenshots/overview-repository.webp)
 
-### Score
-
-**Score** reads the project and rates, out of 100, how easily agents find their way: where things
-live, how fast they can check their work, how clearly errors read. The criteria are made for your
-project, weakest first, each with recommendations.
-
-![The Score tab of the Overview: 78 out of 100, Agents find their way, with a few rough spots, and the criteria with the weakest, Fast test feedback, open on its finding and recommendations.](../public/screenshots/score.webp)
-
-- **Analyse project** starts it. The agent only reads; nothing is changed. It takes a few minutes.
-- **Run a fix** (▷) beside a criterion starts a task that fixes it.
-- The result is kept in `.rig-one/score.json`. Schedule and agent are set in
-  [Settings → Score](#score-settings).
-
 ### Generate project setup
 
 **Generate project setup** — the sparkle in the rail — reads your repository and proposes agents,
@@ -649,6 +713,83 @@ talk to the lead agent to adjust. Nothing changes until you choose **Apply setup
 back the files from before.
 
 ![Generate project setup on the Instructions tab: guidance for the lead agent typed in, and the three stages Understand the project, Build the setup and Check and refine.](../public/screenshots/project-setup.webp)
+
+## Score
+
+**Score** tells you how easily agents find their way around a project, out of 100. An agent reads
+the repository — instructions, layout, tests, scripts, checks — and rates it on the things that make
+agent work go well or badly here. Every weak spot comes with what to change, and one click starts a
+task that changes it.
+
+![The Score tab of the Overview: 78 out of 100, Agents find their way, with a few rough spots, and the criteria with the weakest, Fast test feedback, open on its finding and recommendations.](../public/screenshots/score.webp)
+
+### Analyse a project
+
+Open **Overview** (G P) → **Score** and press **Analyse project** — **Analyse now** once the project
+has a score. **Score settings** beside it opens [Settings → Score](#score-settings).
+
+- The agent **only reads**. It gets read, search and find tools and nothing else: it cannot change a
+  file or run a command.
+- While it works, the tab shows **Analysing the project**, how long it has run, how many files it has
+  read, and its last few steps under **What the agent is doing**.
+- It takes a few minutes and stops after 20. **Stop analysis** cancels it at any time.
+- If it fails or is stopped, nothing is saved and the previous result stays.
+
+### What it rates
+
+There is no fixed checklist. The agent picks **4 to 10 criteria** that matter for this project —
+for example the agent instructions, how fast tests give feedback, one command that checks
+everything, clear patterns in the frontend and backend, naming, and written-down decisions. Each
+criterion gets a score from 0 to 100, and the total is their plain average.
+
+| Score | What it says |
+| --- | --- |
+| 90–100 | Agents move through this project without friction |
+| 75–89 | Agents find their way, with a few rough spots |
+| 50–74 | Agents get stuck in several places |
+| 0–49 | Agents struggle to find their way here |
+
+Green from 75, amber from 50, red below.
+
+### Read the result
+
+The top card shows the total, the verdict in one line, a short summary, **Last analysed** and the
+agent app, model and effort that did the analysis. The criteria follow, weakest first. Open one to
+see its **finding** — what the agent saw, naming the files — and its **Recommendations**. Every
+criterion under 100 has at least one.
+
+The result also shows elsewhere:
+
+- The **Score** tile on the Overview **Summary**, with the verdict or **Not analysed yet**.
+- **Needs your attention**, when the weakest criterion is under 50: **Weakest point** with an
+  **Open** button.
+
+### Fix a weak spot
+
+**Run a fix** (▷) beside a criterion opens a new task named **Fix:** and the criterion, and hands the Lead
+the finding and the recommendations, asking it to make the change and check that it works. It is an
+ordinary task: you watch it, answer its questions and review what it changed. Analyse again
+afterwards to see the new score.
+
+### Keep it up to date
+
+In [Settings → Score](#score-settings), **Analyse again** can re-run the analysis **Every day**,
+**Every week** or **Every month** instead of **Only when I ask** (the default). It re-scores only
+projects that already have a score, and only while RigOne is open.
+
+**Analyse with** chooses the agent: **Auto** picks the strongest app, model and effort you have, or
+choose Claude Code or Codex yourself. OpenCode is not used for Score.
+
+### Where it is kept, and what it costs
+
+- The result is `.rig-one/score.json` in the project. Each analysis replaces the last; there is no
+  history.
+- The analysis runs on your own Claude Code or Codex sign-in, with a strong model at high effort, so
+  it counts against your plan or API usage like any other agent run. The files it reads go to that
+  app's provider, as they do in every run.
+- The text comes back in the app's language.
+- Turn **Score projects** off in Settings → Score and Score disappears from the Overview and never
+  runs.
 
 ## Lab
 
@@ -716,8 +857,8 @@ A run keeps the version it started with, so rebuilding a set never changes a run
 | **Work** | Runs, Auto, Limits |
 | **Project** | Project, Score, Connections |
 | **Agents** | Agent apps, and a page each for Claude Code, Codex and OpenCode |
-| **Account** | Account, GitHub, Remote access |
-| **App** | Appearance, Storage, Health check, About |
+| **Account** | Account, Organizations, GitHub, Remote access |
+| **App** | Appearance, Keyboard shortcuts, Storage, Health check, About |
 
 ### Runs
 
@@ -751,7 +892,9 @@ The default agent app, model and effort for new conversations, and which instruc
 
 ### Score settings
 
-Turn **Score projects** on or off, choose how often to **Analyse again**, and which agent analyses.
+Turn **Score projects** on or off, start or stop **Analyse now**, choose how often to **Analyse
+again** (only when you ask, every day, week or month) and which agent app, model and effort
+**Analyse with** uses. These settings apply to every project; see [Score](#score).
 
 ![Settings → Score: Score projects switched on, Analyse again every week, and Analyse with Auto, Claude Code or Codex.](../public/screenshots/settings-score.webp)
 
@@ -772,17 +915,20 @@ sign-in, default model, tool servers and how much of its plan is used.
 
 ### Account and GitHub
 
-**Account** is the MonoOne account for Boards and Remote access. **GitHub** shows which GitHub
-account RigOne uses for this project and what it may do.
+**Account** is the MonoOne account for Boards, [team projects](#team-projects) and Remote access:
+**Sign in to your MonoOne account**, or **Create an account**. **Organizations** manages your
+organizations and their people. **GitHub** shows which GitHub account RigOne uses for this project
+and what it may do.
 
 ![Settings → GitHub: the account acme-dev with Open on GitHub and Refresh, and its username, name, account type, sign-in, permissions, the account for client-website and the accounts signed in on this Mac.](../public/screenshots/settings-github.webp)
 
 ### Appearance
 
-The app language, the theme — **Surface** (default), **Minimalist**, **Studio**, **Linen** or
-**Feather** — in light, dark or following macOS, an accent colour, and the conversation view.
+The app language, **Light & dark** (**System**, **Light** or **Dark**), how much of the desktop
+shows through the window (**Window transparency**), the **Accent color**, and the **Conversation
+view**.
 
-![Settings → Appearance: the app language and the Surface, Minimalist, Studio, Linen and Feather themes.](../public/screenshots/settings.webp)
+![Settings → Appearance: the app language, System, Light or Dark, window transparency at 20%, the accent colours and the Terminal or Agent chat conversation view.](../public/screenshots/settings.webp)
 
 ### Storage
 

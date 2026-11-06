@@ -3,17 +3,17 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — IDE for Claude Code, Codex and OpenCode on Mac',
-      description: 'Free Mac IDE for coding agents. Run Claude Code, Codex and OpenCode as a team, review every changed line, and see what each task and board item cost.',
+      title: 'RigOne — Control room for coding agents on Mac',
+      description: 'Free Mac app to run Claude Code, Codex and OpenCode as a team. Hand a goal to Auto, review every changed line, score your project and see what each task cost.',
     },
     features: {
-      title: 'RigOne features: an IDE for agents, visual workflows and checks',
-      description: 'Visual workflows, Auto goals, parallel runs, fair checks, IDE-style review, cost analytics per task and model, and shared boards with epics, stories and bugs.',
+      title: 'RigOne features: workflows, Auto, review, Score and costs',
+      description: 'Visual workflows, Auto goals with design review, parallel runs, checks RigOne runs itself, IDE-style review, a project Score, cost analytics and team boards.',
       breadcrumb: 'Features',
     },
     docs: {
-      title: 'RigOne documentation and step-by-step tutorial',
-      description: 'Install RigOne and follow a short tutorial: make an agent, build a workflow, run it and hand a goal to Auto. Plus boards, cost analytics and every screen.',
+      title: 'RigOne docs: install, tutorial and every screen',
+      description: 'Install RigOne and follow a short tutorial: make an agent, build a workflow, run it and hand a goal to Auto. Plus Score, boards, team projects and costs.',
       breadcrumb: 'Documentation',
     },
     compare: {
@@ -26,7 +26,7 @@ export default {
       description: 'Every RigOne release: what changed, what to do when you update, and the checksum of the signed, notarized build.',
       breadcrumb: 'Changelog',
     },
-    ogImageAlt: 'RigOne — The IDE for coding agents. Run them as a team, review every line.',
+    ogImageAlt: 'RigOne — The control room for coding agents. Run them as a team, review every line.',
   },
   common: {
     skipToContent: 'Skip to content',
@@ -185,7 +185,7 @@ export default {
   screens: {
     eyebrow: 'Screens',
     title: 'See it before you download it',
-    lead: 'The app as it ships today, in the default Surface look. Every screen works in light and dark.',
+    lead: 'The six places you will use most, as the app looks today. Every screen works in light and dark.',
     label: 'Screens of the app',
     items: {
       run: {
@@ -239,8 +239,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Settings in a window of its own',
-        body: 'Categories for work, projects, agents, your account and the app, with a Health check that says what works and a Storage page that shows the disk RigOne uses. Pick the Surface, Minimalist, Studio, Linen or Feather look, in light, dark or following macOS.',
-        alt: 'Settings → Appearance: the app language, the Surface, Minimalist, Studio, Linen and Feather themes, System, Light or Dark.',
+        body: 'Categories for work, projects, agents, your account and the app, with a Health check that says what works and a Storage page that shows the disk RigOne uses. Choose light, dark or following macOS, how much of the desktop shows through, and an accent colour.',
+        alt: 'Settings → Appearance: the app language, System, Light or Dark, window transparency, the accent colours and the conversation view.',
       },
       'run-panel': {
         tab: 'Auto',
@@ -253,6 +253,12 @@ export default {
         title: 'Plan the work, then hand it to agents',
         body: 'Epics, features, user stories, tasks and bugs on a board your team shares. Every card shows what its work cost, and a feature adds up everything under it.',
         alt: 'A shared board in the Board view: columns of epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost.',
+      },
+      score: {
+        tab: 'Score',
+        title: 'How easily agents find their way',
+        body: 'An agent reads the project and rates it out of 100 on the criteria that matter here, weakest first. Each comes with recommendations and a button that starts a task to fix it.',
+        alt: 'The Score tab of the Overview: 78 out of 100, Agents find their way, with a few rough spots, and six criteria with the weakest, Fast test feedback, open on its finding and two recommendations.',
       },
       'analytics': {
         tab: 'Analytics',
@@ -334,6 +340,7 @@ export default {
           'What the task has spent so far, beside the model; click it for tokens and a split per agent',
           'Each reply shows the model and effort that wrote it',
           'Add files, photos or folders with the plus button, or drop them onto the conversation',
+          'Enter always takes your message; while the Lead is busy it waits, in order, until it is delivered',
         ],
       },
       review: {
@@ -376,7 +383,8 @@ export default {
         body: 'Give the Lead a goal. Auto picks the roles and skills it needs, builds ordinary workflows for each part and keeps going until checks and reviews prove the work. RigOne decides when a goal is verified, not the Lead.',
         points: [
           'Every decision that waits for you sits in one list: Needs you',
-          'Design review: accept the tester’s screenshots, or click a spot and say what should change',
+          'New screens: pick one of three sketches, then accept the look or click on the running page what should change',
+          'One final check per repository before delivery, and a test that already passed is not run again',
           'Waits out a busy provider or a usage limit, then carries on',
           'Pause Auto and Resume; up to three goals work in one folder at a time',
           'YOLO mode gives agents full access for the whole conversation; Settings → Auto sets the default',
@@ -440,6 +448,7 @@ export default {
           'Sprints with a backlog, your own columns and a template for each kind',
           'Filter by person or kind; a conversation can put its work on a board itself',
           'Encrypted and signed on your Mac; the server only relays ciphertext',
+          'Team projects share skills, agent roles, workflows and connections with an organization, each update reviewed',
           'Needs a MonoOne account, as Remote access does',
         ],
       },

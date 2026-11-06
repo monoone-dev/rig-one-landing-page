@@ -59,10 +59,15 @@ export const screens: { id: ScreenId, icon: string, width: number, height: numbe
   { id: 'trigger-form', icon: 'i-lucide-alarm-clock', width: 1512, height: 950 },
   { id: 'lab', icon: 'i-lucide-flask-conical', width: 1512, height: 950 },
   { id: 'settings-remote', icon: 'i-lucide-smartphone', width: 1512, height: 950 },
+  { id: 'score', icon: 'i-lucide-gauge', width: 1512, height: 950 },
 ]
 
-/** The screens the home page offers as tabs; the rest appear beside their feature. */
-export const screenTabs: ScreenId[] = ['run', 'run-panel', 'review', 'projects', 'canvas', 'boards', 'analytics', 'project', 'agent-detail', 'knowledge', 'settings']
+/**
+ * The screens the home page offers as tabs: the main places of the app, one each. Review and
+ * Projects are left out because the hero and the IDE section above already show them; the rest
+ * appear beside their feature.
+ */
+export const screenTabs: ScreenId[] = ['run', 'run-panel', 'canvas', 'score', 'boards', 'analytics']
 
 /** Icons of the four review cards in the IDE section, in the order of `ide.review`. */
 export const ideIcons = ['i-lucide-message-square-text', 'i-lucide-history', 'i-lucide-app-window', 'i-lucide-square-arrow-out-up-right'] as const

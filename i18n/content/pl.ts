@@ -3,17 +3,17 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — IDE dla Claude Code, Codex i OpenCode na Maca',
-      description: 'Darmowe IDE na Maca dla agentów kodujących. Claude Code, Codex i OpenCode jako zespół, przegląd każdej zmienionej linii i koszt każdego zadania i karty.',
+      title: 'RigOne — centrum dowodzenia agentami kodującymi na Macu',
+      description: 'Darmowa aplikacja na Maca: Claude Code, Codex i OpenCode jako zespół. Przekaż cel do Auto, przejrzyj każdą zmienioną linię, oceń projekt i zobacz koszt zadań.',
     },
     features: {
-      title: 'Możliwości RigOne: IDE dla agentów, wizualne workflow, sprawdzenia',
-      description: 'Wizualne workflow, cele Auto, równoległe biegi, uczciwe sprawdzenia, przegląd jak w IDE, koszty na zadanie i model oraz tablice z epikami, historyjkami i błędami.',
+      title: 'Możliwości RigOne: workflow, Auto, przegląd, Score i koszty',
+      description: 'Wizualne workflow, cele Auto z przeglądem wyglądu, równoległe biegi, sprawdzenia uruchamiane przez RigOne, przegląd jak w IDE, Score projektu, koszty i tablice.',
       breadcrumb: 'Możliwości',
     },
     docs: {
-      title: 'Dokumentacja RigOne i samouczek krok po kroku',
-      description: 'Zainstaluj RigOne i przejdź krótki samouczek: stwórz agenta, zbuduj workflow, uruchom go i przekaż cel do Auto. Do tego tablice, analityka kosztów i każdy ekran.',
+      title: 'Dokumentacja RigOne: instalacja, samouczek i każdy ekran',
+      description: 'Zainstaluj RigOne i przejdź krótki samouczek: stwórz agenta, zbuduj workflow, uruchom go i przekaż cel do Auto. Do tego Score, tablice, projekty zespołu i koszty.',
       breadcrumb: 'Dokumentacja',
     },
     compare: {
@@ -26,7 +26,7 @@ export default {
       description: 'Każde wydanie RigOne: co się zmieniło, co zrobić przy aktualizacji i suma kontrolna podpisanej, notaryzowanej paczki.',
       breadcrumb: 'Lista zmian',
     },
-    ogImageAlt: 'RigOne — IDE dla agentów kodujących. Prowadź je jak zespół, przeglądaj każdą linię.',
+    ogImageAlt: 'RigOne — Centrum dowodzenia agentami kodującymi. Prowadź je jak zespół, przeglądaj każdą linię.',
   },
   common: {
     skipToContent: 'Przejdź do treści',
@@ -185,7 +185,7 @@ export default {
   screens: {
     eyebrow: 'Ekrany',
     title: 'Zobacz, zanim pobierzesz',
-    lead: 'Aplikacja taka, jaka jest dziś, w domyślnym wyglądzie Surface. Każdy ekran działa w jasnym i ciemnym trybie.',
+    lead: 'Sześć miejsc, z których skorzystasz najczęściej, tak jak dziś wygląda aplikacja. Każdy ekran działa w jasnym i ciemnym trybie.',
     label: 'Ekrany aplikacji',
     items: {
       run: {
@@ -239,8 +239,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Ustawienia we własnym oknie',
-        body: 'Kategorie dla pracy, projektów, agentów, konta i aplikacji oraz Health check, który mówi, co działa, i strona Storage, która pokazuje, ile miejsca zajmuje RigOne. Wybierz wygląd Surface, Minimalist, Studio, Linen albo Feather, w trybie jasnym, ciemnym lub zgodnym z macOS.',
-        alt: 'Settings → Appearance: język aplikacji, motywy Surface, Minimalist, Studio, Linen i Feather, System, Light albo Dark.',
+        body: 'Kategorie dla pracy, projektów, agentów, konta i aplikacji oraz Health check, który mówi, co działa, i strona Storage, która pokazuje, ile miejsca zajmuje RigOne. Wybierz tryb jasny, ciemny lub zgodny z macOS, to, jak bardzo prześwituje pulpit, i kolor akcentu.',
+        alt: 'Settings → Appearance: język aplikacji, System, Light albo Dark, przezroczystość okna, kolory akcentu i widok rozmowy.',
       },
       'run-panel': {
         tab: 'Auto',
@@ -253,6 +253,12 @@ export default {
         title: 'Zaplanuj pracę, potem przekaż ją agentom',
         body: 'Epiki, funkcje, historyjki użytkownika, zadania i błędy na tablicy wspólnej dla zespołu. Każda karta pokazuje koszt swojej pracy, a funkcja sumuje wszystko, co jest pod nią.',
         alt: 'Wspólna tablica w widoku Board: kolumny epików, funkcji, historyjek, zadań i błędów, każda karta z rodzajem, identyfikatorem i kosztem.',
+      },
+      score: {
+        tab: 'Score',
+        title: 'Jak łatwo agenci znajdują drogę',
+        body: 'Agent czyta projekt i ocenia go w skali do 100 według kryteriów, które się tu liczą, zaczynając od najsłabszego. Do każdego są zalecenia i przycisk, który uruchamia zadanie naprawy.',
+        alt: 'Zakładka Score w Overview: 78 na 100, „Agents find their way, with a few rough spots”, i sześć kryteriów; najsłabsze, Fast test feedback, jest rozwinięte z ustaleniem i dwoma zaleceniami.',
       },
       'analytics': {
         tab: 'Analytics',
@@ -334,6 +340,7 @@ export default {
           'Wydatki zadania do tej pory, obok modelu; kliknij, żeby zobaczyć tokeny i podział na agentów',
           'Każda odpowiedź pokazuje model i wysiłek, które ją napisały',
           'Dodawaj pliki, zdjęcia albo foldery przyciskiem plusa lub upuść je na rozmowę',
+          'Enter zawsze przyjmuje wiadomość; gdy Lead jest zajęty, czeka ona w kolejce, aż zostanie dostarczona',
         ],
       },
       review: {
@@ -376,7 +383,8 @@ export default {
         body: 'Daj Leadowi cel. Auto dobiera potrzebne role i umiejętności, buduje zwykłe workflow dla każdej części i działa, aż sprawdzenia i przeglądy potwierdzą pracę. O tym, czy cel jest sprawdzony, decyduje RigOne, nie Lead.',
         points: [
           'Każda decyzja, która czeka na ciebie, jest na jednej liście: Needs you',
-          'Przegląd wyglądu: zaakceptuj zrzuty ekranu testera albo kliknij miejsce i napisz, co zmienić',
+          'Nowe ekrany: wybierz jeden z trzech szkiców, potem zaakceptuj wygląd albo kliknij na działającej stronie, co zmienić',
+          'Jedno końcowe sprawdzenie na repozytorium przed dostarczeniem, a test, który już przeszedł, nie jest uruchamiany ponownie',
           'Przeczekuje przeciążonego dostawcę albo limit użycia i pracuje dalej',
           'Pause Auto i Resume; w jednym folderze mogą pracować naraz do trzech celów',
           'YOLO mode daje agentom pełny dostęp na całą rozmowę; domyślne ustawienie jest w Settings → Auto',
@@ -440,6 +448,7 @@ export default {
           'Sprinty z backlogiem, własne kolumny i szablon dla każdego rodzaju',
           'Filtr po osobie lub rodzaju; rozmowa może sama dodać swoją pracę do tablicy',
           'Szyfrowane i podpisywane na twoim Macu; serwer przekazuje tylko szyfrogram',
+          'Projekty zespołu dzielą z organizacją umiejętności, role agentów, workflow i połączenia, a każda aktualizacja jest przeglądana',
           'Wymaga konta MonoOne, tak jak Remote access',
         ],
       },

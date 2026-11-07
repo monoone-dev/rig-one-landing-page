@@ -3,17 +3,17 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — IDE für Claude Code, Codex und OpenCode auf dem Mac',
-      description: 'Kostenlose Mac-IDE für Coding-Agenten. Claude Code, Codex und OpenCode als Team, jede geänderte Zeile prüfen, Kosten jeder Aufgabe und jeder Karte sehen.',
+      title: 'RigOne — Schaltzentrale für Coding-Agenten auf dem Mac',
+      description: 'Kostenlose Mac-App für Claude Code, Codex und OpenCode als Team. Ziele an Auto übergeben, jede geänderte Zeile prüfen, das Projekt bewerten, Kosten jeder Aufgabe sehen.',
     },
     features: {
-      title: 'RigOne-Funktionen: eine IDE für Agenten, visuelle Workflows, Prüfungen',
-      description: 'Visuelle Workflows, Auto-Ziele, parallele Läufe, faire Prüfungen, Review wie in einer IDE, Kosten pro Aufgabe und Modell sowie Boards mit Epics, Stories und Bugs.',
+      title: 'RigOne-Funktionen: Workflows, Auto, Review, Score und Kosten',
+      description: 'Visuelle Workflows, Auto-Ziele mit Design-Review, parallele Läufe, eigene Prüfungen von RigOne, Review wie in einer IDE, ein Projekt-Score, Kosten und Team-Boards.',
       breadcrumb: 'Funktionen',
     },
     docs: {
-      title: 'RigOne-Dokumentation und Schritt-für-Schritt-Tutorial',
-      description: 'RigOne installieren, kurzes Tutorial: Agenten anlegen, Workflow bauen, ausführen und ein Ziel an Auto übergeben. Dazu Boards, Kostenanalyse und alle Bildschirme.',
+      title: 'RigOne-Doku: Installation, Tutorial und alle Bildschirme',
+      description: 'RigOne installieren, kurzes Tutorial: Agenten anlegen, Workflow bauen, ausführen und ein Ziel an Auto übergeben. Dazu Score, Boards, Teamprojekte und Kosten.',
       breadcrumb: 'Dokumentation',
     },
     compare: {
@@ -26,7 +26,7 @@ export default {
       description: 'Jede RigOne-Version: was sich geändert hat, was beim Aktualisieren zu tun ist, und die Prüfsumme des signierten, notarisierten Builds.',
       breadcrumb: 'Änderungsprotokoll',
     },
-    ogImageAlt: 'RigOne — Die IDE für Coding-Agenten. Als Team ausführen, jede Zeile prüfen.',
+    ogImageAlt: 'RigOne — Die Schaltzentrale für Coding-Agenten. Als Team ausführen, jede Zeile prüfen.',
   },
   common: {
     skipToContent: 'Zum Inhalt springen',
@@ -185,7 +185,7 @@ export default {
   screens: {
     eyebrow: 'Ansichten',
     title: 'Ansehen, bevor Sie laden',
-    lead: 'Die App, wie sie heute ausgeliefert wird, im Standard-Look Surface. Jeder Bildschirm funktioniert hell und dunkel.',
+    lead: 'Die sechs Orte, die Sie am meisten nutzen, so wie die App heute aussieht. Jeder Bildschirm funktioniert hell und dunkel.',
     label: 'Ansichten der App',
     items: {
       run: {
@@ -239,8 +239,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: 'Einstellungen in einem eigenen Fenster',
-        body: 'Kategorien für Arbeit, Projekte, Agenten, Konto und App, mit einem Health check, der sagt, was funktioniert, und einer Storage-Seite, die zeigt, wie viel Platz RigOne belegt. Wählen Sie den Look Surface, Minimalist, Studio, Linen oder Feather, hell, dunkel oder wie macOS.',
-        alt: 'Settings → Appearance: die Sprache der App, die Themes Surface, Minimalist, Studio, Linen und Feather, System, Light oder Dark.',
+        body: 'Kategorien für Arbeit, Projekte, Agenten, Konto und App, mit einem Health check, der sagt, was funktioniert, und einer Storage-Seite, die zeigt, wie viel Platz RigOne belegt. Wählen Sie hell, dunkel oder wie macOS, wie viel vom Schreibtisch durchscheint, und eine Akzentfarbe.',
+        alt: 'Settings → Appearance: die Sprache der App, System, Light oder Dark, die Fenstertransparenz, die Akzentfarben und die Gesprächsansicht.',
       },
       'run-panel': {
         tab: 'Auto',
@@ -253,6 +253,12 @@ export default {
         title: 'Arbeit planen, dann an Agenten übergeben',
         body: 'Epics, Features, User Stories, Aufgaben und Bugs auf einem Board, das Ihr Team teilt. Jede Karte zeigt, was ihre Arbeit gekostet hat, und ein Feature summiert alles darunter.',
         alt: 'Ein gemeinsames Board in der Ansicht Board: Spalten mit Epics, Features, Stories, Aufgaben und Bugs, jede Karte mit Art, ID und Kosten.',
+      },
+      score: {
+        tab: 'Score',
+        title: 'Wie leicht sich Agenten zurechtfinden',
+        body: 'Ein Agent liest das Projekt und bewertet es mit bis zu 100 Punkten nach den Kriterien, die hier zählen, das schwächste zuerst. Zu jedem gibt es Empfehlungen und eine Schaltfläche, die eine Aufgabe zur Behebung startet.',
+        alt: 'Der Tab Score der Overview: 78 von 100, Agents find their way, with a few rough spots, und sechs Kriterien, das schwächste, Fast test feedback, mit seinem Befund und zwei Empfehlungen geöffnet.',
       },
       'analytics': {
         tab: 'Analytics',
@@ -334,6 +340,7 @@ export default {
           'Was die Aufgabe bisher gekostet hat, neben dem Modell; ein Klick zeigt Tokens und die Aufteilung pro Agent',
           'Jede Antwort zeigt das Modell und den Aufwand, mit denen sie geschrieben wurde',
           'Dateien, Fotos oder Ordner über die Plus-Taste hinzufügen oder auf das Gespräch ziehen',
+          'Die Eingabetaste nimmt Ihre Nachricht immer an; ist der Lead beschäftigt, wartet sie der Reihe nach, bis sie zugestellt ist',
         ],
       },
       review: {
@@ -376,7 +383,8 @@ export default {
         body: 'Geben Sie dem Lead ein Ziel. Auto wählt die nötigen Rollen und Skills, baut für jeden Teil gewöhnliche Workflows und macht weiter, bis Prüfungen und Reviews die Arbeit belegen. Ob ein Ziel geprüft ist, entscheidet RigOne, nicht der Lead.',
         points: [
           'Jede Entscheidung, die auf Sie wartet, steht in einer Liste: Needs you',
-          'Design-Review: Screenshots des Testers annehmen oder eine Stelle anklicken und sagen, was sich ändern soll',
+          'Neue Bildschirme: eine von drei Skizzen wählen, dann den Look annehmen oder auf der laufenden Seite anklicken, was sich ändern soll',
+          'Eine abschließende Prüfung pro Repository vor der Übergabe, und ein Test, der schon bestanden hat, läuft nicht noch einmal',
           'Wartet einen ausgelasteten Anbieter oder ein Nutzungslimit ab und macht dann weiter',
           'Pause Auto und Resume; bis zu drei Ziele arbeiten gleichzeitig in einem Ordner',
           'YOLO mode gibt Agenten vollen Zugriff für das ganze Gespräch; Settings → Auto legt die Voreinstellung fest',
@@ -440,6 +448,7 @@ export default {
           'Sprints mit Backlog, eigene Spalten und eine Vorlage für jede Art',
           'Nach Person oder Art filtern; ein Gespräch kann seine Arbeit selbst auf ein Board legen',
           'Auf Ihrem Mac verschlüsselt und signiert; der Server leitet nur Chiffretext weiter',
+          'Teamprojekte teilen Skills, Agentenrollen, Workflows und Verbindungen mit einer Organisation, und jedes Update wird geprüft',
           'Braucht ein MonoOne-Konto, wie Remote access',
         ],
       },

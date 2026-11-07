@@ -48,7 +48,7 @@ const help = computed(() => fill(c.value.docs.helpHtml, { issues: site.links.new
 usePageSeo({
   path: `/docs/${page.value.id}`,
   meta: () => ({
-    title: `${page.value.title} — ${c.value.meta.docs.title}`,
+    title: `${page.value.title} — RigOne docs`,
     description: page.value.description,
     breadcrumb: page.value.title,
   }),

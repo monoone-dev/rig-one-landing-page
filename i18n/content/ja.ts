@@ -3,17 +3,17 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — Mac で Claude Code、Codex、OpenCode のエージェントを動かす IDE',
-      description: 'コーディングエージェントの無料 Mac IDE。Claude Code、Codex、OpenCode をチームとして動かし、変更を 1 行ずつレビューし、タスクとボード項目ごとの費用を確認できます。',
+      title: 'RigOne — Mac のコーディングエージェント用コントロールルーム',
+      description: 'Claude Code、Codex、OpenCode をチームとして動かす無料の Mac アプリ。目標を Auto に任せ、変更を 1 行ずつレビューし、プロジェクトを採点し、タスクごとの費用を確認できます。',
     },
     features: {
-      title: 'RigOne の機能：エージェントの IDE、ワークフロー、チェック',
-      description: '目に見えるワークフロー、Auto の目標、並列実行、公正なチェック、IDE のようなレビュー、タスクとモデル別の費用分析、エピック・ストーリー・バグを扱う共有ボード。',
+      title: 'RigOne の機能：ワークフロー、Auto、レビュー、Score、費用',
+      description: '目に見えるワークフロー、デザインレビュー付きの Auto の目標、並列実行、RigOne 自身が走らせるチェック、IDE のようなレビュー、プロジェクトの Score、費用分析、チームのボード。',
       breadcrumb: '機能',
     },
     docs: {
-      title: 'RigOne ドキュメントとステップごとのチュートリアル',
-      description: 'RigOne をインストールし、短いチュートリアルでエージェントを作り、ワークフローを組んで実行し、目標を Auto に任せます。ボード、費用分析、すべての画面も紹介。',
+      title: 'RigOne ドキュメント：インストール、チュートリアル、すべての画面',
+      description: 'RigOne をインストールし、短いチュートリアルでエージェントを作り、ワークフローを組んで実行し、目標を Auto に任せます。Score、ボード、チームプロジェクト、費用も紹介。',
       breadcrumb: 'ドキュメント',
     },
     compare: {
@@ -26,7 +26,7 @@ export default {
       description: 'RigOne の全リリース：何が変わったか、アップデート時にすること、署名・公証済みビルドのチェックサム。',
       breadcrumb: '変更履歴',
     },
-    ogImageAlt: 'RigOne — コーディングエージェントのための IDE。チームとして動かし、すべての行をレビュー。',
+    ogImageAlt: 'RigOne — コーディングエージェントのためのコントロールルーム。チームとして動かし、すべての行をレビュー。',
   },
   common: {
     skipToContent: '本文へスキップ',
@@ -185,7 +185,7 @@ export default {
   screens: {
     eyebrow: '画面',
     title: 'ダウンロードの前に見てみる',
-    lead: '現在リリースされているアプリそのまま、既定の Surface の外観です。どの画面もライトとダークに対応しています。',
+    lead: 'いちばんよく使う 6 つの場所を、現在のアプリの姿のまま紹介します。どの画面もライトとダークに対応しています。',
     label: 'アプリの画面',
     items: {
       run: {
@@ -239,8 +239,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: '独立したウィンドウの設定',
-        body: '作業、プロジェクト、エージェント、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check と、RigOne が使うディスク容量を示す Storage ページ。Surface、Minimalist、Studio、Linen、Feather の外観を、ライト、ダーク、または macOS に合わせて選べます。',
-        alt: 'Settings → Appearance：アプリの言語、Surface・Minimalist・Studio・Linen・Feather のテーマ、System・Light・Dark。',
+        body: '作業、プロジェクト、エージェント、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check と、RigOne が使うディスク容量を示す Storage ページ。ライト、ダーク、または macOS に合わせる設定、デスクトップの透け具合、アクセントカラーを選べます。',
+        alt: 'Settings → Appearance：アプリの言語、System・Light・Dark、ウィンドウの透明度、アクセントカラー、会話の表示。',
       },
       'run-panel': {
         tab: 'Auto',
@@ -253,6 +253,12 @@ export default {
         title: '作業を計画して、エージェントに任せる',
         body: 'エピック、機能、ユーザーストーリー、タスク、バグを、チームで共有するボードに。各カードには作業にかかった費用が表示され、機能はその下のすべてを合計します。',
         alt: '共有ボードの Board ビュー：エピック、機能、ストーリー、タスク、バグの列。各カードに種類、ID、費用。',
+      },
+      score: {
+        tab: 'Score',
+        title: 'エージェントが迷わず進めるか',
+        body: 'エージェントがプロジェクトを読み、ここで重要な基準ごとに 100 点満点で評価し、弱い順に並べます。各基準には推奨事項と、修正のタスクを始めるボタンが付きます。',
+        alt: 'Overview の Score タブ：100 点中 78 点、Agents find their way, with a few rough spots、6 つの基準のうち最も弱い Fast test feedback が開き、その所見と 2 つの推奨事項。',
       },
       'analytics': {
         tab: 'Analytics',
@@ -334,6 +340,7 @@ export default {
           'タスクのこれまでの費用をモデルの横に表示。クリックするとトークンとエージェントごとの内訳',
           '各返信に、それを書いたモデルと思考の深さを表示',
           'プラスボタンでファイル・写真・フォルダーを追加、または会話にドロップ',
+          'Enter でいつでもメッセージを送れます。Lead が作業中のときは、届くまで順番に待機します',
         ],
       },
       review: {
@@ -376,7 +383,8 @@ export default {
         body: 'Lead にゴールを伝えます。Auto は必要な役割とスキルを選び、各部分のために普通のワークフローを組み、チェックとレビューが成果を証明するまで続けます。ゴールが検証済みかどうかを決めるのは Lead ではなく RigOne です。',
         points: [
           'あなたの判断を待つものは、ひとつのリストにまとまります：Needs you',
-          'デザインレビュー：テスターのスクリーンショットを承認するか、場所をクリックして変えたい点を書く',
+          '新しい画面：3 つのスケッチから 1 つ選び、見た目を承認するか、動いているページ上で変えたい場所をクリック',
+          'リポジトリごとに納品前の最終チェックは 1 回、すでに通ったテストは再実行しない',
           '混雑したプロバイダーや利用上限を待ってから続行',
           'Pause Auto と Resume、ひとつのフォルダで同時に最大 3 つのゴール',
           'YOLO mode は会話全体でエージェントにフルアクセスを与えます。既定値は Settings → Auto で設定します',
@@ -440,6 +448,7 @@ export default {
           'バックログ付きのスプリント、独自の列、種類ごとのテンプレート',
           '人や種類で絞り込み。会話から作業を直接ボードに載せることも',
           'Mac 上で暗号化・署名され、サーバーは暗号文を中継するだけ',
+          'チームプロジェクトはスキル、エージェントの役割、ワークフロー、接続を組織と共有し、更新はそのつどレビュー',
           'Remote access と同じく MonoOne アカウントが必要',
         ],
       },

@@ -108,7 +108,7 @@ cases from your own code to evaluate an agent, Linear triggers, model gateways a
 live plan limits for Claude Code and Codex, a Health check, updates for the agent apps themselves, and run
 evidence — receipts, handoffs, full answers and a diagnostic bundle — that outlives the terminal.
 The interface speaks English, Polish, German, Spanish, French, Italian, Portuguese, Chinese and
-Japanese, in a Surface, Minimalist, Studio, Linen or Feather look, light or dark.
+Japanese, light or dark, with a frosted Surface window.
 
 The full feature list is on the [website](https://rig-one.io/features/),
 and where RigOne is ahead of and behind Orca, Paseo, Superset, Conductor, Nimbalyst, the ChatGPT app and
@@ -124,8 +124,8 @@ Cursor Cloud Agents is [here](https://rig-one.io/compare/).
 | **Overview** — the whole project on one page: a summary, then score, repository, agents, workflows, knowledge and automation. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
 | ![The Agents screen: Scout, Builder, Needle and Second opinion, each with its access, model and effort](public/screenshots/agents-light.webp) | ![The Knowledge screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
 | **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Knowledge** — notes an agent suggests wait for you; approved notes go into every prompt. |
-| ![Settings → Appearance: the Surface, Minimalist, Studio, Linen and Feather themes, and Light & dark](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
-| **Settings** — Surface, Minimalist, Studio, Linen or Feather, an accent colour, light or dark, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
+| ![Settings → Appearance: the app language, Light & dark, window transparency and the accent colours](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
+| **Settings** — light or dark, window transparency, an accent colour, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
 | ![A shared board: epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost](public/screenshots/boards.webp) | ![The Analytics screen: spend, tokens, tasks and agent time, spend per day and usage per app, model and project](public/screenshots/analytics-light.webp) |
 | **Boards** — epics down to bugs, sprints, and the cost of every card. | **Analytics** — where the money and tokens go, by day, app, model, person and project. |
 

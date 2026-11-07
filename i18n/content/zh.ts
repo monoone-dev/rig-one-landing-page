@@ -3,17 +3,17 @@ import type { SiteContent } from './types'
 export default {
   meta: {
     home: {
-      title: 'RigOne — Mac 上面向 Claude Code、Codex 和 OpenCode 智能体的 IDE',
-      description: '面向编程智能体的免费 Mac IDE：让 Claude Code、Codex 和 OpenCode 组队运行，审查每一行改动，并查看每个任务和看板条目的花费。',
+      title: 'RigOne — Mac 上的编程智能体控制中心',
+      description: '免费的 Mac 应用，让 Claude Code、Codex 和 OpenCode 组队运行。把目标交给 Auto，审查每一行改动，为项目打分，并查看每个任务的花费。',
     },
     features: {
-      title: 'RigOne 功能：面向智能体的 IDE、可视化工作流与检查',
-      description: '可视化工作流、Auto 目标、并行运行、公正的检查、IDE 式审查、按任务和模型的花费分析，以及包含史诗、故事和缺陷的共享看板。',
+      title: 'RigOne 功能：工作流、Auto、审查、Score 与花费',
+      description: '可视化工作流、带设计评审的 Auto 目标、并行运行、由 RigOne 自己运行的检查、IDE 式审查、项目 Score、花费分析和团队看板。',
       breadcrumb: '功能',
     },
     docs: {
-      title: 'RigOne 文档与分步教程',
-      description: '安装 RigOne 并跟着简短教程操作：创建智能体、搭建工作流、运行它，再把目标交给 Auto。另有看板、花费分析和每个界面的说明。',
+      title: 'RigOne 文档：安装、教程和每个界面',
+      description: '安装 RigOne 并跟着简短教程操作：创建智能体、搭建工作流、运行它，再把目标交给 Auto。另有 Score、看板、团队项目和花费的说明。',
       breadcrumb: '文档',
     },
     compare: {
@@ -26,7 +26,7 @@ export default {
       description: 'RigOne 的每个版本：改了什么，更新时要做什么，以及已签名、已公证安装包的校验和。',
       breadcrumb: '更新日志',
     },
-    ogImageAlt: 'RigOne — 面向编码智能体的 IDE。让它们像团队一样协作，审查每一行。',
+    ogImageAlt: 'RigOne — 编码智能体的控制中心。让它们像团队一样协作，审查每一行。',
   },
   common: {
     skipToContent: '跳到正文',
@@ -185,7 +185,7 @@ export default {
   screens: {
     eyebrow: '界面',
     title: '下载之前先看看',
-    lead: '应用如今发布时的样子，使用默认的 Surface 外观。每个界面都支持浅色和深色。',
+    lead: '你最常用的六个地方，呈现应用如今的样子。每个界面都支持浅色和深色。',
     label: '应用界面',
     items: {
       run: {
@@ -239,8 +239,8 @@ export default {
       settings: {
         tab: 'Settings',
         title: '独立窗口中的设置',
-        body: '按工作、项目、智能体、账户和应用分类，还有告诉你什么正常的 Health check，以及显示 RigOne 占用多少磁盘空间的 Storage 页面。选择 Surface、Minimalist、Studio、Linen 或 Feather 外观，浅色、深色或跟随 macOS。',
-        alt: 'Settings → Appearance：应用语言、Surface、Minimalist、Studio、Linen 和 Feather 五种主题、System、Light 或 Dark。',
+        body: '按工作、项目、智能体、账户和应用分类，还有告诉你什么正常的 Health check，以及显示 RigOne 占用多少磁盘空间的 Storage 页面。可选浅色、深色或跟随 macOS，桌面透出的程度，以及强调色。',
+        alt: 'Settings → Appearance：应用语言、System、Light 或 Dark、窗口透明度、强调色和对话视图。',
       },
       'run-panel': {
         tab: 'Auto',
@@ -253,6 +253,12 @@ export default {
         title: '先规划工作，再交给智能体',
         body: '史诗、功能、用户故事、任务和缺陷，放在团队共享的看板上。每张卡片显示其工作的花费，功能会汇总其下所有内容。',
         alt: '共享看板（Board 视图）：史诗、功能、故事、任务和缺陷各列，每张卡片标有类型、ID 和花费。',
+      },
+      score: {
+        tab: 'Score',
+        title: '智能体能多轻松地找到方向',
+        body: '一个智能体阅读项目，按这里重要的标准给出满分 100 的评分，最弱的排在最前。每项都附有建议，以及一个启动修复任务的按钮。',
+        alt: 'Overview 的 Score 标签页：100 分中的 78 分，Agents find their way, with a few rough spots，六项标准中最弱的 Fast test feedback 已展开，显示其发现和两条建议。',
       },
       'analytics': {
         tab: 'Analytics',
@@ -334,6 +340,7 @@ export default {
           '任务目前的花费显示在模型旁边；点击可查看 token 和每个智能体的拆分',
           '每条回复都显示写出它的模型和思考深度',
           '用加号按钮添加文件、照片或文件夹，或直接拖到对话中',
+          '回车总会接收你的消息；Lead 忙碌时，消息按顺序等待，直到送达',
         ],
       },
       review: {
@@ -376,7 +383,8 @@ export default {
         body: '给 Lead 一个目标。Auto 选出所需的角色和技能，为每个部分搭建普通的工作流，一直推进到检查和审查证明工作成立。目标是否已验证由 RigOne 判断，而不是 Lead。',
         points: [
           '所有等你决定的事都在一个列表里：Needs you',
-          '设计评审：接受测试者的截图，或点一下某处并说明要改什么',
+          '新界面：从三份草图中选一份，然后接受外观，或在运行中的页面上点击要改的地方',
+          '交付前每个仓库只做一次最终检查，已通过的测试不会再跑',
           '等待繁忙的提供方或用量限制恢复，然后继续',
           'Pause Auto 与 Resume；同一个文件夹最多同时进行三个目标',
           'YOLO mode 让智能体在整个对话中拥有完全访问权限；默认值在 Settings → Auto 中设置',
@@ -440,6 +448,7 @@ export default {
           '带待办列表的冲刺、自定义列，以及每种类型的模板',
           '按人员或类型筛选；对话可以自己把工作放到看板上',
           '在你的 Mac 上加密并签名；服务器只转发密文',
+          '团队项目与组织共享技能、智能体角色、工作流和连接，每次更新都经过审查',
           '需要 MonoOne 账户，Remote access 也一样',
         ],
       },

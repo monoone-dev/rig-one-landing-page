@@ -528,9 +528,9 @@ export default {
   },
   plugins: {
     eyebrow: '插件',
-    title: '只开启你用得到的',
+    title: '只安装你用得到的',
     lead: 'RigOne 默认只做一件事：你排好智能体图并运行它。其他一切都是可以关闭的插件，关闭插件绝不会删除它的文件。',
-    howTo: '在 设置、插件 中开启或关闭插件。更改在 RigOne 重启后生效。',
+    howTo: '在 设置、插件 的可搜索列表中安装插件。更改在 RigOne 重启后生效。',
     status: { included: '已包含', soon: '即将推出' },
     items: {
       lab: {
@@ -539,7 +539,7 @@ export default {
         points: [
         '用例集保存在你的项目中',
         '各版本结果并排显示',
-        '默认开启',
+        '默认已安装',
         ],
       },
       discord: {

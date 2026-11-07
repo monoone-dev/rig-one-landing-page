@@ -528,9 +528,9 @@ export default {
   },
   plugins: {
     eyebrow: 'Plugins',
-    title: 'Turn on only what you use',
+    title: 'Install only what you use',
     lead: 'RigOne does one thing by default: you lay out a graph of agents and run it. Everything else is a plugin you can turn off, and turning one off never deletes its files.',
-    howTo: 'Turn a plugin on or off in Settings, Plugins. The change works after RigOne restarts.',
+    howTo: 'Install a plugin from the searchable list in Settings, Plugins. The change works after RigOne restarts.',
     status: { included: 'Included', soon: 'Coming soon' },
     items: {
       lab: {
@@ -539,7 +539,7 @@ export default {
         points: [
         'Sets of cases kept in your project',
         'Side-by-side results for each version',
-        'On by default',
+        'Installed by default',
         ],
       },
       discord: {

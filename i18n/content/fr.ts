@@ -528,9 +528,9 @@ export default {
   },
   plugins: {
     eyebrow: 'Plugins',
-    title: 'N’activez que ce que vous utilisez',
+    title: 'N’installez que ce que vous utilisez',
     lead: 'Par défaut, RigOne fait une chose : vous disposez un graphe d’agents et vous l’exécutez. Tout le reste est un plugin que vous pouvez désactiver, et le désactiver ne supprime jamais ses fichiers.',
-    howTo: 'Activez ou désactivez un plugin dans Réglages, Plugins. Le changement s’applique après le redémarrage de RigOne.',
+    howTo: 'Installez un plugin depuis la liste avec recherche dans Réglages, Plugins. Le changement s’applique après le redémarrage de RigOne.',
     status: { included: 'Inclus', soon: 'Bientôt' },
     items: {
       lab: {
@@ -539,7 +539,7 @@ export default {
         points: [
         'Des ensembles de cas dans votre projet',
         'Les résultats de chaque version côte à côte',
-        'Activé par défaut',
+        'Installé par défaut',
         ],
       },
       discord: {

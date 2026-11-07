@@ -528,9 +528,9 @@ export default {
   },
   plugins: {
     eyebrow: 'Plugins',
-    title: 'Ligue só o que você usa',
+    title: 'Instale só o que você usa',
     lead: 'Por padrão, o RigOne faz uma coisa: você monta um grafo de agentes e o executa. Todo o resto é um plugin que você pode desligar, e desligar nunca apaga os arquivos dele.',
-    howTo: 'Ligue ou desligue um plugin em Configurações, Plugins. A mudança vale depois de reiniciar o RigOne.',
+    howTo: 'Instale um plugin pela lista com busca em Configurações, Plugins. A mudança vale depois de reiniciar o RigOne.',
     status: { included: 'Incluído', soon: 'Em breve' },
     items: {
       lab: {
@@ -539,7 +539,7 @@ export default {
         points: [
         'Conjuntos de casos no seu projeto',
         'Resultados de cada versão lado a lado',
-        'Ligado por padrão',
+        'Instalado por padrão',
         ],
       },
       discord: {

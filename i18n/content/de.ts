@@ -528,9 +528,9 @@ export default {
   },
   plugins: {
     eyebrow: 'Plugins',
-    title: 'Schalte nur ein, was du nutzt',
+    title: 'Installiere nur, was du nutzt',
     lead: 'RigOne macht standardmäßig eine Sache: Du legst einen Graphen aus Agenten an und führst ihn aus. Alles andere ist ein Plugin, das du ausschalten kannst, und das Ausschalten löscht nie seine Dateien.',
-    howTo: 'Ein Plugin schaltest du unter Einstellungen, Plugins ein oder aus. Die Änderung gilt nach einem Neustart von RigOne.',
+    howTo: 'Installiere ein Plugin aus der durchsuchbaren Liste unter Einstellungen, Plugins. Die Änderung gilt nach einem Neustart von RigOne.',
     status: { included: 'Enthalten', soon: 'Bald verfügbar' },
     items: {
       lab: {
@@ -539,7 +539,7 @@ export default {
         points: [
         'Fallsammlungen in deinem Projekt',
         'Ergebnisse jeder Version nebeneinander',
-        'Standardmäßig an',
+        'Standardmäßig installiert',
         ],
       },
       discord: {

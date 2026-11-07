@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "plugins": [
+    {
+      "id": "lab",
+      "name": "Lab",
+      "author": "MonoOne",
+      "summary": "Try agents on a set of cases and compare how each version does.",
+      "description": "Keep sets of real cases in your project, run every version of an agent on them, and compare the results side by side before you trust a version with real work.\n\nLab ships installed. Removing it hides its screen and keeps its sets on disk.",
+      "homepage": "https://rig-one.io/plugins/#lab",
+      "screenshots": [
+        {
+          "dark": "https://rig-one.io/screenshots/lab.webp",
+          "light": "https://rig-one.io/screenshots/lab-light.webp",
+          "alt": "Lab comparing two versions of an agent"
+        },
+        {
+          "dark": "https://rig-one.io/screenshots/lab-sets.webp",
+          "light": "https://rig-one.io/screenshots/lab-sets-light.webp",
+          "alt": "Sets of cases in Lab"
+        }
+      ]
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "author": "MonoOne",
+      "summary": "Start a workflow when someone mentions your bot in a Discord channel.",
+      "description": "Mention your bot in a Discord channel and RigOne starts the workflow you chose, with the message as the task. Agents in that run can reply in Discord through the mcp-discord tool server.\n\nYou need a Discord bot with View Channel and Read Message History in that channel, and its token in the DISCORD_TOKEN environment variable.",
+      "homepage": "https://rig-one.io/plugins/#discord",
+      "screenshots": []
+    }
+  ]
+}

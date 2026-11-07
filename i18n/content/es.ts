@@ -21,6 +21,11 @@ export default {
       description: 'Lo que RigOne hace y Orca, Paseo, Superset, Conductor, Nimbalyst, la app ChatGPT y Cursor Cloud Agents no: flujos guardados, comprobaciones que ejecuta él mismo y varios proveedores en una sola ejecución.',
       breadcrumb: 'Comparar',
     },
+    plugins: {
+      title: 'Plugins de RigOne: evaluaciones en Lab y disparadores de Discord',
+      description: 'Partes de RigOne que activas o desactivas: Lab compara versiones de agentes con tus propios casos y Discord inicia un flujo cuando alguien menciona a tu bot.',
+      breadcrumb: 'Plugins',
+    },
     changelog: {
       title: 'Novedades de RigOne: notas de versión y sumas de comprobación',
       description: 'Cada versión de RigOne: qué ha cambiado, qué hacer al actualizar y la suma de comprobación de la compilación firmada y notarizada.',
@@ -43,6 +48,7 @@ export default {
     features: 'Funciones',
     docs: 'Documentación',
     compare: 'Comparar',
+    plugins: 'Plugins',
     faq: 'Preguntas',
     changelog: 'Novedades',
     github: 'GitHub',
@@ -516,6 +522,33 @@ export default {
           'Recibos de ejecución y adjuntos completos para las respuestas largas',
           'Prueba de que los procesos cancelados ya no existen',
           'Un paquete de diagnóstico que copias con un clic',
+        ],
+      },
+    },
+  },
+  plugins: {
+    eyebrow: 'Plugins',
+    title: 'Activa solo lo que usas',
+    lead: 'Por defecto, RigOne hace una cosa: dibujas un grafo de agentes y lo ejecutas. Todo lo demás es un plugin que puedes desactivar, y desactivarlo nunca borra sus archivos.',
+    howTo: 'Activa o desactiva un plugin en Ajustes, Plugins. El cambio funciona tras reiniciar RigOne.',
+    status: { included: 'Incluido', soon: 'Próximamente' },
+    items: {
+      lab: {
+        title: 'Lab',
+        body: 'Prueba agentes con un conjunto de casos propios y compara cada versión antes de confiarle trabajo real.',
+        points: [
+        'Conjuntos de casos en tu proyecto',
+        'Resultados de cada versión lado a lado',
+        'Activado por defecto',
+        ],
+      },
+      discord: {
+        title: 'Discord',
+        body: 'Menciona a tu bot en un canal de Discord y RigOne inicia el flujo que elegiste, con el mensaje como tarea.',
+        points: [
+        'Se conecta con un token de bot que pegas una vez',
+        'Solo empieza cuando mencionan al bot',
+        'Los agentes de la ejecución pueden responder en Discord',
         ],
       },
     },

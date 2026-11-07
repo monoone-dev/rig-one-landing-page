@@ -1,5 +1,5 @@
 // What does not get translated: ids, icons, link targets and the comparison's yes/no values.
-import type { ComparisonGroupId, ComparisonRowId, CompetitorId, DifferentiatorId, FeatureId, HonestId, ScreenId, Verdict } from '~~/i18n/content/types'
+import type { ComparisonGroupId, ComparisonRowId, CompetitorId, DifferentiatorId, FeatureId, HonestId, PluginId, PluginStatus, ScreenId, Verdict } from '~~/i18n/content/types'
 
 export type Support = 'yes' | 'partial' | 'no' | 'unknown' | 'info'
 
@@ -161,4 +161,10 @@ export const comparison: { group: ComparisonGroupId, rows: { id: ComparisonRowId
       { id: 'price', verdict: 'level', values: ['info', 'info', 'info', 'info', 'info', 'info', 'info', 'info'] },
     ],
   },
+]
+
+/** Parts of RigOne a person can turn off in Settings, Plugins; `soon` is not in a released build yet. */
+export const plugins: { id: PluginId, icon: string, status: PluginStatus }[] = [
+  { id: 'lab', icon: 'i-lucide-flask-conical', status: 'included' },
+  { id: 'discord', icon: 'i-simple-icons-discord', status: 'soon' },
 ]

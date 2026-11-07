@@ -21,6 +21,11 @@ export default {
       description: 'Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT アプリ、Cursor Cloud Agents にはなく、RigOne にあるもの：保存したワークフロー、RigOne 自身が走らせるチェック、1 回の実行での複数の提供元。',
       breadcrumb: '比較',
     },
+    plugins: {
+      title: 'RigOne のプラグイン：Lab の評価と Discord のトリガー',
+      description: 'オン・オフできる RigOne の機能：Lab は自分のケースでエージェントのバージョンを比べ、Discord はボットがメンションされるとワークフローを始めます。',
+      breadcrumb: 'プラグイン',
+    },
     changelog: {
       title: 'RigOne 変更履歴：リリースノートとチェックサム',
       description: 'RigOne の全リリース：何が変わったか、アップデート時にすること、署名・公証済みビルドのチェックサム。',
@@ -43,6 +48,7 @@ export default {
     features: '機能',
     docs: 'ドキュメント',
     compare: '比較',
+    plugins: 'プラグイン',
     faq: 'よくある質問',
     changelog: '変更履歴',
     github: 'GitHub',
@@ -516,6 +522,33 @@ export default {
           '実行の記録と、長い回答の添付ファイル全体',
           '取り消したプロセスが確かに終わったことの証明',
           'ワンクリックでコピーできる診断一式',
+        ],
+      },
+    },
+  },
+  plugins: {
+    eyebrow: 'プラグイン',
+    title: '使うものだけをオンに',
+    lead: 'RigOne の基本はひとつ。エージェントのグラフを組んで実行することです。それ以外はすべてオフにできるプラグインで、オフにしてもファイルが消えることはありません。',
+    howTo: 'プラグインは 設定 › プラグイン でオン・オフします。変更は RigOne の再起動後に有効になります。',
+    status: { included: '同梱', soon: '近日公開' },
+    items: {
+      lab: {
+        title: 'Lab',
+        body: '自分のケースでエージェントを試し、本番の仕事を任せる前に各バージョンの結果を比べます。',
+        points: [
+        'ケースのセットはプロジェクトに保存',
+        '各バージョンの結果を並べて表示',
+        '最初からオン',
+        ],
+      },
+      discord: {
+        title: 'Discord',
+        body: 'Discord のチャンネルでボットをメンションすると、そのメッセージをタスクとして、選んだワークフローを RigOne が始めます。',
+        points: [
+        'ボットのトークンを一度貼るだけで接続',
+        'ボットがメンションされたときだけ開始',
+        '実行中のエージェントが Discord で返信できる',
         ],
       },
     },

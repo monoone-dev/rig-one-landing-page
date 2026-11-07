@@ -8,6 +8,7 @@ const links = computed(() => [
   { label: c.value.nav.features, to: to('/features') },
   { label: c.value.nav.docs, to: to('/docs') },
   { label: c.value.nav.compare, to: to('/compare') },
+  { label: c.value.nav.plugins, to: to('/plugins') },
   { label: c.value.nav.faq, to: to('/compare#faq') },
   { label: c.value.nav.changelog, to: to('/changelog') },
   { label: c.value.nav.issues, to: site.links.issues, external: true },

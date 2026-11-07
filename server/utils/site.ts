@@ -14,7 +14,7 @@ export const sitemapLocales = [
   { code: 'ja', language: 'ja-JP' },
 ]
 
-export const sitemapPages = ['/', '/features/', '/docs/', ...docs.pages.map(p => `/docs/${p.id}/`), '/compare/', '/changelog/']
+export const sitemapPages = ['/', '/features/', '/docs/', ...docs.pages.map(p => `/docs/${p.id}/`), '/compare/', '/plugins/', '/changelog/']
 
 /** Origin + base path, e.g. https://rig-one.io */
 export function siteRoot(event: H3Event) {

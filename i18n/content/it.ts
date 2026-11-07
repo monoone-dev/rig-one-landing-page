@@ -21,6 +21,11 @@ export default {
       description: 'Che cosa fa RigOne che Orca, Paseo, Superset, Conductor, Nimbalyst, l’app ChatGPT e Cursor Cloud Agents non fanno: flussi salvati, controlli che esegue da sé e più fornitori in un’unica esecuzione.',
       breadcrumb: 'Confronto',
     },
+    plugins: {
+      title: 'Plugin di RigOne: valutazioni in Lab e attivatori da Discord',
+      description: 'Parti di RigOne che attivi o disattivi: Lab confronta versioni degli agenti sui tuoi casi e Discord avvia un flusso quando qualcuno menziona il tuo bot.',
+      breadcrumb: 'Plugin',
+    },
     changelog: {
       title: 'Novità di RigOne: note di rilascio e checksum',
       description: 'Ogni versione di RigOne: che cosa è cambiato, che cosa fare quando aggiorni e il checksum della build firmata e notarizzata.',
@@ -43,6 +48,7 @@ export default {
     features: 'Funzioni',
     docs: 'Documentazione',
     compare: 'Confronto',
+    plugins: 'Plugin',
     faq: 'FAQ',
     changelog: 'Versioni',
     github: 'GitHub',
@@ -516,6 +522,33 @@ export default {
           'Ricevute di esecuzione e allegati completi per le risposte lunghe',
           'La prova che i processi annullati non ci sono più davvero',
           'Un pacchetto diagnostico da copiare con un clic',
+        ],
+      },
+    },
+  },
+  plugins: {
+    eyebrow: 'Plugin',
+    title: 'Installa solo ciò che usi',
+    lead: 'Di base RigOne fa una cosa: disponi un grafo di agenti e lo esegui. Tutto il resto è un plugin che puoi disattivare, e disattivarlo non cancella mai i suoi file.',
+    howTo: 'Installa un plugin dall’elenco con ricerca in Impostazioni, Plugin. La modifica vale dopo il riavvio di RigOne.',
+    status: { included: 'Incluso', soon: 'In arrivo' },
+    items: {
+      lab: {
+        title: 'Lab',
+        body: 'Prova gli agenti su un insieme di casi tuoi e confronta ogni versione prima di affidarle lavoro vero.',
+        points: [
+        'Insiemi di casi nel tuo progetto',
+        'Risultati di ogni versione affiancati',
+        'Installato di base',
+        ],
+      },
+      discord: {
+        title: 'Discord',
+        body: 'Menziona il tuo bot in un canale Discord e RigOne avvia il flusso scelto, con il messaggio come compito.',
+        points: [
+        'Si collega con un token del bot incollato una volta',
+        'Parte solo quando il bot viene menzionato',
+        'Gli agenti dell’esecuzione possono rispondere su Discord',
         ],
       },
     },

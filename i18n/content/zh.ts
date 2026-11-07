@@ -21,6 +21,11 @@ export default {
       description: 'RigOne 能做而 Orca、Paseo、Superset、Conductor、Nimbalyst、ChatGPT 应用和 Cursor Cloud Agents 做不到的事：保存的工作流、由它自己运行的检查，以及在一次运行中使用多家服务商。',
       breadcrumb: '对比',
     },
+    plugins: {
+      title: 'RigOne 插件：Lab 评估与 Discord 触发器',
+      description: '可以开启或关闭的 RigOne 部分：Lab 用你自己的用例比较智能体版本，Discord 在有人提及你的机器人时启动工作流。',
+      breadcrumb: '插件',
+    },
     changelog: {
       title: 'RigOne 更新日志：版本说明与校验和',
       description: 'RigOne 的每个版本：改了什么，更新时要做什么，以及已签名、已公证安装包的校验和。',
@@ -43,6 +48,7 @@ export default {
     features: '功能',
     docs: '文档',
     compare: '对比',
+    plugins: '插件',
     faq: '常见问题',
     changelog: '更新日志',
     github: 'GitHub',
@@ -516,6 +522,33 @@ export default {
           '运行回执，以及长回答的完整附件',
           '已取消的进程确实已经结束的证明',
           '一键复制的诊断包',
+        ],
+      },
+    },
+  },
+  plugins: {
+    eyebrow: '插件',
+    title: '只安装你用得到的',
+    lead: 'RigOne 默认只做一件事：你排好智能体图并运行它。其他一切都是可以关闭的插件，关闭插件绝不会删除它的文件。',
+    howTo: '在 设置、插件 的可搜索列表中安装插件。更改在 RigOne 重启后生效。',
+    status: { included: '已包含', soon: '即将推出' },
+    items: {
+      lab: {
+        title: 'Lab',
+        body: '先用一组你自己的用例试用智能体，比较每个版本的表现，再把真正的工作交给它。',
+        points: [
+        '用例集保存在你的项目中',
+        '各版本结果并排显示',
+        '默认已安装',
+        ],
+      },
+      discord: {
+        title: 'Discord',
+        body: '在 Discord 频道中提及你的机器人，RigOne 就会以这条消息为任务启动你选择的工作流。',
+        points: [
+        '粘贴一次机器人令牌即可连接',
+        '只有提及机器人时才会启动',
+        '运行中的智能体可以在 Discord 中回复',
         ],
       },
     },

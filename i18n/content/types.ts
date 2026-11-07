@@ -36,6 +36,10 @@ export type FeatureId =
 export type ScreenId = 'run' | 'run-panel' | 'review' | 'review-tools' | 'projects' | 'canvas' | 'project' | 'agent-detail' | 'knowledge' | 'settings'
   | 'boards' | 'analytics' | 'trigger-form' | 'lab' | 'settings-remote' | 'score'
 
+export type PluginId = 'lab' | 'discord'
+
+export type PluginStatus = 'included' | 'soon'
+
 export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'unknown' | 'green' | 'files'
 
 /** The products RigOne is compared with, in the order of `competitors` in app/data/shared.ts. */
@@ -59,6 +63,7 @@ export interface SiteContent {
     features: SubPageMeta
     docs: SubPageMeta
     compare: SubPageMeta
+    plugins: SubPageMeta
     changelog: SubPageMeta
     ogImageAlt: string
   }
@@ -78,6 +83,7 @@ export interface SiteContent {
     features: string
     docs: string
     compare: string
+    plugins: string
     faq: string
     changelog: string
     github: string
@@ -156,6 +162,15 @@ export interface SiteContent {
     title: string
     lead: string
     items: Record<FeatureId, Card & { eyebrow: string, points: string[] }>
+  }
+  plugins: {
+    eyebrow: string
+    title: string
+    lead: string
+    /** How a person turns a plugin on or off in the app. */
+    howTo: string
+    status: Record<PluginStatus, string>
+    items: Record<PluginId, Card & { points: string[] }>
   }
   compare: {
     eyebrow: string

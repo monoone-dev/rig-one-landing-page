@@ -21,6 +21,11 @@ export default {
       description: 'What RigOne does that Orca, Paseo, Superset, Conductor, Nimbalyst, the ChatGPT app and Cursor Cloud Agents do not: saved workflows, checks it runs itself and several vendors in one run.',
       breadcrumb: 'Compare',
     },
+    plugins: {
+      title: 'RigOne plugins: Lab evaluations and Discord triggers',
+      description: 'Parts of RigOne you can turn on or off: Lab compares agent versions on your own cases, and Discord starts a workflow when someone mentions your bot.',
+      breadcrumb: 'Plugins',
+    },
     changelog: {
       title: 'RigOne changelog: release notes and checksums',
       description: 'Every RigOne release: what changed, what to do when you update, and the checksum of the signed, notarized build.',
@@ -43,6 +48,7 @@ export default {
     features: 'Features',
     docs: 'Docs',
     compare: 'Compare',
+    plugins: 'Plugins',
     faq: 'FAQ',
     changelog: 'Changelog',
     github: 'GitHub',
@@ -516,6 +522,33 @@ export default {
           'Run receipts and full attachments for long answers',
           'Proof that cancelled processes are really gone',
           'A diagnostic bundle you can copy in one click',
+        ],
+      },
+    },
+  },
+  plugins: {
+    eyebrow: 'Plugins',
+    title: 'Install only what you use',
+    lead: 'RigOne does one thing by default: you lay out a graph of agents and run it. Everything else is a plugin you can turn off, and turning one off never deletes its files.',
+    howTo: 'Install a plugin from the searchable list in Settings, Plugins. The change works after RigOne restarts.',
+    status: { included: 'Included', soon: 'Coming soon' },
+    items: {
+      lab: {
+        title: 'Lab',
+        body: 'Try agents on a set of your own cases and compare how each version does before you trust it with real work.',
+        points: [
+        'Sets of cases kept in your project',
+        'Side-by-side results for each version',
+        'Installed by default',
+        ],
+      },
+      discord: {
+        title: 'Discord',
+        body: 'Mention your bot in a Discord channel and RigOne starts the workflow you chose, with the message as the task.',
+        points: [
+        'Connects with a bot token you paste once',
+        'Starts only when the bot is mentioned',
+        'Agents in the run can reply in Discord',
         ],
       },
     },

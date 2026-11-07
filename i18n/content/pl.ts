@@ -21,6 +21,11 @@ export default {
       description: 'Co RigOne robi, a czego nie robią Orca, Paseo, Superset, Conductor, Nimbalyst, aplikacja ChatGPT i Cursor Cloud Agents: zapisane workflow, sprawdzenia, które uruchamia samo, i kilku dostawców w jednym biegu.',
       breadcrumb: 'Porównanie',
     },
+    plugins: {
+      title: 'Pluginy RigOne: ewaluacje w Lab i wyzwalacze z Discorda',
+      description: 'Części RigOne, które włączasz i wyłączasz: Lab porównuje wersje agentów na twoich przypadkach, a Discord uruchamia graf, gdy ktoś wspomni twojego bota.',
+      breadcrumb: 'Pluginy',
+    },
     changelog: {
       title: 'Lista zmian RigOne: informacje o wydaniach i sumy kontrolne',
       description: 'Każde wydanie RigOne: co się zmieniło, co zrobić przy aktualizacji i suma kontrolna podpisanej, notaryzowanej paczki.',
@@ -43,6 +48,7 @@ export default {
     features: 'Możliwości',
     docs: 'Dokumentacja',
     compare: 'Porównanie',
+    plugins: 'Pluginy',
     faq: 'FAQ',
     changelog: 'Lista zmian',
     github: 'GitHub',
@@ -516,6 +522,33 @@ export default {
           'Rachunki biegów i pełne załączniki przy długich odpowiedziach',
           'Dowód, że anulowane procesy naprawdę zniknęły',
           'Paczka diagnostyczna do skopiowania jednym kliknięciem',
+        ],
+      },
+    },
+  },
+  plugins: {
+    eyebrow: 'Pluginy',
+    title: 'Zainstaluj tylko to, czego używasz',
+    lead: 'RigOne domyślnie robi jedną rzecz: układasz graf agentów i go uruchamiasz. Wszystko inne to plugin, który możesz wyłączyć, a wyłączenie nigdy nie kasuje jego plików.',
+    howTo: 'Plugin instalujesz z listy z wyszukiwarką w Ustawienia, Pluginy. Zmiana działa po ponownym uruchomieniu RigOne.',
+    status: { included: 'W zestawie', soon: 'Wkrótce' },
+    items: {
+      lab: {
+        title: 'Lab',
+        body: 'Wypróbuj agentów na zestawie własnych przypadków i porównaj, jak radzi sobie każda wersja, zanim powierzysz jej prawdziwą pracę.',
+        points: [
+        'Zestawy przypadków w twoim projekcie',
+        'Wyniki każdej wersji obok siebie',
+        'Zainstalowany domyślnie',
+        ],
+      },
+      discord: {
+        title: 'Discord',
+        body: 'Wspomnij swojego bota na kanale Discorda, a RigOne uruchomi wybrany graf z wiadomością jako zadaniem.',
+        points: [
+        'Łączy się tokenem bota wklejonym raz',
+        'Startuje tylko po wzmiance o bocie',
+        'Agenci biegu mogą odpisać na Discordzie',
         ],
       },
     },

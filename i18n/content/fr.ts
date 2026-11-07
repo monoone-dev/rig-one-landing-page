@@ -21,6 +21,11 @@ export default {
       description: 'Ce que RigOne fait et qu’Orca, Paseo, Superset, Conductor, Nimbalyst, l’app ChatGPT et Cursor Cloud Agents ne font pas : des flux enregistrés, des vérifications qu’il lance lui-même et plusieurs fournisseurs dans une même exécution.',
       breadcrumb: 'Comparer',
     },
+    plugins: {
+      title: 'Plugins RigOne : évaluations Lab et déclencheurs Discord',
+      description: 'Les parties de RigOne que vous activez ou désactivez : Lab compare des versions d’agents sur vos propres cas, et Discord lance un workflow quand quelqu’un mentionne votre bot.',
+      breadcrumb: 'Plugins',
+    },
     changelog: {
       title: 'Journal des versions de RigOne : notes et sommes de contrôle',
       description: 'Chaque version de RigOne : ce qui a changé, ce qu’il faut faire en mettant à jour, et la somme de contrôle du build signé et notarisé.',
@@ -43,6 +48,7 @@ export default {
     features: 'Fonctions',
     docs: 'Docs',
     compare: 'Comparer',
+    plugins: 'Plugins',
     faq: 'FAQ',
     changelog: 'Versions',
     github: 'GitHub',
@@ -516,6 +522,33 @@ export default {
           'Reçus d’exécution et pièces jointes complètes pour les longues réponses',
           'La preuve que les processus annulés ont vraiment disparu',
           'Un paquet de diagnostic à copier en un clic',
+        ],
+      },
+    },
+  },
+  plugins: {
+    eyebrow: 'Plugins',
+    title: 'N’installez que ce que vous utilisez',
+    lead: 'Par défaut, RigOne fait une chose : vous disposez un graphe d’agents et vous l’exécutez. Tout le reste est un plugin que vous pouvez désactiver, et le désactiver ne supprime jamais ses fichiers.',
+    howTo: 'Installez un plugin depuis la liste avec recherche dans Réglages, Plugins. Le changement s’applique après le redémarrage de RigOne.',
+    status: { included: 'Inclus', soon: 'Bientôt' },
+    items: {
+      lab: {
+        title: 'Lab',
+        body: 'Essayez des agents sur vos propres cas et comparez chaque version avant de lui confier du vrai travail.',
+        points: [
+        'Des ensembles de cas dans votre projet',
+        'Les résultats de chaque version côte à côte',
+        'Installé par défaut',
+        ],
+      },
+      discord: {
+        title: 'Discord',
+        body: 'Mentionnez votre bot dans un salon Discord et RigOne lance le workflow choisi, avec le message comme tâche.',
+        points: [
+        'Se connecte avec un jeton de bot collé une fois',
+        'Ne démarre que lorsque le bot est mentionné',
+        'Les agents de l’exécution peuvent répondre sur Discord',
         ],
       },
     },

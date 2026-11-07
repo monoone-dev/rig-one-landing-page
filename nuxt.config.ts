@@ -18,7 +18,7 @@ const locales = [
 
 // Every "##" section of docs/user-guide.md is its own page under /docs/
 const docsPages = docsPageIds('docs/user-guide.md').map(id => `/docs/${id}/`)
-const pages = ['/', '/features/', '/docs/', ...docsPages, '/compare/', '/changelog/']
+const pages = ['/', '/features/', '/docs/', ...docsPages, '/compare/', '/plugins/', '/changelog/']
 
 const localizedRoutes = locales.flatMap(({ code }) =>
   pages.map(page => (code === 'en' ? page : `/${code}${page}`)),

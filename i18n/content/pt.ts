@@ -21,6 +21,11 @@ export default {
       description: 'O que o RigOne faz e Orca, Paseo, Superset, Conductor, Nimbalyst, o app do ChatGPT e Cursor Cloud Agents não fazem: fluxos salvos, verificações que ele mesmo roda e vários fornecedores em uma só execução.',
       breadcrumb: 'Comparar',
     },
+    plugins: {
+      title: 'Plugins do RigOne: avaliações no Lab e gatilhos do Discord',
+      description: 'Partes do RigOne que você liga ou desliga: o Lab compara versões de agentes nos seus próprios casos e o Discord inicia um fluxo quando alguém menciona seu bot.',
+      breadcrumb: 'Plugins',
+    },
     changelog: {
       title: 'Novidades do RigOne: notas de versão e checksums',
       description: 'Cada versão do RigOne: o que mudou, o que fazer ao atualizar e o checksum do build assinado e notarizado.',
@@ -43,6 +48,7 @@ export default {
     features: 'Recursos',
     docs: 'Documentação',
     compare: 'Comparar',
+    plugins: 'Plugins',
     faq: 'Perguntas',
     changelog: 'Novidades',
     github: 'GitHub',
@@ -516,6 +522,33 @@ export default {
           'Recibos de execução e anexos completos para respostas longas',
           'Prova de que os processos cancelados realmente terminaram',
           'Um pacote de diagnóstico que você copia com um clique',
+        ],
+      },
+    },
+  },
+  plugins: {
+    eyebrow: 'Plugins',
+    title: 'Instale só o que você usa',
+    lead: 'Por padrão, o RigOne faz uma coisa: você monta um grafo de agentes e o executa. Todo o resto é um plugin que você pode desligar, e desligar nunca apaga os arquivos dele.',
+    howTo: 'Instale um plugin pela lista com busca em Configurações, Plugins. A mudança vale depois de reiniciar o RigOne.',
+    status: { included: 'Incluído', soon: 'Em breve' },
+    items: {
+      lab: {
+        title: 'Lab',
+        body: 'Experimente agentes em um conjunto de casos seus e compare cada versão antes de confiar trabalho real a ela.',
+        points: [
+        'Conjuntos de casos no seu projeto',
+        'Resultados de cada versão lado a lado',
+        'Instalado por padrão',
+        ],
+      },
+      discord: {
+        title: 'Discord',
+        body: 'Mencione seu bot em um canal do Discord e o RigOne inicia o fluxo escolhido, com a mensagem como tarefa.',
+        points: [
+        'Conecta com um token de bot colado uma vez',
+        'Só começa quando o bot é mencionado',
+        'Os agentes da execução podem responder no Discord',
         ],
       },
     },

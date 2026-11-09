@@ -22,7 +22,7 @@ Rules for every person and every coding agent working here:
 - **Maintainers run their privacy check before every push.** It is kept outside this repository.
   If you cannot run it, do not push; ask a maintainer.
 - **Green before push.** The gate passes locally (the `ci-maintenance` skill):
-  `pnpm install --frozen-lockfile && pnpm lint:skills && pnpm test && pnpm typecheck && pnpm build`.
+  `pnpm install --frozen-lockfile && pnpm test && pnpm typecheck && pnpm build`.
   `pnpm test` runs `i18n/*.test.ts` with Node's built-in test runner (no extra dependencies); it
   checks that every language file has the same keys, placeholders and plural forms as `en.ts`.
 - **Brand names.** `RigOne`, `IndexOne` and `MonoOne` are one word each and never split or
@@ -33,8 +33,9 @@ Rules for every person and every coding agent working here:
 
 ## Skills
 
-Shared runbooks live in `.agents/skills/` and are mirrored for Claude Code in `.claude/skills/`.
-Keep the two copies identical; `pnpm lint:skills` (also in CI) fails when they differ.
+Shared runbooks live in `.agents/skills/`, the only copy. MonoOne works only through RigOne, which
+reads skills from there and supplies `AGENTS.md` to every agent; there is no `.claude/` or `.codex/`
+configuration in this repository.
 
 | Skill | Use it to |
 | --- | --- |

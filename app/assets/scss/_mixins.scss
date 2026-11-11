@@ -26,7 +26,8 @@ $breakpoints: (
   }
 }
 
-// Airy's card: no edge, a white fill and a soft, wide shadow that lifts it off the canvas
+// Airy's card (SurfaceOne): no edge, a white fill and a soft, wide shadow that lifts it off the
+// blueprint
 @mixin card {
   border: 0;
   border-radius: var(--round-xl);

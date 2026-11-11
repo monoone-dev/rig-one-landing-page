@@ -1,51 +1,60 @@
 <script setup lang="ts">
-import { ideIcons } from '~/data/shared'
+import type { ScreenId } from '~~/i18n/content/types'
 
-// RigOne as an IDE for agent work: what a finished step looks like when you review it, then
-// several projects open side by side in one window. Both pictures are real screens.
+// Warp's accordion beside a figure: the headline and a list of short titles on the left, one open
+// at a time with its words; on the right the real screen it talks about. The four parts of a
+// step's review come first, then several projects in one window.
 const c = useContent()
 const to = useLocalLink()
+
+const rows = computed(() => [
+  ...c.value.ide.review.map((r, i) => ({ ...r, points: [] as string[], shot: (['review', 'review-tools', 'review-tools', 'review'] as ScreenId[])[i]! })),
+  { ...c.value.ide.projects, shot: 'projects' as ScreenId },
+])
+const open = ref(0)
+const shot = computed(() => rows.value[open.value]!.shot)
 </script>
 
 <template>
-  <section id="ide" class="section" aria-labelledby="ide-title">
-    <div class="wrap">
-      <SectionHead id="ide-title" :eyebrow="c.ide.eyebrow" :title="c.ide.title">
-        {{ c.ide.lead }}
-      </SectionHead>
+  <section id="ide" class="section section--ruled-top" aria-labelledby="ide-title">
+    <div class="wrap ide">
+      <div class="ide__left">
+        <span class="eyebrow eyebrow--accent">{{ c.ide.eyebrow }}</span>
+        <h2 id="ide-title" class="ide__title">{{ c.ide.title }}</h2>
 
-      <div v-reveal class="ide ide--stacked">
-        <div class="ide__shot scroll-lean">
-          <ScreenShot id="review" />
-        </div>
-        <ul class="ide__cards">
-          <li v-for="(card, i) in c.ide.review" :key="card.title" v-reveal class="ide__card" :style="{ '--reveal-delay': `${i * 70}ms` }">
-            <span class="icon-tile"><UIcon :name="ideIcons[i]!" /></span>
-            <span>
-              <h3>{{ card.title }}</h3>
-              <p>{{ card.body }}</p>
-            </span>
+        <ul class="acc">
+          <li v-for="(row, i) in rows" :key="row.title" class="acc__item" :class="{ 'is-open': open === i }">
+            <button
+              :id="`ide-acc-${i}`"
+              type="button"
+              class="acc__head"
+              :aria-expanded="open === i"
+              :aria-controls="`ide-acc-panel-${i}`"
+              @click="open = i"
+            >
+              {{ row.title }}
+            </button>
+            <div v-show="open === i" :id="`ide-acc-panel-${i}`" class="acc__body" role="region" :aria-labelledby="`ide-acc-${i}`">
+              <p>{{ row.body }}</p>
+              <ul v-if="row.points.length" class="acc__points">
+                <li v-for="point in row.points" :key="point">{{ point }}</li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
 
-      <div v-reveal class="ide ide--flip">
-        <div class="ide__shot">
-          <ScreenShot id="projects" />
-        </div>
-        <div class="ide__text">
-          <h3>{{ c.ide.projects.title }}</h3>
-          <p>{{ c.ide.projects.body }}</p>
-          <ul class="ide__points">
-            <li v-for="point in c.ide.projects.points" :key="point">
-              <UIcon name="i-lucide-check" class="ide__check" />
-              {{ point }}
-            </li>
-          </ul>
-          <NuxtLink :to="to('/features#review')" class="ide__link">
-            {{ c.unique.seeAll }} <UIcon name="i-lucide-arrow-right" />
-          </NuxtLink>
-        </div>
+      <div class="ide__right">
+        <p class="ide__lead">{{ c.ide.lead }}</p>
+        <FigFrame :caption="`fig. 3 — ${c.screens.items[shot].tab}`">
+          <Transition name="swap" mode="out-in">
+            <ScreenShot :id="shot" :key="`${open}-${shot}`" />
+          </Transition>
+          <template #foot>
+            <span>{{ c.screens.items[shot].title }}</span>
+            <NuxtLink :to="to('/features#review')" class="ide__more">{{ c.unique.seeAll }} →</NuxtLink>
+          </template>
+        </FigFrame>
       </div>
     </div>
   </section>
@@ -56,140 +65,134 @@ const to = useLocalLink()
 
 .ide {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 8fr);
-  gap: 40px;
-  align-items: center;
-
-  & + & {
-    margin-top: 96px;
-
-    @include below(md) {
-      margin-top: 64px;
-    }
-  }
-
-  &--flip {
-    grid-template-columns: minmax(0, 8fr) minmax(0, 5fr);
-  }
-
-  // The review is read line by line, so its picture takes the full width and the cards sit below
-  &--stacked {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
-  }
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 48px 64px;
 
   @include below(lg) {
-    &,
-    &--flip {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 28px;
-    }
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-    // On one column the words come first, then the picture they describe
-    &--flip .ide__text {
-      order: -1;
+  &__title {
+    margin: 10px 0 40px;
+    font-family: var(--font-mono);
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 450;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+  }
+
+  &__lead {
+    margin: 34px 0 32px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+
+    @include below(lg) {
+      margin-top: 0;
     }
   }
 
-  &__cards {
-    display: grid;
-    gap: 12px;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    @include below(xl) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    @include below(sm) {
-      grid-template-columns: minmax(0, 1fr);
-    }
+  &__right :deep(.shot) {
+    border-radius: 10px;
+    box-shadow: var(--shadow-card), 0 0 0 1px var(--border-subtle);
   }
 
-  &__card {
-    @include card;
-
-    transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+  &__more {
+    color: var(--accent-text);
 
     &:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
+      text-decoration: underline;
     }
+  }
+}
 
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 22px;
+.acc {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
-    h3 {
-      margin: 2px 0 4px;
-      font-size: 16px;
-    }
+  &__item {
+    border-bottom: 1px solid var(--border);
 
-    p {
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-
-    .icon-tile {
-      flex-shrink: 0;
+    &:first-child {
+      border-top: 1px solid var(--border);
     }
   }
 
-  &__shot {
-    min-width: 0;
+  &__head {
+    position: relative;
+    width: 100%;
+    padding: 18px 28px 18px 0;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.15s;
+
+    &::after {
+      content: '+';
+      position: absolute;
+      top: 50%;
+      right: 4px;
+      color: var(--text-muted);
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+      color: var(--text-primary);
+    }
+
+    .is-open & {
+      padding-bottom: 8px;
+      color: var(--text-primary);
+
+      &::after {
+        content: '−';
+        color: var(--accent-text);
+      }
+    }
   }
 
-  &__text {
-    h3 {
-      margin-bottom: 10px;
-      font-size: clamp(22px, 2.4vw, 28px);
-      letter-spacing: -0.01em;
-    }
-
-    > p {
-      color: var(--text-secondary);
-      font-size: 16px;
-    }
+  &__body {
+    padding: 0 0 20px;
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    line-height: 1.6;
   }
 
   &__points {
     display: grid;
-    gap: 10px;
-    margin: 20px 0 0;
+    gap: 6px;
+    margin: 12px 0 0;
     padding: 0;
     list-style: none;
 
     li {
       display: flex;
       gap: 10px;
-      align-items: flex-start;
-      color: var(--text-soft);
-      font-size: 15px;
+      font-size: 14px;
+
+      &::before {
+        content: '';
+        flex: none;
+        width: 6px;
+        height: 6px;
+        margin-top: 0.6em;
+        background: var(--accent);
+      }
     }
   }
+}
 
-  &__check {
-    flex-shrink: 0;
-    margin-top: 3px;
-    color: var(--accent-text);
-  }
+.swap-enter-active,
+.swap-leave-active {
+  transition: opacity 0.25s ease;
+}
 
-  &__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 22px;
-    color: var(--accent-text);
-    font-size: 14px;
-    font-weight: 600;
-
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-  }
+.swap-enter-from,
+.swap-leave-to {
+  opacity: 0;
 }
 </style>

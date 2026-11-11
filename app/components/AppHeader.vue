@@ -65,7 +65,7 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
   z-index: 40;
   border-bottom: 1px solid var(--border-subtle);
   // Apple's frosted bar: mostly see-through, the page blurring and brightening behind it
-  background: color-mix(in srgb, var(--surface-base) 72%, transparent);
+  background: color-mix(in srgb, var(--surface-base) 80%, transparent);
   backdrop-filter: saturate(1.8) blur(20px);
   -webkit-backdrop-filter: saturate(1.8) blur(20px);
 
@@ -74,7 +74,7 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    height: 58px;
+    height: 64px;
 
     @include below(xs) {
       height: 56px;
@@ -86,9 +86,10 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
     display: flex;
     flex: 1;
     align-items: center;
-    justify-content: center;
-    gap: 4px;
+    justify-content: flex-start;
+    gap: 2px;
     min-width: 0;
+    margin-left: 20px;
 
     @media (max-width: 1023px) {
       display: none;
@@ -96,23 +97,22 @@ const mobileMenuItems = computed<DropdownMenuItem[][]>(() => [
   }
 
   &__link {
-    padding: 7px 14px;
-    border-radius: var(--round-pill);
+    padding: 7px 12px;
+    border-radius: 3px;
     color: var(--text-secondary);
-    font-size: 14px;
-    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    font-weight: 400;
     white-space: nowrap;
     transition: color 0.15s, background-color 0.15s;
 
     &:hover {
-      background: var(--surface-hover);
       color: var(--text-primary);
     }
 
-    // The current page is a quiet stone fill with the ink, never a coloured box
+    // The current page takes the accent, as Warp marks its own
     &.router-link-active {
-      background: var(--surface-active);
-      color: var(--text-primary);
+      color: var(--accent-text);
     }
   }
 

@@ -1,60 +1,96 @@
 <script setup lang="ts">
 import type { ScreenId } from '~~/i18n/content/types'
-import { differentiators, screens } from '~/data/shared'
+import { differentiators } from '~/data/shared'
 
-// A bento of the reasons: the first two are wide and carry a crop of the real screen they talk
-// about, the four in the middle are square, the last two are wide again. Each card ends in a
-// SurfaceOne-style footer that links to the feature.
+// Warp's "defined in code" figure: a list on the left, the selected item shown on the right, and
+// the same items as a numbered grid below. Here each reason opens the real screen of the app
+// where you meet it; the caption names that screen. It moves on by itself until you pick one.
 const c = useContent()
 const to = useLocalLink()
-const { asset } = useSiteUrl()
-const wide = new Set([0, 1, differentiators.length - 2, differentiators.length - 1])
-const crops: Partial<Record<number, ScreenId>> = { 0: 'review', 1: 'projects' }
-const size = (id: ScreenId) => screens.find(s => s.id === id)!
+
+const shotFor: Record<string, ScreenId> = {
+  ide: 'review',
+  projects: 'projects',
+  graph: 'canvas',
+  peers: 'agent-detail',
+  parallel: 'run-panel',
+  checks: 'run',
+  branches: 'review-tools',
+  evidence: 'project',
+}
+
+const active = ref(0)
+const item = computed(() => differentiators[active.value]!)
+const shot = computed(() => shotFor[item.value.id]!)
+
+let timer: ReturnType<typeof setInterval> | undefined
+function stop() {
+  if (timer) clearInterval(timer)
+  timer = undefined
+}
+function pick(i: number) {
+  stop()
+  active.value = i
+}
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  timer = setInterval(() => { active.value = (active.value + 1) % differentiators.length }, 6000)
+})
+onBeforeUnmount(stop)
 </script>
 
 <template>
-  <section id="why" class="section" aria-labelledby="why-title">
+  <section id="why" class="section section--ruled-top" aria-labelledby="why-title">
     <div class="wrap">
       <SectionHead id="why-title" :eyebrow="c.unique.eyebrow" :title="c.unique.title">
         {{ c.unique.lead }}
       </SectionHead>
 
-      <ul class="bento">
-        <li
-          v-for="(item, i) in differentiators"
-          :key="item.id"
-          v-reveal
-          class="bento__item"
-          :class="{ 'bento__item--wide': wide.has(i), 'bento__item--shot': crops[i] }"
-          :style="{ '--reveal-delay': `${(i % 4) * 70}ms` }"
-        >
-          <NuxtLink :to="to(item.to)" class="bento__link">
-            <span class="bento__body">
-              <span class="icon-tile"><UIcon :name="item.icon" /></span>
-              <h3>{{ c.unique.items[item.id].title }}</h3>
-              <p>{{ c.unique.items[item.id].body }}</p>
-            </span>
-            <span v-if="crops[i]" class="bento__crop" aria-hidden="true">
-              <ThemeImage
-                :dark="asset(`screenshots/${crops[i]}.webp`)"
-                :light="asset(`screenshots/${crops[i]}-light.webp`)"
-                :width="size(crops[i]!).width"
-                :height="size(crops[i]!).height"
-                alt=""
-              />
-            </span>
-            <span class="bento__foot">
-              {{ c.unique.items[item.id].link }}
-              <UIcon name="i-lucide-arrow-right" class="bento__arrow" />
-            </span>
-          </NuxtLink>
-        </li>
-      </ul>
+      <FigFrame :caption="`fig. 2 — ${c.screens.items[shot].tab}`" class="why">
+        <div class="why__split" @pointerenter="stop">
+          <ul class="why__list" role="tablist" :aria-label="c.unique.eyebrow">
+            <li v-for="(d, i) in differentiators" :key="d.id">
+              <button
+                type="button"
+                role="tab"
+                class="why__tab"
+                :class="{ 'is-on': active === i }"
+                :aria-selected="active === i"
+                @click="pick(i)"
+              >
+                <UIcon :name="d.icon" class="why__icon size-4 shrink-0" />
+                {{ c.unique.items[d.id].title }}
+              </button>
+            </li>
+          </ul>
+          <div class="why__view" role="tabpanel">
+            <Transition name="swap" mode="out-in">
+              <div :key="item.id" class="why__shot">
+                <ScreenShot :id="shot" />
+              </div>
+            </Transition>
+          </div>
+        </div>
+      </FigFrame>
 
-      <p v-reveal class="bento__more">
-        <UButton :to="to('/features')" color="neutral" variant="outline" size="lg" trailing-icon="i-lucide-arrow-right" :label="c.unique.seeAll" />
-      </p>
+      <ol class="why__grid">
+        <li v-for="(d, i) in differentiators" :key="d.id">
+          <button type="button" class="cell" :class="{ 'is-on': active === i }" @click="pick(i)">
+            <span class="cell__n">{{ String(i + 1).padStart(2, '0') }}</span>
+            <span class="cell__body">
+              <span class="cell__title">{{ c.unique.items[d.id].title }}</span>
+              <span class="cell__text">{{ c.unique.items[d.id].body }}</span>
+            </span>
+          </button>
+        </li>
+      </ol>
+
+      <div class="why__more">
+        <NuxtLink :to="to(item.to)" class="why__link">
+          {{ c.unique.items[item.id].link }} <UIcon name="i-lucide-arrow-right" class="size-3.5" />
+        </NuxtLink>
+        <UButton :to="to('/features')" color="neutral" variant="outline" :label="c.unique.seeAll" />
+      </div>
     </div>
   </section>
 </template>
@@ -62,124 +98,199 @@ const size = (id: ScreenId) => screens.find(s => s.id === id)!
 <style lang="scss" scoped>
 @use '~/assets/scss/mixins' as *;
 
-.bento {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  @include below(xl) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.why {
+  :deep(.fig__panel) {
+    padding: 0;
   }
 
-  @include below(sm) {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  &__split {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    min-height: 420px;
 
-  &__item {
-    display: flex;
-    min-width: 0;
-
-    &--wide {
-      grid-column: span 2;
-
-      h3 {
-        font-size: clamp(20px, 2.2vw, 24px) !important;
-      }
-
-      @include below(sm) {
-        grid-column: auto;
-      }
+    @include below(lg) {
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
     }
   }
 
-  &__link {
-    @include card;
+  &__list {
+    display: grid;
+    align-content: start;
+    gap: 2px;
+    margin: 0;
+    padding: 10px;
+    border-right: 1px solid var(--border-subtle);
+    list-style: none;
 
+    @include below(lg) {
+      display: flex;
+      overflow-x: auto;
+      border-right: 0;
+      border-bottom: 1px solid var(--border-subtle);
+      scrollbar-width: none;
+    }
+  }
+
+  &__tab {
     position: relative;
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 24px;
-    transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 14px;
+    border-radius: var(--round-pill);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+
+    @include below(lg) {
+      white-space: nowrap;
+    }
 
     &:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+      color: var(--text-primary);
+    }
 
-      .bento__arrow {
-        transform: translateX(4px);
+    // Airy's selected row: a soft violet pill, the accent on the icon
+    &.is-on {
+      background: var(--accent-soft);
+      color: var(--text-primary);
+
+      .why__icon {
+        color: var(--accent-text);
       }
-
-      .bento__crop :deep(img) {
-        transform: scale(1.03);
-      }
     }
   }
 
-  &__body {
-    display: block;
-    flex: 1;
-    padding: 28px 28px 20px;
-
-    h3 {
-      margin-bottom: 8px;
-      font-size: 18px;
-      letter-spacing: -0.015em;
-    }
-
-    p {
-      color: var(--text-secondary);
-      font-size: 14.5px;
-    }
-  }
-
-  // The wide cards with a picture keep their words to the left half on wide screens
-  &__item--shot &__body {
-    max-width: 30em;
-  }
-
-  &__crop {
-    display: block;
-    height: 220px;
-    margin: 0 0 0 28px;
-    overflow: hidden;
-    border-top-left-radius: 12px;
-    box-shadow: 0 0 0 1px var(--border), var(--shadow-card);
-
-    :deep(img) {
-      width: 160%;
-      max-width: none;
-      transform-origin: 0 0;
-      transition: transform 0.8s var(--ease-out);
-    }
+  &__view {
+    display: grid;
+    align-items: center;
+    padding: 24px;
+    background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+    background-size: 16px 16px;
 
     @include below(sm) {
-      height: 160px;
+      padding: 10px;
+    }
+
+    :deep(.shot) {
+      border-radius: 10px;
+      box-shadow: var(--shadow-card), 0 0 0 1px var(--border-subtle);
     }
   }
 
-  &__foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 28px;
-    border-top: 1px solid var(--border-subtle);
-    color: var(--accent-text);
-    font-size: 14px;
-    font-weight: 600;
-  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
-  &__arrow {
-    transition: transform 0.4s var(--ease-out);
+    @include below(lg) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include below(xs) {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
   &__more {
-    margin-top: 56px;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 32px;
   }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+}
+
+// One numbered cell: the selected one in full ink, the rest a step back, as on Warp
+.cell {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 22px 0;
+  text-align: left;
+  cursor: pointer;
+
+  &__n {
+    flex: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  &__body {
+    display: grid;
+    align-content: start;
+    gap: 8px;
+  }
+
+  &__title {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  &__text {
+    display: -webkit-box;
+    overflow: hidden;
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.5;
+    opacity: 0.8;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    transition: color 0.2s, opacity 0.2s;
+  }
+
+  &:hover &__title,
+  &.is-on &__title {
+    color: var(--text-primary);
+  }
+
+  &.is-on &__n {
+    color: var(--accent-text);
+  }
+
+  &.is-on &__text {
+    color: var(--text-secondary);
+    opacity: 1;
+  }
+}
+
+.swap-enter-active,
+.swap-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.swap-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.swap-leave-to {
+  opacity: 0;
 }
 </style>

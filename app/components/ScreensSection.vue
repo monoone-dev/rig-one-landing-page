@@ -23,49 +23,50 @@ function onKey(event: KeyboardEvent) {
 </script>
 
 <template>
-  <section id="screens" class="section" aria-labelledby="screens-title">
+  <section id="screens" class="section section--ruled-top" aria-labelledby="screens-title">
     <div class="wrap">
       <SectionHead id="screens-title" :eyebrow="c.screens.eyebrow" :title="c.screens.title">
         {{ c.screens.lead }}
       </SectionHead>
 
-      <div v-reveal class="screens">
-        <div class="screens__halo" aria-hidden="true" />
-        <div class="screens__tabs" role="tablist" :aria-label="c.screens.label" @keydown="onKey">
-          <button
-            v-for="(s, i) in screens"
-            :id="`screen-tab-${s.id}`"
-            :key="s.id"
-            ref="tabs"
-            type="button"
-            role="tab"
-            class="screens__tab"
-            :aria-selected="active === i"
-            :aria-controls="`screen-${s.id}`"
-            :tabindex="active === i ? 0 : -1"
-            @click="active = i"
-          >
-            <UIcon :name="s.icon" class="size-4 shrink-0" />
-            {{ c.screens.items[s.id].tab }}
-          </button>
-        </div>
+      <FigFrame :caption="`fig. 4 — ${c.screens.items[screens[active]!.id].tab}`" :meta="`${active + 1} / ${screens.length}`" :label="c.screens.label">
+        <div class="screens">
+          <div class="screens__tabs" role="tablist" :aria-label="c.screens.label" @keydown="onKey">
+            <button
+              v-for="(s, i) in screens"
+              :id="`screen-tab-${s.id}`"
+              :key="s.id"
+              ref="tabs"
+              type="button"
+              role="tab"
+              class="screens__tab"
+              :aria-selected="active === i"
+              :aria-controls="`screen-${s.id}`"
+              :tabindex="active === i ? 0 : -1"
+              @click="active = i"
+            >
+              <UIcon :name="s.icon" class="size-4 shrink-0" />
+              {{ c.screens.items[s.id].tab }}
+            </button>
+          </div>
 
-        <div
-          v-for="(s, i) in screens"
-          v-show="active === i"
-          :id="`screen-${s.id}`"
-          :key="s.id"
-          class="screens__panel"
-          role="tabpanel"
-          :aria-labelledby="`screen-tab-${s.id}`"
-        >
-          <ScreenShot :id="s.id" :eager="i === 0" class="screens__shot" />
-          <div class="screens__caption">
-            <h3>{{ c.screens.items[s.id].title }}</h3>
-            <p>{{ c.screens.items[s.id].body }}</p>
+          <div
+            v-for="(s, i) in screens"
+            v-show="active === i"
+            :id="`screen-${s.id}`"
+            :key="s.id"
+            class="screens__panel"
+            role="tabpanel"
+            :aria-labelledby="`screen-tab-${s.id}`"
+          >
+            <ScreenShot :id="s.id" :eager="i === 0" class="screens__shot" />
+            <div class="screens__caption">
+              <h3>{{ c.screens.items[s.id].title }}</h3>
+              <p>{{ c.screens.items[s.id].body }}</p>
+            </div>
           </div>
         </div>
-      </div>
+      </FigFrame>
     </div>
   </section>
 </template>
@@ -73,76 +74,54 @@ function onKey(event: KeyboardEvent) {
 <style lang="scss" scoped>
 @use '~/assets/scss/mixins' as *;
 
+// Warp's tabbed figure: square mono tabs in a row, the real screen under them, the words beside
 .screens {
-  position: relative;
   display: grid;
-  gap: 24px;
+  gap: 20px;
 
   &__tabs {
-    position: relative;
-    z-index: 1;
     display: flex;
-    justify-self: center;
-    gap: 4px;
-    max-width: 100%;
-    padding: 4px;
-    overflow-x: auto;
-    border-radius: 999px;
-    background: var(--surface-active);
-    scrollbar-width: none;
-
-    @include below(sm) {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      justify-self: stretch;
-      border-radius: var(--round-lg);
-    }
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   &__tab {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-    border-radius: 999px;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--round-pill);
     color: var(--text-muted);
-    font-size: 14px;
-    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
     white-space: nowrap;
     cursor: pointer;
-    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+    transition: border-color 0.15s, color 0.15s, background-color 0.15s;
 
     &:hover {
+      border-color: var(--border-strong);
       color: var(--text-primary);
     }
 
-    // A segmented control: the current tab is a white raised pill with the ink
     &[aria-selected='true'] {
-      background: var(--surface-raised);
-      box-shadow: 0 1px 3px rgb(26 29 27 / 0.08), 0 0 0 1px var(--border);
+      border-color: var(--accent);
+      background: var(--accent-soft);
       color: var(--text-primary);
     }
-
-    @include below(sm) {
-      justify-content: center;
-      border-radius: calc(var(--round-lg) - 4px);
-    }
-  }
-
-  &__halo {
-    position: absolute;
-    inset: 15% 10% 20%;
-    border-radius: 50%;
-    background: radial-gradient(closest-side, color-mix(in oklch, var(--accent) 16%, transparent), transparent);
-    filter: blur(60px);
-    pointer-events: none;
   }
 
   &__panel {
-    position: relative;
     display: grid;
-    gap: 20px;
-    animation: panel-in 0.6s var(--ease-out);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+    animation: panel-in 0.4s var(--ease-out);
+
+    @include below(lg) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
 
     @include reduced-motion {
       animation: none;
@@ -150,36 +129,36 @@ function onKey(event: KeyboardEvent) {
   }
 
   &__shot {
-    box-shadow: var(--shadow-lg);
+    border-radius: 10px;
+    box-shadow: var(--shadow-card), 0 0 0 1px var(--border-subtle);
   }
 
   &__caption {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
+    padding-top: 4px;
 
     h3 {
-      margin: 0 0 6px;
-      font-size: 20px;
+      margin: 0 0 10px;
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 450;
+      letter-spacing: -0.02em;
     }
 
     p {
       color: var(--text-secondary);
-      font-size: 15px;
+      font-size: 14.5px;
+      line-height: 1.6;
     }
   }
 }
 
-// A new tab's screen settles in rather than snapping
 @keyframes panel-in {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.99);
   }
 
   to {
     opacity: 1;
-    transform: none;
   }
 }
 </style>

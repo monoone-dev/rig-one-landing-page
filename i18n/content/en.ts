@@ -222,7 +222,7 @@ export default {
         tab: 'Agents',
         title: 'The whole role on one screen',
         body: 'Its instructions, the agent app — Claude Code, Codex, OpenCode or Gemini CLI — with its model and effort, whether it may change files or reach the web, and when it gives up.',
-        alt: 'The agent Builder opened read-only: its instructions, Claude Code with its model and effort, what it may change and reach, and its skills and connections, with Evaluate, Duplicate, Delete and Edit.',
+        alt: 'The agent Builder opened read-only: its instructions, Claude Code with its model and effort, what it may change and reach, and its skills and connections, with Share, Evaluate, Duplicate, Delete and Edit.',
       },
       canvas: {
         tab: 'Canvas',
@@ -234,13 +234,13 @@ export default {
         tab: 'Overview',
         title: 'The whole project on one page',
         body: 'A summary first — the figures and what needs your attention — then a tab each for Score, Repository, Agents, Workflows, Playbook and Automation.',
-        alt: 'Overview of client-website on the Summary tab: a score of 78, four agents, three workflows, nine knowledge items, no changes and two triggers, and two new lessons under Needs your attention.',
+        alt: 'Overview of client-website on the Summary tab: a score of 78, four agents, three workflows, nine Playbook items, no changes and two triggers, and two new lessons under Needs your attention.',
       },
       knowledge: {
         tab: 'Playbook',
         title: 'What your agents know, approved by you',
         body: 'Notes an agent suggests wait in Playbook for your Keep or Discard. Approved notes go into every prompt; skills are used when they fit the work.',
-        alt: 'The Playbook screen: Health in good shape, a tab for each kind of knowledge, and three suggested notes waiting for Keep or Discard.',
+        alt: 'The Playbook screen: Health in good shape, a tab for each kind of knowledge, and two suggested notes waiting for Keep or Discard.',
       },
       settings: {
         tab: 'Settings',
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: 'Plan the work, then hand it to agents',
         body: 'Epics, features, user stories, tasks and bugs on a board your team shares. Every card shows what its work cost, and a feature adds up everything under it.',
-        alt: 'A shared board in the Board view: columns of epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost.',
+        alt: 'A sprint board, Product roadmap: Sprint 12 with its dates, days left and progress, and columns of epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost.',
       },
       score: {
         tab: 'Score',

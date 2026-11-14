@@ -222,7 +222,7 @@ export default {
         tab: 'Agents',
         title: '役割のすべてがひとつの画面に',
         body: '指示、使うエージェントアプリ（Claude Code、Codex、OpenCode または Gemini CLI）とそのモデルと思考の深さ、ファイルの変更やウェブへのアクセスの可否、あきらめるタイミング。',
-        alt: '読み取り専用で開いたエージェント Builder：指示、Claude Code とモデル・エフォート、変更・アクセスできる範囲、スキルと接続、Evaluate・Duplicate・Delete・Edit。',
+        alt: '読み取り専用で開いたエージェント Builder：指示、Claude Code とモデル・エフォート、変更・アクセスできる範囲、スキルと接続、Share・Evaluate・Duplicate・Delete・Edit。',
       },
       canvas: {
         tab: 'Canvas',
@@ -234,13 +234,13 @@ export default {
         tab: 'Overview',
         title: 'プロジェクト全体を 1 ページに',
         body: 'まず概要——数値と対応が必要な項目——、その後に Score、Repository、Agents、Workflows、Playbook、Automation のタブが並びます。',
-        alt: 'Summary タブの client-website の Overview：Score 78、エージェント 4、ワークフロー 3、ナレッジ 9、変更なし、トリガー 2、Needs your attention に新しい学び 2 件。',
+        alt: 'Summary タブの client-website の Overview：Score 78、エージェント 4、ワークフロー 3、Playbook 9、変更なし、トリガー 2、Needs your attention に新しい学び 2 件。',
       },
       knowledge: {
         tab: 'Playbook',
         title: 'エージェントが知っていることは、あなたが承認',
         body: 'エージェントが提案したメモは Playbook で Keep か Discard を待ちます。承認したメモはすべてのプロンプトに入り、スキルは作業に合うときに使われます。',
-        alt: 'Playbook 画面：Health は良好、ナレッジの種類ごとのタブ、Keep か Discard を待つ提案ノート 3 件。',
+        alt: 'Playbook 画面：Health は良好、ナレッジの種類ごとのタブ、Keep か Discard を待つ提案ノート 2 件。',
       },
       settings: {
         tab: 'Settings',
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: '作業を計画して、エージェントに任せる',
         body: 'エピック、機能、ユーザーストーリー、タスク、バグを、チームで共有するボードに。各カードには作業にかかった費用が表示され、機能はその下のすべてを合計します。',
-        alt: '共有ボードの Board ビュー：エピック、機能、ストーリー、タスク、バグの列。各カードに種類、ID、費用。',
+        alt: 'スプリントボード Product roadmap：Sprint 12 の日付、残り日数、進捗と、エピック、機能、ストーリー、タスク、バグの列。各カードに種類、ID、費用。',
       },
       score: {
         tab: 'Score',

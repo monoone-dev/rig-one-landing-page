@@ -222,7 +222,7 @@ export default {
         tab: 'Agents',
         title: 'Die ganze Rolle in einer Ansicht',
         body: 'Ihre Anweisungen, die Agenten-App — Claude Code, Codex, OpenCode oder Gemini CLI — mit Modell und Aufwand, ob sie Dateien ändern oder ins Web darf, und wann sie aufgibt.',
-        alt: 'Der Agent Builder schreibgeschützt geöffnet: Anweisungen, Claude Code mit Modell und Aufwand, was er ändern und erreichen darf, Skills und Verbindungen, mit Evaluate, Duplicate, Delete und Edit.',
+        alt: 'Der Agent Builder schreibgeschützt geöffnet: Anweisungen, Claude Code mit Modell und Aufwand, was er ändern und erreichen darf, Skills und Verbindungen, mit Share, Evaluate, Duplicate, Delete und Edit.',
       },
       canvas: {
         tab: 'Canvas',
@@ -234,13 +234,13 @@ export default {
         tab: 'Overview',
         title: 'Das ganze Projekt auf einer Seite',
         body: 'Zuerst eine Zusammenfassung — die Zahlen und was Ihre Aufmerksamkeit braucht —, dann je ein Tab für Score, Repository, Agents, Workflows, Playbook und Automation.',
-        alt: 'Overview von client-website im Tab Summary: Score 78, vier Agenten, drei Workflows, neun Wissenseinträge, keine Änderungen und zwei Trigger, und zwei neue Lektionen unter Needs your attention.',
+        alt: 'Overview von client-website im Tab Summary: Score 78, vier Agenten, drei Workflows, neun Einträge im Playbook, keine Änderungen und zwei Trigger, und zwei neue Lektionen unter Needs your attention.',
       },
       knowledge: {
         tab: 'Playbook',
         title: 'Was Ihre Agenten wissen, von Ihnen bestätigt',
         body: 'Notizen, die ein Agent vorschlägt, warten in Playbook auf Keep oder Discard. Bestätigte Notizen gehen in jeden Prompt; Fähigkeiten werden genutzt, wenn sie passen.',
-        alt: 'Der Bildschirm Playbook: Health in gutem Zustand, ein Tab für jede Art von Wissen und drei vorgeschlagene Notizen, die auf Keep oder Discard warten.',
+        alt: 'Der Bildschirm Playbook: Health in gutem Zustand, ein Tab für jede Art von Wissen und zwei vorgeschlagene Notizen, die auf Keep oder Discard warten.',
       },
       settings: {
         tab: 'Settings',
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: 'Arbeit planen, dann an Agenten übergeben',
         body: 'Epics, Features, User Stories, Aufgaben und Bugs auf einem Board, das Ihr Team teilt. Jede Karte zeigt, was ihre Arbeit gekostet hat, und ein Feature summiert alles darunter.',
-        alt: 'Ein gemeinsames Board in der Ansicht Board: Spalten mit Epics, Features, Stories, Aufgaben und Bugs, jede Karte mit Art, ID und Kosten.',
+        alt: 'Ein Sprint-Board, Product roadmap: Sprint 12 mit Daten, verbleibenden Tagen und Fortschritt, und Spalten mit Epics, Features, Stories, Aufgaben und Bugs, jede Karte mit Art, ID und Kosten.',
       },
       score: {
         tab: 'Score',

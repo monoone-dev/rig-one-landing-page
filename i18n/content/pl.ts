@@ -222,7 +222,7 @@ export default {
         tab: 'Agents',
         title: 'Cała rola na jednym ekranie',
         body: 'Jej instrukcje, aplikacja agenta — Claude Code, Codex, OpenCode lub Gemini CLI — z modelem i wysiłkiem, czy może zmieniać pliki i sięgać do sieci, oraz kiedy się poddaje.',
-        alt: 'Agent Builder otwarty do odczytu: instrukcje, Claude Code z modelem i wysiłkiem, co może zmieniać i do czego sięgać oraz skille i połączenia, z Evaluate, Duplicate, Delete i Edit.',
+        alt: 'Agent Builder otwarty do odczytu: instrukcje, Claude Code z modelem i wysiłkiem, co może zmieniać i do czego sięgać oraz skille i połączenia, z Share, Evaluate, Duplicate, Delete i Edit.',
       },
       canvas: {
         tab: 'Canvas',
@@ -234,13 +234,13 @@ export default {
         tab: 'Overview',
         title: 'Cały projekt na jednej stronie',
         body: 'Najpierw podsumowanie — liczby i to, co wymaga twojej uwagi — a potem osobne zakładki: Score, Repository, Agents, Workflows, Playbook i Automation.',
-        alt: 'Overview projektu client-website na zakładce Summary: Score 78, czterech agentów, trzy workflowy, dziewięć elementów wiedzy, brak zmian i dwa wyzwalacze, a pod Needs your attention dwie nowe lekcje.',
+        alt: 'Overview projektu client-website na zakładce Summary: Score 78, czterech agentów, trzy workflowy, dziewięć elementów w Playbook, brak zmian i dwa wyzwalacze, a pod Needs your attention dwie nowe lekcje.',
       },
       knowledge: {
         tab: 'Playbook',
         title: 'Co wiedzą twoi agenci — za twoją zgodą',
         body: 'Notatki zaproponowane przez agenta czekają w Playbook na Keep albo Discard. Zatwierdzone trafiają do każdego promptu; umiejętności są używane, gdy pasują do pracy.',
-        alt: 'Ekran Playbook: Health w dobrym stanie, zakładka dla każdego rodzaju wiedzy i trzy proponowane notatki czekające na Keep albo Discard.',
+        alt: 'Ekran Playbook: Health w dobrym stanie, zakładka dla każdego rodzaju wiedzy i dwie proponowane notatki czekające na Keep albo Discard.',
       },
       settings: {
         tab: 'Settings',
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: 'Zaplanuj pracę, potem przekaż ją agentom',
         body: 'Epiki, funkcje, historyjki użytkownika, zadania i błędy na tablicy wspólnej dla zespołu. Każda karta pokazuje koszt swojej pracy, a funkcja sumuje wszystko, co jest pod nią.',
-        alt: 'Wspólna tablica w widoku Board: kolumny epików, funkcji, historyjek, zadań i błędów, każda karta z rodzajem, identyfikatorem i kosztem.',
+        alt: 'Tablica sprintu Product roadmap: Sprint 12 z datami, liczbą dni do końca i postępem oraz kolumny epików, funkcji, historyjek, zadań i błędów, każda karta z rodzajem, identyfikatorem i kosztem.',
       },
       score: {
         tab: 'Score',

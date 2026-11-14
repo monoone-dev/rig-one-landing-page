@@ -222,7 +222,7 @@ export default {
         tab: 'Agents',
         title: 'Todo el rol en una pantalla',
         body: 'Sus instrucciones, la app del agente — Claude Code, Codex, OpenCode o Gemini CLI — con su modelo y esfuerzo, si puede cambiar archivos o entrar en la web, y cuándo se rinde.',
-        alt: 'El agente Builder abierto en modo lectura: sus instrucciones, Claude Code con su modelo y esfuerzo, qué puede cambiar y alcanzar, y sus skills y conexiones, con Evaluate, Duplicate, Delete y Edit.',
+        alt: 'El agente Builder abierto en modo lectura: sus instrucciones, Claude Code con su modelo y esfuerzo, qué puede cambiar y alcanzar, y sus skills y conexiones, con Share, Evaluate, Duplicate, Delete y Edit.',
       },
       canvas: {
         tab: 'Canvas',
@@ -234,13 +234,13 @@ export default {
         tab: 'Overview',
         title: 'Todo el proyecto en una página',
         body: 'Primero un resumen — las cifras y lo que necesita tu atención — y después una pestaña para Score, Repository, Agents, Workflows, Playbook y Automation.',
-        alt: 'Overview de client-website en la pestaña Summary: un Score de 78, cuatro agentes, tres workflows, nueve elementos de conocimiento, sin cambios y dos disparadores, y dos lecciones nuevas en Needs your attention.',
+        alt: 'Overview de client-website en la pestaña Summary: un Score de 78, cuatro agentes, tres workflows, nueve elementos en Playbook, sin cambios y dos disparadores, y dos lecciones nuevas en Needs your attention.',
       },
       knowledge: {
         tab: 'Playbook',
         title: 'Lo que saben tus agentes, con tu visto bueno',
         body: 'Las notas que sugiere un agente esperan en Playbook tu Keep o Discard. Las aprobadas van en cada prompt; las habilidades se usan cuando encajan con el trabajo.',
-        alt: 'La pantalla Playbook: Health en buen estado, una pestaña para cada tipo de conocimiento y tres notas sugeridas esperando Keep o Discard.',
+        alt: 'La pantalla Playbook: Health en buen estado, una pestaña para cada tipo de conocimiento y dos notas sugeridas esperando Keep o Discard.',
       },
       settings: {
         tab: 'Settings',
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: 'Planifica el trabajo y pásalo a los agentes',
         body: 'Épicas, funcionalidades, historias de usuario, tareas y errores en un tablero que comparte tu equipo. Cada tarjeta muestra lo que costó su trabajo, y una funcionalidad suma todo lo que tiene debajo.',
-        alt: 'Un tablero compartido en la vista Board: columnas de épicas, funcionalidades, historias, tareas y errores, cada tarjeta con su tipo, su ID y lo que costó.',
+        alt: 'Un tablero de sprint, Product roadmap: Sprint 12 con sus fechas, los días que quedan y el progreso, y columnas de épicas, funcionalidades, historias, tareas y errores, cada tarjeta con su tipo, su ID y lo que costó.',
       },
       score: {
         tab: 'Score',

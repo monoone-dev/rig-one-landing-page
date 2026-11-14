@@ -222,7 +222,7 @@ export default {
         tab: 'Agents',
         title: 'Tout le rôle sur un seul écran',
         body: 'Ses instructions, l’app d’agent — Claude Code, Codex, OpenCode ou Gemini CLI — avec son modèle et son effort, s’il peut modifier des fichiers ou aller sur le web, et quand il abandonne.',
-        alt: 'L’agent Builder ouvert en lecture : ses instructions, Claude Code avec son modèle et son effort, ce qu’il peut modifier et atteindre, ses skills et connexions, avec Evaluate, Duplicate, Delete et Edit.',
+        alt: 'L’agent Builder ouvert en lecture : ses instructions, Claude Code avec son modèle et son effort, ce qu’il peut modifier et atteindre, ses skills et connexions, avec Share, Evaluate, Duplicate, Delete et Edit.',
       },
       canvas: {
         tab: 'Canvas',
@@ -234,13 +234,13 @@ export default {
         tab: 'Overview',
         title: 'Tout le projet sur une page',
         body: 'D’abord un résumé — les chiffres et ce qui demande votre attention — puis un onglet pour Score, Repository, Agents, Workflows, Playbook et Automation.',
-        alt: 'Overview de client-website sur l’onglet Summary : un Score de 78, quatre agents, trois workflows, neuf éléments de connaissance, aucun changement et deux déclencheurs, et deux nouvelles leçons sous Needs your attention.',
+        alt: 'Overview de client-website sur l’onglet Summary : un Score de 78, quatre agents, trois workflows, neuf éléments dans Playbook, aucun changement et deux déclencheurs, et deux nouvelles leçons sous Needs your attention.',
       },
       knowledge: {
         tab: 'Playbook',
         title: 'Ce que savent vos agents, avec votre accord',
         body: 'Les notes qu’un agent propose attendent dans Playbook votre Keep ou Discard. Les notes approuvées vont dans chaque prompt ; les compétences servent quand elles conviennent.',
-        alt: 'L’écran Playbook : Health en bon état, un onglet par type de connaissance et trois notes suggérées en attente de Keep ou Discard.',
+        alt: 'L’écran Playbook : Health en bon état, un onglet par type de connaissance et deux notes suggérées en attente de Keep ou Discard.',
       },
       settings: {
         tab: 'Settings',
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: 'Planifiez le travail, puis confiez-le aux agents',
         body: 'Epics, fonctionnalités, user stories, tâches et bugs sur un tableau partagé par l’équipe. Chaque carte affiche ce que son travail a coûté, et une fonctionnalité additionne tout ce qu’elle contient.',
-        alt: 'Un tableau partagé en vue Board : colonnes d’epics, fonctionnalités, stories, tâches et bugs, chaque carte avec son type, son ID et son coût.',
+        alt: 'Un tableau de sprint, Product roadmap : le Sprint 12 avec ses dates, les jours restants et l’avancement, et des colonnes d’epics, fonctionnalités, stories, tâches et bugs, chaque carte avec son type, son ID et son coût.',
       },
       score: {
         tab: 'Score',

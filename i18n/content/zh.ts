@@ -222,7 +222,7 @@ export default {
         tab: 'Agents',
         title: '整个角色都在一个界面上',
         body: '它的指令、所用的智能体应用（Claude Code、Codex、OpenCode 或 Gemini CLI）及模型和思考深度、能否修改文件或访问网络，以及何时放弃。',
-        alt: '以只读方式打开的智能体 Builder：它的指令、Claude Code 及其模型和思考强度、可修改和可访问的范围、技能与连接，以及 Evaluate、Duplicate、Delete 和 Edit。',
+        alt: '以只读方式打开的智能体 Builder：它的指令、Claude Code 及其模型和思考强度、可修改和可访问的范围、技能与连接，以及 Share、Evaluate、Duplicate、Delete 和 Edit。',
       },
       canvas: {
         tab: 'Canvas',
@@ -234,13 +234,13 @@ export default {
         tab: 'Overview',
         title: '整个项目，一页看完',
         body: '先是摘要——各项数字和需要你处理的事项——然后是 Score、Repository、Agents、Workflows、Playbook 和 Automation 各自的标签页。',
-        alt: 'client-website 的 Overview（Summary 标签页）：Score 78、四个智能体、三个工作流、九项知识、没有改动、两个触发器，Needs your attention 下有两条新经验。',
+        alt: 'client-website 的 Overview（Summary 标签页）：Score 78、四个智能体、三个工作流、Playbook 中九项内容、没有改动、两个触发器，Needs your attention 下有两条新经验。',
       },
       knowledge: {
         tab: 'Playbook',
         title: '智能体知道什么，由你批准',
         body: '智能体建议的笔记在 Playbook 中等你选择 Keep 或 Discard。批准的笔记进入每一条提示词；技能在适合当前工作时使用。',
-        alt: 'Playbook 界面：Health 状态良好，每类知识各有一个标签页，三条建议笔记等待 Keep 或 Discard。',
+        alt: 'Playbook 界面：Health 状态良好，每类知识各有一个标签页，两条建议笔记等待 Keep 或 Discard。',
       },
       settings: {
         tab: 'Settings',
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: '先规划工作，再交给智能体',
         body: '史诗、功能、用户故事、任务和缺陷，放在团队共享的看板上。每张卡片显示其工作的花费，功能会汇总其下所有内容。',
-        alt: '共享看板（Board 视图）：史诗、功能、故事、任务和缺陷各列，每张卡片标有类型、ID 和花费。',
+        alt: '冲刺看板 Product roadmap：Sprint 12 的日期、剩余天数和进度，以及史诗、功能、故事、任务和缺陷各列，每张卡片标有类型、ID 和花费。',
       },
       score: {
         tab: 'Score',

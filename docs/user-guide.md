@@ -66,7 +66,7 @@ Open the project menu at the top of the side panel and choose **Add a workspace*
 **Name**, press **Choose folder**, pick your project and press **Save**. RigOne opens a new task
 that asks **What should I do?**
 
-![The new task screen of a project with no tasks yet: What should I do?, a goal typed in the box, and the Auto, Plan first and One agent modes with the agent app and model under it.](../public/screenshots/tutorial-welcome.webp)
+![The new task screen of a project with no tasks yet: What should I do?, a goal typed in the box, and the Auto, Plan first and One agent modes with Materials, the agent app and the model under it.](../public/screenshots/tutorial-welcome.webp)
 
 If no agent app says **OK** in **Settings → Health check**, run `claude`, `codex`, `opencode`
 or `gemini` once in Terminal to sign in, then press **Run again**.
@@ -128,7 +128,7 @@ If **Learn from this run** was on, open **Playbook** and press **Keep** on the n
 Press **＋** next to **Tasks** (⌘N), choose **Auto**, write the goal in one sentence and press
 **Run**.
 
-![The new task screen with Auto chosen: a goal asking RigOne to let people export their invoices as CSV from the billing page, with tests, and the line saying that RigOne plans the goal, chooses agents and coordinates their work.](../public/screenshots/tutorial-auto.webp)
+![The new task screen with Auto chosen: a goal asking RigOne to let people export their invoices as CSV from the billing page, with tests, the Auto profile next to the modes, and the line saying that RigOne plans the goal, chooses agents and coordinates their work.](../public/screenshots/tutorial-auto.webp)
 
 The Lead picks the agents, builds workflows for each part of the goal and keeps going until checks
 and reviews prove the work. Questions for you collect in **Needs you**. Read [Auto](#auto) before
@@ -176,7 +176,7 @@ The same words appear on screen, in messages and in this guide.
 On the left is a narrow **rail** of icons, then the **side panel** with your tasks and boards, then
 the screen you opened. With two or more projects open, project tabs run along the top.
 
-![The Go to anything list opened with ⌘K over the window: every section with its G shortcut, and the rail and side panel behind it.](../public/screenshots/search.webp)
+![The Go to anything list opened with ⌘K over the window: every section with its G shortcut, including Playbook and Materials, and the rail and side panel behind it.](../public/screenshots/search.webp)
 
 ### The rail
 
@@ -209,7 +209,7 @@ Point at an icon to see its name.
 - **Plan limits** at the bottom show how much of each agent app's plan is used.
 - Below that: which folder RigOne works in and which GitHub account it uses.
 
-![The bottom of the side panel: plan limits for Claude Code, Codex and OpenCode, the GitHub account acme-dev, and the branch main with Project branches open on the main folder and a step copy.](../public/screenshots/github-panel.webp)
+![The bottom of the side panel: plan limits for each agent app, the GitHub account acme-dev, and the branch main with Project branches open on the main folder and a step copy.](../public/screenshots/github-panel.webp)
 
 ## Projects side by side
 
@@ -261,7 +261,7 @@ Write what you want under **What should I do?** and pick how it runs:
 - **Plan first** — RigOne writes a task list first; nothing runs until you start it.
 - **One agent** — one agent works on it in this folder.
 
-![A new task in client-website: a goal typed under What should I do?, the Auto, Plan first and One agent modes, the agent app, model and effort on the right, and three tasks in the side panel.](../public/screenshots/tasks.webp)
+![A new task in client-website: a goal typed under What should I do?, the Auto, Plan first and One agent modes, Materials · None, the agent app, model and effort on the right, and three tasks in the side panel.](../public/screenshots/tasks.webp)
 
 Under the field:
 
@@ -271,7 +271,7 @@ Under the field:
   has spent so far.
 - The board icon files the task on a board.
 
-![The pill under the message field opened: the agent app tabs, the models it offers, the effort, YOLO mode and Default for this project.](../public/screenshots/model-picker.webp)
+![The pill under the message field opened: the tabs Claude Code, Codex, OpenCode and Gemini CLI, the models Claude Code offers, the effort and YOLO mode.](../public/screenshots/model-picker.webp)
 
 ### Talking to the Lead
 
@@ -443,7 +443,7 @@ refused if it failed or the code moved since.
 board, start it with an agent, and see what it did and what it cost. Boards need a MonoOne account;
 **Explore a preview** shows a demo board without one.
 
-![A board in the Board view: columns with epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost.](../public/screenshots/boards.webp)
+![A sprint board, Product roadmap: Sprint 12 with its dates, days left and progress, and columns To do, In progress, Needs attention and Done with epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost.](../public/screenshots/boards.webp)
 
 - **One state for everyone.** Items, comments and activity are kept on the MonoOne server, so every
   member sees the same board.
@@ -465,7 +465,7 @@ When you create an item, choose its **Kind of item** and where it **Sits under**
 story lists its **Items inside** and offers to add only the kinds that fit, such as **Add user
 story** or **Add bug**.
 
-![The feature Item types opened in its window: status, due date, priority, assignees, tags, what it depends on, repository, workflow and model, its description, and Items inside with two user stories, a task and a bug, with Add user story, Add task and Add bug.](../public/screenshots/board-item.webp)
+![The feature Item types opened in its window: status, due date, priority, assignees, tags, what it depends on, repository, workflow and model, its description, Items inside with two user stories, a task and a bug, with Add user story, Add task and Add bug, and two comments in Activity.](../public/screenshots/board-item.webp)
 
 ### Cost on every card
 
@@ -492,7 +492,7 @@ short ID such as `PRO-12`.
   **Viewer**) and **Remove**. Handing the board to another owner sits in **General**, behind a
   confirmation.
 
-![Board settings on Planning, with the side menu General, Members, Planning and Templates: Kanban chosen, a sprint length of two weeks, Archive finished tasks after a sprint, and five columns with a name, a colour and a role.](../public/screenshots/board-settings.webp)
+![Board settings on Planning, with the side menu General, People, Planning and Templates: Kanban chosen, a sprint length of two weeks, Archive finished tasks after a sprint, and five columns with a name, a colour and a role.](../public/screenshots/board-settings.webp)
 
 With sprints on, a compact header shows the sprint with a switcher for active, planned and closed
 sprints, its dates, days left, progress and goal. The **Backlog** groups tasks into the active
@@ -565,11 +565,10 @@ always know what a piece of work cost, and where the money and tokens go.
 ### What a task has spent
 
 The amount beside the model, under the message field, is what this task has spent so far — $0.00
-included. Click it to see **Spent on this task**: the exact amount, **Tokens** (read fresh, read
-from cache, written to cache and written by agents), how much came **From cache**, **Agent time**,
-and what each agent spent.
+included. Click it to see **Spent on this task**: the exact amount across the whole task, including
+the workflows it started, **Tokens**, how much came **From cache** and **Agent time**.
 
-![Ship a feature at work, with Spent on this task opened above the message field: $0.60 from two agent turns, the tokens and how much came from cache, four minutes of agent time, and Fix $0.42 and Reproduce $0.18.](../public/screenshots/task-spend.webp)
+![Ship a feature at work, with Spent on this task opened above the message field: $0.60 from two agent turns across the whole task, 231k tokens with 82% from cache, and four minutes of agent time.](../public/screenshots/task-spend.webp)
 
 A step shows its own cost in its header, too (see [Reviewing a step](#reviewing-a-step)).
 
@@ -578,7 +577,7 @@ A step shows its own cost in its header, too (see [Reviewing a step](#reviewing-
 Open **Analytics** from the rail or with ⌘K. Pick a **Period**: **7 days**, **30 days**, **90
 days**, **All time** or **Custom** — click two dates to set a range.
 
-![The Analytics screen over 30 days: $183.52 spent in 408 agent turns, 44.3M tokens with 81% read from cache, 9 tasks and 11 hours of agent time, a bar chart of spend per day, Apps, Models, Effort and People, and Spend per task led by Export invoices as CSV.](../public/screenshots/analytics.webp)
+![The Analytics screen over 30 days: $183.52 spent in 408 agent turns, 44.3M tokens with 81% read from cache, 9 tasks and 11 hours of agent time, a bar chart of spend per day, Apps with Claude Code, Codex, Gemini CLI and OpenCode, Models, Effort and People, and Spend per task led by Export invoices as CSV.](../public/screenshots/analytics.webp)
 
 - **The totals** — **Spent**, **Tokens** (with how much was read from cache), **Tasks** (with the
   average per task) and **Agent time** (with the model used most).
@@ -617,7 +616,7 @@ A **Discord** trigger asks for the **channel ID** and the environment variable t
 token, and can test the connection. A message that mentions the bot becomes the task; agents in the
 run can reply in Discord, and the bot never starts a run from its own messages.
 
-![The Triggers screen: two Linear triggers watching for issues assigned to you, one starting Fix a bug every 5 minutes and switched on, one starting Review a pull request every 15 minutes and switched off.](../public/screenshots/triggers.webp)
+![The Triggers screen: a Linear trigger that starts Fix a bug every 5 minutes, a Discord trigger that starts Ship a feature when the bot is mentioned, both switched on, and a Linear trigger for Review a pull request every 15 minutes, switched off.](../public/screenshots/triggers.webp)
 
 ## Reviewing a step
 
@@ -690,7 +689,7 @@ copy for offline use. RigOne itself sends no analytics anywhere — the Analytic
 An agent is a role you define once and use in any workflow. **Agents** (⌘1) lists them with their
 access, model and effort. Click one to read it; press **Edit** to change it.
 
-![Builder opened read-only: its instructions, model, access, and skills and connections, with Evaluate, Duplicate, Delete and Edit at the top.](../public/screenshots/agent-detail.webp)
+![Builder opened read-only: its instructions, model, access, and skills and connections, with Share, Evaluate, Duplicate, Delete and Edit at the top.](../public/screenshots/agent-detail.webp)
 
 ### What an agent holds
 
@@ -726,7 +725,7 @@ are never copied.
 A workflow is what you build on the canvas and run again. **Workflows** (⌘2) lists them with their
 steps and how the last run ended. The play button runs one straight away.
 
-![The Workflows screen: Ship a feature, Fix a bug and Review a pull request, each with its steps, agents and last run, and Run, Duplicate and Delete buttons.](../public/screenshots/workflows.webp)
+![The Workflows screen: Ship a feature, Fix a bug and Review a pull request under Saved workflows, each with its description, steps, agents, how often it was used and its last run, and Share, Run, Duplicate and Delete.](../public/screenshots/workflows.webp)
 
 ### The canvas
 
@@ -748,12 +747,12 @@ Pick a tile to set it up in the panel on the right: **Who does this**, a **Name*
 More settings — where it works, timeout, what happens **If this step does not pass** — fold away
 until you need them. A check step has its **Command to run** and the tests it must confirm.
 
-![The Fix step of Ship a feature selected on the canvas: the step panel with Who does this, Name, What to do, Context, Plan Off, Create, Update or Use, and 13 more settings.](../public/screenshots/workflow-step.webp)
+![The step Fix selected on the canvas of Ship a feature, with its panel beside it: Builder under Who does this, its name and what to do, Materials, Plan set to Off, 14 more settings and Delete step.](../public/screenshots/workflow-step.webp)
 
 **Workflow settings** in the header sets which files a fresh copy brings along and the workflow's
 context.
 
-![Workflow settings open beside the canvas of Ship a feature: Files in fresh copies, Protect working copies, additional input patterns and the workflow context.](../public/screenshots/workflow-panel.webp)
+![Workflow settings open beside the canvas of Ship a feature: its description, Files in fresh copies with Protect working copies, and additional input patterns with Preview selected files.](../public/screenshots/workflow-panel.webp)
 
 ## Overview
 
@@ -761,7 +760,7 @@ context.
 **Score**, **Agents**, **Workflows**, **Playbook**, **Changes** and **Triggers** — and **Needs your
 attention**, a short list of what to look at. Tabs hold the details.
 
-![Overview of client-website on the Summary tab: six tiles — Score, Agents, Workflows, Knowledge, Changes and Triggers — and Needs your attention below them.](../public/screenshots/project.webp)
+![Overview of client-website on the Summary tab: six tiles — Score, Agents, Workflows, Playbook, Changes and Triggers — and Needs your attention below them.](../public/screenshots/project.webp)
 
 - **Score** — how easily agents find their way in this project; see [Score](#score).
 - **Repository** — branch, changes, branches, size on disk and largest folders.
@@ -780,7 +779,7 @@ skills and workflows for it. Add your own guidance if you like, press **Generate
 talk to the lead agent to adjust. Nothing changes until you choose **Apply setup**; **Undo** brings
 back the files from before.
 
-![Generate project setup on the Instructions tab: guidance for the lead agent typed in, and the three stages Understand the project, Build the setup and Check and refine.](../public/screenshots/project-setup.webp)
+![Generate project setup on the Instructions tab: guidance for the lead agent typed in, the three stages Understand the project, Build the setup and Check and refine, and the project folder below.](../public/screenshots/project-setup.webp)
 
 ## Score
 
@@ -874,14 +873,14 @@ with it off, its screen and search entry are gone.
 4. **Run** — every case runs in every column and gets **passed** or **did not pass**.
 5. **Propose a fix** under **What did not pass** suggests better instructions.
 
-![The Lab: sets listed by kind in the tabs Agents, Workflows and Skills, with two agent sets and Write cases.](../public/screenshots/lab-sets.webp)
+![The Lab: sets listed by kind in the tabs Agents, Workflows and Skills, with two agent sets.](../public/screenshots/lab-sets.webp)
 
 ## Playbook
 
 **Playbook** (⌘5, called Knowledge before 1.15.5) is what agents carry into their prompts. You stay in control: nothing an agent
 learns is used until you approve it.
 
-![The Knowledge screen: Health in good shape, the tabs Waiting for you, Always in context, Used when they fit, What agents passed to each other and Earlier project notes, and suggested notes waiting for Keep or Discard.](../public/screenshots/knowledge.webp)
+![The Playbook screen: Health in good shape, the tabs Waiting for you, Always in context, Used when they fit, What agents passed to each other and Earlier project notes, and suggested notes waiting for Keep or Discard.](../public/screenshots/knowledge.webp)
 
 - **Waiting for you** — notes agents suggested. **Keep** or **Discard** each one.
 - **Always in context** — your instruction files (`AGENTS.md`, `CLAUDE.md`) and kept notes. They go
@@ -889,20 +888,20 @@ learns is used until you approve it.
 - **Used when they fit** — skills. **Add a skill** from a link, your own text, or a sentence.
 - **What agents passed to each other** — the handoffs between steps, as plain files.
 
-![The Always in context tab of Knowledge: AGENTS.md and CLAUDE.md with their sizes, and two notes in use, each with Stop using.](../public/screenshots/knowledge-always.webp)
+![The Always in context tab of Playbook: AGENTS.md and CLAUDE.md with their sizes, and two notes in use, each with Stop using.](../public/screenshots/knowledge-always.webp)
 
 ### Health
 
 **Health** says how much every prompt carries — aim for under 40 KB — and flags knowledge that is
 **too much**, **out of date** or **not pulling its weight**, with a button to fix each finding.
 
-![Knowledge Health: five things to look at, each with why — out of date or not pulling its weight — and Take out of prompts or Review them, above the tabs.](../public/screenshots/knowledge-health.webp)
+![Playbook Health: five things to look at, each marked out of date or not pulling its weight, with the notes folded under each and Take out of prompts or Review them, above the tabs.](../public/screenshots/knowledge-health.webp)
 
 ## Materials
 
 **Materials** (⌘6, called Context before 1.15.5) holds named sets of material for agents: requirements, notes, screenshots, PDFs.
 
-![The Context screen: Active and Archived, three sets — two ready and one not prepared yet — each with Archive, and the field to name a new set.](../public/screenshots/context.webp)
+![The Materials screen: Active and Archived, three sets — two ready, each with Share, and one not prepared yet — each with Archive, and the field to name a new set.](../public/screenshots/context.webp)
 
 1. Name a set and press **＋ Create**.
 2. Paste text or screenshots, or **Add files**.
@@ -916,7 +915,7 @@ A run keeps the version it started with, so rebuilding a set never changes a run
 **Skills** shows the skills your project gives its agents, read from `.claude/skills` and
 `.agents/skills`. It is read-only; to add one, use **Add a skill** in [Playbook](#playbook).
 
-![The Skills screen: three skills of the project in a list, and release-notes open on the right, read only, with its instructions.](../public/screenshots/skills.webp)
+![The Skills screen: three skills of the project in a list, and release-notes open on the right, read only, with its instructions and Share.](../public/screenshots/skills.webp)
 
 ## Settings
 
@@ -965,7 +964,7 @@ for your computer.
 The default agent app, model and effort for new conversations, and which instruction files
 (`AGENTS.md`, `CLAUDE.md`) agents read.
 
-![Settings → Project: Default conversation with the Claude Code, Codex and OpenCode tabs, the models and the effort, and Project instructions with their sources and scope.](../public/screenshots/settings-project.webp)
+![Settings → Project: Default conversation with the Claude Code, Codex, OpenCode and Gemini CLI tabs, the models and the effort, and Project instructions turned on.](../public/screenshots/settings-project.webp)
 
 ### Score settings
 
@@ -988,7 +987,7 @@ Update your agent apps in one place — RigOne only updates an app nobody is usi
 Pick the editor **Open in** uses, and add **Model gateways**. Each agent app has its own page with its
 sign-in, default model, tool servers and how much of its plan is used.
 
-![Settings → Claude Code: Setup with its version, sign-in and tool servers, Updates, and Usage with the 5-hour and weekly use of the plan and Claude account limits.](../public/screenshots/settings-provider.webp)
+![Settings → Claude Code: Setup with its version and sign-in, Updates, Usage with the 5-hour and weekly use of the plan, and the models, tool servers, plugins and skills Claude Code has set up.](../public/screenshots/settings-provider.webp)
 
 ### Account and GitHub
 
@@ -1014,7 +1013,7 @@ state and evidence — and at least how much can be freed. **Clean now** removes
 again. Evidence of finished runs and goals is removed after three days, a finished Auto goal frees
 its temporary copies, and RigOne also cleans up on its own when the disk runs low.
 
-![Settings → Storage: RigOne uses 3.7 GB, six parts with their sizes, the free space on the disk, and 1.2 GB that can be cleaned now with Clean now.](../public/screenshots/settings-storage.webp)
+![Settings → Storage: the space each part uses — work copies, build cache, run records, evidence, conversations and lead workspaces — the free space on the disk, and Clean now with the last clean-up.](../public/screenshots/settings-storage.webp)
 
 ### Plugins
 
@@ -1033,7 +1032,7 @@ Your version, **updates** (see [Updating](#updating)), and **Copy diagnostics** 
 Follow and steer your work from your phone or tablet while RigOne runs on your Mac. It needs a
 MonoOne account.
 
-![Settings → Remote access: Allow remote access, paired devices, what your phone can do and the projects available remotely.](../public/screenshots/settings-remote.webp)
+![Settings → Remote access: connected, one paired iPhone with View and control and Revoke, what your phone can do, Face ID or Touch ID always on, and the projects available remotely.](../public/screenshots/settings-remote.webp)
 
 ### Pair a phone
 

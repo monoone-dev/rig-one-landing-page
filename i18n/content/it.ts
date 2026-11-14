@@ -222,7 +222,7 @@ export default {
         tab: 'Agents',
         title: 'Tutto il ruolo in una schermata',
         body: 'Le sue istruzioni, l’app dell’agente — Claude Code, Codex, OpenCode o Gemini CLI — con modello e impegno, se può cambiare file o andare sul web, e quando si arrende.',
-        alt: 'L’agente Builder aperto in sola lettura: istruzioni, Claude Code con modello e impegno, cosa può modificare e raggiungere, skill e connessioni, con Evaluate, Duplicate, Delete ed Edit.',
+        alt: 'L’agente Builder aperto in sola lettura: istruzioni, Claude Code con modello e impegno, cosa può modificare e raggiungere, skill e connessioni, con Share, Evaluate, Duplicate, Delete ed Edit.',
       },
       canvas: {
         tab: 'Canvas',
@@ -234,13 +234,13 @@ export default {
         tab: 'Overview',
         title: 'Tutto il progetto in una pagina',
         body: 'Prima un riepilogo — i numeri e ciò che richiede la tua attenzione — poi una scheda ciascuno per Score, Repository, Agents, Workflows, Playbook e Automation.',
-        alt: 'Overview di client-website nella scheda Summary: Score 78, quattro agenti, tre workflow, nove elementi di conoscenza, nessuna modifica e due trigger, e due nuove lezioni in Needs your attention.',
+        alt: 'Overview di client-website nella scheda Summary: Score 78, quattro agenti, tre workflow, nove elementi nel Playbook, nessuna modifica e due trigger, e due nuove lezioni in Needs your attention.',
       },
       knowledge: {
         tab: 'Playbook',
         title: 'Quello che sanno i tuoi agenti, approvato da te',
         body: 'Le note suggerite da un agente aspettano in Playbook il tuo Keep o Discard. Quelle approvate entrano in ogni prompt; le abilità si usano quando servono.',
-        alt: 'La schermata Playbook: Health in buono stato, una scheda per ogni tipo di conoscenza e tre note suggerite in attesa di Keep o Discard.',
+        alt: 'La schermata Playbook: Health in buono stato, una scheda per ogni tipo di conoscenza e due note suggerite in attesa di Keep o Discard.',
       },
       settings: {
         tab: 'Settings',
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: 'Pianifica il lavoro, poi affidalo agli agenti',
         body: 'Epic, funzionalità, user story, attività e bug su una board condivisa dal team. Ogni scheda mostra quanto è costato il suo lavoro, e una funzionalità somma tutto ciò che contiene.',
-        alt: 'Una board condivisa nella vista Board: colonne di epic, funzionalità, storie, attività e bug, ogni scheda con il tipo, l’ID e quanto è costata.',
+        alt: 'Una board di sprint, Product roadmap: lo Sprint 12 con date, giorni rimasti e avanzamento, e colonne di epic, funzionalità, storie, attività e bug, ogni scheda con il tipo, l’ID e quanto è costata.',
       },
       score: {
         tab: 'Score',

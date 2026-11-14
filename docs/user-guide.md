@@ -1,8 +1,8 @@
 # Using RigOne
 
-RigOne is a Mac app where coding agents — Claude Code, Codex and OpenCode — work for you as a team.
+RigOne is a Mac app where coding agents — Claude Code, Codex, OpenCode and Gemini CLI — work for you as a team.
 You give them a job, they work in their own copies of your code, RigOne checks the result, and you
-decide what to keep. This guide describes RigOne 1.13 and the latest updates.
+decide what to keep. This guide describes RigOne 1.24.
 
 New here? Start with [Getting started](#getting-started), then follow the
 [tutorial](#tutorial-your-first-run-step-by-step). Everything else you can read when you need it.
@@ -14,7 +14,8 @@ Install RigOne and open it for the first time. It takes about five minutes.
 ### What you need
 
 - A Mac with **Apple Silicon** and **macOS 13** or later.
-- At least one agent app, installed and signed in: **Claude Code**, **Codex** or **OpenCode**.
+- At least one agent app, installed and signed in: **Claude Code**, **Codex**, **OpenCode** or
+  **Gemini CLI**.
   RigOne starts them for you, and runs use your own plan with each vendor.
 - A project folder on your Mac, usually a Git repository.
 
@@ -67,14 +68,14 @@ that asks **What should I do?**
 
 ![The new task screen of a project with no tasks yet: What should I do?, a goal typed in the box, and the Auto, Plan first and One agent modes with the agent app and model under it.](../public/screenshots/tutorial-welcome.webp)
 
-If no agent app says **OK** in **Settings → Health check**, run `claude`, `codex` or `opencode`
-once in Terminal to sign in, then press **Run again**.
+If no agent app says **OK** in **Settings → Health check**, run `claude`, `codex`, `opencode`
+or `gemini` once in Terminal to sign in, then press **Run again**.
 
 ### Step 2: make an agent with one job
 
 Open **Agents** (⌘1) and press **Create agent**. Give it a **Name**, a one-line **What it does**
-and **Instructions** in your own words. On the **Model** tab pick Claude Code, Codex or OpenCode
-with a model and effort. On **Access**, keep **Look only** unless the agent has to write code.
+and **Instructions** in your own words. On the **Model** tab pick Claude Code, Codex, OpenCode or
+Gemini CLI with a model and effort. On **Access**, keep **Look only** unless the agent has to write code.
 
 ![The New agent form on the Role tab, with the tabs Model, Access, Skills and connections and Advanced beside it: an agent called Reviewer with what it does and its instructions filled in, and Cancel and Save.](../public/screenshots/tutorial-agent.webp)
 
@@ -120,7 +121,7 @@ Each step ends **done**, **failed**, **stopped** or **not run**. Everything the 
 on its own branch in your project — nothing reaches your own branch until you merge it. Review the
 branch as you would a colleague's.
 
-If **Learn from this run** was on, open **Knowledge** and press **Keep** on the notes worth keeping.
+If **Learn from this run** was on, open **Playbook** and press **Keep** on the notes worth keeping.
 
 ### Step 7: hand a whole goal to Auto
 
@@ -151,7 +152,7 @@ The same words appear on screen, in messages and in this guide.
 | Word | Meaning |
 | --- | --- |
 | **Project** | A folder on your Mac, added as a workspace. |
-| **Agent app** | The program that does the work: Claude Code, Codex or OpenCode. |
+| **Agent app** | The program that does the work: Claude Code, Codex, OpenCode or Gemini CLI. |
 | **Agent** | A role: one job, its instructions, an agent app, a model and permissions. |
 | **Workflow** | A saved graph of steps you can run again. |
 | **Step** | One tile in a workflow. An arrow between steps means "runs after". |
@@ -163,9 +164,11 @@ The same words appear on screen, in messages and in this guide.
 | **Needs you** | One list of every decision waiting for you. |
 | **Note** | Something learned in a run, used in future prompts once you approve it. |
 | **Skill** | Instructions an agent uses when they fit, kept in a `SKILL.md` file. |
-| **Context set** | Material — text, images, PDFs — prepared for the steps that need it. |
+| **Materials** | Named sets of text, images and PDFs prepared for the steps that need them. |
 | **Connection** | A tool server an agent may use, such as a browser or an issue tracker. |
-| **Board** | A shared list of work items — epics, features, stories, tasks and bugs — encrypted on your Mac. |
+| **Board** | A shared list of work items — epics, features, stories, tasks and bugs. |
+| **Organization** | People who share boards, projects and a library of skills, agents and workflows. |
+| **Plugin** | A signed package that adds a part to RigOne, such as Lab or Discord. |
 | **Spend** | What agents cost, counted per task, per board item and in Analytics. |
 
 ## The window
@@ -186,10 +189,10 @@ Point at an icon to see its name.
 | [Generate project setup](#generate-project-setup) | — | Draft agents and workflows from your repository |
 | [Workflows](#workflows) | ⌘2 | Steps in a row, on a canvas |
 | [Agents](#agents) | ⌘1 | The roles that do the work |
-| [Knowledge](#knowledge) | ⌘5 | Notes and skills that go into prompts |
-| [Context](#context) | ⌘6 | Material prepared for steps |
+| [Playbook](#playbook) | ⌘5 | Notes and skills that go into prompts |
+| [Materials](#materials) | ⌘6 | Material prepared for steps |
 | [Triggers](#triggers) | ⌘4 | Runs that start on their own |
-| [Lab](#lab) | ⌘7 | Test agents on your own cases |
+| [Lab](#lab) | ⌘7 | Test agents on your own cases (a plugin) |
 | [Analytics](#analytics-and-costs) | — | What agents spent, and on what |
 | [Overview](#overview) | G P | The whole project on one page |
 | [Skills](#skills) | — | The skills your project gives its agents |
@@ -220,7 +223,14 @@ with its own tasks and runs — a run keeps going in one while you work in anoth
 - **Drag the edge** between panes to resize; a double-click shares the width evenly.
 - A dot on a tab says whether the project is working or waiting for you.
 
-Tabs and panes come back after a restart.
+Tabs and panes come back after a restart. To rename or remove a project, use the project menu.
+
+### Task windows (experimental)
+
+Turn on **Task windows** in **Settings → Experimental** to keep up to ten tasks, from any project, on
+one screen. Open a task in a window from its menu, then split, move, swap and resize the windows with
+keyboard shortcuts, much like panes in a terminal multiplexer. Settings set how many windows fit on
+one screen and how they are arranged. The feature is off until you turn it on.
 
 ## Search and keyboard shortcuts
 
@@ -231,7 +241,7 @@ workflow. Press **?** anywhere outside a text field for every shortcut.
 | --- | --- |
 | ⌘K | Go to anything |
 | ⌘N | New task |
-| ⌘1 … ⌘9 | Agents, Workflows, Tasks, Triggers, Knowledge, Context, Lab, Settings, Boards |
+| ⌘1 … ⌘9 | Agents, Workflows, Tasks, Triggers, Playbook, Materials, Lab, Settings, Boards |
 | G, then a letter | Go to a place, such as G A for Agents or G P for Overview |
 | ⌘⌥\\ | Show another project beside this one |
 | ⌘⌥1 … ⌘⌥9 | Pick a project tab |
@@ -256,7 +266,7 @@ Write what you want under **What should I do?** and pick how it runs:
 Under the field:
 
 - **＋** adds files or photos (⌘U) or a folder. You can also drag them onto the field.
-- **Context** attaches a context set.
+- **Materials** attaches a set of materials.
 - The pill on the right picks the agent app, model and effort. The amount beside it is what this task
   has spent so far.
 - The board icon files the task on a board.
@@ -276,10 +286,24 @@ that wrote it. While an agent works, **Stop** takes the place of **Send**.
 | `/run` | Start a workflow |
 | `/ask` | Start one agent |
 | `/tasks` | Break the goal into tasks you review before anything runs |
-| `/history` | What has run in this folder |
+| `/history` | Past conversations in this folder |
 | `/stop` | Stop the run that is going |
 
-Type `/` for every command and skill, and **@** to point at a place in the project.
+Type `/` for every command and skill, and **@** to point at a place in the project or to call one of
+your saved project agents. A called agent runs with its own settings, and its progress shows in the
+conversation and on your phone.
+
+### Past conversations
+
+**History** lists the past conversations of the project you have open. Search them, and reopen one
+to carry on where it stopped. A new conversation gets a clear generated title after its first
+finished reply; a name you set yourself is kept.
+
+### Review a plan before it runs
+
+Ask the Lead for a plan and it can write one as an interactive page that opens in **Plan review**
+beside the conversation. Select text in the plan to comment on it, and send your comments to the
+agent; it revises the plan. When the plan is right, build it in Auto or **Break into tasks**.
 
 ### Running a workflow
 
@@ -334,6 +358,30 @@ to it while it works.
   RigOne restarts. Up to three goals work in one folder at a time.
 - **Results** wait on a branch. Auto can push and open a pull request only when you allow it.
 - **A sound** can play when a goal is finished — turn it on in **Settings → Runs**.
+- **One plan, one picture.** A goal's plan opens as one workflow with a start and an end, each part
+  in its own colour. Click a part in the list to zoom to its steps; **Show everything** shows the
+  whole plan again.
+
+### Auto profile
+
+**Auto profile** in the agent popover decides how strong the models Auto may give each kind of step
+are: **Low**, **Balanced**, **Max** or **Ultra**. Ultra also allows the strongest models for plans,
+analyses and final reviews. The choice is remembered per project, and Auto refuses a plan that
+breaks it. The profile limits Claude Code and Codex models only.
+
+### When an agent app runs out of usage
+
+When Claude Code or Codex reaches its usage limit in the middle of a step, RigOne saves the work so
+far and carries on the same step in another agent app you allowed for the goal. The new agent gets
+the previous agent's last words and the list of files it changed, and the switch does not count as a
+failed try. If no other app may take over, the step ends with the reason and its work stays in the
+step's copy. **Settings → Usage limits** sets from which percent of a plan RigOne warns and moves
+work to another app.
+
+### Approve everything
+
+Write "approve everything" in a goal's conversation and nothing in that goal waits for your
+approval again, also after a restart. The plan header shows it, with **Undo**.
 
 ### Pause, take over, stop
 
@@ -359,26 +407,25 @@ each answer. macOS tells you when a decision waits while RigOne is in the backgr
 | **Question** | Something the Lead needs to know |
 | **Approval** | Let a part write outside its copy, or take an outward action? |
 | **Retry** | Allow one more try? |
-| **Design review** | Accept the look of a changed screen, or mark what to change |
+| **Design review** | Look at a changed screen, comment on it, or approve it |
 | **Failing tests** | Tests outside this goal fail: fix them, update to main, or pause |
 | **Usage limit** | Wait for the reset, or use another agent app? |
 | **Recorded gap** | Accept a part with a known gap? |
 
-### Designing screens
+### Design review
 
-When a goal adds or changes a screen, Auto works from a short brief of that one screen, builds it in
-the real app, and a look-only agent from another vendor critiques it before you see it.
+When a part changes the interface, **Needs you** shows **Design review**. It opens on the agent's
+screenshots: the agent captures each screen signed in, with realistic data, in its own copy, and the
+review says what changed and where to look in the app.
 
-- **Choose a sketch.** For a brand-new screen Auto can make three versions at once. The card **Choose
-  a sketch** shows them; press **Choose this one** under the one to build. The phone offers the same
-  choice.
-- **Review the look.** The design review card shows the tester's screenshots. Press **I accept**, or
-  **Mark changes**: click a spot, write what should change and **Send remarks**. **Review later**
-  keeps the card for later.
-- **Open live.** When the screen runs on your Mac, **Open live** opens it full size. **Pick an
-  element**, click it on the page and write a note; numbered notes go together with **Send notes**.
-- Remarks and notes go to the agent that made the screen, in the same session, without a new run.
-  Checks run once, after you accept.
+- **Comment on a screenshot.** Pin comments on a screen and send them. The same agent fixes them
+  while the review stays open; new screenshots replace the old ones, and before and after are kept.
+- **Live.** In projects with a real web page, **Live** starts the app. **Pick an element**, click it
+  on the page and write what should change. A desktop app is reviewed on screenshots.
+- **Approve design** ends that design for good. Checks run on the approved version without asking
+  you again.
+- If the preview cannot start, the review still opens, says why and switches to screenshots, so a
+  goal never stalls on a design.
 - Turn the review off with **Review the design before interface changes are recorded** in
   **Settings → Auto**.
 
@@ -398,9 +445,10 @@ board, start it with an agent, and see what it did and what it cost. Boards need
 
 ![A board in the Board view: columns with epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost.](../public/screenshots/boards.webp)
 
-- **Encrypted on your Mac.** Items, comments and activity are encrypted before they leave your Mac;
-  the server only relays them.
-- **Members.** Invite people by email as **Editor** or **Viewer**, and approve every new device.
+- **One state for everyone.** Items, comments and activity are kept on the MonoOne server, so every
+  member sees the same board.
+- **People.** A board in an organization is open to everyone in it. A private board can be moved
+  into an organization with **Share with an organization**.
 - **Offline.** Changes wait on your Mac and are sent when the connection returns.
 
 ### Kinds of items
@@ -433,26 +481,32 @@ short ID such as `PRO-12`.
 
 ### Sprints and board settings
 
-**Board settings** (the gear next to **New task**) has a side menu: **General**, **Members**,
+**Board settings** (the gear next to **New task**) has a side menu: **General**, **People**,
 **Planning** and **Templates**.
 
 - **Planning** — **How work is planned**: Kanban, where tasks flow across the board, or **Sprints**,
   where you plan work in rounds. Set the **Sprint length**, what happens **After a sprint closes**
   (archive or delete finished tasks), and your **Columns** — name, colour and what each one is for.
 - **Templates** — a starting text for each kind, so every new bug or story begins the same way.
-- **Members** — who can edit or read the board.
+- **People** — the owner and everyone with access, with their role (**Admin**, **Editor** or
+  **Viewer**) and **Remove**. Handing the board to another owner sits in **General**, behind a
+  confirmation.
 
 ![Board settings on Planning, with the side menu General, Members, Planning and Templates: Kanban chosen, a sprint length of two weeks, Archive finished tasks after a sprint, and five columns with a name, a colour and a role.](../public/screenshots/board-settings.webp)
 
-With sprints on, the **Backlog** holds what is not planned yet; **Create sprint**, **Start** and
-**Close sprint** move the work along, and unfinished tasks move to the next planned sprint. Only the
+With sprints on, a compact header shows the sprint with a switcher for active, planned and closed
+sprints, its dates, days left, progress and goal. The **Backlog** groups tasks into the active
+sprint, planned sprints and the backlog; move a task with **Move to…** or by dragging. **Create
+sprint**, **Start** and **Close sprint** move the work along, and unfinished tasks move to the next
+planned sprint. Only the
 owner changes these settings, and every member of a shared board sees the same ones.
 
 ### Agents on a board
 
 - **Run with Auto** on a card, or the **Runs** tab of an item, starts it as a workflow or an Auto
   goal in a folder on your Mac. Progress shows on the board for every member.
-- **From a conversation.** Ask the Lead to put the work on a board, and it creates the item itself.
+- **From a conversation.** Ask the Lead to put the work on a board, and it creates the item itself,
+  with a short title, a structured description and acceptance criteria.
 - **Agent replies** appear in the item as a thread, apart from what people wrote.
 - A question from the agent appears in the item; any editor can answer it there.
 - On a board of a [team project](#team-projects), **Run with Auto** asks where it runs (**This
@@ -469,7 +523,9 @@ Both need a MonoOne account; a private folder works without one.
 
 **Settings → Organizations** lists **Your organizations**. **Create organization** makes one; open
 it to **Invite person** by email, see **Members** and **Invitations**, and **Revoke invitation**.
-People are **Owner**, **Admin** or **Member**; an invitation joins as a Member.
+The person gets an email asking them to sign in to RigOne with that address and accept in
+**Settings → Organizations**. People are **Owner**, **Admin** or **Member**; an invitation joins as a
+Member. Everyone in an organization opens every board, project and library item it owns.
 
 ### Connect a folder
 
@@ -480,8 +536,9 @@ on this Mac. Where the folder lives is kept on each computer and never shared.
 
 ### Share skills, agents and workflows
 
-**Share** on Skills, Agents, Context, Workflows and Settings → Connections offers a skill, an agent
-role, a context, a workflow or a connection definition to others.
+**Share** on Skills, Agents, Materials, Workflows and Settings → Connections offers a skill, an agent
+role, a set of materials, a workflow or a connection definition to others. Before anything is sent,
+RigOne replaces your home folder with `~` and removes text that looks like a secret.
 
 - **Who can see it:** **Private**, **Project**, **Organization** or **Selected people**.
 - **What they may do:** **Use**, **Use · Edit**, **Use · Edit · Share** or **Use · Edit · Share ·
@@ -489,14 +546,16 @@ role, a context, a workflow or a connection definition to others.
 - **Review files** shows exactly what leaves your Mac. Nothing is sent until you **Confirm sharing**.
 
 Shared items are versioned. A change is a draft first: **Send for approval**, and the owner can
-**Approve** or **Reject** it; **Publish** is a separate step. **Compare latest** shows what changed.
+**Approve** or **Reject** it; **Publish** is a separate step. **Compare latest** shows what changed,
+and the share dialog updates a shared item to a new version. A shared skill you use lands in the
+project you have open, under its own name, with all its files.
 
 ### Boards in a team project
 
 A new board is a **Private board** or belongs to an **Organization** and **Project**, and follows
 that project's access. **Access and project** on the board adds guests as **Viewer** or **Editor**;
-viewers cannot start runs. Board content and shared items are encrypted on your Mac; the server
-keeps who belongs to which organization, their roles and invitations.
+viewers cannot start runs. Board content and organization projects are kept on the MonoOne
+server as plain data, so every member sees the same state.
 
 ## Analytics and costs
 
@@ -536,20 +595,27 @@ Good to know:
 
 ## Triggers
 
-**Triggers** (⌘4) start a workflow without you pressing Run. Today the source is **Linear**: an issue
-newly assigned to you starts one run.
+**Triggers** (⌘4) start a workflow without you pressing Run. The source is **Linear**, where an issue
+newly assigned to you starts one run, or **Discord**, where a mention of your bot starts one (with the
+[Discord plugin](#plugins) installed).
 
 ![Triggers › Edit Linear trigger on its own page: Connector Linear, the environment variable with Test connection, When an issue is assigned to you, the workspace, Check every and the workflow, with Delete, Cancel and Save.](../public/screenshots/trigger-form.webp)
 
 Press **Create trigger**, then set:
 
-- **Environment variable name** — where your Linear key is. **Test connection** checks it.
+- **Environment variable name** — where your Linear key is. RigOne also reads it from
+  `~/.rig-one/env` when the app has no such variable. **Test connection** checks it.
 - **Workspace** — the folder the run works in.
 - **Check every** — 1, 5, 15 or 60 minutes.
 - **Workflow** — what runs.
 
 One issue starts one run, even after a restart. Issues already assigned before you create the
-trigger do not start runs. Triggers work while RigOne is open.
+trigger do not start runs. A disabled trigger shows how many issues wait to start and lets you
+discard them. Triggers work while RigOne is open.
+
+A **Discord** trigger asks for the **channel ID** and the environment variable that holds the bot
+token, and can test the connection. A message that mentions the bot becomes the task; agents in the
+run can reply in Discord, and the bot never starts a run from its own messages.
 
 ![The Triggers screen: two Linear triggers watching for issues assigned to you, one starting Fix a bug every 5 minutes and switched on, one starting Review a pull request every 15 minutes and switched off.](../public/screenshots/triggers.webp)
 
@@ -614,9 +680,10 @@ RigOne treats a failed run as a product failure, not terminal noise. It never do
 ### What leaves your Mac
 
 RigOne runs on your Mac and works in your folders. The agents it starts send what they read to
-their own providers, exactly as in a terminal. A trigger talks to Linear with your key. Boards sends
-only encrypted data to the MonoOne server, and Remote access connects your phone through the MonoOne
-relay. RigOne itself sends no analytics anywhere — the Analytics screen is computed on your Mac.
+their own providers, exactly as in a terminal. A trigger talks to Linear or Discord with your key.
+Boards and organizations keep their content on the MonoOne server, and Remote access connects your
+phone through the MonoOne relay. The plugin store reads its list from rig-one.io and keeps the last
+copy for offline use. RigOne itself sends no analytics anywhere — the Analytics screen is computed on your Mac.
 
 ## Agents
 
@@ -633,7 +700,8 @@ access, model and effort. Click one to read it; press **Edit** to change it.
 - **Access** — **Can it change files**: **Look only**, **Ask first** or **Work freely**. **Can it
   reach the web**: no, or read and search.
 - **Give up after** — 10 minutes, 30 minutes or no limit.
-- **Skills and connections** — what it may use beyond its instructions.
+- **Skills and connections** — what it may use beyond its instructions, including which of your
+  own plugins and MCP servers it gets: all, chosen ones, or none.
 
 ![Edit Builder on the Model tab: Runs with Claude Code, Model source, Model gateway Straight to the agent app, the models with Refresh models, the effort and Give up after.](../public/screenshots/agent-edit.webp)
 
@@ -690,7 +758,7 @@ context.
 ## Overview
 
 **Overview** (G P) shows the whole project on one page. **Summary** comes first: six tiles —
-**Score**, **Agents**, **Workflows**, **Knowledge**, **Changes** and **Triggers** — and **Needs your
+**Score**, **Agents**, **Workflows**, **Playbook**, **Changes** and **Triggers** — and **Needs your
 attention**, a short list of what to look at. Tabs hold the details.
 
 ![Overview of client-website on the Summary tab: six tiles — Score, Agents, Workflows, Knowledge, Changes and Triggers — and Needs your attention below them.](../public/screenshots/project.webp)
@@ -698,7 +766,7 @@ attention**, a short list of what to look at. Tabs hold the details.
 - **Score** — how easily agents find their way in this project; see [Score](#score).
 - **Repository** — branch, changes, branches, size on disk and largest folders.
 - **Agents** and **Workflows** — with a **Fix** button where something needs a change.
-- **Knowledge** — instruction files, skills and new lessons to review.
+- **Playbook** — instruction files, skills and new lessons to review.
 - **Automation** — triggers and the Auto rules.
 
 **Open in** opens the project in your editor.
@@ -794,21 +862,23 @@ choose Claude Code or Codex yourself. OpenCode is not used for Score.
 ## Lab
 
 **Lab** (⌘7) tells you whether a change to an agent, skill or workflow made the work better — on
-cases from your own code, not a generic benchmark.
+cases from your own code, not a generic benchmark. Lab is a [plugin](#plugins), installed by default;
+with it off, its screen and search entry are gone.
 
 ![The Lab set Scout on sign-up bugs on its own page: cases in two columns, Scout today and Scout with Opus, with passed and did-not-pass marks, What tells the columns apart and What did not pass.](../public/screenshots/lab.webp)
 
 1. **Evaluate** on an agent or skill, or **Evaluate workflow**, creates a set.
-2. **Write cases** — RigOne drafts cases from your project; **Accept** the good ones.
+2. **Write cases** — RigOne drafts cases from your project; **Accept** the good ones. You can pick the
+   agent that writes the cases and the fixes.
 3. **Columns** — the same agent with one thing changed, such as the model.
 4. **Run** — every case runs in every column and gets **passed** or **did not pass**.
 5. **Propose a fix** under **What did not pass** suggests better instructions.
 
 ![The Lab: sets listed by kind in the tabs Agents, Workflows and Skills, with two agent sets and Write cases.](../public/screenshots/lab-sets.webp)
 
-## Knowledge
+## Playbook
 
-**Knowledge** (⌘5) is what agents carry into their prompts. You stay in control: nothing an agent
+**Playbook** (⌘5, called Knowledge before 1.15.5) is what agents carry into their prompts. You stay in control: nothing an agent
 learns is used until you approve it.
 
 ![The Knowledge screen: Health in good shape, the tabs Waiting for you, Always in context, Used when they fit, What agents passed to each other and Earlier project notes, and suggested notes waiting for Keep or Discard.](../public/screenshots/knowledge.webp)
@@ -828,23 +898,23 @@ learns is used until you approve it.
 
 ![Knowledge Health: five things to look at, each with why — out of date or not pulling its weight — and Take out of prompts or Review them, above the tabs.](../public/screenshots/knowledge-health.webp)
 
-## Context
+## Materials
 
-**Context** (⌘6) holds named sets of material for agents: requirements, notes, screenshots, PDFs.
+**Materials** (⌘6, called Context before 1.15.5) holds named sets of material for agents: requirements, notes, screenshots, PDFs.
 
 ![The Context screen: Active and Archived, three sets — two ready and one not prepared yet — each with Archive, and the field to name a new set.](../public/screenshots/context.webp)
 
 1. Name a set and press **＋ Create**.
 2. Paste text or screenshots, or **Add files**.
 3. Press **Build context** — RigOne organises it into topics, findings and open questions.
-4. Attach the set to a step, a workflow or a conversation (**Context** under the message field).
+4. Attach the set to a step, a workflow or a conversation (**Materials** under the message field).
 
 A run keeps the version it started with, so rebuilding a set never changes a run in progress.
 
 ## Skills
 
 **Skills** shows the skills your project gives its agents, read from `.claude/skills` and
-`.agents/skills`. It is read-only; to add one, use **Add a skill** in [Knowledge](#knowledge).
+`.agents/skills`. It is read-only; to add one, use **Add a skill** in [Playbook](#playbook).
 
 ![The Skills screen: three skills of the project in a list, and release-notes open on the right, read only, with its instructions.](../public/screenshots/skills.webp)
 
@@ -856,9 +926,11 @@ A run keeps the version it started with, so rebuilding a set never changes a run
 | --- | --- |
 | **Work** | Runs, Auto, Limits |
 | **Project** | Project, Score, Connections |
-| **Agents** | Agent apps, and a page each for Claude Code, Codex and OpenCode |
+| **Agents** | Agent apps, and a page each for Claude Code, Codex, OpenCode and Gemini CLI |
 | **Account** | Account, Organizations, GitHub, Remote access |
 | **App** | Appearance, Keyboard shortcuts, Storage, Health check, About |
+
+Newer pages sit beside them: **Usage limits**, **Plugins** and **Experimental**.
 
 ### Runs
 
@@ -875,6 +947,11 @@ RigOne restarts** — all on by default. **Allowed credential files** lists file
 as a private registry `.npmrc`.
 
 ![Settings → Auto: under Access, Full access for agents (YOLO), the design review and Resume goals after RigOne restarts switched on, and the credential file exceptions.](../public/screenshots/settings-auto.webp)
+
+### Usage limits
+
+**Warn about usage limits** turns the warning on or off, and the percent (50 to 100) sets from where
+RigOne warns and moves Auto work to another agent app.
 
 ### Limits
 
@@ -907,7 +984,7 @@ The tool servers (MCP) agents may use in this project, each with a switch. Add o
 
 ### Agent apps
 
-Update Claude Code, Codex and OpenCode in one place — RigOne only updates an app nobody is using.
+Update your agent apps in one place — RigOne only updates an app nobody is using.
 Pick the editor **Open in** uses, and add **Model gateways**. Each agent app has its own page with its
 sign-in, default model, tool servers and how much of its plan is used.
 
@@ -932,10 +1009,20 @@ view**.
 
 ### Storage
 
-How much disk RigOne uses, part by part, and how much can be freed. **Clean now** removes what
-builds can make again. RigOne also cleans up on its own when the disk runs low.
+How much disk RigOne uses, part by part — run records, boards, the build cache, each step's saved
+state and evidence — and at least how much can be freed. **Clean now** removes what builds can make
+again. Evidence of finished runs and goals is removed after three days, a finished Auto goal frees
+its temporary copies, and RigOne also cleans up on its own when the disk runs low.
 
 ![Settings → Storage: RigOne uses 3.7 GB, six parts with their sizes, the free space on the disk, and 1.2 GB that can be cleaned now with Clean now.](../public/screenshots/settings-storage.webp)
+
+### Plugins
+
+**Settings → Plugins** works like a store, with **Installed** and **Store** tabs and search. Each
+plugin has its own page with its author, what it needs, a description, screenshots and ratings, and
+**Install** or **Uninstall**. Packages are signed, and RigOne refuses anything else. A plugin can have
+its own settings, give agents tools and feed triggers; its keys stay in the plugin's own process. The
+change works after RigOne restarts. **Lab** comes installed; **Discord** is in the store.
 
 ### About
 
@@ -960,10 +1047,20 @@ MonoOne account.
 
 ### What your phone can do
 
-- Answer what waits in **Needs you**.
+The phone app has one menu: the project picker at the top, then the project's conversations with
+the Lead first, then **Overview**, **Work**, **Boards**, **Limits**, **Mac**, **This device** and
+**Settings**. A project opens on its Lead conversation.
+
+- Answer the questions the Lead passes on to you. Questions agents ask inside their own runs stay
+  with the Lead.
 - Start a conversation or an Auto goal, message the Lead, or stop work.
 - Read your boards and comment on items.
 - See plan limits and how busy your Mac is.
+- Choose **System**, **Light** or **Dark** in **Settings → Appearance** on the phone.
+
+A page says whether what it shows is confirmed by your Mac. Every action you send shows where it
+stands: saved on the phone, waiting for the Mac, accepted, applied, refused or result unknown. An
+action with an unknown result is never sent a second time on its own.
 
 Face ID or Touch ID is always on. Writing outside a copy and full Auto access can only be approved on
 the Mac. **Revoke** removes a device at any time, and **Projects available remotely** chooses what
@@ -972,15 +1069,16 @@ the phone can reach.
 ## Updating
 
 RigOne updates itself. Open **Settings → About** to check for, download and install a new version.
-Every update is verified against RigOne's signing key before it installs, and running work finishes
-before RigOne restarts.
+Every update is verified against RigOne's signing key before it installs. RigOne says first how much
+running work an update would interrupt; Auto goals carry on by themselves after the restart, and a
+paused run shows **Paused for the update** with **Continue**.
 
 Coming from a version older than 1.13.3? Download the DMG from the
 [latest release](https://github.com/monoone-dev/rig-one-landing-page/releases/latest) once and
 replace the app in Applications. Your agents, workflows and projects stay where they are. What
 changed in each version is in the [changelog](https://rig-one.io/changelog/).
 
-Claude Code, Codex and OpenCode are updated separately, in **Settings → Agent apps**.
+Agent apps are updated separately, in **Settings → Agent apps**.
 
 ## Files on disk
 
@@ -988,8 +1086,8 @@ Everything RigOne keeps is plain files you can read.
 
 | What | Where |
 | --- | --- |
-| Your agents, workflows, skills, notes, triggers, context and settings | `~/.rig-one/` |
-| Keys for model gateways | `~/.rig-one/env` |
+| Your agents, workflows, skills, notes, triggers, materials and settings | `~/.rig-one/` |
+| Keys for model gateways and triggers | `~/.rig-one/env` |
 | A project's notes, run history and score | `.rig-one/` in the project |
 | One run: plan, handoffs, answers, logs and results | `.rig-one/runs/<time>__<id>/` |
 | The search index — safe to delete, it is rebuilt | `.rig-one/rig-one.db` |
@@ -1008,8 +1106,8 @@ Branches left by runs are ordinary Git branches; delete them with Git if you no 
 
 ## Troubleshooting
 
-**An agent app is not ready.** Open **Settings → Health check**. Run `claude`, `codex` or `opencode`
-once in Terminal to sign in, then press **Run again**.
+**An agent app is not ready.** Open **Settings → Health check**. Run `claude`, `codex`, `opencode` or
+`gemini` once in Terminal to sign in, then press **Run again**.
 
 **A run refuses to start and names a step.** Usually a model your agent app no longer offers, or a
 connection that is off. Fix that step and start again.
@@ -1026,7 +1124,8 @@ Auto**.
 **The spend says $0.00.** Nothing with a known price has run in this task yet. Analytics leaves out
 turns whose price RigOne does not know.
 
-**Boards or Remote access asks me to sign in.** They are the only parts that need an account. Sign in
+**Boards, organizations or Remote access ask me to sign in.** They are the only parts that need an
+account. Sign in
 under **Settings → Account**.
 
 **My phone shows the pairing screen again.** Remove the phone in **Settings → Remote access** and

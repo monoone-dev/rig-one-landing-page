@@ -4,11 +4,11 @@ export default {
   meta: {
     home: {
       title: 'RigOne — Mac 上的编程智能体控制中心',
-      description: '免费的 Mac 应用，让 Claude Code、Codex 和 OpenCode 组队运行。把目标交给 Auto，审查每一行改动，为项目打分，并查看每个任务的花费。',
+      description: '免费的 Mac 应用，让 Claude Code、Codex、OpenCode 和 Gemini CLI 组队运行。把目标交给 Auto，审查它的计划和每一行改动，并查看每个任务的花费。',
     },
     features: {
       title: 'RigOne 功能：工作流、Auto、审查、Score 与花费',
-      description: '可视化工作流、带设计评审的 Auto 目标、并行运行、由 RigOne 自己运行的检查、IDE 式审查、项目 Score、花费分析和团队看板。',
+      description: '可视化工作流、带计划评审和设计评审的 Auto 目标、并行运行、由 RigOne 自己运行的检查、IDE 式审查、项目 Score、花费分析和团队看板。',
       breadcrumb: '功能',
     },
     docs: {
@@ -23,7 +23,7 @@ export default {
     },
     plugins: {
       title: 'RigOne 插件：Lab 评估与 Discord 触发器',
-      description: '可以开启或关闭的 RigOne 部分：Lab 用你自己的用例比较智能体版本，Discord 在有人提及你的机器人时启动工作流。',
+      description: '可以开启或关闭的 RigOne 部分：Lab 用你自己的用例比较智能体版本，已签名的 Discord 插件在有人提及你的机器人时启动工作流。',
       breadcrumb: '插件',
     },
     changelog: {
@@ -63,12 +63,12 @@ export default {
   },
   hero: {
     badgePlatform: 'macOS · Apple Silicon',
-    badgeAgents: 'Claude Code · Codex · OpenCode',
+    badgeAgents: 'Claude Code · Codex · OpenCode · Gemini CLI',
     badgeRelease: '{version} 已发布',
-    audience: '为已经在用 Claude Code、Codex 或 OpenCode 的开发者打造',
+    audience: '为已经在用 Claude Code、Codex、OpenCode 或 Gemini CLI 的开发者打造',
     titleStrong: '面向编码智能体的 IDE。',
     titleSoft: '让它们像团队一样协作，审查每一行。',
-    sub: 'RigOne 是一款免费的 Mac 应用，把 Claude Code、Codex 和 OpenCode 变成可以再次运行的团队：步骤并行，每一步都在你代码的独立副本中进行，由 RigOne 自己运行检查，并且在任何改动进入你的分支之前审查每一行改动——多个项目都在一个窗口里。',
+    sub: 'RigOne 是一款免费的 Mac 应用，把 Claude Code、Codex、OpenCode 和 Gemini CLI 变成可以再次运行的团队：步骤并行，每一步都在你代码的独立副本中进行，由 RigOne 自己运行检查，并且在任何改动进入你的分支之前审查每一行改动——多个项目都在一个窗口里。',
     problemsLabel: 'RigOne 解决的问题',
     problems: [
       { problem: '在多个终端间来回切换', answer: '一个窗口就能规划、运行并审查每个项目里的每个智能体。' },
@@ -84,7 +84,7 @@ export default {
     aria: '你可以放心的几点',
     items: [
       '在你的 Mac 上、对着你的文件夹运行',
-      'Claude Code、Codex 和 OpenCode 平起平坐',
+      'Claude Code、Codex、OpenCode 和 Gemini CLI 平起平坐',
       '在你接收之前，什么都不会进入你的分支',
       '使用 Apple Developer ID 签名',
     ],
@@ -111,7 +111,7 @@ export default {
       },
       peers: {
         title: '多家供应商，一次运行',
-        body: '在同一个工作流里混用 Claude Code、Codex 和 OpenCode——一个负责写，另一个提供第二意见。',
+        body: '在同一个工作流里混用 Claude Code、Codex、OpenCode 和 Gemini CLI——一个负责写，另一个提供第二意见。',
         link: '可复用的智能体',
       },
       parallel: {
@@ -176,7 +176,7 @@ export default {
     steps: [
       {
         title: '写一个智能体',
-        body: '一件事，一条指令。选好 Claude Code、Codex 或 OpenCode、模型、思考深度，以及它能碰什么。',
+        body: '一件事，一条指令。选好 Claude Code、Codex、OpenCode 或 Gemini CLI、模型、思考深度，以及它能碰什么。',
       },
       {
         title: '把智能体排成一行',
@@ -221,8 +221,8 @@ export default {
       'agent-detail': {
         tab: 'Agents',
         title: '整个角色都在一个界面上',
-        body: '它的指令、所用的智能体应用（Claude Code、Codex 或 OpenCode）及模型和思考深度、能否修改文件或访问网络，以及何时放弃。',
-        alt: '以只读方式打开的智能体 Builder：它的指令、Claude Code 及其模型和思考强度、可修改和可访问的范围、技能与连接，以及 Evaluate、Duplicate、Delete 和 Edit。',
+        body: '它的指令、所用的智能体应用（Claude Code、Codex、OpenCode 或 Gemini CLI）及模型和思考深度、能否修改文件或访问网络，以及何时放弃。',
+        alt: '以只读方式打开的智能体 Builder：它的指令、Claude Code 及其模型和思考强度、可修改和可访问的范围、技能与连接，以及 Share、Evaluate、Duplicate、Delete 和 Edit。',
       },
       canvas: {
         tab: 'Canvas',
@@ -233,19 +233,19 @@ export default {
       project: {
         tab: 'Overview',
         title: '整个项目，一页看完',
-        body: '先是摘要——各项数字和需要你处理的事项——然后是 Score、Repository、Agents、Workflows、Knowledge 和 Automation 各自的标签页。',
-        alt: 'client-website 的 Overview（Summary 标签页）：Score 78、四个智能体、三个工作流、九项知识、没有改动、两个触发器，Needs your attention 下有两条新经验。',
+        body: '先是摘要——各项数字和需要你处理的事项——然后是 Score、Repository、Agents、Workflows、Playbook 和 Automation 各自的标签页。',
+        alt: 'client-website 的 Overview（Summary 标签页）：Score 78、四个智能体、三个工作流、Playbook 中九项内容、没有改动、两个触发器，Needs your attention 下有两条新经验。',
       },
       knowledge: {
-        tab: 'Knowledge',
+        tab: 'Playbook',
         title: '智能体知道什么，由你批准',
-        body: '智能体建议的笔记等你选择 Keep 或 Discard。批准的笔记进入每一条提示词；技能在适合当前工作时使用。',
-        alt: 'Knowledge 界面：Health 状态良好，每类知识各有一个标签页，三条建议笔记等待 Keep 或 Discard。',
+        body: '智能体建议的笔记在 Playbook 中等你选择 Keep 或 Discard。批准的笔记进入每一条提示词；技能在适合当前工作时使用。',
+        alt: 'Playbook 界面：Health 状态良好，每类知识各有一个标签页，两条建议笔记等待 Keep 或 Discard。',
       },
       settings: {
         tab: 'Settings',
         title: '独立窗口中的设置',
-        body: '按工作、项目、智能体、账户和应用分类，还有告诉你什么正常的 Health check，以及显示 RigOne 占用多少磁盘空间的 Storage 页面。可选浅色、深色或跟随 macOS，桌面透出的程度，以及强调色。',
+        body: '按工作、项目、智能体、账户和应用分类，还有告诉你什么正常的 Health check，以及细分 RigOne 占用的磁盘空间并可在一处清理的 Storage 页面。可选浅色、深色或跟随 macOS，桌面透出的程度，以及强调色。',
         alt: 'Settings → Appearance：应用语言、System、Light 或 Dark、窗口透明度、强调色和对话视图。',
       },
       'run-panel': {
@@ -258,7 +258,7 @@ export default {
         tab: 'Boards',
         title: '先规划工作，再交给智能体',
         body: '史诗、功能、用户故事、任务和缺陷，放在团队共享的看板上。每张卡片显示其工作的花费，功能会汇总其下所有内容。',
-        alt: '共享看板（Board 视图）：史诗、功能、故事、任务和缺陷各列，每张卡片标有类型、ID 和花费。',
+        alt: '冲刺看板 Product roadmap：Sprint 12 的日期、剩余天数和进度，以及史诗、功能、故事、任务和缺陷各列，每张卡片标有类型、ID 和花费。',
       },
       score: {
         tab: 'Score',
@@ -347,6 +347,8 @@ export default {
           '每条回复都显示写出它的模型和思考深度',
           '用加号按钮添加文件、照片或文件夹，或直接拖到对话中',
           '回车总会接收你的消息；Lead 忙碌时，消息按顺序等待，直到送达',
+          '在消息中提及你保存的某个项目智能体即可调用它；它按自己的设置运行',
+          'History 可以查找并重新打开项目过去的对话；新对话在第一条回复后获得清楚的标题',
         ],
       },
       review: {
@@ -381,6 +383,7 @@ export default {
           '⌘⌥\\ 会在当前项目旁边打开下一个项目',
           '重启后标签页和窗格会回来',
           '把一个标签页拖到另一个上，即可在同一个分屏标签页中并排显示；彩色方块区分各个项目',
+          '实验性的任务窗口：一个界面上最多十个来自任意项目的任务，可用键盘分屏、移动和调整大小',
         ],
       },
       auto: {
@@ -389,12 +392,35 @@ export default {
         body: '给 Lead 一个目标。Auto 选出所需的角色和技能，为每个部分搭建普通的工作流，一直推进到检查和审查证明工作成立。目标是否已验证由 RigOne 判断，而不是 Lead。',
         points: [
           '所有等你决定的事都在一个列表里：Needs you',
-          '新界面：从三份草图中选一份，然后接受外观，或在运行中的页面上点击要改的地方',
+          '从 Low 到 Ultra 的配置档，决定 Auto 给每类步骤用的模型最强能到什么程度',
           '交付前每个仓库只做一次最终检查，已通过的测试不会再跑',
-          '等待繁忙的提供方或用量限制恢复，然后继续',
+          '智能体应用在步骤中途用完额度时，该步骤会带着已完成的工作，在你允许的另一个应用中继续',
+          '写下“approve everything”后，这个目标中不会再有任何事等你批准',
           'Pause Auto 与 Resume；同一个文件夹最多同时进行三个目标',
           'YOLO mode 让智能体在整个对话中拥有完全访问权限；默认值在 Settings → Auto 中设置',
-          'RigOne 重启后目标会自动继续；退出前会先确认，再停止所有智能体',
+          '重启或更新后目标会自动继续；退出时会说明将中断多少正在进行的工作',
+        ],
+      },
+      plans: {
+        eyebrow: '计划',
+        title: '运行之前先审查计划',
+        body: 'Auto 开始之前，智能体可以把计划写成对话旁边的一个交互式页面。选中文字、写评论并把意见发回去，然后在 Auto 中构建商定的计划，或把它拆成任务。',
+        points: [
+          '评论固定在你选中的文字上，评论数也保持同步',
+          '在 Auto 中构建计划，或把它变成任务',
+          'Auto 计划以一个有开始和结束的工作流打开，每个部分各有自己的颜色',
+          '点击一个部分即可放大到它的步骤；Show everything 回到整个计划',
+        ],
+      },
+      design: {
+        eyebrow: 'Design review',
+        title: '在智能体修改界面时审查它',
+        body: '某个部分改动界面时，Needs you 会显示 Design review。它先打开智能体的截图，截图在登录状态下用接近真实的数据拍摄。钉上评论，同一个智能体就会在审查保持打开时修复它们。',
+        points: [
+          '有网页的项目可以切换到 Live，在运行中的应用上选取元素',
+          '新截图会替换旧截图；修改前后的对比会保留',
+          '审查会说明改了什么，以及在应用中该看哪里',
+          'Approve design 结束这次设计；检查在批准的版本上运行',
         ],
       },
       agents: {
@@ -402,22 +428,23 @@ export default {
         title: '可复用的智能体',
         body: '角色只需定义一次，就能在每个工作流里复用。打开它时，整个角色——它的说明、模型和文件权限——都显示在屏幕上。',
         points: [
-          'Claude Code、Codex 或 OpenCode，以及模型、思考深度、超时和网络访问',
+          'Claude Code、Codex、OpenCode 或 Gemini CLI，以及模型、思考深度、超时和网络访问',
           '文件访问权限从“只看”往上',
           '工具服务器（连接）和技能，从项目已有的里面挑选',
+          '选择角色可以使用你自己的哪些插件和 MCP 服务器：全部、部分或不使用',
           '你自己的模型网关，或通过 Ollama 使用本地模型',
           '从另一个项目导入配置，不复制密钥和历史',
         ],
       },
       knowledge: {
-        eyebrow: '知识',
+        eyebrow: 'Playbook',
         title: '属于项目的知识',
-        body: '笔记和技能与项目一起存放在磁盘上。智能体建议的笔记，只有经你批准后才会进入之后的提示词。',
+        body: '笔记和技能与项目一起存放在磁盘上。智能体建议的笔记会在 Playbook 中等待，只有经你批准后才会进入之后的提示词。',
         points: [
           '笔记进入每一条提示词；技能在适合当前工作时使用',
           'Skills 显示项目的 .claude/skills 和 .agents/skills 给了智能体什么',
-          '用文本、Markdown、图片和 PDF 建立有名称的上下文集',
-          '查看一次运行实际用了哪些上下文',
+          'Materials：用文本、Markdown、图片和 PDF 建立有名称的集合，供需要它们的步骤使用',
+          '查看一次运行实际用了哪些 Materials',
           'Health 显示每个提示词携带多少内容，并标出过大、过时或未被使用的知识',
         ],
       },
@@ -451,10 +478,10 @@ export default {
         points: [
           '条目可以嵌套：史诗包含功能，功能包含故事，故事包含任务和缺陷',
           '每张卡片显示花费和 token，故事、功能或史诗会汇总其下所有内容',
-          '带待办列表的冲刺、自定义列，以及每种类型的模板',
-          '按人员或类型筛选；对话可以自己把工作放到看板上',
-          '在你的 Mac 上加密并签名；服务器只转发密文',
-          '团队项目与组织共享技能、智能体角色、工作流和连接，每次更新都经过审查',
+          '带紧凑标题栏的冲刺、按冲刺分组的待办列表、自定义列，以及每种类型的模板',
+          '按人员或类型筛选；对话可以把工作放到看板上，并附上简短标题和验收标准',
+          '组织中的每个人都能看到它拥有的所有看板、项目和库条目',
+          '组织通过库共享技能、智能体角色和工作流；可在共享对话框中把共享条目更新到新版本',
           '需要 MonoOne 账户，Remote access 也一样',
         ],
       },
@@ -473,11 +500,12 @@ export default {
       triggers: {
         eyebrow: '触发器',
         title: '触发器与恢复',
-        body: '当有 Linear 问题分配给你时启动工作流，每 1、5、15 或 60 分钟检查一次。被中断的工作通过同一条启动路径恢复，而不是靠第二个引擎。',
+        body: '当有 Linear 问题分配给你时启动工作流，每 1、5、15 或 60 分钟检查一次；也可以在有人于 Discord 频道中提及你的机器人时启动。被中断的工作通过同一条启动路径恢复，而不是靠第二个引擎。',
         points: [
           '一个问题只启动一次运行，重启之后也一样',
-          'API 密钥只写入一次，之后不再显示',
+          '密钥从环境变量读取，绝不保存在触发器中',
           '删除触发器会取消正在等待的内容，并且清楚可见',
+          '已停用的触发器会显示有多少问题在等待，并让你丢弃它们',
         ],
       },
       lab: {
@@ -488,12 +516,13 @@ export default {
           '用例来自你的代码，而不是通用基准测试',
           '对比智能体在你修改前后的表现',
           '智能体、工作流和技能的测试集分标签页列出，每个测试集都有自己的页面',
+          '选择编写用例和修复的智能体',
         ],
       },
       rig: {
         eyebrow: 'Overview',
         title: '一页掌握整个项目',
-        body: '谁在这个项目里工作、如何工作、掌握哪些知识，以及智能体能否轻松上手。摘要列出需要你处理的事项；标签页包括 Score、Repository、Agents、Workflows、Knowledge 和 Automation。',
+        body: '谁在这个项目里工作、如何工作、掌握哪些知识，以及智能体能否轻松上手。摘要列出需要你处理的事项；标签页包括 Score、Repository、Agents、Workflows、Playbook 和 Automation。',
         points: [
           'Score：智能体阅读项目并给出 100 分制评分，最弱的方面排在最前，每项都有建议和一个启动修复的按钮',
           '先列出仓库信息：当前分支、改动、分支列表、磁盘占用和工作区',
@@ -501,13 +530,16 @@ export default {
           'Generate project setup 根据仓库起草智能体和工作流；在你选择 Apply setup 之前什么都不会改变',
           '需要修改的工作流会说明原因，RigOne 能修的地方有 Fix 按钮',
           '运行中学到的新经验在这里等你选择 Keep 或 Discard',
+          '从项目菜单中重命名或移除项目',
         ],
       },
       remote: {
         eyebrow: 'Remote access',
         title: '在手机上看你的运行',
-        body: '用一个代码配对手机或平板，随时随地跟进工作：回答 Needs you 中等待的事项、启动 Auto 目标、给 Lead 发消息或停止工作。',
+        body: '用一个代码配对手机或平板，随时随地跟进工作。每个项目都会打开它的 Lead 对话：回答 Lead 转给你的事项、启动 Auto 目标、给 Lead 发消息或停止工作。',
         points: [
+          '你发出的每个操作都会显示所处状态：等待 Mac、已接受、已应用或已拒绝',
+          '页面会说明它显示的内容是否已由你的 Mac 确认',
           'Face ID 或 Touch ID 始终开启',
           '在副本外写入和 Auto 的完全访问只能在 Mac 上批准',
           '选择哪些项目可用，随时撤销某台设备',
@@ -530,8 +562,8 @@ export default {
     eyebrow: '插件',
     title: '只安装你用得到的',
     lead: 'RigOne 默认只做一件事：你排好智能体图并运行它。其他一切都是可以关闭的插件，关闭插件绝不会删除它的文件。',
-    howTo: '在 设置、插件 的可搜索列表中安装插件。更改在 RigOne 重启后生效。',
-    status: { included: '已包含', soon: '即将推出' },
+    howTo: '在 设置、插件 的商店中安装插件。插件包都经过签名，RigOne 会拒绝其他任何包。更改在 RigOne 重启后生效。',
+    status: { included: '已包含', store: '在商店中', soon: '即将推出' },
     items: {
       lab: {
         title: 'Lab',
@@ -546,8 +578,9 @@ export default {
         title: 'Discord',
         body: '在 Discord 频道中提及你的机器人，RigOne 就会以这条消息为任务启动你选择的工作流。',
         points: [
-        '粘贴一次机器人令牌即可连接',
-        '只有提及机器人时才会启动',
+        '来自商店的已签名插件包，有自己的页面和设置',
+        '会询问频道和保存机器人令牌的变量，并测试连接',
+        '只有提及机器人时才会启动，绝不会由它自己的消息触发',
         '运行中的智能体可以在 Discord 中回复',
         ],
       },
@@ -597,10 +630,10 @@ export default {
       items: [
         { title: '只支持 Mac，且只支持 Apple Silicon', body: 'Orca、Paseo、Nimbalyst 和 ChatGPT 应用也能在 Windows 和 Linux 上运行。Orca 还支持 Intel Mac。' },
         { title: '源代码未公开', body: 'RigOne 可以免费使用，但你无法阅读或 fork 它的代码。Orca 和 Nimbalyst 采用 MIT，Paseo 采用 Apache 2.0。' },
-        { title: '三款智能体应用', body: 'Claude Code、Codex 和 OpenCode。Orca、Paseo 和 Superset 能运行任何命令行智能体，列出了 20 到 30 款甚至更多。' },
+        { title: '四款智能体应用', body: 'Claude Code、Codex、OpenCode 和 Gemini CLI。Orca、Paseo 和 Superset 能运行任何命令行智能体，列出了 20 到 30 款甚至更多。' },
         { title: '没有内置编辑器或终端', body: 'RigOne 在你自己的编辑器里打开文件。Orca、Paseo 和 Nimbalyst 两者都内置；其他大多数有终端。' },
         { title: '只有 Auto 能创建拉取请求', body: '工作结果留在本地分支上；只有在你允许时，Auto 才会推送并创建拉取请求。Orca、Paseo、Superset、Conductor 和 Cursor 可以从任何任务创建拉取请求，其中几款还能合并。' },
-        { title: '集成少，没有定时运行', body: '只有分配给你的 Linear 问题能启动运行。其他产品可以定时运行，或由 GitHub、Slack 或 Jira 触发。' },
+        { title: '集成少，没有定时运行', body: '只有分配给你的 Linear 问题或对你的 Discord 机器人的提及能启动运行。其他产品可以定时运行，或由 GitHub、Slack 或 Jira 触发。' },
         { title: '手机上通过网页访问', body: '需要 MonoOne 账户。Paseo 有无需账户的 iOS 和 Android 应用；Nimbalyst、ChatGPT 和 Cursor 也有应用。' },
         { title: '只有花费提醒，没有上限', body: 'RigOne 显示每个任务的花费，运行达到某个金额时会提醒，但不会停止运行。Cursor 会在达到花费上限时停止。' },
       ],
@@ -645,7 +678,7 @@ export default {
       },
       agents: {
         criterion: '可运行的智能体',
-        cells: ['Claude Code、Codex、OpenCode；通过 Ollama 使用本地模型', '任何 CLI 智能体；列出约 30 款', '内置 7 款，通过 ACP 支持 30 款以上', '列出 21 款，另支持任何 CLI 智能体', 'Claude Code、Codex、Cursor、OpenCode', 'Claude Code、Codex；OpenCode 和 Copilot 为 alpha 版', '仅 Codex', 'Cursor 自己的智能体'],
+        cells: ['Claude Code、Codex、OpenCode、Gemini CLI；通过 Ollama 使用本地模型', '任何 CLI 智能体；列出约 30 款', '内置 7 款，通过 ACP 支持 30 款以上', '列出 21 款，另支持任何 CLI 智能体', 'Claude Code、Codex、Cursor、OpenCode', 'Claude Code、Codex；OpenCode 和 Copilot 为 alpha 版', '仅 Codex', 'Cursor 自己的智能体'],
       },
       mix: {
         criterion: '不同服务商之间相互交接工作',
@@ -657,7 +690,7 @@ export default {
       },
       triggers: {
         criterion: '定时或由事件触发运行',
-        cells: ['分配给你的 Linear 问题；没有按时钟定时', '定时运行，每次运行前先检查', '定时运行；GitHub、Slack 和 Discord 提及为测试版', 'Pro 提供自动化', '', '', '定时任务；Linear 和 Slack 可启动云端对话', '定时运行，以及来自 GitHub、Slack、Linear 等的事件'],
+        cells: ['Linear 问题或 Discord 提及；没有按时钟定时', '定时运行，每次运行前先检查', '定时运行；GitHub、Slack 和 Discord 提及为测试版', 'Pro 提供自动化', '', '', '定时任务；Linear 和 Slack 可启动云端对话', '定时运行，以及来自 GitHub、Slack、Linear 等的事件'],
       },
       concurrency: {
         criterion: '限制同时工作的智能体数量',
@@ -693,11 +726,11 @@ export default {
       },
       trackers: {
         criterion: '问题跟踪和聊天工具',
-        cells: ['仅 Linear，作为触发器', 'GitHub、GitLab、Linear、Jira', 'GitHub 问题；通过 Hub 支持 Slack 和 Discord', 'Pro 支持 Linear 和 Slack', 'Linear 和 GitHub 问题', '通过 MCP 服务器', 'Linear、Slack、GitHub', 'Linear、GitHub、Slack、Bitbucket'],
+        cells: ['Linear 和 Discord，作为触发器', 'GitHub、GitLab、Linear、Jira', 'GitHub 问题；通过 Hub 支持 Slack 和 Discord', 'Pro 支持 Linear 和 Slack', 'Linear 和 GitHub 问题', '通过 MCP 服务器', 'Linear、Slack、GitHub', 'Linear、GitHub、Slack、Bitbucket'],
       },
       boards: {
         criterion: '共享任务看板',
-        cells: ['加密；从史诗到缺陷、冲刺、每个条目的花费；需要账户', '应用内的 Jira 看板', '通过插件', '', 'Pro 支持多人协作', '会话看板、任务跟踪、团队 wiki', '', ''],
+        cells: ['从史诗到缺陷、冲刺、每个条目的花费、组织看板；需要账户', '应用内的 Jira 看板', '通过插件', '', 'Pro 支持多人协作', '会话看板、任务跟踪、团队 wiki', '', ''],
       },
       price: {
         criterion: '价格',
@@ -728,15 +761,15 @@ export default {
     items: [
       {
         question: '运行 RigOne 需要什么？',
-        answer: '一台搭载 Apple Silicon、macOS 13 或更高版本的 Mac，以及至少一个已安装并登录的智能体应用：Claude Code、Codex 或 OpenCode。',
+        answer: '一台搭载 Apple Silicon、macOS 13 或更高版本的 Mac，以及至少一个已安装并登录的智能体应用：Claude Code、Codex、OpenCode 或 Gemini CLI。',
       },
       {
         question: 'RigOne 会把我的代码发送到别处吗？',
-        answer: 'RigOne 本身在你的 Mac 上运行，在你的文件夹里工作。你启动的智能体是 Claude Code、Codex 或 OpenCode，所以它们读取的代码会像你在终端里运行它们时一样发送给各自的提供方。Boards 会在任务和评论离开你的 Mac 之前在本机加密。只有 Boards 和 Remote access 需要账户。',
+        answer: 'RigOne 本身在你的 Mac 上运行，在你的文件夹里工作。你启动的智能体是 Claude Code、Codex、OpenCode 或 Gemini CLI，所以它们读取的代码会像你在终端里运行它们时一样发送给各自的提供方。只有 Boards、组织和 Remote access 需要账户；看板的任务和评论保存在 MonoOne 服务器上，所以每个有权限的人看到的都是同一个看板。',
       },
       {
         question: '要花多少钱？',
-        answer: 'RigOne 可免费下载和使用。运行使用你自己的 Claude Code、Codex 或 OpenCode 套餐。RigOne 会显示每个任务的花费，并可在运行花费达到你设定的金额时提醒你。',
+        answer: 'RigOne 可免费下载和使用。运行使用你自己的 Claude Code、Codex、OpenCode 或 Gemini CLI 套餐。RigOne 会显示每个任务的花费，并可在运行花费达到你设定的金额时提醒你。',
       },
       {
         question: 'RigOne 是 IDE 吗？',
@@ -756,7 +789,7 @@ export default {
       },
       {
         question: '可以只用 Claude Code，或只用 Codex 吗？',
-        answer: '可以。一个已安装并登录的智能体应用就够了：Claude Code、Codex 或 OpenCode。想让一家写代码、另一家给出第二意见时，混用会很有帮助。',
+        answer: '可以。一个已安装并登录的智能体应用就够了：Claude Code、Codex、OpenCode 或 Gemini CLI。想让一家写代码、另一家给出第二意见时，混用会很有帮助。',
       },
       {
         question: '应用有我的语言吗？',
@@ -768,7 +801,7 @@ export default {
       },
       {
         question: '如何更新 RigOne？',
-        answer: 'RigOne 会自动更新：Settings → About 会检查、下载并安装已签名的更新，并等正在进行的工作完成。如果你的版本早于 1.13.3，请下载一次新的 DMG，替换“应用程序”中的应用。RigOne 还可以在 Settings → Agent apps 中更新 Claude Code、Codex 和 OpenCode。',
+        answer: 'RigOne 会自动更新：Settings → About 会检查、下载并安装已签名的更新，并会先说明一次更新将中断多少正在进行的工作。如果你的版本早于 1.13.3，请下载一次新的 DMG，替换“应用程序”中的应用。RigOne 还可以在 Settings → Agent apps 中更新 Claude Code、Codex 和 OpenCode。',
       },
     ],
   },
@@ -778,7 +811,7 @@ export default {
     download: '下载 macOS 版',
     docs: '阅读文档',
     compare: '对比看看',
-    note: '需要已安装并登录 Claude Code、Codex 或 OpenCode。',
+    note: '需要已安装并登录 Claude Code、Codex、OpenCode 或 Gemini CLI。',
   },
   changelog: {
     eyebrow: '更新日志',

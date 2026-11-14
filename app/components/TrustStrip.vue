@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { trustIcons } from '~/data/shared'
 
-// Warp's logo band: a ruled strip of quiet grey marks — here the three agent apps RigOne runs —
+// Warp's logo band: a ruled strip of quiet grey marks — here the four agent apps RigOne runs —
 // then the four facts you can check, one per column.
 const c = useContent()
 const agents = [
   { name: 'Claude Code', icon: 'i-simple-icons-claude' },
   { name: 'Codex', icon: 'i-simple-icons-openai' },
   { name: 'OpenCode', icon: 'i-simple-icons-opencode' },
+  { name: 'Gemini CLI', icon: 'i-simple-icons-googlegemini' },
 ]
 </script>
 

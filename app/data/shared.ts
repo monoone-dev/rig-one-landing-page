@@ -25,6 +25,8 @@ export const features: { id: FeatureId, icon: string, shot?: ScreenId }[] = [
   { id: 'preview', icon: 'i-lucide-app-window', shot: 'review-tools' },
   { id: 'projects', icon: 'i-lucide-columns-2', shot: 'projects' },
   { id: 'auto', icon: 'i-lucide-sparkles', shot: 'run-panel' },
+  { id: 'plans', icon: 'i-lucide-message-square-quote' },
+  { id: 'design', icon: 'i-lucide-pen-tool' },
   { id: 'agents', icon: 'i-lucide-users', shot: 'agent-detail' },
   { id: 'rig', icon: 'i-lucide-sliders-horizontal', shot: 'project' },
   { id: 'knowledge', icon: 'i-lucide-book-open', shot: 'knowledge' },
@@ -163,8 +165,11 @@ export const comparison: { group: ComparisonGroupId, rows: { id: ComparisonRowId
   },
 ]
 
-/** Parts of RigOne a person can turn off in Settings, Plugins; `soon` is not in a released build yet. */
+/**
+ * Parts of RigOne a person can turn on or off in Settings, Plugins: `included` comes installed,
+ * `store` is a signed package installed from the store, `soon` is not in a released build yet.
+ */
 export const plugins: { id: PluginId, icon: string, status: PluginStatus }[] = [
   { id: 'lab', icon: 'i-lucide-flask-conical', status: 'included' },
-  { id: 'discord', icon: 'i-simple-icons-discord', status: 'soon' },
+  { id: 'discord', icon: 'i-simple-icons-discord', status: 'store' },
 ]

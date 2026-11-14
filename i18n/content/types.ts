@@ -31,6 +31,7 @@ export type DifferentiatorId = 'ide' | 'projects' | 'graph' | 'peers' | 'paralle
 export type FeatureId =
   | 'canvas' | 'parallel' | 'run' | 'review' | 'preview' | 'projects' | 'auto' | 'agents' | 'rig'
   | 'knowledge' | 'checks' | 'branches' | 'boards' | 'analytics' | 'remote' | 'triggers' | 'lab' | 'evidence'
+  | 'plans' | 'design'
 
 /** The app screenshots in public/screenshots/<id>.webp, in the order of `screens` in app/data/shared.ts. */
 export type ScreenId = 'run' | 'run-panel' | 'review' | 'review-tools' | 'projects' | 'canvas' | 'project' | 'agent-detail' | 'knowledge' | 'settings'
@@ -38,7 +39,7 @@ export type ScreenId = 'run' | 'run-panel' | 'review' | 'review-tools' | 'projec
 
 export type PluginId = 'lab' | 'discord'
 
-export type PluginStatus = 'included' | 'soon'
+export type PluginStatus = 'included' | 'store' | 'soon'
 
 export type HonestId = 'scopes' | 'cancel' | 'timeouts' | 'secrets' | 'env' | 'unknown' | 'green' | 'files'
 

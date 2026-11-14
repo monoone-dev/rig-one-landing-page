@@ -5,8 +5,8 @@
 # RigOne
 
 **A native macOS IDE for coding agents.** Define an agent once, place it on a canvas, connect the
-steps, and run the graph against a project on your Mac — Claude Code, Codex and OpenCode as
-first-class peers, in parallel, with checks RigOne runs itself. Then review every line a step
+steps, and run the graph against a project on your Mac — Claude Code, Codex, OpenCode and
+Gemini CLI as first-class peers, in parallel, with checks RigOne runs itself. Then review every line a step
 changed, comment on it, preview the app, see what every task cost, and keep several projects open
 side by side.
 
@@ -49,7 +49,7 @@ RigOne's public home. The app's source code is not public and is not here.
 
 ## What RigOne does
 
-1. **Write an agent** — one job, one instruction. Pick Claude Code, Codex or OpenCode, the model, the effort
+1. **Write an agent** — one job, one instruction. Pick Claude Code, Codex, OpenCode or Gemini CLI, the model, the effort
    and what it may touch: file access from *look only* upwards, web access, a timeout, tool
    servers and skills.
 2. **Put agents in a row** — that row is a workflow, saved as a graph. An arrow means "runs
@@ -90,8 +90,8 @@ recommendations and a button that starts a fix.
 **Remote access** pairs your phone or tablet: answer what waits in Needs you, start an Auto goal,
 message the Lead or stop work from anywhere, with Face ID or Touch ID on every session.
 
-**Boards** are shared boards for people and agents — Kanban or sprints with a backlog — encrypted
-and signed on your Mac before anything leaves it. Plan epics, features, user stories, tasks and
+**Boards** are shared boards for people and agents — Kanban or sprints with a backlog — kept on the
+MonoOne server so everyone with access sees the same board; a board in an organization is open to all its members. Plan epics, features, user stories, tasks and
 bugs that nest inside each other; every card shows what its work cost and the tokens it used, and a
 feature or epic adds up everything under it. Start an item as a workflow or an Auto goal, and its
 progress and the agents' replies show on the board for every member. Boards and Remote access are
@@ -122,8 +122,8 @@ Cursor Cloud Agents is [here](https://rig-one.io/compare/).
 | **Review** — every changed line of a step; comment on a line and the agent picks it up. | **Preview and versions** — start the app from the step, go back to any version of its files. |
 | ![Overview of client-website: the Summary tab with six tiles and Needs your attention](public/screenshots/project.webp) | ![The canvas of Ship a feature: Reproduce, then Fix, then Tests pass and Second opinion side by side](public/screenshots/canvas-light.webp) |
 | **Overview** — the whole project on one page: a summary, then score, repository, agents, workflows, knowledge and automation. | **Canvas** — steps joined by arrows that mean "runs after"; independent steps run at the same time. |
-| ![The Agents screen: Scout, Builder, Needle and Second opinion, each with its access, model and effort](public/screenshots/agents-light.webp) | ![The Knowledge screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
-| **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Knowledge** — notes an agent suggests wait for you; approved notes go into every prompt. |
+| ![The Agents screen: Scout, Builder, Needle and Second opinion, each with its access, model and effort](public/screenshots/agents-light.webp) | ![The Playbook screen: suggested notes waiting for Keep or Discard, notes in context and skills](public/screenshots/knowledge.webp) |
+| **Agents** — the whole role on one screen: instructions, agent app, model and effort, file and web access, timeout. | **Playbook** — notes an agent suggests wait for you; approved notes go into every prompt. |
 | ![Settings → Appearance: the app language, Light & dark, window transparency and the accent colours](public/screenshots/settings.webp) | ![Settings → Remote access: allow remote access, paired devices and what your phone can do](public/screenshots/settings-remote-light.webp) |
 | **Settings** — light or dark, window transparency, an accent colour, and a Health check. | **Remote access** — pair a phone or tablet and follow your work from anywhere. |
 | ![A shared board: epics, features, stories, tasks and bugs, each card with its kind, its ID and what it cost](public/screenshots/boards.webp) | ![The Analytics screen: spend, tokens, tasks and agent time, spend per day and usage per app, model and project](public/screenshots/analytics-light.webp) |
@@ -134,7 +134,7 @@ Every screen is in `public/screenshots/` in dark (`<screen>.webp`) and light (`<
 ## Install
 
 You need a Mac with Apple Silicon and macOS 13 or later, and at least one agent app installed and
-signed in: **Claude Code**, **Codex** or **OpenCode**. Runs use your own plan with each vendor.
+signed in: **Claude Code**, **Codex**, **OpenCode** or **Gemini CLI**. Runs use your own plan with each vendor.
 
 1. Download `RigOne_<version>_aarch64.dmg` from the
    [latest release](https://github.com/monoone-dev/rig-one-landing-page/releases/latest).
@@ -179,8 +179,8 @@ RigOne treats orchestration failures as product failures, not terminal noise:
 | Treat its database as the truth | Keeps files as the truth; the SQLite index can be deleted and rebuilt |
 
 RigOne itself runs on your Mac and works in your folders. The agents it starts are Claude Code,
-Codex or OpenCode, so what they read goes to their providers exactly as when you run them in a
-terminal. Boards sends the MonoOne server only encrypted tasks, comments and activity. In Auto,
+Codex, OpenCode or Gemini CLI, so what they read goes to their providers exactly as when you run them in a
+terminal. Boards keeps tasks, comments and activity on the MonoOne server. In Auto,
 **Full access** (on by default) runs steps with the same access as the agent app in your terminal;
 switch it to **In its own copy** to keep them fenced in their copies. More:
 [Safety model](https://rig-one.io/docs/safety-model/).

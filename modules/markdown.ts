@@ -65,7 +65,7 @@ const docsGroups: { title: string, pages: string[] }[] = [
   { title: 'Run the work', pages: ['tasks', 'auto', 'boards', 'team-projects', 'analytics-and-costs', 'triggers'] },
   { title: 'Review and trust', pages: ['reviewing-a-step', 'checks-and-reviews', 'where-the-changes-go', 'safety-model'] },
   { title: 'Build your rig', pages: ['agents', 'workflows', 'overview', 'score', 'lab'] },
-  { title: 'What agents know', pages: ['knowledge', 'context', 'skills'] },
+  { title: 'What agents know', pages: ['playbook', 'materials', 'skills'] },
   { title: 'Settings and your phone', pages: ['settings', 'remote-access'] },
   { title: 'Maintain', pages: ['updating', 'files-on-disk', 'uninstall', 'troubleshooting'] },
 ]

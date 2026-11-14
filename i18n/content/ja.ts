@@ -4,11 +4,11 @@ export default {
   meta: {
     home: {
       title: 'RigOne — Mac のコーディングエージェント用コントロールルーム',
-      description: 'Claude Code、Codex、OpenCode をチームとして動かす無料の Mac アプリ。目標を Auto に任せ、変更を 1 行ずつレビューし、プロジェクトを採点し、タスクごとの費用を確認できます。',
+      description: 'Claude Code、Codex、OpenCode、Gemini CLI をチームとして動かす無料の Mac アプリ。目標を Auto に任せ、その計画と変更を 1 行ずつレビューし、タスクごとの費用を確認できます。',
     },
     features: {
       title: 'RigOne の機能：ワークフロー、Auto、レビュー、Score、費用',
-      description: '目に見えるワークフロー、デザインレビュー付きの Auto の目標、並列実行、RigOne 自身が走らせるチェック、IDE のようなレビュー、プロジェクトの Score、費用分析、チームのボード。',
+      description: '目に見えるワークフロー、計画レビューとデザインレビュー付きの Auto の目標、並列実行、RigOne 自身が走らせるチェック、IDE のようなレビュー、プロジェクトの Score、費用分析、チームのボード。',
       breadcrumb: '機能',
     },
     docs: {
@@ -23,7 +23,7 @@ export default {
     },
     plugins: {
       title: 'RigOne のプラグイン：Lab の評価と Discord のトリガー',
-      description: 'オン・オフできる RigOne の機能：Lab は自分のケースでエージェントのバージョンを比べ、Discord はボットがメンションされるとワークフローを始めます。',
+      description: 'オン・オフできる RigOne の機能：Lab は自分のケースでエージェントのバージョンを比べ、署名済みの Discord プラグインはボットがメンションされるとワークフローを始めます。',
       breadcrumb: 'プラグイン',
     },
     changelog: {
@@ -63,12 +63,12 @@ export default {
   },
   hero: {
     badgePlatform: 'macOS · Apple Silicon',
-    badgeAgents: 'Claude Code · Codex · OpenCode',
+    badgeAgents: 'Claude Code · Codex · OpenCode · Gemini CLI',
     badgeRelease: '{version} を公開しました',
-    audience: 'Claude Code、Codex、OpenCode をすでに使っている開発者のために',
+    audience: 'Claude Code、Codex、OpenCode、Gemini CLI をすでに使っている開発者のために',
     titleStrong: 'コーディングエージェントのための IDE。',
     titleSoft: 'チームとして動かし、すべての行をレビュー。',
-    sub: 'RigOne は、Claude Code、Codex、OpenCode を何度でも実行できるチームに変える無料の Mac アプリです。ステップは並列に、それぞれコードの専用コピーで動きます。RigOne 自身がチェックを走らせ、何かがあなたのブランチに届く前に、変更されたすべての行をレビューできます。複数のプロジェクトをひとつのウィンドウで。',
+    sub: 'RigOne は、Claude Code、Codex、OpenCode、Gemini CLI を何度でも実行できるチームに変える無料の Mac アプリです。ステップは並列に、それぞれコードの専用コピーで動きます。RigOne 自身がチェックを走らせ、何かがあなたのブランチに届く前に、変更されたすべての行をレビューできます。複数のプロジェクトをひとつのウィンドウで。',
     problemsLabel: 'RigOne が解決すること',
     problems: [
       { problem: 'ターミナルの掛け持ち', answer: 'ひとつのウィンドウで、すべてのプロジェクトのすべてのエージェントを計画・実行・レビュー。' },
@@ -84,7 +84,7 @@ export default {
     aria: '安心できる点',
     items: [
       'あなたの Mac で、あなたのフォルダに対して動く',
-      'Claude Code、Codex、OpenCode を対等に',
+      'Claude Code、Codex、OpenCode、Gemini CLI を対等に',
       'あなたが取り込むまで、ブランチには何も入らない',
       'Apple Developer ID で署名済み',
     ],
@@ -111,7 +111,7 @@ export default {
       },
       peers: {
         title: '複数のベンダーを、ひとつの実行で',
-        body: '同じワークフローで Claude Code、Codex、OpenCode を組み合わせられます。ひとつが書き、別のひとつがセカンドオピニオンを出します。',
+        body: '同じワークフローで Claude Code、Codex、OpenCode、Gemini CLI を組み合わせられます。ひとつが書き、別のひとつがセカンドオピニオンを出します。',
         link: '使い回せるエージェント',
       },
       parallel: {
@@ -176,7 +176,7 @@ export default {
     steps: [
       {
         title: 'エージェントを書く',
-        body: 'ひとつの仕事に、ひとつの指示。Claude Code、Codex または OpenCode、モデル、思考の深さ、触れてよい範囲を選びます。',
+        body: 'ひとつの仕事に、ひとつの指示。Claude Code、Codex、OpenCode または Gemini CLI、モデル、思考の深さ、触れてよい範囲を選びます。',
       },
       {
         title: 'エージェントを並べる',
@@ -221,7 +221,7 @@ export default {
       'agent-detail': {
         tab: 'Agents',
         title: '役割のすべてがひとつの画面に',
-        body: '指示、使うエージェントアプリ（Claude Code、Codex または OpenCode）とそのモデルと思考の深さ、ファイルの変更やウェブへのアクセスの可否、あきらめるタイミング。',
+        body: '指示、使うエージェントアプリ（Claude Code、Codex、OpenCode または Gemini CLI）とそのモデルと思考の深さ、ファイルの変更やウェブへのアクセスの可否、あきらめるタイミング。',
         alt: '読み取り専用で開いたエージェント Builder：指示、Claude Code とモデル・エフォート、変更・アクセスできる範囲、スキルと接続、Evaluate・Duplicate・Delete・Edit。',
       },
       canvas: {
@@ -233,19 +233,19 @@ export default {
       project: {
         tab: 'Overview',
         title: 'プロジェクト全体を 1 ページに',
-        body: 'まず概要——数値と対応が必要な項目——、その後に Score、Repository、Agents、Workflows、Knowledge、Automation のタブが並びます。',
+        body: 'まず概要——数値と対応が必要な項目——、その後に Score、Repository、Agents、Workflows、Playbook、Automation のタブが並びます。',
         alt: 'Summary タブの client-website の Overview：Score 78、エージェント 4、ワークフロー 3、ナレッジ 9、変更なし、トリガー 2、Needs your attention に新しい学び 2 件。',
       },
       knowledge: {
-        tab: 'Knowledge',
+        tab: 'Playbook',
         title: 'エージェントが知っていることは、あなたが承認',
-        body: 'エージェントが提案したメモは Keep か Discard を待ちます。承認したメモはすべてのプロンプトに入り、スキルは作業に合うときに使われます。',
-        alt: 'Knowledge 画面：Health は良好、ナレッジの種類ごとのタブ、Keep か Discard を待つ提案ノート 3 件。',
+        body: 'エージェントが提案したメモは Playbook で Keep か Discard を待ちます。承認したメモはすべてのプロンプトに入り、スキルは作業に合うときに使われます。',
+        alt: 'Playbook 画面：Health は良好、ナレッジの種類ごとのタブ、Keep か Discard を待つ提案ノート 3 件。',
       },
       settings: {
         tab: 'Settings',
         title: '独立したウィンドウの設定',
-        body: '作業、プロジェクト、エージェント、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check と、RigOne が使うディスク容量を示す Storage ページ。ライト、ダーク、または macOS に合わせる設定、デスクトップの透け具合、アクセントカラーを選べます。',
+        body: '作業、プロジェクト、エージェント、アカウント、アプリのカテゴリに加え、何が動いているかを示す Health check と、RigOne が使うディスク容量の内訳を示し、1 か所でまとめて片付けられる Storage ページ。ライト、ダーク、または macOS に合わせる設定、デスクトップの透け具合、アクセントカラーを選べます。',
         alt: 'Settings → Appearance：アプリの言語、System・Light・Dark、ウィンドウの透明度、アクセントカラー、会話の表示。',
       },
       'run-panel': {
@@ -347,6 +347,8 @@ export default {
           '各返信に、それを書いたモデルと思考の深さを表示',
           'プラスボタンでファイル・写真・フォルダーを追加、または会話にドロップ',
           'Enter でいつでもメッセージを送れます。Lead が作業中のときは、届くまで順番に待機します',
+          '保存済みのプロジェクトのエージェントをメッセージでメンションすると呼び出せます。エージェントは自分の設定で動きます',
+          'History でプロジェクトの過去の会話を探して開き直せます。新しい会話には最初の返信の後にわかりやすいタイトルが付きます',
         ],
       },
       review: {
@@ -381,6 +383,7 @@ export default {
           '⌘⌥\\ で今のプロジェクトの隣に次のプロジェクトを開く',
           '再起動してもタブとペインが戻る',
           'タブを別のタブにドラッグすると 1 つの分割タブに並びます。色のタイルでプロジェクトを見分けられます',
+          '試験的なタスクウィンドウ：どのプロジェクトのタスクでも最大 10 個をひとつの画面に。キーボードで分割、移動、サイズ変更',
         ],
       },
       auto: {
@@ -389,12 +392,35 @@ export default {
         body: 'Lead にゴールを伝えます。Auto は必要な役割とスキルを選び、各部分のために普通のワークフローを組み、チェックとレビューが成果を証明するまで続けます。ゴールが検証済みかどうかを決めるのは Lead ではなく RigOne です。',
         points: [
           'あなたの判断を待つものは、ひとつのリストにまとまります：Needs you',
-          '新しい画面：3 つのスケッチから 1 つ選び、見た目を承認するか、動いているページ上で変えたい場所をクリック',
+          'Low から Ultra までのプロファイルで、Auto が各種類のステップに割り当てるモデルの強さの上限を決めます',
           'リポジトリごとに納品前の最終チェックは 1 回、すでに通ったテストは再実行しない',
-          '混雑したプロバイダーや利用上限を待ってから続行',
+          'エージェントアプリの利用枠がステップの途中で尽きると、そのステップはそこまでの作業を引き継ぎ、許可した別のアプリで続きます',
+          '「approve everything」と書けば、そのゴールで承認を待つものはもうありません',
           'Pause Auto と Resume、ひとつのフォルダで同時に最大 3 つのゴール',
           'YOLO mode は会話全体でエージェントにフルアクセスを与えます。既定値は Settings → Auto で設定します',
-          'RigOne を再起動すると目標は自動で再開し、終了時はまず確認してからすべてのエージェントを止めます',
+          '再起動やアップデートの後、目標は自動で再開します。終了時は、実行中の作業をどれだけ中断するかを示します',
+        ],
+      },
+      plans: {
+        eyebrow: '計画',
+        title: '実行の前に計画をレビュー',
+        body: 'Auto が始まる前に、エージェントは計画を会話の横のインタラクティブなページとして書けます。テキストを選んでコメントし、メモを送り返したら、合意した計画を Auto で組むか、タスクに分けます。',
+        points: [
+          'コメントは選んだテキストに付いたまま、件数も同期します',
+          '計画を Auto で組むか、タスクに変える',
+          'Auto の計画は開始と終了のあるひとつのワークフローとして開き、各部分は色分けされます',
+          '部分をクリックするとそのステップへズーム。Show everything で計画全体に戻ります',
+        ],
+      },
+      design: {
+        eyebrow: 'Design review',
+        title: 'エージェントが変えている画面をレビュー',
+        body: '部分がインターフェースを変えると、Needs you に Design review が表示されます。開くとエージェントのスクリーンショットがあり、サインインした状態で現実に近いデータを使って撮られています。コメントをピン留めすると、レビューを開いたまま同じエージェントが直します。',
+        points: [
+          'Web ページのあるプロジェクトは Live に切り替え、動いているアプリで要素を選べます',
+          '新しいスクリーンショットが古いものを置き換え、変更前と変更後は残ります',
+          'レビューには、何が変わったかと、アプリのどこを見ればよいかが書かれます',
+          'Approve design でそのデザインを終え、チェックは承認したバージョンで走ります',
         ],
       },
       agents: {
@@ -402,22 +428,23 @@ export default {
         title: '使い回せるエージェント',
         body: '役割は一度定義すれば、どのワークフローでも再利用できます。開くと、その役割のすべて（指示、モデル、ファイル権限）が画面に表示されます。',
         points: [
-          'Claude Code、Codex または OpenCode と、モデル、思考の深さ、タイムアウト、ウェブアクセス',
+          'Claude Code、Codex、OpenCode または Gemini CLI と、モデル、思考の深さ、タイムアウト、ウェブアクセス',
           'ファイルアクセスは「見るだけ」から',
           'ツールサーバー（接続）とスキルをプロジェクトにあるものから選択',
+          '役割が使える自分のプラグインと MCP サーバーを選択：すべて、一部、またはなし',
           '自分のモデルゲートウェイ、または Ollama のローカルモデル',
           'シークレットや履歴をコピーせずに別のプロジェクトから設定をインポート',
         ],
       },
       knowledge: {
-        eyebrow: '知識',
+        eyebrow: 'Playbook',
         title: 'プロジェクトに属する知識',
-        body: 'メモとスキルはプロジェクトと一緒にディスクに置かれます。エージェントが提案したメモは、あなたが承認して初めて以後のプロンプトに入ります。',
+        body: 'メモとスキルはプロジェクトと一緒にディスクに置かれます。エージェントが提案したメモは Playbook で待ち、あなたが承認して初めて以後のプロンプトに入ります。',
         points: [
           'メモはすべてのプロンプトに入り、スキルは作業に合うときに使われます',
           'Skills では、プロジェクトの .claude/skills と .agents/skills がエージェントに渡す内容を確認',
-          'テキスト、Markdown、画像、PDF から名前付きのコンテキストセット',
-          '実行が実際に使ったコンテキストを確認',
+          'Materials：テキスト、Markdown、画像、PDF の名前付きセットを、それが必要なステップに',
+          '実行が実際に使った Materials を確認',
           'Health は各プロンプトが運ぶ量を示し、大きすぎる・古い・使われていないナレッジを指摘します',
         ],
       },
@@ -451,10 +478,10 @@ export default {
         points: [
           '項目は入れ子に：エピックに機能、機能にストーリー、ストーリーにタスクとバグ',
           '各カードに費用とトークン。ストーリー、機能、エピックはその下のすべてを合計',
-          'バックログ付きのスプリント、独自の列、種類ごとのテンプレート',
-          '人や種類で絞り込み。会話から作業を直接ボードに載せることも',
-          'Mac 上で暗号化・署名され、サーバーは暗号文を中継するだけ',
-          'チームプロジェクトはスキル、エージェントの役割、ワークフロー、接続を組織と共有し、更新はそのつどレビュー',
+          'コンパクトなヘッダーのスプリント、スプリントごとにまとめたバックログ、独自の列、種類ごとのテンプレート',
+          '人や種類で絞り込み。会話から短いタイトルと受け入れ基準付きで作業をボードに載せることも',
+          '組織のメンバー全員が、その組織のすべてのボード、プロジェクト、ライブラリ項目を見られます',
+          '組織はスキル、エージェントの役割、ワークフローをライブラリで共有。共有ダイアログから共有項目を新しいバージョンに更新',
           'Remote access と同じく MonoOne アカウントが必要',
         ],
       },
@@ -473,11 +500,12 @@ export default {
       triggers: {
         eyebrow: 'トリガー',
         title: 'トリガーと復旧',
-        body: 'Linear の課題があなたに割り当てられたらワークフローを開始します。確認は 1、5、15、60 分ごとから選べます。中断した作業は、別のエンジンではなく同じ開始経路で復旧します。',
+        body: 'Linear の課題があなたに割り当てられたらワークフローを開始します。確認は 1、5、15、60 分ごとから選べます。Discord のチャンネルでボットがメンションされたときにも開始できます。中断した作業は、別のエンジンではなく同じ開始経路で復旧します。',
         points: [
           'ひとつの課題が始める実行はひとつ。再起動後も同じです',
-          'API キーは一度書き込むと二度と表示されません',
+          'キーは環境変数から読み込み、トリガーには保存しません',
           'トリガーを削除すると、待っていたものは目に見える形で取り消されます',
+          '無効にしたトリガーには待っている課題の数が表示され、破棄することもできます',
         ],
       },
       lab: {
@@ -488,12 +516,13 @@ export default {
           'ケースは汎用のベンチマークではなく、あなたのコードから作られます',
           '編集の前後でエージェントを比べられます',
           'エージェント・ワークフロー・スキルのセットをタブで分け、各セットは専用ページで開きます',
+          'ケースと修正を書くエージェントを選べます',
         ],
       },
       rig: {
         eyebrow: 'Overview',
         title: 'プロジェクト全体を 1 ページで',
-        body: 'このプロジェクトで誰がどう働き、何を知っていて、エージェントがどれだけ迷わず動けるか。概要は対応が必要な項目を示し、タブには Score、Repository、Agents、Workflows、Knowledge、Automation があります。',
+        body: 'このプロジェクトで誰がどう働き、何を知っていて、エージェントがどれだけ迷わず動けるか。概要は対応が必要な項目を示し、タブには Score、Repository、Agents、Workflows、Playbook、Automation があります。',
         points: [
           'Score：エージェントがプロジェクトを読み 100 点満点で採点。弱い項目から順に、推奨事項と修正を始めるボタン付き',
           'まずリポジトリの情報：ブランチ、変更、ブランチ一覧、ディスク上のサイズ、ワークスペース',
@@ -501,13 +530,16 @@ export default {
           'Generate project setup がリポジトリからエージェントとワークフローを下書きし、Apply setup を選ぶまで何も変わりません',
           '変更が必要なワークフローは理由を示し、RigOne が直せる場合は Fix を表示',
           '実行から得た新しい学びはここで Keep か Discard を待ちます',
+          'プロジェクトメニューからプロジェクトの名前変更や削除',
         ],
       },
       remote: {
         eyebrow: 'Remote access',
         title: '実行をスマートフォンから',
-        body: 'スマートフォンやタブレットをコードでペアリングし、どこからでも作業を追えます。Needs you で待っているものに答え、Auto のゴールを始め、Lead にメッセージを送り、作業を止められます。',
+        body: 'スマートフォンやタブレットをコードでペアリングし、どこからでも作業を追えます。各プロジェクトは Lead との会話で開きます。Lead から回ってきたことに答え、Auto のゴールを始め、Lead にメッセージを送り、作業を止められます。',
         points: [
+          '送った操作ごとに状態を表示：Mac の応答待ち、受理、適用、拒否',
+          '表示内容が Mac で確認済みかどうかをページが示します',
           'Face ID または Touch ID は常にオン',
           'コピーの外への書き込みと Auto のフルアクセスは Mac でのみ承認',
           '使えるプロジェクトを選び、いつでもデバイスを取り消し',
@@ -530,8 +562,8 @@ export default {
     eyebrow: 'プラグイン',
     title: '使うものだけをインストール',
     lead: 'RigOne の基本はひとつ。エージェントのグラフを組んで実行することです。それ以外はすべてオフにできるプラグインで、オフにしてもファイルが消えることはありません。',
-    howTo: '設定 › プラグイン の検索できる一覧からプラグインをインストールします。変更は RigOne の再起動後に有効になります。',
-    status: { included: '同梱', soon: '近日公開' },
+    howTo: '設定 › プラグイン のストアからプラグインをインストールします。パッケージは署名済みで、それ以外は RigOne が受け付けません。変更は RigOne の再起動後に有効になります。',
+    status: { included: '同梱', store: 'ストアで公開', soon: '近日公開' },
     items: {
       lab: {
         title: 'Lab',
@@ -546,8 +578,9 @@ export default {
         title: 'Discord',
         body: 'Discord のチャンネルでボットをメンションすると、そのメッセージをタスクとして、選んだワークフローを RigOne が始めます。',
         points: [
-        'ボットのトークンを一度貼るだけで接続',
-        'ボットがメンションされたときだけ開始',
+        'ストアの署名済みパッケージ。専用のページと設定付き',
+        'チャンネルとボットのトークンを入れた変数を尋ね、接続をテスト',
+        'ボットがメンションされたときだけ開始し、自分のメッセージでは開始しない',
         '実行中のエージェントが Discord で返信できる',
         ],
       },
@@ -597,10 +630,10 @@ export default {
       items: [
         { title: 'Mac のみ、Apple Silicon のみ', body: 'Orca、Paseo、Nimbalyst、ChatGPT アプリは Windows と Linux でも動きます。Orca は Intel Mac にも対応しています。' },
         { title: 'ソースコードは非公開', body: 'RigOne は無料で使えますが、コードを読んだりフォークしたりはできません。Orca と Nimbalyst は MIT、Paseo は Apache 2.0 です。' },
-        { title: 'エージェントアプリは 3 つ', body: 'Claude Code、Codex、OpenCode です。Orca、Paseo、Superset はどのコマンドラインエージェントでも動かせ、20〜30 以上を挙げています。' },
+        { title: 'エージェントアプリは 4 つ', body: 'Claude Code、Codex、OpenCode、Gemini CLI です。Orca、Paseo、Superset はどのコマンドラインエージェントでも動かせ、20〜30 以上を挙げています。' },
         { title: 'エディタもターミナルも内蔵していない', body: 'RigOne はファイルをあなた自身のエディタで開きます。Orca、Paseo、Nimbalyst は両方を内蔵し、ほかの多くもターミナルを備えています。' },
         { title: 'プルリクエストは Auto 経由のみ', body: '作業結果はローカルブランチで待ちます。許可した場合に限り、Auto だけがプッシュしてプルリクエストを開きます。Orca、Paseo、Superset、Conductor、Cursor はどのタスクからでもプルリクエストを開き、いくつかはマージもします。' },
-        { title: '連携が少なく、定期実行がない', body: '実行を開始できるのは、あなたに割り当てられた Linear の課題だけです。ほかの製品は定期実行や、GitHub、Slack、Jira からの開始に対応しています。' },
+        { title: '連携が少なく、定期実行がない', body: '実行を開始できるのは、あなたに割り当てられた Linear の課題か、Discord のボットへのメンションだけです。ほかの製品は定期実行や、GitHub、Slack、Jira からの開始に対応しています。' },
         { title: 'スマートフォンからは Web ページ経由', body: 'MonoOne アカウントが必要です。Paseo にはアカウント不要の iOS・Android アプリがあり、Nimbalyst、ChatGPT、Cursor にもアプリがあります。' },
         { title: '費用は警告のみで、上限はない', body: 'RigOne はタスクごとの費用を表示し、実行が一定の金額に達すると警告しますが、実行は止めません。Cursor は支出上限で止まります。' },
       ],
@@ -645,7 +678,7 @@ export default {
       },
       agents: {
         criterion: '動かせるエージェント',
-        cells: ['Claude Code、Codex、OpenCode。Ollama 経由でローカルモデル', '任意の CLI エージェント。約 30 を記載', '内蔵 7、ACP 経由で 30 以上', '21 を記載、ほかに任意の CLI エージェント', 'Claude Code、Codex、Cursor、OpenCode', 'Claude Code、Codex。OpenCode と Copilot はアルファ版', 'Codex のみ', 'Cursor 独自のエージェント'],
+        cells: ['Claude Code、Codex、OpenCode、Gemini CLI。Ollama 経由でローカルモデル', '任意の CLI エージェント。約 30 を記載', '内蔵 7、ACP 経由で 30 以上', '21 を記載、ほかに任意の CLI エージェント', 'Claude Code、Codex、Cursor、OpenCode', 'Claude Code、Codex。OpenCode と Copilot はアルファ版', 'Codex のみ', 'Cursor 独自のエージェント'],
       },
       mix: {
         criterion: '提供元の異なるエージェント間で作業を受け渡す',
@@ -657,7 +690,7 @@ export default {
       },
       triggers: {
         criterion: '定期実行やイベントでの実行',
-        cells: ['あなたに割り当てられた Linear の課題。時刻での定期実行はなし', '定期実行。毎回の実行前にチェック', '定期実行。GitHub、Slack、Discord でのメンションはベータ', 'Pro で自動化', '', '', '定期タスク。Linear と Slack からクラウドのチャットを開始', '定期実行と、GitHub、Slack、Linear などからのイベント'],
+        cells: ['Linear の課題または Discord のメンション。時刻での定期実行はなし', '定期実行。毎回の実行前にチェック', '定期実行。GitHub、Slack、Discord でのメンションはベータ', 'Pro で自動化', '', '', '定期タスク。Linear と Slack からクラウドのチャットを開始', '定期実行と、GitHub、Slack、Linear などからのイベント'],
       },
       concurrency: {
         criterion: '同時に動くエージェント数の上限',
@@ -693,11 +726,11 @@ export default {
       },
       trackers: {
         criterion: '課題管理とチャット',
-        cells: ['Linear のみ、トリガーとして', 'GitHub、GitLab、Linear、Jira', 'GitHub の課題。Hub 経由で Slack と Discord', 'Pro で Linear と Slack', 'Linear と GitHub の課題', 'MCP サーバー経由', 'Linear、Slack、GitHub', 'Linear、GitHub、Slack、Bitbucket'],
+        cells: ['Linear と Discord、トリガーとして', 'GitHub、GitLab、Linear、Jira', 'GitHub の課題。Hub 経由で Slack と Discord', 'Pro で Linear と Slack', 'Linear と GitHub の課題', 'MCP サーバー経由', 'Linear、Slack、GitHub', 'Linear、GitHub、Slack、Bitbucket'],
       },
       boards: {
         criterion: '共有タスクボード',
-        cells: ['暗号化。エピックからバグまで、スプリント、項目ごとの費用。アカウントが必要', 'アプリ内の Jira ボード', 'プラグイン経由', '', 'Pro でマルチプレイヤー', 'セッションのカンバン、タスクトラッカー、チーム wiki', '', ''],
+        cells: ['エピックからバグまで、スプリント、項目ごとの費用、組織のボード。アカウントが必要', 'アプリ内の Jira ボード', 'プラグイン経由', '', 'Pro でマルチプレイヤー', 'セッションのカンバン、タスクトラッカー、チーム wiki', '', ''],
       },
       price: {
         criterion: '価格',
@@ -728,15 +761,15 @@ export default {
     items: [
       {
         question: 'RigOne を動かすには何が必要ですか？',
-        answer: 'Apple Silicon と macOS 13 以降を搭載した Mac と、インストールしてサインイン済みのエージェントアプリが少なくとも 1 つ（Claude Code、Codex または OpenCode）。',
+        answer: 'Apple Silicon と macOS 13 以降を搭載した Mac と、インストールしてサインイン済みのエージェントアプリが少なくとも 1 つ（Claude Code、Codex、OpenCode または Gemini CLI）。',
       },
       {
         question: 'RigOne はコードをどこかに送りますか？',
-        answer: 'RigOne 自体はあなたの Mac で動き、あなたのフォルダで作業します。起動するエージェントは Claude Code、Codex または OpenCode なので、読んだコードはターミナルで実行したときと同じようにそれぞれの提供元に送られます。Boards はタスクとコメントを Mac の外に出る前に暗号化します。アカウントが必要なのは Boards と Remote access だけです。',
+        answer: 'RigOne 自体はあなたの Mac で動き、あなたのフォルダで作業します。起動するエージェントは Claude Code、Codex、OpenCode または Gemini CLI なので、読んだコードはターミナルで実行したときと同じようにそれぞれの提供元に送られます。アカウントが必要なのは Boards、組織、Remote access だけです。ボードのタスクとコメントは MonoOne のサーバーに保存されるので、アクセスできる人は全員同じボードを見られます。',
       },
       {
         question: '費用はいくらですか？',
-        answer: 'RigOne は無料でダウンロードして使えます。実行にはご自身の Claude Code、Codex または OpenCode のプランを使います。RigOne は各タスクの費用を表示し、実行が設定した金額に達したときに警告することもできます。',
+        answer: 'RigOne は無料でダウンロードして使えます。実行にはご自身の Claude Code、Codex、OpenCode または Gemini CLI のプランを使います。RigOne は各タスクの費用を表示し、実行が設定した金額に達したときに警告することもできます。',
       },
       {
         question: 'RigOne は IDE ですか？',
@@ -756,7 +789,7 @@ export default {
       },
       {
         question: 'Claude Code だけ、または Codex だけでも使えますか？',
-        answer: 'はい。インストールしてサインイン済みのエージェントアプリが 1 つあれば十分です（Claude Code、Codex または OpenCode）。一方に書かせ、もう一方にセカンドオピニオンを出させたいときは組み合わせると便利です。',
+        answer: 'はい。インストールしてサインイン済みのエージェントアプリが 1 つあれば十分です（Claude Code、Codex、OpenCode または Gemini CLI）。一方に書かせ、もう一方にセカンドオピニオンを出させたいときは組み合わせると便利です。',
       },
       {
         question: 'アプリは自分の言語で使えますか？',
@@ -768,7 +801,7 @@ export default {
       },
       {
         question: 'RigOne はどうやってアップデートしますか？',
-        answer: 'RigOne は自分でアップデートします。Settings → About が署名済みのアップデートを確認、ダウンロード、インストールし、実行中の作業が終わるまで待ちます。1.13.3 より前のバージョンからは、新しい DMG を一度ダウンロードし、アプリケーションフォルダのアプリを置き換えてください。Claude Code、Codex、OpenCode は Settings → Agent apps で RigOne がアップデートできます。',
+        answer: 'RigOne は自分でアップデートします。Settings → About が署名済みのアップデートを確認、ダウンロード、インストールし、アップデートで中断される実行中の作業の量を先に示します。1.13.3 より前のバージョンからは、新しい DMG を一度ダウンロードし、アプリケーションフォルダのアプリを置き換えてください。Claude Code、Codex、OpenCode は Settings → Agent apps で RigOne がアップデートできます。',
       },
     ],
   },
@@ -778,7 +811,7 @@ export default {
     download: 'macOS 版をダウンロード',
     docs: 'ドキュメントを読む',
     compare: 'ほかとの比較',
-    note: 'Claude Code、Codex または OpenCode のインストールとサインインが必要です。',
+    note: 'Claude Code、Codex、OpenCode または Gemini CLI のインストールとサインインが必要です。',
   },
   changelog: {
     eyebrow: '変更履歴',

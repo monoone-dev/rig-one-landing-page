@@ -17,7 +17,7 @@ const c = useContent()
         <li v-for="(p, i) in plugins" :id="p.id" :key="p.id" v-reveal class="plugin" :style="{ '--reveal-delay': `${i * 70}ms` }">
           <div class="plugin__head">
             <span class="icon-tile"><UIcon :name="p.icon" /></span>
-            <UBadge :color="p.status === 'included' ? 'primary' : 'neutral'" variant="subtle" :label="c.plugins.status[p.status]" />
+            <UBadge :color="p.status === 'soon' ? 'neutral' : 'primary'" variant="subtle" :label="c.plugins.status[p.status]" />
           </div>
           <h2>{{ c.plugins.items[p.id].title }}</h2>
           <p>{{ c.plugins.items[p.id].body }}</p>

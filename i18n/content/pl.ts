@@ -4,11 +4,11 @@ export default {
   meta: {
     home: {
       title: 'RigOne — centrum dowodzenia agentami kodującymi na Macu',
-      description: 'Darmowa aplikacja na Maca: Claude Code, Codex i OpenCode jako zespół. Przekaż cel do Auto, przejrzyj każdą zmienioną linię, oceń projekt i zobacz koszt zadań.',
+      description: 'Darmowa aplikacja na Maca: Claude Code, Codex, OpenCode i Gemini CLI jako zespół. Przekaż cel do Auto, przejrzyj jego plan i każdą zmienioną linię, zobacz koszt zadań.',
     },
     features: {
       title: 'Możliwości RigOne: workflow, Auto, przegląd, Score i koszty',
-      description: 'Wizualne workflow, cele Auto z przeglądem wyglądu, równoległe biegi, sprawdzenia uruchamiane przez RigOne, przegląd jak w IDE, Score projektu, koszty i tablice.',
+      description: 'Wizualne workflow, cele Auto z przeglądem planu i wyglądu, równoległe biegi, sprawdzenia uruchamiane przez RigOne, przegląd jak w IDE, Score projektu, koszty i tablice.',
       breadcrumb: 'Możliwości',
     },
     docs: {
@@ -23,7 +23,7 @@ export default {
     },
     plugins: {
       title: 'Pluginy RigOne: ewaluacje w Lab i wyzwalacze z Discorda',
-      description: 'Części RigOne, które włączasz i wyłączasz: Lab porównuje wersje agentów na twoich przypadkach, a Discord uruchamia graf, gdy ktoś wspomni twojego bota.',
+      description: 'Części RigOne, które włączasz i wyłączasz: Lab porównuje wersje agentów na twoich przypadkach, a podpisany plugin Discord uruchamia graf, gdy ktoś wspomni twojego bota.',
       breadcrumb: 'Pluginy',
     },
     changelog: {
@@ -63,12 +63,12 @@ export default {
   },
   hero: {
     badgePlatform: 'macOS · Apple Silicon',
-    badgeAgents: 'Claude Code · Codex · OpenCode',
+    badgeAgents: 'Claude Code · Codex · OpenCode · Gemini CLI',
     badgeRelease: 'Wersja {version} już jest',
-    audience: 'Dla deweloperów, którzy już używają Claude Code, Codex lub OpenCode',
+    audience: 'Dla deweloperów, którzy już używają Claude Code, Codex, OpenCode lub Gemini CLI',
     titleStrong: 'IDE dla agentów kodujących.',
     titleSoft: 'Prowadź je jak zespół, przeglądaj każdą linię.',
-    sub: 'RigOne to darmowa aplikacja na Maca, która zamienia Claude Code, Codex i OpenCode w zespół do ponownego uruchamiania: kroki równolegle, każdy na własnej kopii kodu, sprawdzenia, które RigOne uruchamia samo, i przegląd każdej zmienionej linii, zanim cokolwiek trafi na twoją gałąź — dla kilku projektów w jednym oknie.',
+    sub: 'RigOne to darmowa aplikacja na Maca, która zamienia Claude Code, Codex, OpenCode i Gemini CLI w zespół do ponownego uruchamiania: kroki równolegle, każdy na własnej kopii kodu, sprawdzenia, które RigOne uruchamia samo, i przegląd każdej zmienionej linii, zanim cokolwiek trafi na twoją gałąź — dla kilku projektów w jednym oknie.',
     problemsLabel: 'Co RigOne naprawia',
     problems: [
       { problem: 'Żonglowanie terminalami', answer: 'Jedno okno planuje, uruchamia i przegląda każdego agenta, w każdym projekcie.' },
@@ -84,7 +84,7 @@ export default {
     aria: 'Na czym można polegać',
     items: [
       'Działa na twoim Macu, w twoim folderze',
-      'Claude Code, Codex i OpenCode jako równorzędni agenci',
+      'Claude Code, Codex, OpenCode i Gemini CLI jako równorzędni agenci',
       'Nic nie trafia na twoją gałąź, dopóki tego nie weźmiesz',
       'Podpisane certyfikatem Apple Developer ID',
     ],
@@ -111,7 +111,7 @@ export default {
       },
       peers: {
         title: 'Kilku dostawców, jeden bieg',
-        body: 'Łącz Claude Code, Codex i OpenCode w jednym workflow — jeden pisze, inny daje drugą opinię.',
+        body: 'Łącz Claude Code, Codex, OpenCode i Gemini CLI w jednym workflow — jeden pisze, inny daje drugą opinię.',
         link: 'Agenci do wielokrotnego użytku',
       },
       parallel: {
@@ -176,7 +176,7 @@ export default {
     steps: [
       {
         title: 'Napisz agenta',
-        body: 'Jedna praca, jedna instrukcja. Wybierz Claude Code, Codex lub OpenCode, model, poziom wysiłku i to, czego wolno mu dotknąć.',
+        body: 'Jedna praca, jedna instrukcja. Wybierz Claude Code, Codex, OpenCode lub Gemini CLI, model, poziom wysiłku i to, czego wolno mu dotknąć.',
       },
       {
         title: 'Ustaw agentów w rząd',
@@ -221,7 +221,7 @@ export default {
       'agent-detail': {
         tab: 'Agents',
         title: 'Cała rola na jednym ekranie',
-        body: 'Jej instrukcje, aplikacja agenta — Claude Code, Codex lub OpenCode — z modelem i wysiłkiem, czy może zmieniać pliki i sięgać do sieci, oraz kiedy się poddaje.',
+        body: 'Jej instrukcje, aplikacja agenta — Claude Code, Codex, OpenCode lub Gemini CLI — z modelem i wysiłkiem, czy może zmieniać pliki i sięgać do sieci, oraz kiedy się poddaje.',
         alt: 'Agent Builder otwarty do odczytu: instrukcje, Claude Code z modelem i wysiłkiem, co może zmieniać i do czego sięgać oraz skille i połączenia, z Evaluate, Duplicate, Delete i Edit.',
       },
       canvas: {
@@ -233,19 +233,19 @@ export default {
       project: {
         tab: 'Overview',
         title: 'Cały projekt na jednej stronie',
-        body: 'Najpierw podsumowanie — liczby i to, co wymaga twojej uwagi — a potem osobne zakładki: Score, Repository, Agents, Workflows, Knowledge i Automation.',
+        body: 'Najpierw podsumowanie — liczby i to, co wymaga twojej uwagi — a potem osobne zakładki: Score, Repository, Agents, Workflows, Playbook i Automation.',
         alt: 'Overview projektu client-website na zakładce Summary: Score 78, czterech agentów, trzy workflowy, dziewięć elementów wiedzy, brak zmian i dwa wyzwalacze, a pod Needs your attention dwie nowe lekcje.',
       },
       knowledge: {
-        tab: 'Knowledge',
+        tab: 'Playbook',
         title: 'Co wiedzą twoi agenci — za twoją zgodą',
-        body: 'Notatki zaproponowane przez agenta czekają na Keep albo Discard. Zatwierdzone trafiają do każdego promptu; umiejętności są używane, gdy pasują do pracy.',
-        alt: 'Ekran Knowledge: Health w dobrym stanie, zakładka dla każdego rodzaju wiedzy i trzy proponowane notatki czekające na Keep albo Discard.',
+        body: 'Notatki zaproponowane przez agenta czekają w Playbook na Keep albo Discard. Zatwierdzone trafiają do każdego promptu; umiejętności są używane, gdy pasują do pracy.',
+        alt: 'Ekran Playbook: Health w dobrym stanie, zakładka dla każdego rodzaju wiedzy i trzy proponowane notatki czekające na Keep albo Discard.',
       },
       settings: {
         tab: 'Settings',
         title: 'Ustawienia we własnym oknie',
-        body: 'Kategorie dla pracy, projektów, agentów, konta i aplikacji oraz Health check, który mówi, co działa, i strona Storage, która pokazuje, ile miejsca zajmuje RigOne. Wybierz tryb jasny, ciemny lub zgodny z macOS, to, jak bardzo prześwituje pulpit, i kolor akcentu.',
+        body: 'Kategorie dla pracy, projektów, agentów, konta i aplikacji oraz Health check, który mówi, co działa, i strona Storage, która pokazuje, na co RigOne zajmuje miejsce na dysku, i pozwala je zwolnić w jednym miejscu. Wybierz tryb jasny, ciemny lub zgodny z macOS, to, jak bardzo prześwituje pulpit, i kolor akcentu.',
         alt: 'Settings → Appearance: język aplikacji, System, Light albo Dark, przezroczystość okna, kolory akcentu i widok rozmowy.',
       },
       'run-panel': {
@@ -347,6 +347,8 @@ export default {
           'Każda odpowiedź pokazuje model i wysiłek, które ją napisały',
           'Dodawaj pliki, zdjęcia albo foldery przyciskiem plusa lub upuść je na rozmowę',
           'Enter zawsze przyjmuje wiadomość; gdy Lead jest zajęty, czeka ona w kolejce, aż zostanie dostarczona',
+          'Wspomnij w wiadomości jednego z zapisanych agentów projektu, żeby go wywołać; działa z własnymi ustawieniami',
+          'History znajduje i ponownie otwiera wcześniejsze rozmowy projektu; nowa rozmowa dostaje czytelny tytuł po pierwszej odpowiedzi',
         ],
       },
       review: {
@@ -381,6 +383,7 @@ export default {
           '⌘⌥\\ otwiera następny projekt obok bieżącego',
           'Karty i panele wracają po ponownym uruchomieniu',
           'Przeciągnij kartę na inną, żeby pokazać oba projekty w jednej dzielonej karcie; kolorowy kafelek odróżnia projekty',
+          'Eksperymentalne okna zadań: do dziesięciu zadań z dowolnych projektów na jednym ekranie, dzielone, przenoszone i zmieniane w rozmiarze z klawiatury',
         ],
       },
       auto: {
@@ -389,12 +392,35 @@ export default {
         body: 'Daj Leadowi cel. Auto dobiera potrzebne role i umiejętności, buduje zwykłe workflow dla każdej części i działa, aż sprawdzenia i przeglądy potwierdzą pracę. O tym, czy cel jest sprawdzony, decyduje RigOne, nie Lead.',
         points: [
           'Każda decyzja, która czeka na ciebie, jest na jednej liście: Needs you',
-          'Nowe ekrany: wybierz jeden z trzech szkiców, potem zaakceptuj wygląd albo kliknij na działającej stronie, co zmienić',
+          'Profile od Low do Ultra decydują, jak mocne modele Auto może dać każdemu rodzajowi kroku',
           'Jedno końcowe sprawdzenie na repozytorium przed dostarczeniem, a test, który już przeszedł, nie jest uruchamiany ponownie',
-          'Przeczekuje przeciążonego dostawcę albo limit użycia i pracuje dalej',
+          'Gdy aplikacji agenta skończy się limit w trakcie kroku, krok działa dalej w innej dozwolonej aplikacji, z dotychczasową pracą',
+          'Napisz „zatwierdzam wszystko” albo „approve everything”, a nic w tym celu nie będzie już czekać na twoją zgodę',
           'Pause Auto i Resume; w jednym folderze mogą pracować naraz do trzech celów',
           'YOLO mode daje agentom pełny dostęp na całą rozmowę; domyślne ustawienie jest w Settings → Auto',
-          'Cele wznawiają się same po ponownym uruchomieniu RigOne, a zamknięcie aplikacji najpierw pyta, potem zatrzymuje każdego agenta',
+          'Cele wznawiają się same po ponownym uruchomieniu albo aktualizacji; zamknięcie aplikacji mówi, ile trwającej pracy przerwie',
+        ],
+      },
+      plans: {
+        eyebrow: 'Plany',
+        title: 'Przejrzyj plan, zanim ruszy',
+        body: 'Zanim Auto zacznie, agent może napisać plan jako interaktywną stronę obok rozmowy. Zaznacz tekst, skomentuj i odeślij uwagi, a potem zbuduj uzgodniony plan w Auto albo podziel go na zadania.',
+        points: [
+          'Komentarze zostają przy zaznaczonym tekście, a ich liczba jest zawsze aktualna',
+          'Zbuduj plan w Auto albo zamień go na zadania',
+          'Plan Auto otwiera się jako jeden workflow z początkiem i końcem, każda część we własnym kolorze',
+          'Kliknij część, żeby przybliżyć jej kroki; Show everything wraca do całego planu',
+        ],
+      },
+      design: {
+        eyebrow: 'Design review',
+        title: 'Przejrzyj ekran, gdy agent go zmienia',
+        body: 'Gdy część zmienia interfejs, Needs you pokazuje Design review. Otwiera się na zrzutach ekranu agenta, zrobionych po zalogowaniu i z realistycznymi danymi. Przypnij komentarze, a ten sam agent je poprawi, gdy przegląd jest nadal otwarty.',
+        points: [
+          'Projekty ze stroną internetową mogą przełączyć się na Live i wskazać element w działającej aplikacji',
+          'Nowe zrzuty zastępują stare; stan przed i po zostaje zachowany',
+          'Przegląd mówi, co się zmieniło i gdzie patrzeć w aplikacji',
+          'Approve design kończy pracę nad tym wyglądem; sprawdzenia działają na zatwierdzonej wersji',
         ],
       },
       agents: {
@@ -402,22 +428,23 @@ export default {
         title: 'Agenci do wielokrotnego użytku',
         body: 'Opisz rolę raz i używaj jej w każdym workflow. Cała rola — jej słowa, model i dostęp do plików — jest na ekranie, gdy ją otworzysz.',
         points: [
-          'Claude Code, Codex lub OpenCode, z modelem, wysiłkiem, limitem czasu i dostępem do sieci',
+          'Claude Code, Codex, OpenCode lub Gemini CLI, z modelem, wysiłkiem, limitem czasu i dostępem do sieci',
           'Dostęp do plików od „tylko patrzenie” w górę',
           'Serwery narzędzi (połączenia) i umiejętności wybierane spośród tych, które ma projekt',
+          'Wybierz, które z twoich własnych pluginów i serwerów MCP dostaje rola: wszystkie, część albo żadne',
           'Własna bramka modeli albo lokalny model przez Ollamę',
           'Import ustawień z innego projektu bez kopiowania sekretów i historii',
         ],
       },
       knowledge: {
-        eyebrow: 'Wiedza',
+        eyebrow: 'Playbook',
         title: 'Wiedza przypisana do projektu',
-        body: 'Notatki i umiejętności leżą na dysku razem z projektem. Notatka zaproponowana przez agenta trafia do przyszłego promptu dopiero po zatwierdzeniu.',
+        body: 'Notatki i umiejętności leżą na dysku razem z projektem. Notatka zaproponowana przez agenta czeka w Playbook i trafia do przyszłego promptu dopiero po zatwierdzeniu.',
         points: [
           'Notatki trafiają do każdego promptu; umiejętności są używane, gdy pasują do pracy',
           'Skills pokazuje, co dają agentom .claude/skills i .agents/skills projektu',
-          'Nazwane zestawy kontekstu z tekstu, Markdown, obrazów i PDF',
-          'Zobacz, z jakiego kontekstu bieg naprawdę skorzystał',
+          'Materials: nazwane zestawy tekstu, Markdown, obrazów i PDF dla kroków, które ich potrzebują',
+          'Zobacz, z jakich materiałów bieg naprawdę skorzystał',
           'Health pokazuje, ile niesie każdy prompt, i wskazuje wiedzę zbyt dużą, nieaktualną albo nieużywaną',
         ],
       },
@@ -451,10 +478,10 @@ export default {
         points: [
           'Elementy się zagnieżdżają: epiki zawierają funkcje, funkcje historyjki, a historyjki zadania i błędy',
           'Każda karta pokazuje koszt i tokeny, a historyjka, funkcja lub epik sumuje wszystko, co jest pod nimi',
-          'Sprinty z backlogiem, własne kolumny i szablon dla każdego rodzaju',
-          'Filtr po osobie lub rodzaju; rozmowa może sama dodać swoją pracę do tablicy',
-          'Szyfrowane i podpisywane na twoim Macu; serwer przekazuje tylko szyfrogram',
-          'Projekty zespołu dzielą z organizacją umiejętności, role agentów, workflow i połączenia, a każda aktualizacja jest przeglądana',
+          'Sprinty z kompaktowym nagłówkiem, backlog pogrupowany według sprintów, własne kolumny i szablon dla każdego rodzaju',
+          'Filtr po osobie lub rodzaju; rozmowa może dodać swoją pracę do tablicy, z krótkim tytułem i kryteriami akceptacji',
+          'Każdy w organizacji widzi każdą jej tablicę, projekt i element biblioteki',
+          'Organizacje dzielą umiejętności, role agentów i workflow przez bibliotekę; udostępniony element zaktualizujesz do nowej wersji w oknie udostępniania',
           'Wymaga konta MonoOne, tak jak Remote access',
         ],
       },
@@ -473,11 +500,12 @@ export default {
       triggers: {
         eyebrow: 'Wyzwalacze',
         title: 'Wyzwalacze i odzyskiwanie',
-        body: 'Uruchom workflow, gdy dostaniesz przypisane zgłoszenie w Linear, sprawdzane co 1, 5, 15 lub 60 minut. Przerwana praca jest odzyskiwana tą samą ścieżką startu, nie drugim silnikiem.',
+        body: 'Uruchom workflow, gdy dostaniesz przypisane zgłoszenie w Linear, sprawdzane co 1, 5, 15 lub 60 minut, albo gdy ktoś wspomni twojego bota na kanale Discorda. Przerwana praca jest odzyskiwana tą samą ścieżką startu, nie drugim silnikiem.',
         points: [
           'Jedno zgłoszenie uruchamia jeden bieg, nawet po restarcie',
-          'Klucz API wpisuje się raz i nigdy więcej nie jest pokazywany',
+          'Klucze są odczytywane ze zmiennej środowiskowej, nigdy nie są zapisywane w wyzwalaczu',
           'Usunięcie wyzwalacza widocznie anuluje to, co czekało',
+          'Wyłączony wyzwalacz pokazuje, ile zgłoszeń czeka, i pozwala je odrzucić',
         ],
       },
       lab: {
@@ -488,12 +516,13 @@ export default {
           'Przypadki pochodzą z twojego kodu, nie z ogólnego benchmarku',
           'Porównaj agenta przed edycją i po niej',
           'Zestawy dla agentów, workflowów i skilli w zakładkach, każdy otwiera się na osobnej stronie',
+          'Wybierz agenta, który pisze przypadki i poprawki',
         ],
       },
       rig: {
         eyebrow: 'Overview',
         title: 'Jedna strona dla całego projektu',
-        body: 'Kto pracuje w tym projekcie, jak, co wie i jak łatwo agenci się w nim odnajdują. Podsumowanie mówi, co wymaga twojej uwagi; zakładki mieszczą Score, Repository, Agents, Workflows, Knowledge i Automation.',
+        body: 'Kto pracuje w tym projekcie, jak, co wie i jak łatwo agenci się w nim odnajdują. Podsumowanie mówi, co wymaga twojej uwagi; zakładki mieszczą Score, Repository, Agents, Workflows, Playbook i Automation.',
         points: [
           'Score: agent czyta projekt i ocenia go w skali do 100, najpierw najsłabsze obszary, każdy z rekomendacjami i przyciskiem, który uruchamia poprawkę',
           'Najpierw fakty o repozytorium: gałąź, zmiany, gałęzie, rozmiar na dysku i przestrzenie robocze',
@@ -501,13 +530,16 @@ export default {
           'Generate project setup przygotowuje agentów i workflowy z repozytorium; nic się nie zmienia, dopóki nie wybierzesz Apply setup',
           'Workflow, który wymaga zmiany, mówi o tym, z przyciskiem Fix tam, gdzie RigOne może to zrobić',
           'Nowe lekcje z biegów czekają tu na Keep albo Discard',
+          'Zmień nazwę projektu albo usuń go z menu projektu',
         ],
       },
       remote: {
         eyebrow: 'Remote access',
         title: 'twoje biegi w telefonie',
-        body: 'Sparuj telefon lub tablet kodem i śledź pracę z dowolnego miejsca: odpowiadaj na to, co czeka w Needs you, uruchom cel Auto, napisz do Leada albo zatrzymaj pracę.',
+        body: 'Sparuj telefon lub tablet kodem i śledź pracę z dowolnego miejsca. Każdy projekt otwiera się na rozmowie z Leadem: odpowiadaj na to, co Lead ci przekaże, uruchom cel Auto, napisz do Leada albo zatrzymaj pracę.',
         points: [
+          'Każda wysłana akcja mówi, na jakim jest etapie: czeka na Maca, przyjęta, wykonana albo odrzucona',
+          'Strona mówi, czy to, co pokazuje, potwierdził twój Mac',
           'Face ID lub Touch ID jest zawsze włączone',
           'Pisanie poza kopią i pełny dostęp Auto zatwierdzasz tylko na Macu',
           'Wybierz, które projekty są dostępne, i odbierz dostęp urządzeniu w każdej chwili',
@@ -530,8 +562,8 @@ export default {
     eyebrow: 'Pluginy',
     title: 'Zainstaluj tylko to, czego używasz',
     lead: 'RigOne domyślnie robi jedną rzecz: układasz graf agentów i go uruchamiasz. Wszystko inne to plugin, który możesz wyłączyć, a wyłączenie nigdy nie kasuje jego plików.',
-    howTo: 'Plugin instalujesz z listy z wyszukiwarką w Ustawienia, Pluginy. Zmiana działa po ponownym uruchomieniu RigOne.',
-    status: { included: 'W zestawie', soon: 'Wkrótce' },
+    howTo: 'Plugin instalujesz ze sklepu w Ustawienia, Pluginy. Pakiety są podpisane, a RigOne odrzuca wszystko inne. Zmiana działa po ponownym uruchomieniu RigOne.',
+    status: { included: 'W zestawie', store: 'W sklepie', soon: 'Wkrótce' },
     items: {
       lab: {
         title: 'Lab',
@@ -546,8 +578,9 @@ export default {
         title: 'Discord',
         body: 'Wspomnij swojego bota na kanale Discorda, a RigOne uruchomi wybrany graf z wiadomością jako zadaniem.',
         points: [
-        'Łączy się tokenem bota wklejonym raz',
-        'Startuje tylko po wzmiance o bocie',
+        'Podpisany pakiet ze sklepu, z własną stroną i ustawieniami',
+        'Pyta o kanał i zmienną, w której jest token bota, i testuje połączenie',
+        'Startuje tylko po wzmiance o bocie, nigdy od jego własnych wiadomości',
         'Agenci biegu mogą odpisać na Discordzie',
         ],
       },
@@ -597,10 +630,10 @@ export default {
       items: [
         { title: 'Tylko Mac, tylko Apple Silicon', body: 'Orca, Paseo, Nimbalyst i aplikacja ChatGPT działają też na Windows i Linuksie. Orca obsługuje także Maki z procesorami Intel.' },
         { title: 'Kod źródłowy nie jest opublikowany', body: 'RigOne jest darmowe, ale nie można czytać ani forkować jego kodu. Orca i Nimbalyst mają licencję MIT, Paseo — Apache 2.0.' },
-        { title: 'Trzy aplikacje agentów', body: 'Claude Code, Codex i OpenCode. Orca, Paseo i Superset uruchamiają dowolnego agenta wiersza poleceń i wymieniają od 20 do 30 lub więcej.' },
+        { title: 'Cztery aplikacje agentów', body: 'Claude Code, Codex, OpenCode i Gemini CLI. Orca, Paseo i Superset uruchamiają dowolnego agenta wiersza poleceń i wymieniają od 20 do 30 lub więcej.' },
         { title: 'Brak wbudowanego edytora i terminala', body: 'RigOne otwiera plik w twoim własnym edytorze. Orca, Paseo i Nimbalyst mają wbudowane jedno i drugie; większość pozostałych ma terminal.' },
         { title: 'Pull requesty tylko przez Auto', body: 'Praca czeka na lokalnej gałęzi; tylko Auto wypycha zmiany i otwiera pull request, gdy na to pozwolisz. Orca, Paseo, Superset, Conductor i Cursor otwierają pull requesty z każdego zadania, a kilka z nich je scala.' },
-        { title: 'Mało integracji, brak harmonogramów', body: 'Bieg może uruchomić tylko zgłoszenie Linear przypisane do ciebie. Inne działają według harmonogramu albo startują z GitHuba, Slacka lub Jiry.' },
+        { title: 'Mało integracji, brak harmonogramów', body: 'Bieg może uruchomić tylko zgłoszenie Linear przypisane do ciebie albo wzmianka o twoim bocie na Discordzie. Inne działają według harmonogramu albo startują z GitHuba, Slacka lub Jiry.' },
         { title: 'Dostęp z telefonu przez stronę WWW', body: 'Wymaga konta MonoOne. Paseo ma aplikacje na iOS i Androida bez konta; Nimbalyst, ChatGPT i Cursor też mają aplikacje.' },
         { title: 'Ostrzeżenie o kosztach, nie limit', body: 'RigOne pokazuje koszt każdego zadania i ostrzega, gdy bieg osiągnie daną kwotę, ale go nie zatrzymuje. Cursor zatrzymuje się na limicie wydatków.' },
       ],
@@ -645,7 +678,7 @@ export default {
       },
       agents: {
         criterion: 'Agenci, których może uruchamiać',
-        cells: ['Claude Code, Codex, OpenCode; lokalne modele przez Ollama', 'Dowolny agent CLI; wymienionych około 30', '7 wbudowanych, 30+ przez ACP', '21 wymienionych plus dowolny agent CLI', 'Claude Code, Codex, Cursor, OpenCode', 'Claude Code, Codex; OpenCode i Copilot w wersji alfa', 'Tylko Codex', 'Własny agent Cursora'],
+        cells: ['Claude Code, Codex, OpenCode, Gemini CLI; lokalne modele przez Ollama', 'Dowolny agent CLI; wymienionych około 30', '7 wbudowanych, 30+ przez ACP', '21 wymienionych plus dowolny agent CLI', 'Claude Code, Codex, Cursor, OpenCode', 'Claude Code, Codex; OpenCode i Copilot w wersji alfa', 'Tylko Codex', 'Własny agent Cursora'],
       },
       mix: {
         criterion: 'Różni dostawcy przekazują sobie pracę',
@@ -657,7 +690,7 @@ export default {
       },
       triggers: {
         criterion: 'Uruchamianie według harmonogramu lub zdarzenia',
-        cells: ['Zgłoszenie Linear przypisane do ciebie; bez harmonogramu czasowego', 'Harmonogramy, ze sprawdzeniem przed każdym uruchomieniem', 'Harmonogramy; wzmianki z GitHuba, Slacka i Discorda w becie', 'Automatyzacje w Pro', '', '', 'Zaplanowane zadania; Linear i Slack uruchamiają czaty w chmurze', 'Harmonogramy i zdarzenia z GitHuba, Slacka, Linear i innych'],
+        cells: ['Zgłoszenie Linear albo wzmianka na Discordzie; bez harmonogramu czasowego', 'Harmonogramy, ze sprawdzeniem przed każdym uruchomieniem', 'Harmonogramy; wzmianki z GitHuba, Slacka i Discorda w becie', 'Automatyzacje w Pro', '', '', 'Zaplanowane zadania; Linear i Slack uruchamiają czaty w chmurze', 'Harmonogramy i zdarzenia z GitHuba, Slacka, Linear i innych'],
       },
       concurrency: {
         criterion: 'Limit agentów pracujących naraz',
@@ -693,11 +726,11 @@ export default {
       },
       trackers: {
         criterion: 'Trackery zgłoszeń i czat',
-        cells: ['Tylko Linear, jako wyzwalacz', 'GitHub, GitLab, Linear, Jira', 'Zgłoszenia z GitHuba; Slack i Discord przez Hub', 'Linear i Slack w Pro', 'Zgłoszenia z Linear i GitHuba', 'Przez serwery MCP', 'Linear, Slack, GitHub', 'Linear, GitHub, Slack, Bitbucket'],
+        cells: ['Linear i Discord, jako wyzwalacze', 'GitHub, GitLab, Linear, Jira', 'Zgłoszenia z GitHuba; Slack i Discord przez Hub', 'Linear i Slack w Pro', 'Zgłoszenia z Linear i GitHuba', 'Przez serwery MCP', 'Linear, Slack, GitHub', 'Linear, GitHub, Slack, Bitbucket'],
       },
       boards: {
         criterion: 'Wspólna tablica zadań',
-        cells: ['Szyfrowana; od epików po błędy, sprinty, koszt elementu; wymaga konta', 'Tablice Jira w aplikacji', 'Przez wtyczki', '', 'Tryb wieloosobowy w Pro', 'Kanban sesji, tracker zadań, wiki zespołu', '', ''],
+        cells: ['Od epików po błędy, sprinty, koszt elementu, tablice organizacji; wymaga konta', 'Tablice Jira w aplikacji', 'Przez wtyczki', '', 'Tryb wieloosobowy w Pro', 'Kanban sesji, tracker zadań, wiki zespołu', '', ''],
       },
       price: {
         criterion: 'Cena',
@@ -728,15 +761,15 @@ export default {
     items: [
       {
         question: 'Czego potrzeba, żeby uruchomić RigOne?',
-        answer: 'Maca z Apple Silicon i macOS 13 lub nowszym oraz co najmniej jednej zainstalowanej i zalogowanej aplikacji agenta: Claude Code, Codex lub OpenCode.',
+        answer: 'Maca z Apple Silicon i macOS 13 lub nowszym oraz co najmniej jednej zainstalowanej i zalogowanej aplikacji agenta: Claude Code, Codex, OpenCode lub Gemini CLI.',
       },
       {
         question: 'Czy RigOne gdzieś wysyła mój kod?',
-        answer: 'Samo RigOne działa na twoim Macu i pracuje w twoim folderze. Uruchamiani agenci to Claude Code, Codex lub OpenCode, więc kod, który czytają, trafia do ich dostawców dokładnie tak, jak przy uruchomieniu ich w terminalu. Boards szyfruje zadania i komentarze na twoim Macu, zanim go opuszczą. Boards i Remote access to jedyne części, które wymagają konta.',
+        answer: 'Samo RigOne działa na twoim Macu i pracuje w twoim folderze. Uruchamiani agenci to Claude Code, Codex, OpenCode lub Gemini CLI, więc kod, który czytają, trafia do ich dostawców dokładnie tak, jak przy uruchomieniu ich w terminalu. Boards, organizacje i Remote access to jedyne części, które wymagają konta; zadania i komentarze z tablic są przechowywane na serwerze MonoOne, więc każdy z dostępem widzi tę samą tablicę.',
       },
       {
         question: 'Ile to kosztuje?',
-        answer: 'RigOne można pobrać i używać za darmo. Biegi korzystają z twojego planu Claude Code, Codex lub OpenCode. RigOne pokazuje, ile wydało każde zadanie, i może ostrzec, gdy bieg dojdzie do ustawionej kwoty.',
+        answer: 'RigOne można pobrać i używać za darmo. Biegi korzystają z twojego planu Claude Code, Codex, OpenCode lub Gemini CLI. RigOne pokazuje, ile wydało każde zadanie, i może ostrzec, gdy bieg dojdzie do ustawionej kwoty.',
       },
       {
         question: 'Czy RigOne to IDE?',
@@ -756,7 +789,7 @@ export default {
       },
       {
         question: 'Czy można używać tylko Claude Code albo tylko Codex?',
-        answer: 'Tak. Wystarczy jedna zainstalowana i zalogowana aplikacja agenta: Claude Code, Codex lub OpenCode. Kilka naraz przydaje się, gdy jeden dostawca ma pisać, a inny dawać drugą opinię.',
+        answer: 'Tak. Wystarczy jedna zainstalowana i zalogowana aplikacja agenta: Claude Code, Codex, OpenCode lub Gemini CLI. Kilka naraz przydaje się, gdy jeden dostawca ma pisać, a inny dawać drugą opinię.',
       },
       {
         question: 'Czy aplikacja jest w moim języku?',
@@ -768,7 +801,7 @@ export default {
       },
       {
         question: 'Jak zaktualizować RigOne?',
-        answer: 'RigOne aktualizuje się samo: Settings → About sprawdza, pobiera i instaluje podpisane aktualizacje oraz czeka, aż skończy się trwająca praca. Z wersji starszej niż 1.13.3 pobierz nowy DMG jeden raz i zastąp aplikację w folderze Aplikacje. RigOne może też zaktualizować Claude Code, Codex i OpenCode w Settings → Agent apps.',
+        answer: 'RigOne aktualizuje się samo: Settings → About sprawdza, pobiera i instaluje podpisane aktualizacje oraz najpierw mówi, ile trwającej pracy przerwałaby aktualizacja. Z wersji starszej niż 1.13.3 pobierz nowy DMG jeden raz i zastąp aplikację w folderze Aplikacje. RigOne może też zaktualizować Claude Code, Codex i OpenCode w Settings → Agent apps.',
       },
     ],
   },
@@ -778,7 +811,7 @@ export default {
     download: 'Pobierz na macOS',
     docs: 'Przeczytaj dokumentację',
     compare: 'Jak wypada w porównaniu',
-    note: 'Wymaga zainstalowanego i zalogowanego Claude Code, Codex lub OpenCode.',
+    note: 'Wymaga zainstalowanego i zalogowanego Claude Code, Codex, OpenCode lub Gemini CLI.',
   },
   changelog: {
     eyebrow: 'Lista zmian',
